@@ -1,0 +1,31 @@
+.main-pagination .page-item.active .page-link{
+    color: #E50914 !important;
+    text-decoration: none;
+}
+
+.main-pagination .page-item.disabled .page-link{
+    color: #8D9D9A !important;
+    text-decoration: none;
+}
+
+.main-pagination .page-item:focus,
+.main-pagination .page-item:active,
+.main-pagination .page-item:hover {
+    outline: 0px none #fff !important;
+    box-shadow: none !important;
+}
+
+.main-pagination .page-link:focus,
+.main-pagination .page-link:active,
+.main-pagination .page-link:hover {
+    outline: 0px none #fff !important;
+    box-shadow: none !important;
+}
+
+.main-pagination .page-link {
+    color: #FFFFFF !important;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.5);
+}
