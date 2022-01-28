@@ -74,7 +74,7 @@ const App = () => {
 				{/* {path === "login" || path === "register" ? null : (loading ? null : (path === "dashboard" ? (<AdminHeader/>) : (<Header/>)))} */}
 				{authLoading ? null : (path === "login" || path === "register" ? null : ((path === "dashboard" ? (<AdminHeader />) : (<Header />))))}
 
-				<div className={path === "dashboard" ? "home-section" : "container-fluid" }>
+				<div className={path === "dashboard" ? "home-section" : "container-fluid p-0" }>
 					<Route path="/" component={Home} exact />
 					<Route path="/movies/search/:keyword" component={Home} />
 					<Route path="/movie/:id" component={MovieDetails} exact />

@@ -1,5 +1,17 @@
 html, body, .App {
-    background-color: #141414 !important;
+
+}
+
+.bg-app-primary {
+    background-color: #84D19F !important;
+}
+
+.bg-app-primary-light {
+    background-color: #F6F7FC;
+}
+
+.login-subheading {
+    color: #b3b3b3;
 }
 
 .poster {
@@ -19,10 +31,6 @@ html, body, .App {
     margin-bottom: 1rem;
 }
 
-a {
-    text-decoration: none !important;
-}
-
 .text-white-25 {
     color: #D3D3D3;
 }
@@ -34,6 +42,7 @@ a {
 .bg-dark-2 {
     background-color: #141414 !important;
 }
+
 /* 
 ul .star {
     cursor: pointer !important;
@@ -47,4 +56,67 @@ ul .star {
 .actor-image,
 .producer-image {
     height: 313px !important;
+}
+
+
+.half, .half .container>.row {
+    height: 100vh;
+    min-height: 700px;
+}
+
+@media (max-width: 991.98px) {
+    .half .bg {
+        height: 200px;
+    }
+}
+
+.half .contents {
+    background: #f6f7fc;
+}
+
+.half .contents, .half .bg {
+    width: 50%;
+}
+
+@media (max-width: 1199.98px) {
+    .half .contents, .half .bg {
+        width: 100%;
+    }
+}
+
+.half .contents .form-control, .half .bg .form-control {
+    border: none;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    height: 54px;
+    background: #fff;
+}
+
+.half .contents .form-control:active, .half .contents .form-control:focus, .half .bg .form-control:active, .half .bg .form-control:focus {
+    outline: none;
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.half .bg {
+    background-size: cover;
+    background-position: center;
+}
+
+.half a {
+    color: #888;
+    text-decoration: underline;
+}
+
+.half .btn {
+    height: 54px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.half .forgot-pass {
+    position: relative;
+    top: 2px;
+    font-size: 14px;
 }

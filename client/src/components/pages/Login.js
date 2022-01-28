@@ -17,6 +17,8 @@ const Login = ({ history }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [checked, setChecked] = useState(true);
+
     const alert = useAlert();
     const dispatch = useDispatch();
 
@@ -53,74 +55,67 @@ const Login = ({ history }) => {
         <Fragment>
             {loading ? <Loader /> : (
                 <Fragment>
-                    <MetaData title={'Login'} styles={'html, body, .App { background-color: #0d0d0d !important; }'} />
-                    <section className="h-50">
-                        <div className="container py-5 h-50">
-                            <div className="row d-flex justify-content-center align-items-center h-75">
-                                <div className="col col-xl-10">
-                                    <div className="card rounded-3 shadow border-0 login-bg">
-                                        <div className="row g-0">
-                                            <div className="col-md-6 col-lg-5 d-none d-md-block">
-                                                <img
-                                                    src="/images/image1.jpg"
-                                                    alt="login form"
-                                                    className="img-fluid rounded-3" />
+                    <MetaData title={'Login'} styles={'html, body, .App { background-color: #75BBB3 !important; }'} />
+                    <div className="d-lg-flex half">
+                        <div className="d-flex justify-content-center">
+                            <img className="bg order-1 order-md-2 h-75 w-75 my-auto img-fluid half" src="/images/undraw_login_re_4vu2.svg" alt="Login" />
+                        </div>
+                        <div className="contents order-2 order-md-1 bg-app-primary-light">
+
+                            <div className="container">
+                                <div className="row align-items-center justify-content-center bg-app-primary-light">
+                                    <div className="col-md-7">
+                                        <h3 className="fs-2">Sign in to <strong>iTuto</strong></h3>
+                                        <p className="login-subheading fs-5 fw-light mb-4">Discover students who are interested in sharing their attained skills and knowledge.</p>
+                                        <form onSubmit={loginHandler}>
+
+                                            <div className="form-floating mb-3">
+                                                <input type="email" className="form-control" id="email" placeholder="name@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                                <label htmlFor="email">Email address</label>
                                             </div>
-                                            <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                                                <div className="card-body p-4 p-lg-5 text-secondary">
-                                                    <form onSubmit={loginHandler}>
-                                                        <div className="d-flex align-items-center mb-3 pb-1 text-white">
-                                                            {/* <FontAwesomeIcon icon="film" className="fa-3x me-3" /> */}
-                                                            <span className="h1 fw-semibold mb-0 auth-logo">Movflix</span>
-                                                        </div>
 
-                                                        <h5 className="fw-normal mb-3 pb-3 text-secondary">Sign into your account</h5>
+                                            <div className="form-floating mb-3">
+                                                <input type="password" className="form-control" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                                                <label htmlFor="password">Password</label>
+                                            </div>
 
-                                                        {error && <div className="mb-3"><span className="alert alert-danger d-flex">{error}</span></div>}
-
-                                                        <div className="form-floating mb-3">
-                                                            <input type="email" className="form-control bg-dark border-0 text-white remove-form-design" id="email" placeholder="name@example.com" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                                                            <label htmlFor="email">Email address</label>
-                                                        </div>
-
-                                                        <div className="form-floating mb-3">
-                                                            <input type="password" className="form-control bg-dark border-0 text-white remove-form-design" id="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                                                            <label htmlFor="password">Password</label>
-                                                        </div>
-
-
-                                                        <div className="pt-1 mb-4">
-                                                            <button className="btn btn-danger btn-lg btn-block shadow-lg" type="submit">Login</button>
-                                                        </div>
-
-                                                        <Link to="#" className="small text-secondary">Forgot password?</Link>
-                                                        <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-light" to='/register'>Register Here</Link></p>
-
-                                                        <small>or</small>
-
-                                                        <div className="pt-1 mb-4">
-                                                            <GoogleLogin
-                                                                clientId="924372861452-4fl88545df8le5tu7e6f1tlgclt2cp78.apps.googleusercontent.com"
-                                                                render={renderProps => (
-                                                                    <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="btn btn-danger btn-lg btn-block shadow-lg"><FontAwesomeIcon icon={["fab","google"]} className="me-3"/>Login with Google</button>
-                                                                  )}
-                                                                onSuccess={responseGoogleSuccess}
-                                                                onFailure={responseGoogleFailure}
-                                                                cookiePolicy={'single_host_origin'}
-                                                            />
-                                                        </div>
-
-                                                        <a href="#!" className="small text-secondary">Terms of use.</a>
-                                                        <a href="#!" className="small text-secondary">Privacy policy</a>
-                                                    </form>
+                                            <div className="d-flex mb-4 align-items-center">
+                                                <div className="form-check">
+                                                    <input className="form-check-input" type="checkbox" id="checkRemember" defaultChecked={checked} onChange={() => setChecked(!checked)} />
+                                                    <label className="form-check-label" htmlFor="checkRemember">Remember me</label>
                                                 </div>
+                                                <span className="ms-auto"><a href="/#" className="link-secondary">Forgot Password</a></span>
                                             </div>
-                                        </div>
+
+                                            <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit">Login</button>
+
+                                            <div className="row my-2">
+                                                <div className="col"><hr /></div>
+                                                <div className="col-auto mt-1">OR</div>
+                                                <div className="col"><hr /></div>
+                                            </div>
+
+                                            <div className="pt-1 mt-2 mb-4">
+                                                <GoogleLogin
+                                                    clientId="924372861452-4fl88545df8le5tu7e6f1tlgclt2cp78.apps.googleusercontent.com"
+                                                    render={renderProps => (
+                                                        <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="btn btn-danger btn-lg btn-block w-100 text-white"><FontAwesomeIcon icon={["fab", "google"]} className="me-3" />Login with Google</button>
+                                                    )}
+                                                    onSuccess={responseGoogleSuccess}
+                                                    onFailure={responseGoogleFailure}
+                                                    cookiePolicy={'single_host_origin'}
+                                                />
+                                            </div>
+
+                                            <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-secondary" to='/register'>Register Here</Link></p>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </section>
+
+
+                    </div>
                 </Fragment>
             )}
         </Fragment>

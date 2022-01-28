@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const upload = require('../utils/upload');
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
