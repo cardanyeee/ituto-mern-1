@@ -9,23 +9,22 @@ const Sidebar = (props) => {
         arrowParent.classList.toggle("showMenu");
     }
 
-
     return (
-        <div className={props.sidebarToggle === true ? "sidebar h-100 close" : "sidebar h-100"}>
-            <Link to="/" className="text-decoration-none text-white">
-                <div className="logo-details">
-                    {/* <FontAwesomeIcon icon="ticket-alt" className="text-white" /> */}
-                    <span className="logo_name fw-bold text-nowrap mx-auto display-6 text-danger">MOVFLIX</span>
+        <div className={"sidebar h-100 shadow-sm " + (props.sidebarToggle === true ? "close" : "")}>
+            <Link to="/" className="text-decoration-none">
+                <div className="logo-details shadow-sm">
+                    <FontAwesomeIcon icon="ticket-alt" className="text-white" />
+                    <span className="logo_name fw-bold text-nowrap logo-brand text-white">iTuto</span>
                 </div>
             </Link>
             <ul className="nav-links px-0 pt-3">
                 <li>
                     <div className="iocn-link">
                         <Link to="/dashboard">
-                            <FontAwesomeIcon icon="tachometer-alt" className="text-white main-side-nav-icon" />
-                            <span className="link_name fs-6">Dashboard</span>
+                            <FontAwesomeIcon icon="tachometer-alt" className="main-side-nav-icon text-white" />
+                            <span className="link_name fs-6 text-white">Dashboard</span>
                         </Link>
-                        {/* <FontAwesomeIcon icon="chevron-down" className="text-white arrow" onClick={toggleDropdown} /> */}
+                        {/* <FontAwesomeIcon icon="chevron-down" className="arrow" onClick={toggleDropdown} /> */}
                     </div>
                     <ul className="sub-menu">
                         <li><Link to="/dashboard" className="link_name">Dashboard</Link></li>
@@ -35,10 +34,10 @@ const Sidebar = (props) => {
                 <li>
                     <div className="iocn-link">
                         <Link to="/dashboard/movies">
-                            <FontAwesomeIcon icon="film" className="text-white main-side-nav-icon" />
-                            <span className="link_name fs-6">Movies</span>
+                            <FontAwesomeIcon icon="film" className="main-side-nav-icon text-white" />
+                            <span className="link_name fs-6 text-white">Movies</span>
                         </Link>
-                        <FontAwesomeIcon icon="chevron-down" className="text-white arrow" onClick={toggleDropdown} />
+                        <FontAwesomeIcon icon="chevron-down" className="arrow text-white" onClick={toggleDropdown} />
                     </div>
                     <ul className="sub-menu">
                         <li><Link to="/dashboard/movies" className="link_name">Movies</Link></li>
@@ -49,10 +48,10 @@ const Sidebar = (props) => {
                 <li>
                     <div className="iocn-link">
                         <Link to="/dashboard/actors">
-                            <FontAwesomeIcon icon="theater-masks" className="text-white main-side-nav-icon" />
-                            <span className="link_name fs-6">Actors</span>
+                            <FontAwesomeIcon icon="theater-masks" className="main-side-nav-icon text-white" />
+                            <span className="link_name fs-6 text-white">Actors</span>
                         </Link>
-                        <FontAwesomeIcon icon="chevron-down" className="text-white arrow" onClick={toggleDropdown} />
+                        <FontAwesomeIcon icon="chevron-down" className="arrow text-white" onClick={toggleDropdown} />
                     </div>
                     <ul className="sub-menu">
                         <li><Link to="/dashboard/actors" className="link_name">Actor</Link></li>
@@ -63,14 +62,14 @@ const Sidebar = (props) => {
                 <li>
                     <div className="iocn-link">
                         <Link to="/dashboard/producers">
-                            <FontAwesomeIcon icon="bullhorn" className="text-white main-side-nav-icon" />
-                            <span className="link_name fs-6">Producers</span>
+                            <FontAwesomeIcon icon="bullhorn" className="main-side-nav-icon text-white" />
+                            <span className="link_name fs-6 text-white">Producers</span>
                         </Link>
-                        <FontAwesomeIcon icon="chevron-down" className="text-white arrow" onClick={toggleDropdown} />
+                        <FontAwesomeIcon icon="chevron-down" className="arrow text-white" onClick={toggleDropdown} />
                     </div>
                     <ul className="sub-menu">
-                        <li><Link to="/dashboard/producers" className="link_name">Producers</Link></li>
-                        <li><Link to="/dashboard/producer/add"><FontAwesomeIcon icon="plus" className="submenu-side-nav-icon" />Add Producer</Link></li>
+                        <li><Link to="/dashboard/producers" className="link_name text-white">Producers</Link></li>
+                        <li><Link to="/dashboard/producer/add"><FontAwesomeIcon icon="plus" className="submenu-side-nav-icon text-white" />Add Producer</Link></li>
                     </ul>
                 </li>
 

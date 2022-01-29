@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 const Footer = () => {
     return (
         <Fragment>
-            <footer className="py-1 text-white">
+            <footer className="py-1">
                 <p className="text-center mt-1">
                     MovFlix - 2020-2021, All Rights Reserved
                 </p>

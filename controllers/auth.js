@@ -10,14 +10,14 @@ const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client("924372861452-4fl88545df8le5tu7e6f1tlgclt2cp78.apps.googleusercontent.com");
 
 exports.register = catchAsyncErrors(async (req, res, next) => {
+    console.log(req.body);
+    // const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+    //     folder: 'movflix/avatars',
+    //     width: 150,
+    //     crop: "scale"
+    // });
 
-    const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
-        folder: 'movflix/avatars',
-        width: 150,
-        crop: "scale"
-    });
-
-    const { firstname, lastname, username, birthdate, gender, course, email, password } = req.body;
+    const { firstname, lastname, username, birthdate, gender, course, email, password } = req.body;  
 
     try {
         const user = await User.create({
@@ -28,11 +28,7 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
             gender,
             course,
             email,
-            password,
-            avatar: {
-                public_id: result.public_id,
-                url: result.secure_url
-            }
+            password
         });
 
         sendToken(user, 200, res);

@@ -30,7 +30,7 @@ const Login = ({ history }) => {
             history.push('/');
         }
 
-        if (error) {
+        if (error && !(error === 'You have to login first to access this.')) {
             alert.error(error);
             dispatch(clearErrors());
         }
@@ -99,7 +99,7 @@ const Login = ({ history }) => {
                                                 <GoogleLogin
                                                     clientId="924372861452-4fl88545df8le5tu7e6f1tlgclt2cp78.apps.googleusercontent.com"
                                                     render={renderProps => (
-                                                        <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="btn btn-danger btn-lg btn-block w-100 text-white"><FontAwesomeIcon icon={["fab", "google"]} className="me-3" />Login with Google</button>
+                                                        <button onClick={renderProps.onClick} disabled={renderProps.disabled} className="btn btn-danger btn-lg btn-block w-100 text-white"><FontAwesomeIcon icon={["fab", "google"]} className="me-3" />Continue with Google</button>
                                                     )}
                                                     onSuccess={responseGoogleSuccess}
                                                     onFailure={responseGoogleFailure}

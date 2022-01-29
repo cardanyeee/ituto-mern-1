@@ -15,10 +15,12 @@ const Register = ({ history }) => {
         firstname: '',
         lastname: '',
         email: '',
-        password: ''
+        password: '',
+        birthdate: '',
+        gender: 0
     });
 
-    const { firstname, lastname, email, password } = user;
+    const { firstname, lastname, email, password, birthdate, gender } = user;
 
     const [avatar, setAvatar] = useState('');
     const [avatarPreview, setAvatarPreview] = useState('https://res.cloudinary.com/djqpxmv5o/image/upload/v1639001382/movflix/avatars/1636619587424empty_profile_f28fsh.png');
@@ -30,13 +32,19 @@ const Register = ({ history }) => {
 
     const { isAuthenticated, error, loading } = useSelector(state => state.auth);
 
+    const genders = [
+        "Male",
+        "Female",
+        "Other"
+    ];
+
     useEffect(() => {
 
         if (isAuthenticated) {
             history.push('/');
         }
 
-        if (error) {
+        if (error && !(error === 'You have to login first to access this.')) {
             alert.error(error);
             dispatch(clearErrors());
         }
@@ -46,20 +54,20 @@ const Register = ({ history }) => {
 
     const registerHandler = async (e) => {
         e.preventDefault();
-
         const formData = new FormData();
         formData.set('firstname', firstname);
         formData.set('lastname', lastname);
+        formData.set('username', email.substring(0, email.lastIndexOf("@")));
         formData.set('email', email);
         formData.set('password', password);
-        formData.set('avatar', avatar);
+        formData.set('birthdate', birthdate);
+        formData.set('gender', gender);
 
         // formData.set('avatar', avatar);
         dispatch(register(formData));
     };
 
     const onChange = e => {
-
         if (e.target.name === 'avatar') {
             const reader = new FileReader();
             reader.onload = () => {
@@ -72,7 +80,7 @@ const Register = ({ history }) => {
         } else {
             setUser({ ...user, [e.target.name]: e.target.value });
         }
-    }
+    };
 
     return (
         <Fragment>
@@ -89,15 +97,19 @@ const Register = ({ history }) => {
                                 <h3 className="fs-2">Sign in to <strong>iTuto</strong></h3>
                                 <p className="login-subheading fs-5 fw-light mb-4">Discover students who are interested in sharing their attained skills and knowledge.</p>
                                 <form onSubmit={registerHandler}>
-                                    <div className="form-floating mb-3">
-                                        <input type="text" className="form-control" id="firstname" placeholder="Firstname" name="firstname" value={firstname} onChange={onChange} required />
-                                        <label htmlFor="firstname">Firstname</label>
+
+                                    <div className="row g-0">
+                                        <div className="col form-floating mb-3 me-4">
+                                            <input type="text" className="form-control" id="firstname" placeholder="Firstname" name="firstname" value={firstname} onChange={onChange} required />
+                                            <label htmlFor="firstname">Firstname</label>
+                                        </div>
+
+                                        <div className="col form-floating mb-3">
+                                            <input type="text" className="form-control" id="lastname" placeholder="Lastname" name="lastname" value={lastname} onChange={onChange} required />
+                                            <label htmlFor="lastname">Lastname</label>
+                                        </div>
                                     </div>
 
-                                    <div className="form-floating mb-3">
-                                        <input type="text" className="form-control" id="lastname" placeholder="Lastname" name="lastname" value={lastname} onChange={onChange} required />
-                                        <label htmlFor="lastname">Lastname</label>
-                                    </div>
 
                                     <div className="form-floating mb-3">
                                         <input type="email" className="form-control" id="email" placeholder="name@example.com" name="email" value={email} onChange={onChange} required />
@@ -114,15 +126,28 @@ const Register = ({ history }) => {
                                         <label htmlFor="confirmpassword">Confirm Password</label>
                                     </div>
 
-                                    <div className="d-flex mb-4 align-items-center">
+                                    <div className="form-group mb-3">
+                                        <input type="text" className="form-control" id="birthdate" placeholder="Birthday" name="birthdate" onChange={onChange} onFocus={(e) => (e.target.type = 'date')} onBlur={(e) => (e.target.type = 'text')} required />
+                                    </div>
+
+                                    <div className="form-group mb-3">
+                                        <select className="form-control" id="gender" name="gender" value={gender} onChange={onChange} required>
+                                            <option value="0" disabled>Select Gender</option>
+                                            {genders.map(gender => (
+                                                <option key={gender} value={gender} >{gender}</option>
+                                            ))}
+                                        </select>
+                                    </div>
+
+                                    {/* <div className="d-flex mb-4 align-items-center">
                                         <div className="form-check">
                                             <input className="form-check-input" type="checkbox" id="checkRemember" defaultChecked={checked} onChange={() => setChecked(!checked)} />
                                             <label className="form-check-label" htmlFor="checkRemember">Remember me</label>
                                         </div>
                                         <span className="ms-auto"><a href="/#" className="link-secondary">Forgot Password</a></span>
-                                    </div>
+                                    </div> */}
 
-                                    <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-3" type="submit">Login</button>
+                                    <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-3" type="submit">Register</button>
 
                                     <p >Already have an account? <Link className="link-secondary" to='/login'>Sign In</Link></p>
                                 </form>

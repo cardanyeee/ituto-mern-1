@@ -215,7 +215,7 @@ const Dashboard = () => {
         <Fragment>
             {loading ? <Loader /> : (
                 <Fragment>
-                    <MetaData title={'Admin Dashboard'} styles={'html, body, .App { background-color: #F3F3F3 !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
+                    <MetaData title={'Admin Dashboard'} styles={'footer p {color: #000000 !important;}'} />
 
                     {loading ? <Loader /> : (
                         <Fragment>
@@ -223,11 +223,11 @@ const Dashboard = () => {
                             <div className="container-fluid">
                                 {/* <div className="row mt-5 mb-4">
                                     <div className="col-xl-12 col-sm-12">
-                                        <div className="card text-white bg-primary o-hidden h-100">
+                                        <div className="card  bg-white o-hidden h-100">
                                             <div className="card-body">
                                                 <div className="text-center card-font-size">Registered Users<br /> <b>{users && users.length}</b></div>
                                             </div>
-                                            <Link className="card-footer text-white clearfix small z-1" to="/dashboard/movies">
+                                            <Link className="card-footer  clearfix small z-1" to="/dashboard/movies">
                                                 <span className="float-left">View Details</span>
                                                 <span className="float-right">
                                                     <i className="fa fa-angle-right"></i>
@@ -239,11 +239,11 @@ const Dashboard = () => {
 
                                 <div className="row pr-4 pt-4">
                                     <div className="col-xl-3 mb-3">
-                                        <div className="card text-white bg-danger o-hidden h-100">
+                                        <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
                                             <div className="card-body">
                                                 <div className="text-center card-font-size">Registered Users<br /> <b>{users && users.length}</b></div>
                                             </div>
-                                            {/* <Link className="card-footer text-white clearfix small z-1" to="/dashboard/movies">
+                                            {/* <Link className="card-footer  clearfix small z-1" to="/dashboard/movies">
                                                 <span className="float-left">View Details</span>
                                                 <span className="float-right">
                                                     <i className="fa fa-angle-right"></i>
@@ -253,11 +253,11 @@ const Dashboard = () => {
                                     </div>
 
                                     <div className="col-xl-3 mb-3">
-                                        <div className="card text-white bg-danger o-hidden h-100 border-0 shadow">
+                                        <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
                                             <div className="card-body">
                                                 <div className="text-center card-font-size">Movies<br /> <b>{movies && movies.length}</b></div>
                                             </div>
-                                            <Link className="card-footer text-white clearfix small z-1" to="/dashboard/movies">
+                                            <Link className="card-footer  clearfix small z-1" to="/dashboard/movies">
                                                 <span className="float-left">View Details</span>
                                                 <span className="float-right">
                                                     <i className="fa fa-angle-right"></i>
@@ -267,11 +267,11 @@ const Dashboard = () => {
                                     </div>
 
                                     <div className="col-xl-3 mb-3">
-                                        <div className="card text-white bg-danger o-hidden h-100">
+                                        <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
                                             <div className="card-body">
                                                 <div className="text-center card-font-size">Actors<br /><b>{actors && actors.length}</b></div>
                                             </div>
-                                            <Link className="card-footer text-white clearfix small z-1" to="/dashboard/actors">
+                                            <Link className="card-footer  clearfix small z-1" to="/dashboard/actors">
                                                 <span className="float-left">View Details</span>
                                                 <span className="float-right">
                                                     <i className="fa fa-angle-right"></i>
@@ -281,11 +281,11 @@ const Dashboard = () => {
                                     </div>
 
                                     <div className="col-xl-3 mb-3">
-                                        <div className="card text-white bg-danger o-hidden h-100">
+                                        <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
                                             <div className="card-body">
                                                 <div className="text-center card-font-size">Producers<br /><b>{producers && producers.length}</b></div>
                                             </div>
-                                            <Link className="card-footer text-white clearfix small z-1" to="/dashboard/producers">
+                                            <Link className="card-footer  clearfix small z-1" to="/dashboard/producers">
                                                 <span className="float-left">View Details</span>
                                                 <span className="float-right">
                                                     <i className="fa fa-angle-right"></i>

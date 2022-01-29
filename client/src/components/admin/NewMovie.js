@@ -135,7 +135,7 @@ const NewMovie = ({ history }) => {
 
     return (
         <Fragment>
-            <MetaData title={'New Movie'} styles={'html, body, .App { background-color: #F3F3F3 !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
+            <MetaData title={'New Movie'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
             <div className="container-fluid">
                 <div className="row justify-content-center">
                     <div className="col-12 col-md-10">

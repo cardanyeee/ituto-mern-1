@@ -7,9 +7,9 @@
     top: 0;
     left: 0;
     width: 260px;
-    background: #141414;
     z-index: 100;
     transition: all 0.5s ease;
+    background-color: #75BBB3;
 }
 
 .sidebar.close {
@@ -17,15 +17,15 @@
 }
 
 .sidebar .logo-details {
-    height: 60px;
     width: 100%;
     display: flex;
     align-items: center;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 .sidebar .logo-details svg {
     font-size: 20px;
-    color: #fff;
     height: 30px;
     min-width: 78px;
     text-align: center;
@@ -61,11 +61,11 @@
 .sidebar .nav-links li {
     position: relative;
     list-style: none;
-    transition: all 0.4s ease;
+    /* transition: all 0.4s ease; */
 }
 
 .sidebar .nav-links li:hover {
-    background: #1d1b31;
+    background: #274D5A;
 }
 
 .sidebar .nav-links li .iocn-link {
@@ -80,14 +80,13 @@
 
 .sidebar .nav-links li svg.main-side-nav-icon {
     height: 50px;
-    min-width: 25px;
+    min-width: 20px;
     text-align: center;
     line-height: 50px;
-    color: #fff;
     font-size: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin: 0 20px 0 25px;
+    margin: 0 10px 0 25px;
 }
 
 .sidebar .nav-links li svg.submenu-side-nav-icon {
@@ -121,7 +120,6 @@
 .sidebar .nav-links li a .link_name {
     font-size: 18px;
     font-weight: 400;
-    color: #fff;
     transition: all 0.4s ease;
 }
 
@@ -133,7 +131,7 @@
 .sidebar .nav-links li .sub-menu {
     padding: 6px 6px 14px 30px;
     margin-top: -10px;
-    background: #1d1b31;
+    background: #274D5A;
     display: none;
 }
 

@@ -88,7 +88,7 @@ const ActorsLists = ({ history }) => {
 
     return (
         <Fragment>
-            <MetaData title={'All Actors'} styles={'html, body, .App { background-color: #F3F3F3 !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
+            <MetaData title={'All Actors'} styles={'.home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
             <div className="container-fluid">
                 <Fragment>
                     {loading ? <Loader /> : (

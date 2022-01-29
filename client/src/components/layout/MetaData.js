@@ -5,7 +5,7 @@ const MetaData = ({ title, styles }) => {
     return (
         <Helmet>
             <title>
-                {`${title} - Movie App`}
+                {`${title} - iTuto`}
             </title>
             <style>
                 {styles}

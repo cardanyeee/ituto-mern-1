@@ -14,12 +14,22 @@ import AlertTemplate from 'react-alert-template-basic';
 const options = {
   timeout: 5000,
   position: positions.BOTTOM_CENTER,
-  transitions: transitions.SCALE
+  transitions: transitions.SCALE,
 }
+
+// const AlertTemplate = ({ style, options, message, close }) => (
+//   <div style={style}>
+//     {options.type === 'info' && '!'}
+//     {options.type === 'success' && ':)'}
+//     {options.type === 'error' && ':('}
+//     {message}
+//     <button onClick={close}>X</button>
+//   </div>
+// )
 
 ReactDOM.render(
   <Provider store={store} >
-    <AlertProvider template={AlertTemplate} {...options} >
+    <AlertProvider template={AlertTemplate} {...options}>
       <App />
     </AlertProvider>
   </Provider>,

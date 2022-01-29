@@ -39,7 +39,7 @@ const UserSchema = new Schema({
     course: {
         type: mongoose.Schema.ObjectId,
         ref: 'Course',
-        required: true
+        default: 'None'
     },
     isTutor: {
         type: Boolean,

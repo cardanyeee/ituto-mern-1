@@ -13,7 +13,7 @@ const Profile = () => {
         <Fragment>
             {loading ? <Loader /> : (
                 <Fragment>
-                    <MetaData title={'Login'} styles={'html, body, .App { background-color: #F3F3F3 !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
+                    <MetaData title={'Login'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
                     <div className="container rounded bg-white mt-5 mb-5">
                         <div className="row">
                             <div className="col-md-3 border-right">
