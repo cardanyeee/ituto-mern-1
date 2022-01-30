@@ -39,6 +39,7 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.login = catchAsyncErrors(async (req, res, next) => {
+
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -51,7 +52,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
         if (!user) {
             return next(new ErrorResponse("Invalid credentials", 404));
         }
-
+        
         const isMatch = await user.matchPasswords(password);
 
         if (!isMatch) {
@@ -70,8 +71,8 @@ exports.googleLogin = catchAsyncErrors(async (req, res, next) => {
     const { tokenId } = req.body;
 
     const response = await client.verifyIdToken({ idToken: tokenId, audience: "924372861452-4fl88545df8le5tu7e6f1tlgclt2cp78.apps.googleusercontent.com" });
-    const { email_verified, name, email, picture } = response.payload;
-
+    const { given_name, family_name, email_verified, name, email, picture } = response.payload;
+    console.log(response);
     if (email_verified) {
 
         try {
@@ -81,11 +82,14 @@ exports.googleLogin = catchAsyncErrors(async (req, res, next) => {
                 sendToken(user, 200, res);
             } else {
 
-                console.log(name);
                 try {
+                    const firstname = given_name;
+                    const lastname = family_name;
                     const username = name;
                     const password = email + process.env.JWT_SECRET;
                     const newUser = await User.create({
+                        firstname,
+                        lastname,
                         username,
                         email,
                         password,

@@ -21,25 +21,26 @@ const UserSchema = new Schema({
     },
     birthdate: {
         type: Date,
-        required: [true, 'Please enter a valid birthdate'],
+        // required: [true, 'Please enter a valid birthdate'],
         trim: true
     },
     gender: {
         type: String,
         required: [true, 'Please select your gender'],
+        default: 'Prefer not to say',
         enum: {
             values: [
                 "Male",
                 "Female",
-                "Other"
+                "Other",
+                'Prefer not to say'
             ],
             message: 'Please select your gender'
         }
     },
     course: {
         type: mongoose.Schema.ObjectId,
-        ref: 'Course',
-        default: 'None'
+        ref: 'Course'
     },
     isTutor: {
         type: Boolean,
