@@ -1,0 +1,117 @@
+[
+    {
+        "courseCode": "BETAT-T",
+        "course": "Bachelor of Engineering Technology Major in Automotive Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETChT-T",
+        "course": "Bachelor of Engineering Technology Major in Chemical Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETCT-T",
+        "course": "Bachelor of Engineering Technology Major in Construction Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETET-T",
+        "course": "Bachelor of Engineering Technology Major in Electrical Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETEMT-T",
+        "course": "Bachelor of Engineering Technology Major in Electromechanical Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETElxT-T",
+        "course": "Bachelor of Engineering Technology Major in Electronics Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETInCT-T",
+        "course": "Bachelor of Engineering Technology Major in Instrumentation and Control Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETMT-T",
+        "course": "Bachelor of Engineering Technology Major in Mechanical Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETMecT-T",
+        "course": "Bachelor of Engineering Technology Major in Mechatronics Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETNDTT-T",
+        "course": "Bachelor of Engineering Technology Major in Non-Destructive Testing Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETDMT-T",
+        "course": "Bachelor of Engineering Technology Major in Dies & Moulds Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BETHVAC/RT-T",
+        "course": "Bachelor of Engineering Technology Major in Heating, Ventilation and Airconditioning/Refrigeration Technology",
+        "degree": "Bachelor of Engineering Technology"
+    },
+    {
+        "courseCode": "BSCESEP-T",
+        "course": "Bachelor of Science in Civil Engineering",
+        "degree": "Bachelor of Science"
+    },
+    {
+        "courseCode": "BSEESEP-T",
+        "course": "Bachelor of Science in Electrical Engineering",
+        "degree": "Bachelor of Science"
+    },
+    {
+        "courseCode": "BSECESEP-T",
+        "course": "Bachelor of Science in Electronics Engineering",
+        "degree": "Bachelor of Science"
+    },
+    {
+        "courseCode": "BSMESEP-T",
+        "course": "Bachelor of Science in Mechanical Engineering",
+        "degree": "Bachelor of Science"
+    },
+    {
+        "courseCode": "BSIT-T",
+        "course": "Bachelor of Science in Information Technology",
+        "degree": "Bachelor of Science"
+    },
+    {
+        "courseCode": "BSIS-T",
+        "course": "Bachelor of Science in Information System",
+        "degree": "Bachelor of Science"
+    },
+    {
+        "courseCode": "BSESSDP-T",
+        "course": "Bachelor of Science in Environmental Science",
+        "degree": "Bachelor of Science"
+    },
+    {
+        "courseCode": "BGTAT-T",
+        "course": "Bachelor in Graphics Technology Major in Architecture Technology",
+        "degree": "Bachelor in Graphics Technology"
+    },
+    {
+        "courseCode": "BTVTEdET-T",
+        "course": "Bachelor of Technical Vocational Teacher Education Major in Electrical Technology",
+        "degree": "Bachelor of Technical Vocational Teacher Education"
+    },
+    {
+        "courseCode": "BTVTEdElxT-T",
+        "course": "Bachelor of Technical Vocational Teacher Education Major in Electronics Technology",
+        "degree": "Bachelor of Technical Vocational Teacher Education"
+    },
+    {
+        "courseCode": "BTVTEdICT-T",
+        "course": "Bachelor of Technical Vocational Teacher Education Major in Information and Communication Technology",
+        "degree": "Bachelor of Technical Vocational Teacher Education"
+    }
+]

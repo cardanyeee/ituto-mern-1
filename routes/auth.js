@@ -3,6 +3,7 @@ const router = express.Router();
 
 const { register,
     login,
+    activate,
     googleLogin,
     logout,
     forgotpassword,
@@ -15,6 +16,8 @@ const { register,
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
 router.route("/auth/register").post(register);
+
+router.route("/auth/activate").post(activate);
 
 router.route("/auth/login").post(login);
 

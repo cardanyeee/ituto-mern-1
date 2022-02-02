@@ -3,12 +3,16 @@ const ErrorResponse = require("../utils/errorResponse");
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
+const activateEmail = require('../utils/activateEmail');
 
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 const cloudinary = require('cloudinary');
 const { OAuth2Client } = require('google-auth-library');
-const client = new OAuth2Client("924372861452-4fl88545df8le5tu7e6f1tlgclt2cp78.apps.googleusercontent.com");
+const client = new OAuth2Client(process.env.MAILING_SERVICE_CLIENT_ID);
 
+
+//Register User
 exports.register = catchAsyncErrors(async (req, res, next) => {
     console.log(req.body);
     // const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
@@ -17,10 +21,63 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
     //     crop: "scale"
     // });
 
-    const { firstname, lastname, username, birthdate, gender, course, email, password } = req.body;  
+    const { firstname, lastname, username, birthdate, gender, course, email, password } = req.body;
 
     try {
-        const user = await User.create({
+
+        // const user = await User.create({
+        //     firstname,
+        //     lastname,
+        //     username,
+        //     birthdate,
+        //     gender,
+        //     course,
+        //     email,
+        //     password
+        // });
+
+        const newUser = {
+            firstname,
+            lastname,
+            username,
+            birthdate,
+            gender,
+            course,
+            email,
+            password
+        }
+
+        const activation_token = createActivationToken(newUser);
+
+        const url = `http://localhost:3000/api/auth/activate/${activation_token}`;
+        activateEmail(email, url, "Verify your email address");
+
+        res.json({msg: "Register Success! Please activate your email to start."});
+
+    } catch (error) {
+        next(error);
+    }
+});
+
+exports.activate = catchAsyncErrors(async (req, res, next) => {
+    try {
+        
+        const { activation_token } = req.body;
+        console.log(activation_token);
+        const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
+
+        const {
+            firstname,
+            lastname,
+            username,
+            birthdate,
+            gender,
+            course,
+            email,
+            password
+        } = user;
+
+        const newUser = await User.create({
             firstname,
             lastname,
             username,
@@ -31,13 +88,14 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
             password
         });
 
-        sendToken(user, 200, res);
+        res.json({ msg: "Account has been activated!" });
 
-    } catch (error) {
-        next(error);
+    } catch (err) {
+        return res.status(500).json({ msg: err });
     }
-});
+})
 
+//Login User
 exports.login = catchAsyncErrors(async (req, res, next) => {
 
     const { email, password } = req.body;
@@ -52,7 +110,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
         if (!user) {
             return next(new ErrorResponse("Invalid credentials", 404));
         }
-        
+
         const isMatch = await user.matchPasswords(password);
 
         if (!isMatch) {
@@ -66,6 +124,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
     }
 });
 
+//Google Log in User User
 exports.googleLogin = catchAsyncErrors(async (req, res, next) => {
 
     const { tokenId } = req.body;
@@ -111,6 +170,7 @@ exports.googleLogin = catchAsyncErrors(async (req, res, next) => {
     }
 
 });
+
 
 exports.forgotpassword = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email });
@@ -267,6 +327,7 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
 });
 
 // Delete user   =>   /api/v1/admin/user/:id
+
 // exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
 //     const user = await User.findById(req.params.id);
 
@@ -284,3 +345,7 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
 //         success: true,
 //     })
 // });
+
+const createActivationToken = (payload) => {
+    return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, {expiresIn: '5m'})
+}
