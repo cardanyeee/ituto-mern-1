@@ -29,7 +29,7 @@ router.route("/auth/password/forgot").post(forgotpassword);
 
 router.route("/auth/password/reset/:token").put(resetpassword);
 
-router.route("/profile/me").get(isAuthenticatedUser, getCurrentUser);
+router.route("/profile/me").get(getCurrentUser);
 
 router.route("/auth/password/update").put(isAuthenticatedUser, updatePassword);
 

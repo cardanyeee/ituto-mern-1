@@ -28,28 +28,30 @@ const Header = ({ history }) => {
 
     return (
         <Fragment>
-            <nav className="navbar home-navbar navbar-expand-lg navbar-light sticky-top topbar bg-white justify-content-center">
-                <div className="mx-4 container">
-                    <div className="logo-brand d-flex w-50 me-auto link-primary">iTuto</div>
-                    {/* <a className="me-3 logo-brand" href="/#">MOVFLIX</a> */}
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-white px-0 py-3">
+                <div class="container-xl">
+
+                    <a class="navbar-brand" href="/#">
+                        <h1 class="logo-brand">
+                            iTuto
+                        </h1>
+                        {/* <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" class="h-8" alt="..." /> */}
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse w-100" id="navbarSupportedContent">
-                        <ul className="navbar-nav w-100 justify-content-center">
-                            <li className="nav-item active">
-                                <Link className="fw-bold nav-link text-dark" to="/">Home</Link>
-                                {/* <a className="fw-bold nav-link text-dark" href="/#">Home <span className="sr-only">(current)</span></a> */}
-                            </li>
-                            <li className="nav-item">
-                                <Link className="fw-bold nav-link text-dark" to="/actors">Actors</Link>
-                                {/* <a className="nav-link text-dark" href="/actor">Actors</a> */}
-                            </li>
-                            <li className="nav-item">
-                                <a className="fw-bold nav-link text-dark" href="/producers">Producers</a>
-                            </li>
-                        </ul>
-                        {/* <Route render={({ history }) => <Search history={history} search={path} />} /> */}
+
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+                        <div class="navbar-nav mx-lg-auto">
+                            <a class="nav-item nav-link active" href="/" aria-current="page">Home</a>
+                            <a class="nav-item nav-link" href="/#">Product</a>
+                            <a class="nav-item nav-link" href="/#">Features</a>
+                            <a class="nav-item nav-link" href="/#">Download</a>
+                        </div>
+
 
                         {user ? (
                             <ul className="nav navbar-nav ms-auto w-100 justify-content-end" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
@@ -71,10 +73,17 @@ const Header = ({ history }) => {
                             </ul>
 
                         ) : !loading &&
-                        <div className="nav navbar-nav ms-auto w-100 justify-content-end">
-                            <a className="btn btn-primary fw-bold bg-transparent me-3" id="loginBtn" href="/login">Login</a>
-                            <a className="btn btn-primary fw-bold text-white" id="loginBtn" href="/register">Registration</a>
-                        </div>
+
+                        <>
+                            <div class="navbar-nav ms-lg-4">
+                                <a class="nav-item nav-link" href="/login">Sign in</a>
+                            </div>
+                            <div class="d-flex align-items-lg-center mt-3 mt-lg-0">
+                                <a href="/register" class="btn btn-sm btn-primary w-full w-lg-auto">
+                                    Register
+                                </a>
+                            </div>
+                        </>
 
                         }
 

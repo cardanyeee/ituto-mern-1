@@ -4,10 +4,10 @@ const router = express.Router();
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
 const { index, add, update, find, remove, createMovieReview, getMovieReviews, deleteMovieReview,
-        getAdminMovies
+        getAdminMovies, test
 } = require('../controllers/movie');
 
-router.route('/movies').get(index);
+router.get('/test', test);
 
 router.route('/movie/add').post(isAuthenticatedUser, authorizeRoles('admin'), add);
 

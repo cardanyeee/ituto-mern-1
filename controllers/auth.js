@@ -14,7 +14,8 @@ const client = new OAuth2Client(process.env.MAILING_SERVICE_CLIENT_ID);
 
 //Register User
 exports.register = catchAsyncErrors(async (req, res, next) => {
-    console.log(req.body);
+    console.log("Registering");
+    // console.log(req.body);
     // const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
     //     folder: 'movflix/avatars',
     //     width: 150,
@@ -47,14 +48,29 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
             password
         }
 
-        const activation_token = createActivationToken(newUser);
+        const user = await User.create({
+            firstname,
+            lastname,
+            username: email.split("@")[0],
+            birthdate,
+            gender,
+            course,
+            email,
+            password
+        });
 
-        const url = `http://localhost:3000/api/auth/activate/${activation_token}`;
-        activateEmail(email, url, "Verify your email address");
 
-        res.json({msg: "Register Success! Please activate your email to start."});
+        sendToken(user, 200, res);
+
+        // const activation_token = createActivationToken(newUser);
+
+        // const url = `http://localhost:3000/api/auth/activate/${activation_token}`;
+        // activateEmail(email, url, "Verify your email address");
+
+        // res.json({msg: "Register Success! Please activate your email to start."});
 
     } catch (error) {
+        console.log(error);
         next(error);
     }
 });
@@ -63,7 +79,7 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
     try {
         
         const { activation_token } = req.body;
-        console.log(activation_token);
+        // console.log(activation_token);
         const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
 
         const {
@@ -131,7 +147,7 @@ exports.googleLogin = catchAsyncErrors(async (req, res, next) => {
 
     const response = await client.verifyIdToken({ idToken: tokenId, audience: "924372861452-4fl88545df8le5tu7e6f1tlgclt2cp78.apps.googleusercontent.com" });
     const { given_name, family_name, email_verified, name, email, picture } = response.payload;
-    console.log(response);
+    // console.log(response);
     if (email_verified) {
 
         try {
@@ -170,7 +186,6 @@ exports.googleLogin = catchAsyncErrors(async (req, res, next) => {
     }
 
 });
-
 
 exports.forgotpassword = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findOne({ email: req.body.email });
@@ -245,12 +260,19 @@ exports.resetpassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getCurrentUser = catchAsyncErrors(async (req, res, next) => {
-    const user = await User.findById(req.user._id);
 
-    res.status(200).json({
-        success: true,
-        user
-    })
+    try {
+        const user = await User.findById(req.user ? req.user._id : jwt.verify(req.headers.authorization.split(" ")[1], process.env.JWT_SECRET).id);
+    
+        // console.log(user);
+        
+        res.status(200).json({
+            success: true,
+            user
+        })
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
@@ -269,10 +291,11 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.logout = catchAsyncErrors(async (req, res, next) => {
-    res.cookie('token', null, {
-        expires: new Date(Date.now()),
-        httpOnly: true
-    });
+    console.log('logout');
+    // res.cookie('token', null, {
+    //     expires: new Date(Date.now()),
+    //     httpOnly: true
+    // });
 
     res.status(200).json({
         success: true,

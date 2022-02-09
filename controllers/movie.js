@@ -6,9 +6,17 @@ const APIFeatures = require('../utils/apiFeatures');
 
 const cloudinary = require('cloudinary');
 
+exports.test = async (req, res) => {
+    console.log("test");
+    res.status(200).json({
+        success: true
+    });
+}
+
+
 exports.index = catchAsyncErrors(async (req, res, next) => {
     try {
-
+        console.log("aaa");
         const resPerPage = 6;
         const moviesCount = await Movie.countDocuments();
 
