@@ -9,6 +9,8 @@ const { index, add, update, find, remove, createMovieReview, getMovieReviews, de
 
 router.get('/test', test);
 
+router.route('/movies').get(index);
+
 router.route('/movie/add').post(isAuthenticatedUser, authorizeRoles('admin'), add);
 
 router.route('/movie/update/:id').put(isAuthenticatedUser, authorizeRoles('admin'), update);

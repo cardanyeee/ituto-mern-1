@@ -4,14 +4,21 @@ const validator = require('validator');
 const Schema = mongoose.Schema;
 
 const ConversationSchema = new Schema({
-    members: {
-        type: Array,
-        required: true
+    conversationName: { type: String, trim: true },
+    users: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ],
+    latestMessage: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Message",
     }
 }, {
     timestamps: true
 });
 
-const Conversation = mongoose.model('Conversation', ConversationSchema);
+const Conversation = mongoose.model('conversation', ConversationSchema);
 
 module.exports = Conversation;

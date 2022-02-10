@@ -29,27 +29,27 @@ const Header = ({ history }) => {
     return (
         <Fragment>
 
-            <nav class="navbar navbar-expand-lg navbar-light bg-white px-0 py-3">
-                <div class="container-xl">
+            <nav className="navbar navbar-expand-lg navbar-light bg-white px-0">
+                <div className="container-xl">
 
-                    <a class="navbar-brand" href="/#">
-                        <h1 class="logo-brand">
+                    <a className="navbar-brand" href="/#">
+                        <h1 className="logo-brand">
                             iTuto
                         </h1>
-                        {/* <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" class="h-8" alt="..." /> */}
+                        {/* <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" className="h-8" alt="..." /> */}
                     </a>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div className="collapse navbar-collapse" id="navbarCollapse">
 
-                        <div class="navbar-nav mx-lg-auto">
-                            <a class="nav-item nav-link active" href="/" aria-current="page">Home</a>
-                            <a class="nav-item nav-link" href="/#">Product</a>
-                            <a class="nav-item nav-link" href="/#">Features</a>
-                            <a class="nav-item nav-link" href="/#">Download</a>
+                        <div className="navbar-nav mx-lg-auto">
+                            <a className="nav-item nav-link active" href="/" aria-current="page">Home</a>
+                            <a className="nav-item nav-link" href="/#">Product</a>
+                            <a className="nav-item nav-link" href="/#">Features</a>
+                            <a className="nav-item nav-link" href="/#">Download</a>
                         </div>
 
 
@@ -75,11 +75,11 @@ const Header = ({ history }) => {
                         ) : !loading &&
 
                         <>
-                            <div class="navbar-nav ms-lg-4">
-                                <a class="nav-item nav-link" href="/login">Sign in</a>
+                            <div className="navbar-nav ms-lg-4">
+                                <a className="nav-item nav-link" href="/login">Sign in</a>
                             </div>
-                            <div class="d-flex align-items-lg-center mt-3 mt-lg-0">
-                                <a href="/register" class="btn btn-sm btn-primary w-full w-lg-auto">
+                            <div className="d-flex align-items-lg-center mt-3 mt-lg-0">
+                                <a href="/register" className="btn btn-sm btn-primary w-full w-lg-auto">
                                     Register
                                 </a>
                             </div>

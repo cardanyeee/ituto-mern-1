@@ -77,7 +77,7 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
 
 exports.activate = catchAsyncErrors(async (req, res, next) => {
     try {
-        
+
         const { activation_token } = req.body;
         // console.log(activation_token);
         const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
@@ -113,7 +113,7 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
 
 //Login User
 exports.login = catchAsyncErrors(async (req, res, next) => {
-
+    console.log("login");
     const { email, password } = req.body;
 
     if (!email || !password) {
@@ -260,19 +260,24 @@ exports.resetpassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getCurrentUser = catchAsyncErrors(async (req, res, next) => {
+    console.log('Getting');
+    var user_id;
 
-    try {
-        const user = await User.findById(req.user ? req.user._id : jwt.verify(req.headers.authorization.split(" ")[1], process.env.JWT_SECRET).id);
-    
-        // console.log(user);
-        
-        res.status(200).json({
-            success: true,
-            user
-        })
-    } catch (error) {
-        console.log(error);
+    if (req.user) {
+        user_id = req.user._id;
+    } else if (req.headers.authorization) {
+        user_id = jwt.verify(req.headers.authorization.split(" ")[1], process.env.JWT_SECRET).id;
     }
+
+    const user = await User.findById(user_id);
+
+    // console.log(user);
+
+    res.status(200).json({
+        success: true,
+        user
+    })
+
 });
 
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
@@ -292,10 +297,10 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 
 exports.logout = catchAsyncErrors(async (req, res, next) => {
     console.log('logout');
-    // res.cookie('token', null, {
-    //     expires: new Date(Date.now()),
-    //     httpOnly: true
-    // });
+    res.cookie('token', null, {
+        expires: new Date(Date.now()),
+        httpOnly: true
+    });
 
     res.status(200).json({
         success: true,
@@ -370,5 +375,5 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
 // });
 
 const createActivationToken = (payload) => {
-    return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, {expiresIn: '5m'})
+    return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, { expiresIn: '5m' })
 }

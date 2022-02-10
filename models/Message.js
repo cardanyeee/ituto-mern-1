@@ -4,19 +4,23 @@ const validator = require('validator');
 const Schema = mongoose.Schema;
 
 const MessageSchema = new Schema({
-    conversationID: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'Conversation',
-        required: true
-    },
     sender: {
-        type: String,
-        required: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     },
-    text: {
+    content: {
         type: String,
-        required: true
+        trim: true
+    },
+    conversationID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Conversation"
+    },
+    readBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
+
 }, {
     timestamps: true
 });
