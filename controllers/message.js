@@ -7,12 +7,17 @@ const Conversation = require("../models/Conversation");
 //@route           GET /api/Message/:chatId
 //@access          Protected
 const allMessages = catchAsyncErrors(async (req, res) => {
+
+    console.log("Messages");
     try {
 
-        const messages = await Message.find({ Conversation: req.params.chatId })
-            .populate("sender", "name pic email")
-            .populate("Conversation");
-        res.json(messages);
+        const messages = await Message.find({ conversationID: req.params.conversationID })
+            .populate("sender", "firstname avatar")
+            .populate("conversationID");
+        res.json({
+            success: true,
+            messages
+        });
     } catch (error) {
         res.status(400);
         throw new Error(error.message);
@@ -24,7 +29,7 @@ const allMessages = catchAsyncErrors(async (req, res) => {
 //@access          Protected
 const sendMessage = catchAsyncErrors(async (req, res) => {
     const { content, conversationID } = req.body;
-
+    
     if (!content || !conversationID) {
         console.log("Invalid data passed into request");
         return res.sendStatus(400);
@@ -33,22 +38,25 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
     var newMessage = {
         sender: req.user._id,
         content: content,
-        Conversation: conversationID,
+        conversationID: conversationID,
     };
 
     try {
         var message = await Message.create(newMessage);
 
-        message = await message.populate("sender", "firstname");
+        message = await message.populate("sender", "firstname avatar");
         message = await message.populate("conversationID");
         message = await User.populate(message, {
-            path: "Conversation.users",
+            path: "users",
             select: "firstname",
         });
 
         await Conversation.findByIdAndUpdate(req.body.conversationID, { latestMessage: message });
 
-        res.json(message);
+        res.json({
+            success: true,
+            message
+        });
     } catch (error) {
         res.status(400);
         throw new Error(error.message);

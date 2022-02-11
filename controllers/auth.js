@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Tutor = require('../models/Tutor');
 const ErrorResponse = require("../utils/errorResponse");
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
@@ -68,6 +69,26 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
         // activateEmail(email, url, "Verify your email address");
 
         // res.json({msg: "Register Success! Please activate your email to start."});
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
+exports.registerTutor =  catchAsyncErrors(async (req, res, next) => {
+    console.log("Registering");
+
+    const { availability } = req.body;
+
+    try {
+
+        const tutor = await Tutor.create({
+            availability
+        });
+
+
+        sendToken(user, 200, res);
 
     } catch (error) {
         console.log(error);
@@ -261,15 +282,8 @@ exports.resetpassword = catchAsyncErrors(async (req, res, next) => {
 
 exports.getCurrentUser = catchAsyncErrors(async (req, res, next) => {
     console.log('Getting');
-    var user_id;
 
-    if (req.user) {
-        user_id = req.user._id;
-    } else if (req.headers.authorization) {
-        user_id = jwt.verify(req.headers.authorization.split(" ")[1], process.env.JWT_SECRET).id;
-    }
-
-    const user = await User.findById(user_id);
+    const user = await User.findById(req.user._id);
 
     // console.log(user);
 

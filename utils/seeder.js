@@ -1,26 +1,22 @@
-const Producer = require('../models/Producer');
-const Actor = require('../models/Actor');
-const Movie = require('../models/Movie');
+const User = require('../models/User');
 
 const dotenv = require('dotenv');
 const connectDatabase = require('../config/database');
 
-const producers = require('../data/producers');
-const actors = require('../data/actors');
-const movies = require('../data/movies');
+const users = require('../data/users');
 
 dotenv.config({ path: 'config.env' });
 
 connectDatabase();
 
-const seedProducers = async () => {
+const seedTutors = async () => {
     try {
         
         await Producer.deleteMany();
-        console.log('Producer deleted');
+        console.log('Tutors Deleted');
 
         await Producer.insertMany(producers);
-        console.log('All Producers Added');
+        console.log('All Tutors Added');
 
         process.exit();
 
@@ -30,40 +26,60 @@ const seedProducers = async () => {
     }
 }
 
-const seedActors = async () => {
-    try {
+seedTutors();
+
+
+// const seedProducers = async () => {
+//     try {
         
-        await Actor.deleteMany();
-        console.log('Actor deleted');
+//         await Producer.deleteMany();
+//         console.log('Producer deleted');
 
-        await Actor.insertMany(actors);
-        console.log('All Actors Added');
+//         await Producer.insertMany(producers);
+//         console.log('All Producers Added');
 
-        process.exit();
+//         process.exit();
 
-    } catch (error) {
-        console.log(error.message);
-        process.exit();
-    }
-}
+//     } catch (error) {
+//         console.log(error.message);
+//         process.exit();
+//     }
+// }
 
-const seedMovies = async () => {
-    try {
+// const seedActors = async () => {
+//     try {
         
-        await Movie.deleteMany();
-        console.log('Movie deleted');
+//         await Actor.deleteMany();
+//         console.log('Actor deleted');
 
-        await Movie.insertMany(movies);
-        console.log('All Movies Added');
+//         await Actor.insertMany(actors);
+//         console.log('All Actors Added');
 
-        process.exit();
+//         process.exit();
 
-    } catch (error) {
-        console.log(error.message);
-        process.exit();
-    }
-}
+//     } catch (error) {
+//         console.log(error.message);
+//         process.exit();
+//     }
+// }
 
-seedProducers();
-seedActors();
-seedMovies();
+// const seedMovies = async () => {
+//     try {
+        
+//         await Movie.deleteMany();
+//         console.log('Movie deleted');
+
+//         await Movie.insertMany(movies);
+//         console.log('All Movies Added');
+
+//         process.exit();
+
+//     } catch (error) {
+//         console.log(error.message);
+//         process.exit();
+//     }
+// }
+
+// seedProducers();
+// seedActors();
+// seedMovies();

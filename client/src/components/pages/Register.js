@@ -22,15 +22,15 @@ const Register = ({ history }) => {
 
     const { firstname, lastname, email, password, birthdate, gender } = user;
 
-    const [avatar, setAvatar] = useState('');
-    const [avatarPreview, setAvatarPreview] = useState('https://res.cloudinary.com/djqpxmv5o/image/upload/v1639001382/movflix/avatars/1636619587424empty_profile_f28fsh.png');
+    // const [avatar, setAvatar] = useState('');
+    // const [avatarPreview, setAvatarPreview] = useState('https://res.cloudinary.com/djqpxmv5o/image/upload/v1639001382/movflix/avatars/1636619587424empty_profile_f28fsh.png');
 
-    const [checked, setChecked] = useState(true);
+    // const [checked, setChecked] = useState(true);
 
     const alert = useAlert();
     const dispatch = useDispatch();
 
-    const { isAuthenticated, error, loading } = useSelector(state => state.auth);
+    const { isAuthenticated, error } = useSelector(state => state.auth);
 
     const genders = [
         "Male",
@@ -72,8 +72,7 @@ const Register = ({ history }) => {
             const reader = new FileReader();
             reader.onload = () => {
                 if (reader.readyState === 2) {
-                    setAvatarPreview(reader.result);
-                    setAvatar(reader.result);
+
                 }
             }
             reader.readAsDataURL(e.target.files[0]);

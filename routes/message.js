@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const { allMessages, sendMessage } = require("../controllers/message");
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+const { isAuthenticatedUser, isAuthenticatedAndroidUser, authorizeRoles } = require("../middleware/auth");
 
-router.route("/messages/:chatId").get(allMessages);
-router.route("/message/send").post(isAuthenticatedUser, sendMessage);
+router.route("/messages/:conversationID").get(isAuthenticatedAndroidUser, allMessages);
+router.route("/message/send").post(isAuthenticatedAndroidUser, sendMessage);
 
 module.exports = router;

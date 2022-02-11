@@ -12,8 +12,7 @@ const TutorSchema = new Schema({
     subjects: [
         {
             type: mongoose.Schema.ObjectId,
-            ref: 'Subject',
-            required: true
+            ref: 'Subject'
         }
     ],
     availability: {

@@ -4,11 +4,6 @@ const User = require("../models/User");
 
 const jwt = require('jsonwebtoken');
 
-//@description     Create or fetch One to One Conversation
-//@route           POST /api/chat/
-//@access          Protected
-
-// ===> CREATING A 1 ON 1 CHAT
 const accessConversation = catchAsyncErrors(async (req, res) => {
     const { userId } = req.body;
 
@@ -56,11 +51,10 @@ const accessConversation = catchAsyncErrors(async (req, res) => {
 });
 
 const fetchConversations = catchAsyncErrors(async (req, res) => {
-    const user_id = jwt.verify(req.headers.authorization.split(" ")[1], process.env.JWT_SECRET).id;
-    
+   
     try {
-        Conversation.find({ users: { $elemMatch: { $eq: user_id } } })
-            .populate("users", "-password -firstname -lastname -avatar -username -birthdate -gender -isTutor -enmail -role")
+        Conversation.find({ users: { $elemMatch: { $eq: req.user._id } } })
+            .populate("users", "-password -username -birthdate -gender -isTutor -enmail -role")
             .populate("latestMessage")
             .sort({ updatedAt: -1 })
             .then(async (results) => {
@@ -68,7 +62,6 @@ const fetchConversations = catchAsyncErrors(async (req, res) => {
                     path: "latestMessage.sender",
                     select: "firstname lastname avatar.url"
                 });
-                console.log(results);
                 res.status(200).send({
                     success: true,
                     results

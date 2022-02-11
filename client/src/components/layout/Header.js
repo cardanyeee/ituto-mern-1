@@ -1,13 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Route, Link, useLocation } from 'react-router-dom';
 import { useAlert } from 'react-alert';
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { logout } from '../../actions/authActions';
-
-import Search from './Search';
 
 import './header.css';
 
@@ -23,8 +20,6 @@ const Header = ({ history }) => {
         dispatch(logout());
         alert.success('Logged out successfully.')
     }
-
-    const path = useLocation().pathname.split('/')[1];
 
     return (
         <Fragment>

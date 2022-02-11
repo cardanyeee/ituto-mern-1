@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const { register,
+    registerTutor,
     login,
     activate,
     googleLogin,
@@ -13,9 +14,11 @@ const { register,
     allUsers
 } = require('../controllers/auth');
 
-const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+const { isAuthenticatedUser, isAuthenticatedAndroidUser, authorizeRoles } = require("../middleware/auth");
 
 router.route("/auth/register").post(register);
+
+router.route("/auth/register/tutor").post(registerTutor);
 
 router.route("/auth/activate").post(activate);
 
@@ -29,7 +32,9 @@ router.route("/auth/password/forgot").post(forgotpassword);
 
 router.route("/auth/password/reset/:token").put(resetpassword);
 
-router.route("/profile/me").get(getCurrentUser);
+router.route("/profile/me").get(isAuthenticatedUser, getCurrentUser);
+
+router.route("/android/profile/me").get(isAuthenticatedAndroidUser, getCurrentUser);
 
 router.route("/auth/password/update").put(isAuthenticatedUser, updatePassword);
 

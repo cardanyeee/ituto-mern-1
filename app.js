@@ -21,11 +21,9 @@ const AuthRouter = require('./routes/auth');
 const MessageRouter = require('./routes/message');
 const ConversationRouter = require('./routes/conversation');
 
-
 const MovieRouter = require('./routes/movie');
 const ActorRouter = require('./routes/actor');
 const ProducerRouter = require('./routes/producer');
-const GenreRouter = require('./routes/genre');
 
 app.use('/api', AuthRouter);
 app.use('/api', MessageRouter);
@@ -35,7 +33,6 @@ app.use('/api', ConversationRouter);
 app.use('/api', MovieRouter);
 app.use('/api', ActorRouter);
 app.use('/api', ProducerRouter);
-app.use('/api', GenreRouter);
 
 
 app.use(errorHandler);
