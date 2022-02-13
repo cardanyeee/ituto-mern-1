@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const User = require('../models/User')
 
 const Schema = mongoose.Schema;
 
@@ -7,7 +8,8 @@ const TutorSchema = new Schema({
     userID: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
-        required: true
+        required: true,
+        unique: true
     },
     subjects: [
         {
@@ -17,7 +19,7 @@ const TutorSchema = new Schema({
     ],
     availability: {
         type: String,
-        required: [true, "Please enter a valid firstname"]
+        required: [true, "Please your availability"]
     }
 }, {
     timestamps: true
