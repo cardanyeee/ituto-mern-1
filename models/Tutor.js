@@ -17,6 +17,27 @@ const TutorSchema = new Schema({
             ref: 'Subject'
         }
     ],
+    numOfReviews: {
+        type: Number,
+        default: 0
+    },
+    reviews: [
+        {
+            tutee: {
+                type: mongoose.Schema.ObjectId,
+                ref: 'User',
+                required: true
+            },
+            rating: {
+                type: Number,
+                required: true
+            },
+            comment: {
+                type: String,
+                required: true
+            }
+        }
+    ],
     availability: {
         type: String,
         required: [true, "Please your availability"]

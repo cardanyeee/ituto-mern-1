@@ -76,26 +76,6 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
     }
 });
 
-exports.registerTutor =  catchAsyncErrors(async (req, res, next) => {
-    console.log("Registering");
-
-    const { availability } = req.body;
-
-    try {
-
-        const tutor = await Tutor.create({
-            availability
-        });
-
-
-        sendToken(user, 200, res);
-
-    } catch (error) {
-        console.log(error);
-        next(error);
-    }
-});
-
 exports.activate = catchAsyncErrors(async (req, res, next) => {
     try {
 

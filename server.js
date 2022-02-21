@@ -36,7 +36,7 @@ io.on("connection", (socket) => {
         socket.emit("connected");
     });
 
-    socket.on("join chat", (room) => {
+    socket.on("join", (room) => {
         socket.join(room);
         console.log("User Joined Room: " + room);
     });
@@ -47,13 +47,14 @@ io.on("connection", (socket) => {
 
     socket.on("new message", (newMessageReceived) => {
         newMessageReceived = JSON.parse(newMessageReceived);
+
         var message = newMessageReceived.message;
 
         var conversationID = message.conversationID;
 
         if (!conversationID.users) return console.log("conversationID.users not defined");
 
-        io.emit("received", message);
+        io.to(conversationID._id).emit("received", message);
 
     });
 });

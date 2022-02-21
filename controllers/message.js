@@ -3,9 +3,6 @@ const Message = require("../models/Message");
 const User = require("../models/User");
 const Conversation = require("../models/Conversation");
 
-//@description     Get all Messages
-//@route           GET /api/Message/:chatId
-//@access          Protected
 const allMessages = catchAsyncErrors(async (req, res) => {
 
     console.log("Messages");
@@ -24,9 +21,6 @@ const allMessages = catchAsyncErrors(async (req, res) => {
     }
 });
 
-//@description     Create New Message
-//@route           POST /api/Message/
-//@access          Protected
 const sendMessage = catchAsyncErrors(async (req, res) => {
     const { content, conversationID } = req.body;
     

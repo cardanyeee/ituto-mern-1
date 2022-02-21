@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const { register,
-    registerTutor,
     login,
     activate,
     googleLogin,
@@ -17,8 +16,6 @@ const { register,
 const { isAuthenticatedUser, isAuthenticatedAndroidUser, authorizeRoles } = require("../middleware/auth");
 
 router.route("/auth/register").post(register);
-
-router.route("/auth/register/tutor").post(registerTutor);
 
 router.route("/auth/activate").post(activate);
 

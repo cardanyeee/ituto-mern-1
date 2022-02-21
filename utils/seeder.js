@@ -1,22 +1,24 @@
-const User = require('../models/User');
+const Course = require('../models/Course');
+const Subject = require('../models/Subject');
 
 const dotenv = require('dotenv');
 const connectDatabase = require('../config/database');
 
-const users = require('../data/users');
+const courses = require('../data/courses.json');
+const subjects = require('../data/subjects.json');
 
 dotenv.config({ path: 'config.env' });
 
 connectDatabase();
 
-const seedTutors = async () => {
+const seedCourses = async () => {
     try {
         
-        await Producer.deleteMany();
-        console.log('Tutors Deleted');
+        await Course.deleteMany();
+        console.log('Courses Deleted');
 
-        await Producer.insertMany(producers);
-        console.log('All Tutors Added');
+        await Course.insertMany(courses);
+        console.log('All Courses Added');
 
         process.exit();
 
@@ -26,60 +28,22 @@ const seedTutors = async () => {
     }
 }
 
-seedTutors();
-
-
-// const seedProducers = async () => {
-//     try {
+const seedSubjects = async () => {
+    try {
         
-//         await Producer.deleteMany();
-//         console.log('Producer deleted');
+        await Subject.deleteMany();
+        console.log('Subjects Deleted');
 
-//         await Producer.insertMany(producers);
-//         console.log('All Producers Added');
+        await Subject.insertMany(subjects);
+        console.log('All Subjects Added');
 
-//         process.exit();
+        process.exit();
 
-//     } catch (error) {
-//         console.log(error.message);
-//         process.exit();
-//     }
-// }
+    } catch (error) {
+        console.log(error.message);
+        process.exit();
+    }
+}
 
-// const seedActors = async () => {
-//     try {
-        
-//         await Actor.deleteMany();
-//         console.log('Actor deleted');
-
-//         await Actor.insertMany(actors);
-//         console.log('All Actors Added');
-
-//         process.exit();
-
-//     } catch (error) {
-//         console.log(error.message);
-//         process.exit();
-//     }
-// }
-
-// const seedMovies = async () => {
-//     try {
-        
-//         await Movie.deleteMany();
-//         console.log('Movie deleted');
-
-//         await Movie.insertMany(movies);
-//         console.log('All Movies Added');
-
-//         process.exit();
-
-//     } catch (error) {
-//         console.log(error.message);
-//         process.exit();
-//     }
-// }
-
-// seedProducers();
-// seedActors();
-// seedMovies();
+// seedCourses();
+seedSubjects();

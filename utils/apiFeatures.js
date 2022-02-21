@@ -52,15 +52,8 @@ class APIFeatures {
             }
         }
 
-
-        // queryCopy.releaseDate.gte.trim() ? queryCopy.releaseDate.gte = new Date(queryCopy.releaseDate.gte).toISOString(): null;
-        // queryCopy.releaseDate.lt.trim() ? queryCopy.releaseDate.lt = new Date(queryCopy.releaseDate.lt).toISOString(): null;
-
-        // queryCopy.releaseDate.gte = queryCopy.releaseDate ? new Date(queryCopy.releaseDate.gte).toISOString();
-        // queryCopy.releaseDate.lt = queryCopy.releaseDate ? new Date(queryCopy.releaseDate.lt).toISOString();
-
         let queryStr = JSON.stringify(queryCopy);
-        // console.log(queryStr);
+
         queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`);
 
         this.query = this.query.find(JSON.parse(queryStr));
