@@ -5,19 +5,35 @@ class APIFeatures {
     }
 
     search() {
-        const keyword = this.queryStr.keyword ? {
-            title: {
-                $regex: this.queryStr.keyword,
-                $options: 'i'
-            },
-            firstname: {
-                $regex: this.queryStr.keyword,
-                $options: 'i'
+        if (this.queryStr.keyword) {
+            const keywordArray = this.queryStr.keyword.split(' ').filter(keyword => keyword);
+            var multipleValues;
+            if (keywordArray[keywordArray.length - 1] && keywordArray.length > 1) {
+                multipleValues = keywordArray.join('|');
             }
-        } : {}
+        }
+        const keyword = this.queryStr.keyword ? [
+            {
+                firstname: {
+                    $regex: multipleValues ? multipleValues : this.queryStr.keyword.trim(),
+                    $options: 'i'
+                }
+            },
+            {
+                lastname: {
+                    $regex: multipleValues ? multipleValues : this.queryStr.keyword.trim(),
+                    $options: 'i'
+                }
+            },
+            {
+                email: {
+                    $regex: multipleValues ? multipleValues : this.queryStr.keyword.trim(),
+                    $options: 'i'
+                }
+            }
+        ] : {}
 
-        this.query = this.query.find({ ...keyword });
-
+        this.query = this.queryStr.keyword ? this.query.find({ $or: keyword }) : this.query.find({});
         return this;
     }
 
@@ -28,11 +44,6 @@ class APIFeatures {
         const removeFields = ['keyword', 'limit', 'page'];
 
         removeFields.forEach(el => delete queryCopy[el]);
-
-        // if (queryCopy.releaseDate.gte.trim() && queryCopy.releaseDate.lt.trim()) {
-        //     queryCopy.releaseDate.gte = new Date(queryCopy.releaseDate.gte).toISOString();
-        //     queryCopy.releaseDate.lt = new Date(queryCopy.releaseDate.lt).toISOString();
-        // } 
 
         if (queryCopy.releaseDate) {
             if (queryCopy.releaseDate.gte.trim()) {

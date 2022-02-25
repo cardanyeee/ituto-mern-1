@@ -19,6 +19,21 @@ exports.index = catchAsyncErrors(async (req, res, next) => {
     }
 });
 
+exports.courseSubjects = catchAsyncErrors(async (req, res, next) => {
+    try {
+        console.log(req.params);
+        const subjects = await Subject.find({ course: req.params.course });
+
+        res.status(200).json({
+            success: true,
+            subjects
+        })
+
+    } catch (error) {
+        next(error);
+    }
+});
+
 exports.add = catchAsyncErrors(async (req, res, next) => {
     try {
         const subject = await Subject.create(req.body);

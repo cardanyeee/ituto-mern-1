@@ -38,10 +38,22 @@ const TutorSchema = new Schema({
             }
         }
     ],
-    availability: {
-        type: String,
-        required: [true, "Please your availability"]
-    }
+    availability: [
+        {
+            day: {
+                type: String,
+                required: true
+            },
+            startTime: {
+                type: String,
+                required: true
+            },
+            endTime: {
+                type: String,
+                required: true
+            }
+        }
+    ]
 }, {
     timestamps: true
 });
