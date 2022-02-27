@@ -65,16 +65,13 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
 });
 
 const sendFile = catchAsyncErrors(async (req, res) => {
-    console.log(req);
     try {
-        const file = req.files[0]
+        const file = req.files[0];
         // apply filter
         // resize 
-        
-        const result = await uploadFile(file)
-
-        const description = req.body.description
-        res.send({ imagePath: `/images/${result.Key}` })
+        const result = await uploadFile(file);
+        await unlinkFile(file.path);
+        res.send({ imagePath: `/images/${result.Key}` });
     } catch (error) {
         console.log(error);
     }

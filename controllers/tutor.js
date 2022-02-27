@@ -79,17 +79,19 @@ exports.getCurrentTutor = catchAsyncErrors(async (req, res, next) => {
 
 exports.addSubject = catchAsyncErrors(async (req, res, next) => {
     try {
+        subjects = JSON.parse(req.body.subjectID);
+        
         const tutor = await Tutor.findOne({ userID: req.user._id });
-        console.log(req.body.subjectID);
-        if (!tutor) {
-            return next(new ErrorResponse("Tutor account does not exist", 404));
-        }
 
-        if (!req.body.subjectID) {
-            return next(new ErrorResponse("Please input a valid subject", 404));
-        }
+        subjects.forEach(subject => {
+            if (tutor.subjects.includes(subject)) {
+                console.log("hi");
+            } else {
+                tutor.subjects.push(subject);
+            }
+        });
 
-        tutor.subjects.push(req.body.subjectID);
+        console.log(tutor.subjects);
 
         await tutor.save({ validateBeforeSave: false });
 
