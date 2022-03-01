@@ -45,30 +45,12 @@ class APIFeatures {
 
         removeFields.forEach(el => delete queryCopy[el]);
 
-        if (queryCopy.releaseDate) {
-            if (queryCopy.releaseDate.gte.trim()) {
-                queryCopy.releaseDate.gte = new Date(queryCopy.releaseDate.gte).toISOString();
-            } else {
-                delete queryCopy.releaseDate.gte;
-            }
+        const subjects = queryCopy.subject ? queryCopy : {};
 
-            if (queryCopy.releaseDate.lt.trim()) {
-                queryCopy.releaseDate.lt = new Date(queryCopy.releaseDate.lt).toISOString();
-            } else {
-                delete queryCopy.releaseDate.lt;
-            }
+        console.log(subjects);
 
-            if (!queryCopy.releaseDate.gte && !queryCopy.releaseDate.lt) {
-                delete queryCopy.releaseDate;
-            }
-        }
-
-        let queryStr = JSON.stringify(queryCopy);
-
-        queryStr = queryStr.replace(/\b(gt|gte|lt|lte)\b/g, match => `$${match}`);
-
-        this.query = this.query.find(JSON.parse(queryStr));
-
+        this.query = this.query.find(subjects);
+        
         return this;
     }
 

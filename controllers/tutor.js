@@ -8,17 +8,32 @@ const APIFeatures = require('../utils/apiFeatures');
 exports.index = catchAsyncErrors(async (req, res, next) => {
     try {
 
-        const apiFeatures = new APIFeatures(User.find({"isTutor":"true"}), req.query)
+        const tutorsQuery = new APIFeatures(Tutor.find(), req.query)
+            .filter();
+
+        const tutors = await tutorsQuery.query;
+
+        const tutorIDArray = tutors.map(tutor => tutor.userID);
+
+        const usersQuery = new APIFeatures(User.find({ "_id" : { $in: tutorIDArray } }), req.query)
             .search();
 
-        const tutors = await apiFeatures.query;
+        const users = await usersQuery.query;
 
-        const filteredMoviesCount = tutors.length;
+        var tutorInfo = [];
 
+        users.map(user => {
+            tutors.map(tutor =>{
+                if (user._id.toString() === tutor.userID.toString()) {
+                    user.tutorAccount = tutor;
+                    tutorInfo.push(user);
+                }
+            });
+        });
+    
         res.status(200).json({
             success: true,
-            filteredMoviesCount,
-            tutors
+            tutorInfo
         });
     } catch (error) {
         next(error);
@@ -46,7 +61,7 @@ exports.signUpTutor = catchAsyncErrors(async (req, res, next) => {
         console.log(JSON.parse(req.body.availability));
         const newTutor = await Tutor.create({
             userID: req.user.id,
-            availability: JSON.parse(req.body.availability) 
+            availability: JSON.parse(req.body.availability)
         });
 
         console.log(newTutor);
@@ -80,7 +95,7 @@ exports.getCurrentTutor = catchAsyncErrors(async (req, res, next) => {
 exports.addSubject = catchAsyncErrors(async (req, res, next) => {
     try {
         subjects = JSON.parse(req.body.subjectID);
-        
+
         const tutor = await Tutor.findOne({ userID: req.user._id });
 
         subjects.forEach(subject => {

@@ -21,6 +21,10 @@ const TutorSchema = new Schema({
         type: Number,
         default: 0
     },
+    ratings: {
+        type: Number,
+        default: 0
+    },
     reviews: [
         {
             tutee: {
