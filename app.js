@@ -23,6 +23,7 @@ const MessageRouter = require('./routes/message');
 const ConversationRouter = require('./routes/conversation');
 const CourseRouter = require('./routes/course');
 const SubjectRouter = require('./routes/subject');
+const AssessmentRouter = require('./routes/assessment');
 
 app.use('/api', AuthRouter);
 app.use('/api', TutorRouter);
@@ -30,6 +31,7 @@ app.use('/api', MessageRouter);
 app.use('/api', ConversationRouter);
 app.use('/api', CourseRouter);
 app.use('/api', SubjectRouter);
+app.use('/api', AssessmentRouter);
 
 app.use(errorHandler);
 

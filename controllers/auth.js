@@ -16,7 +16,8 @@ const client = new OAuth2Client(process.env.MAILING_SERVICE_CLIENT_ID);
 //Register User
 exports.register = catchAsyncErrors(async (req, res, next) => {
     console.log("Registering");
-    // console.log(req.body);
+
+    console.log(req.body);
     // const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
     //     folder: 'movflix/avatars',
     //     width: 150,

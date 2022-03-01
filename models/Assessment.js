@@ -4,52 +4,54 @@ const validator = require('validator');
 const Schema = mongoose.Schema;
 
 const AssessmentSchema = new Schema({
-    tutor: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Tutor"
-    },
-    tutee: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User"
+    name: {
+        type: String,
+        required: true
     },
     questions: [{
-        question: {
-            type: String,
-            required: true
-        },
-        questionType: {
-            type: String,
-            required: [true, 'Please select question type'],
-            enum: {
-                values: [
-                    "Multiple Choice",
-                    "Enumeration",
-                    "Paragraph"
-                ],
-                message: 'Please select question type'
-            }
-        },
-        validAnswers: [{
-            answer: {
-                type: String,
-                required: true
-            }
-        }],
-        tuteeAnswer: {
-            type: String
+        type: Object,
+        contains: {
+            choices: { type: Array },
+            answer: String,
+            question: String
         }
     }],
+    answers: {
+        type: Array,
+        required: true
+    },
+    subject:
+    {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Subject"
+    },
+    tutor: {
+        type: Schema.Types.ObjectID,
+        ref: "Tutor",
+        required: true
+    },
+    tutee: {
+
+        type: Schema.Types.ObjectID,
+        ref: "User",
+        required: true
+
+    },
     score: {
         type: Number,
         default: 0
     },
-    total: {
-        type: Number,
-        default: 0
+    deleted: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true
-});
+
+
+}
+
+);
 
 const Assessment = mongoose.model('Assessment', AssessmentSchema);
 

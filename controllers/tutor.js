@@ -7,7 +7,8 @@ const APIFeatures = require('../utils/apiFeatures');
 
 exports.index = catchAsyncErrors(async (req, res, next) => {
     try {
-
+        
+// search before filter
         const tutorsQuery = new APIFeatures(Tutor.find(), req.query)
             .filter();
 
