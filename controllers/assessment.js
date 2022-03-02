@@ -39,10 +39,22 @@ exports.create = catchAsyncErrors(async (req, res, next) => {
 
 
 
-exports.find = catchAsyncErrors(async (req, res, next) => {
+exports.findTutorAssessments = catchAsyncErrors(async (req, res, next) => {
     try {
 
-        Assessment.find({ createdBy: req.params.id })
+        Assessment.find({ tutor: req.user._id })
+            .then(result => {
+                res.status(200).json(result);
+            })
+    } catch (error) {
+        next(new ErrorResponse('Quiz not found', 404));
+    }
+});
+
+exports.findTuteeAssessments = catchAsyncErrors(async (req, res, next) => {
+    try {
+
+        Assessment.find({ tutee: req.user._id })
             .then(result => {
                 res.status(200).json(result);
             })
@@ -66,8 +78,11 @@ exports.allExam = catchAsyncErrors(async (req, res, next) => {
 exports.selectedExam = catchAsyncErrors(async (req, res, next) => {
     try {
 
-        Assessment.findOne({ _id: req.params.id }).then(quiz => {
-            res.status(200).json({quiz});
+        Assessment.findOne({ _id: req.user._id }).then(assessment => {
+            res.status(200).json({
+                success: true,
+                assessment
+            });
         }).catch(er => {
             res.status(500).send(er);
         })

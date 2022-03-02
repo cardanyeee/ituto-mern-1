@@ -7,34 +7,47 @@ const APIFeatures = require('../utils/apiFeatures');
 
 exports.index = catchAsyncErrors(async (req, res, next) => {
     try {
-        
-// search before filter
-        const tutorsQuery = new APIFeatures(Tutor.find(), req.query)
-            .filter();
 
-        const tutors = await tutorsQuery.query;
 
-        const tutorIDArray = tutors.map(tutor => tutor.userID);
-
-        const usersQuery = new APIFeatures(User.find({ "_id" : { $in: tutorIDArray } }), req.query)
+        const usersQuery = new APIFeatures(User.find({"isTutor": true}), req.query)
             .search();
 
         const users = await usersQuery.query;
 
-        var tutorInfo = [];
+        const userIDArray = users.map(user => user._id);
 
-        users.map(user => {
-            tutors.map(tutor =>{
-                if (user._id.toString() === tutor.userID.toString()) {
-                    user.tutorAccount = tutor;
-                    tutorInfo.push(user);
-                }
-            });
-        });
-    
+        const tutorsQuery = new APIFeatures(Tutor.find({ "userID" : { $in: userIDArray } }), req.query)
+            .filter();
+
+        const tutors = await tutorsQuery.query;
+
+        // search before filter
+        // const tutorsQuery = new APIFeatures(Tutor.find(), req.query)
+        //     .filter();
+
+        // const tutors = await tutorsQuery.query;
+
+        // const tutorIDArray = tutors.map(tutor => tutor.userID);
+
+        // const usersQuery = new APIFeatures(User.find({ "_id" : { $in: tutorIDArray } }), req.query)
+        //     .search();
+
+        // const users = await usersQuery.query;
+
+        // var tutorInfo = [];
+
+        // users.map(user => {
+        //     tutors.map(tutor =>{
+        //         if (user._id.toString() === tutor.userID.toString()) {
+        //             user.tutorAccount = tutor;
+        //             tutorInfo.push(user);
+        //         }
+        //     });
+        // });
+
         res.status(200).json({
             success: true,
-            tutorInfo
+            tutors
         });
     } catch (error) {
         next(error);

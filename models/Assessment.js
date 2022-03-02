@@ -31,11 +31,9 @@ const AssessmentSchema = new Schema({
         required: true
     },
     tutee: {
-
         type: Schema.Types.ObjectID,
         ref: "User",
         required: true
-
     },
     score: {
         type: Number,

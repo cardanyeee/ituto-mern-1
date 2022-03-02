@@ -33,11 +33,18 @@ class APIFeatures {
             }
         ] : {}
 
+        console.log(keyword);
+
         this.query = this.queryStr.keyword ? this.query.find({ $or: keyword }) : this.query.find({});
         return this;
     }
 
     filter() {
+
+        if (this.queryStr.subjects) {
+            const subjectArray = this.queryStr.subjects.split('-').filter(subject => subject);
+
+        }
 
         const queryCopy = { ...this.queryStr };
 
@@ -45,12 +52,12 @@ class APIFeatures {
 
         removeFields.forEach(el => delete queryCopy[el]);
 
-        const subjects = queryCopy.subject ? queryCopy : {};
+        const subjects = subjectArray ? subjectArray : queryCopy.subjects;
 
-        console.log(subjects);
+        console.log(subjectArray);
 
-        this.query = this.query.find(subjects);
-        
+        this.query = subjectArray ? this.query.find({ subjects }) : this.query.find(subjects);
+
         return this;
     }
 

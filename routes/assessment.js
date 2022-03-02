@@ -3,7 +3,8 @@ const router = express.Router();
 
 const {
     create,
-    find,
+    findTutorAssessments,
+    findTuteeAssessments,
     allExam,
     selectedExam
 } = require('../controllers/assessment');
@@ -11,7 +12,8 @@ const {
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
 router.route("/assessment/create").post(create);
-router.route("/assessment/tutor/:id").get(find);
+router.route("/assessment/tutor").get(isAuthenticatedUser, findTutorAssessments);
+router.route("/assessment/tutee").get(isAuthenticatedUser, findTuteeAssessments);
 router.route("/assessments").get(allExam);
 router.route("/assessment/:id").get(selectedExam);
 
