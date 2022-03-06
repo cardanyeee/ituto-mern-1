@@ -9,14 +9,14 @@ exports.index = catchAsyncErrors(async (req, res, next) => {
     try {
 
 
-        const usersQuery = new APIFeatures(User.find({"isTutor": true}), req.query)
+        const usersQuery = new APIFeatures(User.find({ "isTutor": true }), req.query)
             .search();
 
         const users = await usersQuery.query;
 
         const userIDArray = users.map(user => user._id);
 
-        const tutorsQuery = new APIFeatures(Tutor.find({ "userID" : { $in: userIDArray } }), req.query)
+        const tutorsQuery = new APIFeatures(Tutor.find({ "userID": { $in: userIDArray } }).populate("userID"), req.query)
             .filter();
 
         const tutors = await tutorsQuery.query;

@@ -22,13 +22,18 @@ const accessConversation = catchAsyncErrors(async (req, res) => {
         .populate("users", "-password")
         .populate("latestMessage");
 
+    console.log(isConversation);
     isConversation = await User.populate(isConversation, {
         path: "latestMessage.sender",
         select: "firstname"
     });
 
     if (isConversation.length > 0) {
-        res.send(isConversation[0]);
+        res.status(200).json({
+            success: true,
+            conversation: isConversation[0]
+        });
+        // res.send(isConversation[0]);
     } else {
         var conversationData = {
             conversationName: "sender",
@@ -36,13 +41,17 @@ const accessConversation = catchAsyncErrors(async (req, res) => {
             users: [req.user._id, userId],
         };
 
+
         try {
             const createdConversation = await Conversation.create(conversationData);
             const FullConversation = await Conversation.findOne({ _id: createdConversation._id }).populate(
                 "users",
                 "-password"
             );
-            res.status(200).json(FullConversation);
+            res.status(200).json({
+                success: true,
+                conversation: FullConversation
+            });
         } catch (error) {
             res.status(400);
             throw new Error(error.message);
@@ -51,7 +60,7 @@ const accessConversation = catchAsyncErrors(async (req, res) => {
 });
 
 const fetchConversations = catchAsyncErrors(async (req, res) => {
-   
+
     try {
         Conversation.find({ users: { $elemMatch: { $eq: req.user._id } } })
             .populate("users", "-password -username -birthdate -gender -isTutor -enmail -role")
@@ -67,7 +76,7 @@ const fetchConversations = catchAsyncErrors(async (req, res) => {
                     results
                 });
             });
-            
+
     } catch (error) {
         res.status(400);
         throw new Error(error.message);

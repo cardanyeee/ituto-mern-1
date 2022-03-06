@@ -33,30 +33,29 @@ class APIFeatures {
             }
         ] : {}
 
-        console.log(keyword);
-
         this.query = this.queryStr.keyword ? this.query.find({ $or: keyword }) : this.query.find({});
         return this;
     }
 
     filter() {
+        var subjectArray;
 
         if (this.queryStr.subjects) {
-            const subjectArray = this.queryStr.subjects.split('-').filter(subject => subject);
-
+            subjectArray = this.queryStr.subjects.trim().split('-').filter(subject => subject);
         }
 
+        console.log(subjectArray);
         const queryCopy = { ...this.queryStr };
 
         const removeFields = ['keyword', 'limit', 'page'];
 
         removeFields.forEach(el => delete queryCopy[el]);
 
-        const subjects = subjectArray ? subjectArray : queryCopy.subjects;
+        const subjects = subjectArray ? subjectArray : [];
 
         console.log(subjectArray);
 
-        this.query = subjectArray ? this.query.find({ subjects }) : this.query.find(subjects);
+        this.query = subjectArray ? this.query.find({ "subjects": { $in: subjects } }) : this.query.find({});
 
         return this;
     }

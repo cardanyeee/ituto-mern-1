@@ -54,8 +54,22 @@ io.on("connection", (socket) => {
 
         if (!conversationID.users) return console.log("conversationID.users not defined");
 
-        io.to(conversationID._id).emit("received", message);
+        conversationID.users.forEach((user) => {
+            if (user == message.sender._id) return;
 
+            console.log(user, message.sender._id);
+            socket.to(user).emit("received", message);
+        });
+    });
+
+    socket.on("call", (call) => {
+        console.log(call);
+
+        call.users.forEach((user) => {
+            if (user == call.caller) return;
+            console.log(user);
+            socket.to(user).emit("ring");
+        });
     });
 });
 
