@@ -116,7 +116,7 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
 //Login User
 exports.login = catchAsyncErrors(async (req, res, next) => {
     console.log("login");
-    const { email, password } = req.body;
+    const { email, password, loggedInAs } = req.body;
 
     if (!email || !password) {
         return next(new ErrorResponse("Please enter a valid email and password", 400));
@@ -126,13 +126,22 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
         const user = await User.findOne({ email }).select("+password");
 
         if (!user) {
-            return next(new ErrorResponse("Invalid credentials", 404));
+            return next(new ErrorResponse("You don't have an account yet", 404));
+        }
+
+        const tutor = await Tutor.findOne({ userID: user._id });
+
+        console.log(tutor);
+        console.log(loggedInAs);
+
+        if (loggedInAs == "TUTOR" && !tutor) {
+            return next(new ErrorResponse("You don't have a tutor account", 404));
         }
 
         const isMatch = await user.matchPasswords(password);
 
         if (!isMatch) {
-            return next(new ErrorResponse("Invalid credentials", 401));
+            return next(new ErrorResponse("Wrong email or password", 401));
         }
 
         sendToken(user, 200, res);
@@ -266,9 +275,9 @@ exports.getCurrentUser = catchAsyncErrors(async (req, res, next) => {
         console.log('Getting');
 
         const user = await User.findById(req.user._id);
-    
+
         // console.log(user);
-    
+
         res.status(200).json({
             success: true,
             user

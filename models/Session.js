@@ -16,6 +16,10 @@ const SessionSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Subject"
     },
+    description: {
+        type: String,
+        required: true
+    },
     startDate: {
         type: Date,
         required: true
