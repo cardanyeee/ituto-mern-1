@@ -49,7 +49,7 @@ const Header = ({ history }) => {
 
 
                         {user ? (
-                            <ul className="nav navbar-nav ms-auto w-100 justify-content-end" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
+                            <ul className="nav navbar-nav ms-lg-4 justify-content-end" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
                                 <li className="nav-item dropdown">
                                     {/* data-bs-toggle="dropdown" */}
                                     <div className={dropdown === true ? "nav-link dropdown-toggle show" : "nav-link dropdown-toggle"} id="navbarDropdown" role="button" aria-expanded={dropdown} disabled>

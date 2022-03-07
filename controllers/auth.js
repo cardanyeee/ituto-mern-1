@@ -262,17 +262,20 @@ exports.resetpassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getCurrentUser = catchAsyncErrors(async (req, res, next) => {
-    console.log('Getting');
+    try {
+        console.log('Getting');
 
-    const user = await User.findById(req.user._id);
-
-    // console.log(user);
-
-    res.status(200).json({
-        success: true,
-        user
-    })
-
+        const user = await User.findById(req.user._id);
+    
+        // console.log(user);
+    
+        res.status(200).json({
+            success: true,
+            user
+        });
+    } catch (error) {
+        next(error);
+    }
 });
 
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {

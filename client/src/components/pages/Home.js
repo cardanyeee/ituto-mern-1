@@ -11,8 +11,8 @@ const Home = ({ match }) => {
     const alert = useAlert();
     const dispatch = useDispatch();
 
-    const { loading, movies, error } = useSelector(state => state.movies);
-    console.log(movies);
+    const { loading, error } = useSelector(state => state.movies);
+
     const keyword = match.params.keyword;
 
     useEffect(() => {
