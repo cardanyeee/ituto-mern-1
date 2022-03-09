@@ -26,7 +26,7 @@ const UserSchema = new Schema({
     },
     gender: {
         type: String,
-        required: [true, 'Please select your gender'],
+        // required: [true, 'Please select your gender'],
         enum: {
             values: [
                 "Male",

@@ -10,7 +10,7 @@ const SessionSchema = new Schema({
     },
     tutor: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Tutor"
+        ref: "User"
     },
     subject: {
         type: mongoose.Schema.Types.ObjectId,

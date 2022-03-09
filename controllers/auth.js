@@ -3,7 +3,7 @@ const Tutor = require('../models/Tutor');
 const ErrorResponse = require("../utils/errorResponse");
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
-const sendEmail = require('../utils/sendEmail');
+const forgotPasswordEmail = require('../utils/forgotPasswordEmail');
 const activateEmail = require('../utils/activateEmail');
 
 const crypto = require('crypto');
@@ -18,26 +18,10 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
     console.log("Registering");
 
     console.log(req.body);
-    // const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
-    //     folder: 'movflix/avatars',
-    //     width: 150,
-    //     crop: "scale"
-    // });
 
     const { firstname, lastname, username, birthdate, gender, course, email, password } = req.body;
 
     try {
-
-        // const user = await User.create({
-        //     firstname,
-        //     lastname,
-        //     username,
-        //     birthdate,
-        //     gender,
-        //     course,
-        //     email,
-        //     password
-        // });
 
         const newUser = {
             firstname,
@@ -50,26 +34,12 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
             password
         }
 
-        const user = await User.create({
-            firstname,
-            lastname,
-            username: email.split("@")[0],
-            birthdate,
-            gender,
-            course,
-            email,
-            password
-        });
+        const activation_token = createActivationToken(newUser);
 
+        const url = `http://localhost:3000/user/activate/${activation_token}`;
+        activateEmail(email, url, "Verify your email address");
 
-        sendToken(user, 200, res);
-
-        // const activation_token = createActivationToken(newUser);
-
-        // const url = `http://localhost:3000/api/auth/activate/${activation_token}`;
-        // activateEmail(email, url, "Verify your email address");
-
-        // res.json({msg: "Register Success! Please activate your email to start."});
+        res.json({ msg: "Register Success! Please activate your email to start." });
 
     } catch (error) {
         console.log(error);
@@ -81,9 +51,9 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
     try {
 
         const { activation_token } = req.body;
-        // console.log(activation_token);
-        const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
 
+        const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
+        console.log(user);
         const {
             firstname,
             lastname,
@@ -111,7 +81,7 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
     } catch (err) {
         return res.status(500).json({ msg: err });
     }
-})
+});
 
 //Login User
 exports.login = catchAsyncErrors(async (req, res, next) => {
@@ -130,9 +100,6 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
         }
 
         const tutor = await Tutor.findOne({ userID: user._id });
-
-        console.log(tutor);
-        console.log(loggedInAs);
 
         if (loggedInAs == "TUTOR" && !tutor) {
             return next(new ErrorResponse("You don't have a tutor account", 404));
@@ -205,30 +172,22 @@ exports.forgotpassword = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorResponse("User not found with this email.", 404));
     }
 
-    const resetToken = user.getResetPasswordToken();
-
-    await user.save({ validateBeforeSave: false });
-
-    const resetUrl = `${req.protocol}://${req.get('host')}/api/auth/password/reset/${resetToken}`;
-
-    const message = `<h1>You have requested a password reset</h1>
-    <p>Please make a put request to the following link:</p>
-    <a href=${resetUrl} clicktracking=off>${resetUrl}</a>`;
-
     try {
 
-        await sendEmail({
-            email: user.email,
-            subject: 'Movie App Password Reset',
-            message
-        });
+        const resetToken = user.getResetPasswordToken();
+
+        await user.save({ validateBeforeSave: false });
+
+        const url = `http://localhost:3000/reset/password/${resetToken}`
+
+        forgotPasswordEmail(req.body.email, url, "Reset your password")
 
         res.status(200).json({
             success: true,
             message: `Email has been sent successfully to ${user.email}`
         });
-
-    } catch (error) {
+    } catch (err) {
+        console.log(err);
         user.resetPasswordToken = undefined;
         user.resetPasswordExpire = undefined;
 
@@ -236,12 +195,13 @@ exports.forgotpassword = catchAsyncErrors(async (req, res, next) => {
 
         return next(new ErrorResponse(error.message, 500));
     }
-
 });
 
 exports.resetpassword = catchAsyncErrors(async (req, res, next) => {
 
-    const resetPasswordToken = crypto.createHash('sha256').update(req.params.token).digest('hex');
+    console.log(req.header("Authorization"));
+
+    const resetPasswordToken = crypto.createHash('sha256').update(req.header("Authorization")).digest('hex');
 
     try {
         const user = await User.findOne({
@@ -249,21 +209,27 @@ exports.resetpassword = catchAsyncErrors(async (req, res, next) => {
             resetPasswordExpire: { $gt: Date.now() }
         });
 
+    
+
         if (!user) {
             return next(new ErrorResponse("Your reset password token is invalid or has expired.", 400));
         }
-
-        if (req.body.password !== req.body.confirmPassword) {
+        console.log(req.body.cf_password);
+        if (req.body.password !== req.body.cf_password) {
             return next(new ErrorResponse("Password do not match.", 400));
         }
-
+        
         user.password = req.body.password;
         user.resetPasswordToken = undefined;
         user.resetPasswordExpire = undefined;
 
         await user.save();
 
-        sendToken(user, 200, res);
+        res.status(200).json({
+            success: true,
+            message: "Password successfully changed!"
+        });
+
     } catch (err) {
         next(err);
     }
@@ -272,7 +238,7 @@ exports.resetpassword = catchAsyncErrors(async (req, res, next) => {
 
 exports.getCurrentUser = catchAsyncErrors(async (req, res, next) => {
     try {
-        console.log('Getting');
+        // console.log('Getting');
 
         const user = await User.findById(req.user._id);
 
