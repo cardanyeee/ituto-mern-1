@@ -24,7 +24,7 @@ const Header = ({ history }) => {
     return (
         <Fragment>
 
-            <nav className="navbar navbar-expand-lg navbar-light bg-white px-0">
+            <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-white px-0">
                 <div className="container-xl">
 
                     <a className="navbar-brand" href="/#">
