@@ -178,7 +178,7 @@ exports.forgotpassword = catchAsyncErrors(async (req, res, next) => {
 
         await user.save({ validateBeforeSave: false });
 
-        const url = `http://localhost:3000/reset/password/${resetToken}`
+        const url = `http://mern-ituto.herokuapp.com/reset/password/${resetToken}`
 
         forgotPasswordEmail(req.body.email, url, "Reset your password")
 
