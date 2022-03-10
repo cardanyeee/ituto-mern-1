@@ -39,8 +39,6 @@ const Dashboard = () => {
         dispatch(allUsers());
     }, [dispatch]);
 
-
-
     return (
         <Fragment>
             {loading ? <Loader /> : (
