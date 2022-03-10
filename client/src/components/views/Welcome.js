@@ -12,7 +12,7 @@ const Welcome = () => {
                     <section>
                         <div fluid="" className="v-parallax" style={{ height: '600px' }}>
                             <div className="v-parallax__image-container">
-                                <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v960-ning-27-x_1.jpg?w=800&amp;dpr=1&amp;fit=default&amp;crop=default&amp;q=65&amp;vib=3&amp;con=3&amp;usm=15&amp;bg=F4F4F3&amp;ixlib=js-2.2.1&amp;s=7c7ada7218a7ff92c6efce16b75e2aea" alt="Parallax wallpaper" className="v-parallax__image"
+                                <img src="https://img.freepik.com/free-vector/green-tones-gradient-background_23-2148376167.jpg?size=626&amps;ext=jpg&amps;ga=GA1.2.1453380133.1641081600" alt="Parallax wallpaper" className="v-parallax__image"
                                 />
                             </div>
                             <div className="v-parallax__content">
@@ -27,7 +27,7 @@ const Welcome = () => {
                                         />
 
 
-                                        <p className="display-1">In partial fullfilment<br />for Capstone 2 all goods</p>
+                                        <p className="display-1">In partial fullfilment<br />for Capstone 2 ITUTO HEROKU</p>
 
                                     </div>
                                 </div>
@@ -119,7 +119,7 @@ const Welcome = () => {
 
 
                         <div className="v-parallax hidden-sm-and-down" style={{ height: "200px" }}>
-                            <div className="v-parallax__image-container"><img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v960-ning-27-x_1.jpg?w=800&amp;dpr=1&amp;fit=default&amp;crop=default&amp;q=65&amp;vib=3&amp;con=3&amp;usm=15&amp;bg=F4F4F3&amp;ixlib=js-2.2.1&amp;s=7c7ada7218a7ff92c6efce16b75e2aea" alt="" className="v-parallax__image"
+                            <div className="v-parallax__image-container"><img src="https://img.freepik.com/free-vector/green-tones-gradient-background_23-2148376167.jpg?size=626&amps;ext=jpg&amps;ga=GA1.2.1453380133.1641081600" alt="" className="v-parallax__image"
                                 style={{ display: "block", opacity: "1", transform: "translate('-50%', '305px')" }} /></div>
                             <div className="v-parallax__content"></div>
                         </div>
@@ -182,7 +182,7 @@ const Welcome = () => {
                         </div>
 
                         <div className="v-parallax hidden-sm-and-down" style={{ height: "200px" }}>
-                            <div className="v-parallax__image-container"><img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v960-ning-27-x_1.jpg?w=800&amp;dpr=1&amp;fit=default&amp;crop=default&amp;q=65&amp;vib=3&amp;con=3&amp;usm=15&amp;bg=F4F4F3&amp;ixlib=js-2.2.1&amp;s=7c7ada7218a7ff92c6efce16b75e2aea" alt="" className="v-parallax__image"
+                            <div className="v-parallax__image-container"><img src="https://img.freepik.com/free-vector/green-tones-gradient-background_23-2148376167.jpg?size=626&amps;ext=jpg&amps;ga=GA1.2.1453380133.1641081600" alt="" className="v-parallax__image"
                                 style={{ display: "block", opacity: "1", transform: "translate('-50%', '305px')" }} /></div>
                             <div className="v-parallax__content"></div>
                         </div>
