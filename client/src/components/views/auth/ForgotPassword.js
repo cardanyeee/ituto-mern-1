@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import MetaData from '../../layout/main/MetaData';
 import Loader from '../../layout/main/Loader';
 
+// import '../pages/login.css';
 
 const ForgotPassword = ({ history }) => {
 
@@ -52,7 +53,7 @@ const ForgotPassword = ({ history }) => {
 
                             <div id="containerLogin">
                                 <div className="row align-items-center justify-content-center bg-app-primary-light" id="adjustRow">
-                                    <div className="col-md-7" id="Align">
+                                    <div className="col-md-7">
                                         <h1 className="fs-2">Forgot your <strong>Password?</strong></h1>
                                         {/* <p className="ForgotPassword-subheading fs-5 fw-light mb-4">Discover students who are interested in sharing their attained skills and knowledge.</p> */}
 
