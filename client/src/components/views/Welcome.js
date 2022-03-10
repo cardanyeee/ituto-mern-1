@@ -27,7 +27,7 @@ const Welcome = () => {
                                         />
 
 
-                                        <p className="display-1">In partial fullfilment<br />for Capstone 2 try</p>
+                                        <p className="display-1">In partial fullfilment<br />for Capstone 2 all goods</p>
 
                                     </div>
                                 </div>
