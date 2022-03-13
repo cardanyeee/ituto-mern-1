@@ -12,7 +12,7 @@ function ActivationEmail() {
         if (activation_token) {
             const activationEmail = async () => {
                 try {
-                    await axios.post('/api/auth/activate', { activation_token })
+                    await axios.post('/api/tutor/activate', { activation_token })
                     // setSuccess(res.data.msg)
                 } catch (err) {
                     // err.response.data.msg && setErr(err.response.data.msg)

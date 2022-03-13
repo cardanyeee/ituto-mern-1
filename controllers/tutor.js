@@ -4,6 +4,9 @@ const User = require('../models/User');
 const ErrorResponse = require('../utils/errorResponse');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures');
+const activateEmail = require('../utils/activateEmail');
+
+const jwt = require('jsonwebtoken');
 
 exports.index = catchAsyncErrors(async (req, res, next) => {
     try {
@@ -56,35 +59,97 @@ exports.index = catchAsyncErrors(async (req, res, next) => {
 
 exports.signUpTutor = catchAsyncErrors(async (req, res, next) => {
 
+    console.log(req.body);
+
+    const { firstname, lastname, birthdate, gender, course, email, password, availability, subjectID } = req.body;
+
     try {
 
-        const tutor = await Tutor.find({ userID: req.user._id });
-        const user = await User.findById(req.user._id);
-
-        const { availability } = req.body;
-
-        if (!tutor) {
-            return next(new ErrorResponse("User already has a tutor account", 409));
+        newTutor = {
+            availability,
+            subjectID,
+            user: {
+                firstname,
+                lastname,
+                birthdate,
+                gender,
+                course,
+                email,
+                password
+            }
         }
 
-        if (!user) {
-            return next(new ErrorResponse("User does not exist", 404));
-        }
+        const activation_token = createActivationToken(newTutor);
 
-        user.isTutor = true;
-        console.log(JSON.parse(req.body.availability));
-        const newTutor = await Tutor.create({
-            userID: req.user.id,
-            availability: JSON.parse(req.body.availability)
-        });
-
-        console.log(newTutor);
-
-        await user.save();
+        const url = `http://localhost:3000/tutor/activate/${activation_token}`;
+        activateEmail(email, url, "Verify your email address");
 
         res.status(200).json({
             success: true,
-            newTutor
+            msg: "Register Success! Please check your email to activate your account"
+        });
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
+exports.activateTutor = catchAsyncErrors(async (req, res, next) => {
+
+    console.log(req.body);
+
+    try {
+
+        const { activation_token } = req.body;
+        console.log(activation_token);
+
+        const newTutor = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
+
+        const {
+            firstname,
+            lastname,
+            birthdate,
+            gender,
+            course,
+            email,
+            password
+        } = newTutor.user;
+
+        const user = await User.create({
+            firstname,
+            lastname,
+            username: email.split("@")[0],
+            birthdate,
+            gender,
+            course,
+            email,
+            password,
+            isTutor: true
+        });
+
+
+        const tutor = await Tutor.create({
+            userID: user._id,
+            availability: JSON.parse(newTutor.availability)
+        });
+
+        subjects = JSON.parse(newTutor.subjectID);
+
+        subjects.forEach(subject => {
+            if (tutor.subjects.includes(subject)) {
+                console.log("hi");
+            } else {
+                tutor.subjects.push(subject);
+            }
+        });
+
+        console.log(tutor);
+
+        await tutor.save({ validateBeforeSave: false });
+
+        res.status(200).json({
+            success: true,
+            tutor
         });
     } catch (error) {
         next(error);
@@ -104,7 +169,6 @@ exports.getCurrentTutor = catchAsyncErrors(async (req, res, next) => {
     })
 
 });
-
 
 exports.addSubject = catchAsyncErrors(async (req, res, next) => {
     try {
@@ -133,3 +197,26 @@ exports.addSubject = catchAsyncErrors(async (req, res, next) => {
     }
 });
 
+exports.findTutor = catchAsyncErrors(async (req, res, next) => {
+    try {
+        const tutor = await Tutor.findById(req.params.id)
+            .populate({
+                path: 'userID',
+                populate: {
+                    path: 'course'
+                }
+            })
+            .populate('subjects');
+
+        res.status(200).json({
+            success: true,
+            tutor
+        });
+    } catch (error) {
+        next(new ErrorResponse('Tutor not found', 404));
+    }
+});
+
+const createActivationToken = (payload) => {
+    return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, { expiresIn: '5m' })
+}

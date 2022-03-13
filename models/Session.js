@@ -18,7 +18,14 @@ const SessionSchema = new Schema({
     },
     description: {
         type: String,
+        required: [true, "Please enter a description"]
+    },
+    requestDate: {
+        type: Date,
         required: true
+    },
+    acceptDate: {
+        type: Date
     },
     startDate: {
         type: Date,
@@ -26,6 +33,17 @@ const SessionSchema = new Schema({
     },
     endDate: {
         type: Date
+    },
+    status: {
+        type: String,
+        enum: {
+            values: [
+                "Request",
+                "Ongoing",
+                "Done"
+            ]
+        },
+        default: "Request"
     },
     assessments: [{
         type: mongoose.Schema.Types.ObjectId,

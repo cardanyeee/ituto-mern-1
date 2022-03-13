@@ -6,13 +6,15 @@ const {
     findTutorSession,
     findTuteeSession,
     allSession,
-    selectedSession
+    selectedSession,
+    requestSession
 
 } = require('../controllers/session');
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
-router.route("/session/create").post(createSession);
+router.route("/session/create").post(isAuthenticatedUser, createSession);
+router.route("/session/request").post(isAuthenticatedUser, requestSession);
 router.route("/sessions/tutor").get(isAuthenticatedUser, findTutorSession);
 router.route("/sessions/tutee").get(isAuthenticatedUser, findTuteeSession);
 router.route("/sessions").get(allSession);

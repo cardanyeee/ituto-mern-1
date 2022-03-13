@@ -17,6 +17,7 @@ import ProtectedRoute from './components/route/ProtectedRoute';
 import Login from './components/views/auth/Login';
 import Register from './components/views/auth/Register';
 import ActivationEmail from './components/views/auth/ActivationEmail';
+import TutorActivationEmail from './components/views/auth/TutorActivationEmail';
 import ForgotPassword from './components/views/auth/ForgotPassword';
 import ResetPassword from './components/views/auth/ResetPassword';
 import Profile from './components/views/Profile';
@@ -50,6 +51,7 @@ const App = () => {
 					<Route path="/forgot/password" exact component={ForgotPassword} />
 					<Route path="/reset/password/:accesstoken" exact component={ResetPassword} />
 					<Route path="/user/activate/:activation_token" exact component={ActivationEmail} />
+					<Route path="/tutor/activate/:activation_token" exact component={TutorActivationEmail} />
 					<ProtectedRoute path="/me" component={Profile} exact />
 
 					<ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />

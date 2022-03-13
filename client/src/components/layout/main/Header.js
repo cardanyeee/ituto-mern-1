@@ -70,7 +70,7 @@ const Header = ({ history }) => {
                         ) : !loading &&
 
                         <>
-                            <div className="navbar-nav ms-lg-4">
+                            <div className="navbar-nav">
                                 <a className="nav-item nav-link" href="/login">Sign in</a>
                             </div>
                             <div className="d-flex align-items-lg-center mt-3 mt-lg-0">

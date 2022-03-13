@@ -22,7 +22,7 @@ const accessConversation = catchAsyncErrors(async (req, res) => {
         .populate("users", "-password")
         .populate("latestMessage");
 
-    console.log(isConversation);
+    // console.log(isConversation);
     isConversation = await User.populate(isConversation, {
         path: "latestMessage.sender",
         select: "firstname"

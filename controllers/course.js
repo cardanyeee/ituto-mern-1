@@ -12,7 +12,7 @@ exports.index = catchAsyncErrors(async (req, res, next) => {
         res.status(200).json({
             success: true,
             courses
-        })
+        });
 
     } catch (error) {
         next(error);

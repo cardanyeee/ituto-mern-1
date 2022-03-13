@@ -1,9 +1,46 @@
 const Session = require('../models/Session');
+const Tutor = require('../models/Tutor');
 
 const ErrorResponse = require('../utils/errorResponse');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures');
 
+exports.requestSession = catchAsyncErrors(async (req, res, next) => {
+    try {
+
+        const tutee = req.user._id;
+        const requestDate = convertUTCDateToLocalDate(Date.now());
+
+        const { tutor, subject, description, startDate } = req.body;
+
+        const tutorObject = await Tutor.findOne({userID: tutor});
+
+        console.log(tutorObject.subjects);
+        
+        if (!tutorObject.subjects.includes(subject)) {
+            return next(new ErrorResponse("Subject not offered by tutor.", 404));
+        }
+
+        let session = new Session({
+            tutor,
+            tutee,
+            subject,
+            description,
+            requestDate,
+            startDate
+        });
+
+        session.save();
+
+        res.status(200).json({
+            success: true,
+            session
+        });
+
+    } catch (error) {
+        next(error);
+    }
+});
 
 exports.createSession = catchAsyncErrors(async (req, res, next) => {
     try {
@@ -85,3 +122,19 @@ exports.selectedSession = catchAsyncErrors(async (req, res, next) => {
         next(new ErrorResponse('Session not found', 404));
     }
 });
+
+function convertUTCDateToLocalDate(date) {
+
+    date = new Date(date);
+
+    var localOffset = date.getTimezoneOffset() * 60000;
+
+    var localTime = date.getTime();
+
+    date = localTime - localOffset;
+
+    //date = new Date(date);
+
+    return date;
+
+};

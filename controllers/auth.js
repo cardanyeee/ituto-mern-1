@@ -19,14 +19,13 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
 
     console.log(req.body);
 
-    const { firstname, lastname, username, birthdate, gender, course, email, password } = req.body;
+    const { firstname, lastname, birthdate, gender, course, email, password } = req.body;
 
     try {
 
         const newUser = {
             firstname,
             lastname,
-            username,
             birthdate,
             gender,
             course,
@@ -39,7 +38,10 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
         const url = `http://localhost:3000/user/activate/${activation_token}`;
         activateEmail(email, url, "Verify your email address");
 
-        res.json({ msg: "Register Success! Please activate your email to start." });
+        res.status(200).json({
+            success: true,
+            msg: "Register Success! Please check your email to activate your account"
+        });
 
     } catch (error) {
         console.log(error);
@@ -51,13 +53,13 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
     try {
 
         const { activation_token } = req.body;
+        console.log(activation_token);
 
         const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
         console.log(user);
         const {
             firstname,
             lastname,
-            username,
             birthdate,
             gender,
             course,
@@ -68,7 +70,7 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
         const newUser = await User.create({
             firstname,
             lastname,
-            username,
+            username: email.split("@")[0],
             birthdate,
             gender,
             course,
@@ -79,7 +81,8 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
         res.json({ msg: "Account has been activated!" });
 
     } catch (err) {
-        return res.status(500).json({ msg: err });
+        console.log(err);
+        next(error);
     }
 });
 
@@ -120,49 +123,56 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
 
 //Google Log in User User
 exports.googleLogin = catchAsyncErrors(async (req, res, next) => {
+    try {
+        const { tokenId, birthdate, gender, course } = req.body;
 
-    const { tokenId } = req.body;
+        const response = await client.verifyIdToken({ idToken: tokenId, requiredAudience: "924372861452-4fl88545df8le5tu7e6f1tlgclt2cp78.apps.googleusercontent.com" });
+        const { given_name, family_name, email_verified, name, email, picture } = response.payload;
+        // console.log(response);
+        if (email_verified) {
+    
+            try {
+                const user = await User.findOne({ email });
+    
+                if (user) {
+                    sendToken(user, 200, res);
+                } else {
+    
+                    try {
+                        const firstname = given_name;
+                        const lastname = family_name;
+                        const username = name;
+                        const password = email + process.env.JWT_SECRET;
+                        const newUser = await User.create({
+                            firstname,
+                            lastname,
+                            birthdate,
+                            gender,
+                            course,
+                            username,
+                            email,
+                            password,
+                            avatar: {
+                                public_id: username,
+                                url: picture
+                            }
+                        });
 
-    const response = await client.verifyIdToken({ idToken: tokenId, audience: "924372861452-4fl88545df8le5tu7e6f1tlgclt2cp78.apps.googleusercontent.com" });
-    const { given_name, family_name, email_verified, name, email, picture } = response.payload;
-    // console.log(response);
-    if (email_verified) {
-
-        try {
-            const user = await User.findOne({ email });
-
-            if (user) {
-                sendToken(user, 200, res);
-            } else {
-
-                try {
-                    const firstname = given_name;
-                    const lastname = family_name;
-                    const username = name;
-                    const password = email + process.env.JWT_SECRET;
-                    const newUser = await User.create({
-                        firstname,
-                        lastname,
-                        username,
-                        email,
-                        password,
-                        avatar: {
-                            public_id: username,
-                            url: picture
-                        }
-                    });
-
-                    sendToken(newUser, 200, res);
-                } catch (error) {
-                    next(error);
+                        console.log(newUser);
+    
+                        sendToken(newUser, 200, res);
+                    } catch (error) {
+                        next(error);
+                    }
                 }
+            } catch (error) {
+                return next(new ErrorResponse("Something went wrong", 400));
             }
-        } catch (error) {
-            return next(new ErrorResponse("Something went wrong", 400));
+    
         }
-
+    } catch (error) {
+        console.log(error);
     }
-
 });
 
 exports.forgotpassword = catchAsyncErrors(async (req, res, next) => {
