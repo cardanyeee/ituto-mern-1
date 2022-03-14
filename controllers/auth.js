@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const Tutor = require('../models/Tutor');
+const Sub = require('../models/Subject');
 const ErrorResponse = require("../utils/errorResponse");
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
@@ -12,6 +13,39 @@ const cloudinary = require('cloudinary');
 const { OAuth2Client } = require('google-auth-library');
 const client = new OAuth2Client(process.env.MAILING_SERVICE_CLIENT_ID);
 
+//dashboard
+
+exports.dashboard = catchAsyncErrors(async (req, res, next) => {
+    const users = await User.find();
+    const tutors = await Tutor.find();
+    const subs = await Sub.find();
+    var male = 0;
+    var female = 0;
+
+    var other = 0;
+    var pnts = 0;
+
+
+    users.forEach(value => {
+        if(value.gender == "Male"){
+            male=male+1;
+        }else if(value.gender == "Female"){
+         female=female+1;
+        }else if(value.gender == "Others"){
+        other=other+1;
+        }else{
+         pnts=pnts+1;
+        }
+    })
+
+    res.status(200).json({
+        success: true,
+        male,female,other,pnts,
+        users,
+        tutors,
+        subs
+    })
+}); 
 
 //Register User
 exports.register = catchAsyncErrors(async (req, res, next) => {
@@ -248,7 +282,7 @@ exports.resetpassword = catchAsyncErrors(async (req, res, next) => {
 
 exports.getCurrentUser = catchAsyncErrors(async (req, res, next) => {
     try {
-        // console.log('Getting');
+        console.log('Getting');
 
         const user = await User.findById(req.user._id);
 

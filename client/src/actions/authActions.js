@@ -20,7 +20,7 @@ import {
 
 export const login = (email, password) => async (dispatch) => {
     try {
-
+        
         dispatch({ type: LOGIN_REQUEST });
 
         const config = {
@@ -30,7 +30,7 @@ export const login = (email, password) => async (dispatch) => {
         }
 
         const { data } = await axios.post('/api/auth/login', { email, password }, config);
-
+        
         dispatch({
             type: LOGIN_SUCCESS,
             payload: data.user
@@ -46,7 +46,7 @@ export const login = (email, password) => async (dispatch) => {
 
 export const googleLogin = (res) => async (dispatch) => {
     try {
-
+        
         dispatch({ type: LOGIN_REQUEST });
 
         const config = {
@@ -56,7 +56,7 @@ export const googleLogin = (res) => async (dispatch) => {
         }
 
         const { data } = await axios.post('/api/auth/google/login', { tokenId: res.tokenId }, config);
-
+        
         dispatch({
             type: LOGIN_SUCCESS,
             payload: data.user
@@ -77,15 +77,11 @@ export const register = (userData) => async (dispatch) => {
 
         const config = {
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'multipart/form-data'
             }
         }
 
-        var object = {};
-        userData.forEach((value, key) => object[key] = value);
-        var json = JSON.stringify(object);
-
-        const { data } = await axios.post('/api/auth/register', json, config);
+        const { data } = await axios.post('/api/auth/register', userData, config);
 
         dispatch({
             type: REGISTER_SUCCESS,
