@@ -7,7 +7,7 @@ import AdminHeader from '../../layout/admin/AdminHeader';
 import MetaData from '../../layout/main/MetaData';
 import Loader from '../../layout/main/Loader';
 
-import { allUsers } from '../../../actions/authActions';
+import { getData } from '../../../actions/all_actions';
 
 import {
     Chart as ChartJS,
@@ -33,10 +33,10 @@ const Dashboard = () => {
 
     const dispatch = useDispatch();
 
-    const { users, loading } = useSelector(state => state.allUsers);
+    const { loading, users, subs, tutors, male, female, other, pnts } = useSelector(state => state.datas);
 
     useEffect(() => {
-        dispatch(allUsers());
+        dispatch(getData());
     }, [dispatch]);
 
     return (
@@ -67,6 +67,8 @@ const Dashboard = () => {
                                         </div>
                                     </div>
                                 </div> */}
+
+                                    
                                 <div className="row pr-4 pt-4">
                                     <div className="col-xl-4 mb-3">
                                         <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
@@ -78,7 +80,7 @@ const Dashboard = () => {
 
 
 
-                                    {/* <div className="col-xl-4 mb-3">
+                                    <div className="col-xl-4 mb-3">
                                         <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
                                             <div className="card-body">
                                                 <div className="text-center card-font-size">Subjects<br /><b>{subs && subs.length}</b></div>
@@ -93,11 +95,11 @@ const Dashboard = () => {
                                                 <div className="text-center card-font-size">Tutors<br /> <b>{tutors && tutors.length}</b></div>
                                             </div>
                                         </div>
-                                    </div> */}
+                                    </div>
 
                                 </div>
 
-                                {/* <div className="row pr-4 pt-4">
+                                <div className="row pr-4 pt-4">
                                     <div className="col-xl-3 mb-3">
                                         <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
                                             <div className="card-body">
@@ -126,7 +128,7 @@ const Dashboard = () => {
                                             </div>
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
 
                             </div>
 

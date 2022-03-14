@@ -25,6 +25,17 @@ import Home from './components/views/Home';
 
 import Dashboard from './components/views/admin/Dashboard';
 
+
+import CourseList from './components/views/admin/course/CourseList';
+import SubjectList from './components/views/admin/subject/SubjectList';
+
+import NewCourse from './components/views/admin/course/NewCourse';
+import NewSubject from './components/views/admin/subject/NewSubject';
+
+import UpdateCourse from './components/views/admin/course/UpdateCourse';
+import UpdateSubject from './components/views/admin/subject/UpdateSubject';
+
+
 library.add(fas);
 library.add(far);
 library.add(fab);
@@ -41,7 +52,7 @@ const App = () => {
 
 		<Router>
 			<div className="App">
-				<div className={path === "dashboard" ? "home-section" : "container-fluid p-0"}>
+				<div className="container-fluid p-0">
 					<Route path="/" component={Home} exact />
 					<Route path="/movies/search/:keyword" component={Home} />
 
@@ -53,6 +64,22 @@ const App = () => {
 					<ProtectedRoute path="/me" component={Profile} exact />
 
 					<ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />
+
+
+					<ProtectedRoute path="/dashboard/courses" isAdmin={true} component={CourseList} exact />
+					<ProtectedRoute path="/dashboard/subjects" isAdmin={true} component={SubjectList} exact />
+
+
+
+					<ProtectedRoute path="/dashboard/course/add" isAdmin={true} component={NewCourse} exact />
+					<ProtectedRoute path="/dashboard/subject/add" isAdmin={true} component={NewSubject} exact />
+
+
+					<ProtectedRoute path="/dashboard/course/update/:id" isAdmin={true} component={UpdateCourse} exact />
+					<ProtectedRoute path="/dashboard/subject/update/:id" isAdmin={true} component={UpdateSubject} exact />
+
+
+
 				</div>
 
 			</div>

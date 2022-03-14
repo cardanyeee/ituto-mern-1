@@ -4,14 +4,14 @@ import { useAlert } from 'react-alert';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import Loader from '../main/Loader';
+import Loader from '../../layout/main/Loader';
 import Sidebar from './Sidebar';
 
-import './Sidebar.css';
+import '../../layout/admin/Sidebar.css';
 
 import { logout } from '../../../actions/authActions';
 
-const AdminHeader = (props) => {
+const   AdminHeader = (props) => {
 
     const [dropdown, setDropdown] = useState("");
     const [sidebar, setSidebar] = useState(false);

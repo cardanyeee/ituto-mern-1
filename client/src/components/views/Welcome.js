@@ -27,7 +27,7 @@ const Welcome = () => {
                                         />
 
 
-                                        <p className="display-1">In partial fullfilment<br />for Capstone 2 wag na saan mag crash yung forgot hahaha</p>
+                                        <p className="display-1">In partial fullfilment<br />for Capstone 2</p>
 
                                     </div>
                                 </div>
@@ -76,9 +76,12 @@ const Welcome = () => {
                             <div className="row align-start">
                                 <div className="col-md-4 col-12">
                                     <div className="elevation-0 transparent v-card v-sheet theme--light" id="elevation-0" >
-                                        <div className="v-card__text text-center"><i aria-hidden="true"
+                                        <div className="v-card__text text-center">
+                                            {/* <i aria-hidden="true"
                                             className="v-icon notranslate --text text--lighten-2 fab fa-github theme--light"
-                                            style={{ fontSize: "40px" }}></i></div>
+                                            style={{ fontSize: "40px" }}>
+                                                </i> */}
+                                                </div>
                                         <div primary-title="" className="v-card__title layout justify-center">
                                             <div className="display-1 text-center">Where can I grab it?</div>
                                         </div>
@@ -91,9 +94,12 @@ const Welcome = () => {
                                 </div>
                                 <div className="col-md-4 col-12">
                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                        <div className="v-card__text text-center"><i aria-hidden="true"
+                                        <div className="v-card__text text-center">
+                                            {/* <i aria-hidden="true"
                                             className="v-icon notranslate --text text--lighten-2 fas fa-code theme--light"
-                                            style={{ fontsize: "40px" }}></i></div>
+                                            style={{ fontsize: "40px" }}>
+                                                </i> */}
+                                                </div>
                                         <div primary-title="" className="v-card__title layout justify-center">
                                             <div className="display-1 text-center">How can I contribute?</div>
                                         </div>
@@ -102,9 +108,13 @@ const Welcome = () => {
                                 </div>
                                 <div className="col-md-4 col-12">
                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                        <div className="v-card__text text-center"><i aria-hidden="true"
+                                        <div className="v-card__text text-center">
+                                            {/* <i aria-hidden="true"
                                             className="v-icon notranslate --text text--lighten-2 fas fa-gamepad theme--light"
-                                            style={{ fontsize: "40px" }}></i></div>
+                                            style={{ fontsize: "40px" }}>
+                                                </i> */}
+                                                
+                                                </div>
                                         <div primary-title="" className="v-card__title layout justify-center">
                                             <div className="display-1 text-center">How well does it work?</div>
                                         </div>
@@ -132,13 +142,18 @@ const Welcome = () => {
                                     <div className="row align-start">
                                         <div className="col-md-4 col-12">
                                             <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                <div className="v-card__text text-center"><i aria-hidden="true"
+                                                <div className="v-card__text text-center">
+                                                    {/* <i aria-hidden="true"
                                                     className="v-icon notranslate --text text--lighten-2 mr-4 fab fa-windows theme--light"
-                                                    style={{ fontsize: "40px" }}></i><i aria-hidden="true"
+                                                    style={{ fontsize: "40px" }}>
+                                                        </i> */}
+                                                    {/* <i aria-hidden="true"
                                                         className="v-icon notranslate --text text--lighten-2 mr-4 fab fa-apple theme--light"
-                                                        style={{ fontsize: "40px" }}></i><i aria-hidden="true"
+                                                        style={{ fontsize: "40px" }}></i>
+                                                        <i aria-hidden="true"
                                                             className="v-icon notranslate --text text--lighten-2 fab fa-linux theme--light"
-                                                            style={{ fontsize: "40px" }}></i></div>
+                                                            style={{ fontsize: "40px" }}></i> */}
+                                                            </div>
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <div className="display-1 text-center">Platforms</div>
                                                 </div>
@@ -148,9 +163,12 @@ const Welcome = () => {
                                         </div>
                                         <div className="col-md-4 col-12">
                                             <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                <div className="v-card__text text-center"><i aria-hidden="true"
+                                                <div className="v-card__text text-center">
+                                                    {/* <i aria-hidden="true"
                                                     className="v-icon notranslate --text text--lighten-2 fab fa-discord theme--light"
-                                                    style={{ fontsize: "40px" }}></i></div>
+                                                    style={{ fontsize: "40px" }}>
+                                                        </i> */}
+                                                        </div>
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <div className="display-1 text-center">Discord</div>
                                                 </div>

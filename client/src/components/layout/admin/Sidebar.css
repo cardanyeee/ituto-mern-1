@@ -19,8 +19,7 @@
 .sidebar .logo-details {
     width: 100%;
     display: flex;
-    align-items: center;
-    padding-top: 0.5em;
+    align-items: center;        
     padding-bottom: 0.5em;
 }
 
@@ -261,7 +260,7 @@
 }
 
 .sidebar.close~.home-section {
-    left: 78px;
+    left: 85px;
     width: calc(100% - 78px);
 }
 
@@ -275,3 +274,16 @@
         display: none;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+

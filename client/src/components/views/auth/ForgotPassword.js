@@ -50,24 +50,22 @@ const ForgotPassword = ({ history }) => {
                         </div>
                         <div className="contents order-2 order-md-1 bg-app-primary-light">
 
-                            <div id="containerLogin">
-                                <div className="row align-items-center justify-content-center bg-app-primary-light" id="adjustRow">
-                                    <div className="col-md-7" id="Align">
-                                        <h1 className="fs-2">Forgot your <strong>Password?</strong></h1>
-                                        {/* <p className="ForgotPassword-subheading fs-5 fw-light mb-4">Discover students who are interested in sharing their attained skills and knowledge.</p> */}
+                            <div className="row align-items-center justify-content-center bg-app-primary-light" id="adjustRow">
+                                <div className="col-md-7" id="Align">
+                                    <h3 className="fs-1">Forgot your <strong>Password?</strong></h3>
+                                    {/* <p className="ForgotPassword-subheading fs-5 fw-light mb-4">Discover students who are interested in sharing their attained skills and knowledge.</p> */}
 
-                                        <div className="form-floating mb-3">
-                                            <input type="email" className="form-control" id="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                                            {/* <input type="email" name="email" id="email" value={email} onChange={handleChangeInput} /> */}
+                                    <div className="form-floating mb-3">
+                                        <input type="email" className="form-control" id="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                                        {/* <input type="email" name="email" id="email" value={email} onChange={handleChangeInput} /> */}
 
-                                            <label htmlFor="password">Enter your Email Address</label>
-                                        </div>
-                                        <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={forgotPassword}>Verify Email</button>
-
-
-                                        <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-secondary" to='/register'>Register Here</Link></p>
-
+                                        <label htmlFor="password">Enter your Email Address</label>
                                     </div>
+                                    <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={forgotPassword}>Verify Email</button>
+
+
+                                    <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-secondary" to='/register'>Register Here</Link></p>
+
                                 </div>
                             </div>
                         </div>

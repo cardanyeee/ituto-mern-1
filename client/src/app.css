@@ -1,5 +1,5 @@
 html, body, .App {
- background-color: #F6F7FC;
+    background-color: #F6F7FC;
 }
 
 .bg-app-primary {
@@ -20,7 +20,7 @@ html, body, .App {
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .thumb-post {
@@ -44,9 +44,9 @@ html, body, .App {
 }
 
 /* 
-ul .star {
-    cursor: pointer !important;
-} */
+   ul .star {
+       cursor: pointer !important;
+   } */
 
 .other-images {
     height: 200px;
@@ -60,8 +60,8 @@ ul .star {
 
 
 .half, .half .container>.row {
-    height: 110vh;
-    min-height: 500px;
+    height: 120vh;
+    min-height: 700px;
 }
 
 @media (max-width: 991.98px) {
@@ -75,7 +75,7 @@ ul .star {
 }
 
 .half .contents, .half .bg {
-    width: 50%;
+    width: 70%;
 }
 
 @media (max-width: 1199.98px) {
@@ -113,6 +113,7 @@ ul .star {
     height: 54px;
     padding-left: 30px;
     padding-right: 30px;
+    font-size: 15px;
 }
 
 .half .forgot-pass {
@@ -124,11 +125,22 @@ ul .star {
 
 #adjustRow {
 
-    display: flex;
+    height: 110vh;
     margin: 10px;
-    height: 110vh;        
-
-   
 
 
 }
+
+
+.d-flex {
+
+    font-size: 15px;
+
+}
+
+/* .fs-2 {
+
+    font-size: 12px;
+
+} */
+

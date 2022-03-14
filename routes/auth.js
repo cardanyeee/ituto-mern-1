@@ -10,7 +10,8 @@ const { register,
     resetpassword,
     getCurrentUser,
     updatePassword,
-    allUsers
+    allUsers,
+    dashboard
 } = require('../controllers/auth');
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
@@ -33,6 +34,9 @@ router.route("/profile/me").get(isAuthenticatedUser, getCurrentUser);
 
 router.route("/auth/password/update").put(isAuthenticatedUser, updatePassword);
 
+
 router.route('/admin/users').get(isAuthenticatedUser, authorizeRoles('admin'), allUsers);
+
+router.route('/admin/data').get(isAuthenticatedUser, authorizeRoles('admin'),dashboard);
 
 module.exports = router;
