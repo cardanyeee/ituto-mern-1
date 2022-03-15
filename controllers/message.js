@@ -2,6 +2,7 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const Message = require("../models/Message");
 const User = require("../models/User");
 const Conversation = require("../models/Conversation");
+const ErrorResponse = require('../utils/errorResponse');
 
 const multer = require('multer');
 const util = require('util');
@@ -91,15 +92,15 @@ const downloadFile = catchAsyncErrors(async (req, res) => {
 
 });
 
-const accessFile = catchAsyncErrors(async (req, res) => {
+const accessFile = catchAsyncErrors(async (req, res, next) => {
 
     try {
         console.log(req.params)
         const key = req.params.key
-        const readStream = getFileStream(key)
+        const readStream = await getFileStream("profile/", key, next);
         readStream.pipe(res)
     } catch (error) {
-        console.log(error);
+        next(new ErrorResponse('File not found', 404));
     }
 
 });

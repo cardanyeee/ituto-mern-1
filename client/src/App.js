@@ -43,7 +43,7 @@ library.add(fab);
 
 const App = () => {
 
-	let path = window.location.pathname.split('/')[1];
+	// let path = window.location.pathname.split('/')[1];
 
 	useEffect(() => {
 		store.dispatch(loadUser());

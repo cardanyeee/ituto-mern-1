@@ -1,6 +1,7 @@
 require('dotenv').config();
 const fs = require('fs');
 const S3 = require('aws-sdk/clients/s3');
+const ErrorResponse = require('../utils/errorResponse');
 
 const bucketName = process.env.AWS_BUCKET_NAME
 const region = process.env.AWS_BUCKET_REGION
@@ -29,13 +30,23 @@ exports.uploadFile = uploadFile
 
 
 // downloads a file from s3
-function getFileStream(fileKey) {
-    const downloadParams = {
-        Key: fileKey,
-        Bucket: bucketName
-    }
+async function getFileStream(dir, fileKey, next) {
+    try {
+        console.log(dir + fileKey);
+        const downloadParams = {
+            Key: dir + fileKey,
+            Bucket: bucketName
+        }
 
-    return s3.getObject(downloadParams).createReadStream()
+        file = s3.getObject(downloadParams).createReadStream()
+            .on('error', (err) => {
+                next(new ErrorResponse('File not found', 404));
+            });
+
+        return file;
+    } catch (error) {
+
+    }
 }
 exports.getFileStream = getFileStream
 

@@ -6,6 +6,8 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures');
 
 exports.requestSession = catchAsyncErrors(async (req, res, next) => {
+
+    console.log(req.body);
     try {
 
         const tutee = req.user._id;
