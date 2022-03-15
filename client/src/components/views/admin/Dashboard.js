@@ -73,7 +73,7 @@ const Dashboard = () => {
                                     <div className="col-xl-4 mb-3">
                                         <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
                                             <div className="card-body">
-                                                <div className="text-center card-font-size">Registered Users<br /> <b>{users && users.length}</b></div>
+                                                <div className="text-center card-font-size">Registered User<br /> <b>{users && users.length}</b></div>
                                             </div>
                                         </div>
                                     </div>
