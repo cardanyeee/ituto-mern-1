@@ -12,7 +12,7 @@
     background-color: #75BBB3;
 }
 
-@media screen and (max-width: 800px) {
+ @media screen and (max-width: 800px) {
 
 
     .sidebar.close .nav-links li .iocn-link {
@@ -37,6 +37,24 @@
 .sidebar.close {
     width: 78px;
 }
+
+.sidebar.close .nav-links li .iocn-link {
+    margin-top: 100px;
+}
+
+.sidebar.close #courseMove {
+
+    margin-top: 100px;
+
+}
+
+.sidebar.close #subjectMove {
+
+    margin-top: 100px;
+
+}
+
+
 
 
 .sidebar .logo-details {

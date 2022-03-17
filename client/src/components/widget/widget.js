@@ -42,7 +42,7 @@ const Widget = ({ type }) => {
         title: "REGISTERED USERS",
         display: userCount,
         isNoLink: true,
-        link: "View all users",
+        link: "Lorem Ipsum",
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -76,7 +76,7 @@ const Widget = ({ type }) => {
         title: "TOTAL TUTORS",
         display: tutorCount,
         isNoLink: true,
-        link: "View net earnings",
+        link: "Lorem Ipsum",
         icon: (
           <MonetizationOnOutlinedIcon
             className="icon"
@@ -90,7 +90,7 @@ const Widget = ({ type }) => {
         title: "MALE USERS",
         display: maleCount,
         isNoLink: true,
-        link: "See details",
+        link: "Lorem Ipsum",
         icon: (
           <AccountBalanceWalletOutlinedIcon
             className="icon"
@@ -107,7 +107,7 @@ const Widget = ({ type }) => {
         title: "FEMALE USERS",
         display: femaleCount,
         isNoLink: true,
-        link: "See details",
+        link: "Lorem Ipsum",
         icon: (
           <AccountBalanceWalletOutlinedIcon
             className="icon"
@@ -125,7 +125,7 @@ const Widget = ({ type }) => {
         title: "OTHERS",
         display: otherCount,
         isNoLink: true,
-        link: "See details",
+        link: "Lorem Ipsum",
         icon: (
           <AccountBalanceWalletOutlinedIcon
             className="icon"

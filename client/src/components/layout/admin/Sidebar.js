@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import SchoolIcon from '@mui/icons-material/School';
 
 const Sidebar = (props) => {
 
@@ -15,7 +16,7 @@ const Sidebar = (props) => {
         <div className={"sidebar h-100 shadow-sm " + (props.sidebarToggle === true ? "close" : "")}>
             <Link to="/" className="text-decoration-none">
                 <div className="logo-details shadow-sm">
-                    <FontAwesomeIcon icon="ticket-alt" className="text-white" />
+                    <SchoolIcon className="text-white" />
                     {/* <img src="/images/applogo.png" width="50"/> */}
                     <span className="logo_name fw-bold text-nowrap logo-brand text-white">iTuto</span>
                 </div>
