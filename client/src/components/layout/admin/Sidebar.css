@@ -15,7 +15,7 @@
  @media screen and (max-width: 800px) {
 
 
-    .sidebar.close .nav-links li .iocn-link {
+    /* .sidebar.close .nav-links li .iocn-link {
         margin-top: 200px;
     }
 
@@ -29,7 +29,7 @@
 
         margin-top: 100px;
 
-    }
+    } */
 
 
 }
@@ -38,7 +38,7 @@
     width: 78px;
 }
 
-.sidebar.close .nav-links li .iocn-link {
+/* .sidebar.close .nav-links li .iocn-link {
     margin-top: 100px;
 }
 
@@ -52,7 +52,7 @@
 
     margin-top: 100px;
 
-}
+} */
 
 
 
@@ -342,7 +342,7 @@
     font-size: 12px;
     font-weight: bold;
     color: #F3F7FD;
-    margin-bottom: 5px;
+    margin-bottom: -10px;
 
 }
 

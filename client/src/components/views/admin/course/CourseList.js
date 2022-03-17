@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useAlert } from 'react-alert';
 import { MDBDataTableV5 } from 'mdbreact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CSVLink } from "react-csv";
 
 import { getCs, deleteC, clearErrors } from '../../../../actions/courseActions';
 
@@ -43,6 +44,7 @@ const MoviesLists = ({ history }) => {
     }, [dispatch, alert, error, history, deleteError, isDeleted]);
 
     const setcourses = () => {
+
         const data = {
             columns: [
                 { label: 'Code', field: 'Code', width: 210, sort: 'asc' },
@@ -73,6 +75,13 @@ const MoviesLists = ({ history }) => {
         return data;
     }
 
+    // const csvReport = {
+
+    //     filename: 'Courses.csv',
+    //     headers: setcourses.columns,
+    //     data: setcourses.course
+    // };
+
     const deletecourseHandler = (id) => {
         dispatch(deleteC(id));
     }
@@ -93,11 +102,25 @@ const MoviesLists = ({ history }) => {
                     <p className="mb-4">Listed below are the courses that are included on the mobile application </p>
 
 
+
                     <div className="card shadow mb-4">
 
                         <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-primary">Courses</h6>
+
+                            {/* <CSVLink {...csvReport}>
+                                export
+                            </CSVLink> */}
+                            <a href="#" className="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                                <i class="fas fa-download fa-sm text-white-50">
+                                <span className="m-0 font-weight-bold" style={{ color: "#F3F7FD" }}>Generate Report</span>
+                                   
+
+                                </i>
+
+                            </a>
+
                         </div>
+
 
                         <div className="card-body">
                             <div className="table-responsive">
@@ -122,7 +145,7 @@ const MoviesLists = ({ history }) => {
 
             </div>
 
-        
+
         </Fragment >
     )
 }
