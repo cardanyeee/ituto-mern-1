@@ -10,11 +10,13 @@ const { register,
     resetpassword,
     getCurrentUser,
     updatePassword,
+    updateProfile,
     allUsers,
     dashboard,
     getProfile
 } = require('../controllers/auth');
 
+const { upload } = require("../utils/upload");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
 router.route("/auth/register").post(register);
@@ -34,6 +36,8 @@ router.route("/auth/password/reset").post(resetpassword);
 router.route("/profile/me").get(isAuthenticatedUser, getCurrentUser);
 
 router.route("/auth/password/update").put(isAuthenticatedUser, updatePassword);
+
+router.route("/profile/update").put(isAuthenticatedUser, upload.any(), updateProfile);
 
 router.route("/profile/:key").get(getProfile);
 

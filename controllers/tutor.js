@@ -104,7 +104,7 @@ exports.activateTutor = catchAsyncErrors(async (req, res, next) => {
         console.log(activation_token);
 
         const newTutor = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
-
+        console.log(JSON.parse(newTutor.availability));
         const {
             firstname,
             lastname,
@@ -152,6 +152,7 @@ exports.activateTutor = catchAsyncErrors(async (req, res, next) => {
             tutor
         });
     } catch (error) {
+        console.log(error);
         next(error);
     }
 });
@@ -218,5 +219,5 @@ exports.findTutor = catchAsyncErrors(async (req, res, next) => {
 });
 
 const createActivationToken = (payload) => {
-    return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, { expiresIn: '5m' })
+    return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, { expiresIn: '10m' })
 }

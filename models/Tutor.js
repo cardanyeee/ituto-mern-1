@@ -42,22 +42,28 @@ const TutorSchema = new Schema({
             }
         }
     ],
-    availability: [
-        {
-            day: {
-                type: String,
-                required: true
-            },
-            startTime: {
-                type: String,
-                required: true
-            },
-            endTime: {
+    availability: {
+        days: [
+            {
                 type: String,
                 required: true
             }
-        }
-    ]
+        ],
+        time: [
+            {
+                timeOfDay: {
+                    type: String
+                },
+                min: {
+                    type: String
+                },
+                max: {
+                    type: String
+                }
+            }
+        ]
+    }
+
 }, {
     timestamps: true
 });

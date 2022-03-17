@@ -71,7 +71,7 @@ const UserSchema = new Schema({
         },
         url: {
             type: String,
-            default: 'https://res.cloudinary.com/djqpxmv5o/image/upload/v1639001382/movflix/avatars/1636619587424empty_profile_f28fsh.png'
+            default: 'https://res.cloudinary.com/djqpxmv5o/image/upload/v1647321463/movflix/avatars/blank_avatar_x64ypn.png'
         }
     },
     role: {
