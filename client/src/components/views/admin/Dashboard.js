@@ -80,7 +80,7 @@ const Dashboard = () => {
 
                                         <div className="col-xl-5 mb-3">
                                             <div className="card-body" id="welcomeMove">
-                                                <div className="text-center card-font-size"><h1>Welcome, <b>{user.username}</b></h1></div>
+                                                <div className="text-center card-font-size"><h1>Welcome, <b>{user.username}!</b></h1></div>
                                             </div>
                                         </div>
                                     </div>
