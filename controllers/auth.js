@@ -12,6 +12,9 @@ const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
 const cloudinary = require('cloudinary');
 const { OAuth2Client } = require('google-auth-library');
+const fs = require('fs');
+const util = require('util');
+const unlinkFile = util.promisify(fs.unlink);
 const client = new OAuth2Client(process.env.MAILING_SERVICE_CLIENT_ID);
 
 //dashboard
@@ -297,6 +300,56 @@ exports.getCurrentUser = catchAsyncErrors(async (req, res, next) => {
     } catch (error) {
         next(error);
     }
+});
+
+exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
+
+    console.log(req.files);
+
+    try {
+
+        const user = await User.findById(req.user._id);
+
+        console.log(user);
+
+        if (req.files.length > 0) {
+            const file = req.files[0];
+            // apply filter
+            // resize 
+            const result = await uploadFile(file, "profile/");
+
+            user.avatar.public_id = result.key;
+            user.avatar.url = `https://mern-ituto.herokuapp.com/api/${result.key}`;
+
+            console.log(result);
+            await unlinkFile(file.path);
+        }
+
+            user.firstname = req.body.firstname;
+            user.lastname = req.body.lastname;
+            user.username = req.body.username;
+            user.birthdate = req.body.birthdate;
+            user.gender = req.body.gender;
+            user.course = req.body.course;
+            user.phone = req.body.phone;
+
+        user.save();
+        console.log(user);
+        // const user = await User.findByIdAndUpdate(req.user._id, newUserData, {
+        //     new: true,
+        //     runValidators: true,
+        //     useFindAndModify: false
+        // });
+
+        res.status(200).json({
+            success: true,
+            message: "Account successfully changed!"
+        });
+    } catch (error) {
+        console.log(error);
+        next(err);
+    }
+
 });
 
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {

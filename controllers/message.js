@@ -71,6 +71,7 @@ const sendFile = catchAsyncErrors(async (req, res) => {
         // apply filter
         // resize 
         const result = await uploadFile(file);
+        console.log(result);
         await unlinkFile(file.path);
         res.send({ imagePath: `/images/${result.Key}` });
     } catch (error) {

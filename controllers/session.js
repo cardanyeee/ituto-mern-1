@@ -93,7 +93,7 @@ exports.findTuteeSession = catchAsyncErrors(async (req, res, next) => {
             sessions
         })
     } catch (error) {
-        next(new ErrorResponse('Quiz not found', 404));
+        next(new ErrorResponse('Session not found', 404));
     }
 });
 
