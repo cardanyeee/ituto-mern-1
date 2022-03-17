@@ -12,14 +12,37 @@
     background-color: #75BBB3;
 }
 
+@media screen and (max-width: 800px) {
+
+
+    .sidebar.close .nav-links li .iocn-link {
+        margin-top: 200px;
+    }
+
+    .sidebar.close #courseMove {
+
+        margin-top: 100px;
+
+    }
+
+    .sidebar.close #subjectMove {
+
+        margin-top: 100px;
+
+    }
+
+
+}
+
 .sidebar.close {
     width: 78px;
 }
 
+
 .sidebar .logo-details {
     width: 100%;
     display: flex;
-    align-items: center;        
+    align-items: center;
     padding-bottom: 0.5em;
 }
 
@@ -33,7 +56,7 @@
 
 .sidebar .logo-details .logo_name {
     font-weight: 600;
-    transition: 0.3s ease;
+    transition: 0.5s ease;
     transition-delay: 0.1s;
 }
 
@@ -52,6 +75,12 @@
 .sidebar.close .nav-links {
     overflow: visible;
 }
+
+/* .sidebarclose .iocn-link{
+
+    margin-top: 50px;
+
+} */
 
 .sidebar .nav-links::-webkit-scrollbar {
     display: none;
@@ -73,9 +102,22 @@
     justify-content: space-between;
 }
 
-.sidebar.close .nav-links li .iocn-link {
-    display: block
+/* .sidebar.close .nav-links li .iocn-link {
+    margin-top: 150px;
 }
+
+.sidebar.close #courseMove {
+
+    margin-top: 50px;
+
+}
+
+.sidebar.close #subjectMove {
+
+    margin-top: 50px;
+
+} */
+
 
 .sidebar .nav-links li svg.main-side-nav-icon {
     height: 50px;
@@ -260,7 +302,7 @@
 }
 
 .sidebar.close~.home-section {
-    left: 85px;
+    left: 78px;
     width: calc(100% - 78px);
 }
 
@@ -276,14 +318,53 @@
 }
 
 
+.title-sub ,
+.title-table {
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #F3F7FD;
+    margin-bottom: 5px;
+
+}
 
 
 
 
+.sidebar.close .title-sub{
+    padding: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #F3F7FD;
+
+    margin-bottom: 5px;
+    display: none;
+}
+
+
+.sidebar.close .title-table{
+   
+    display: none;
+}
 
 
 
+/* 
+li {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+}
 
+li:hover {
+    background-color: #ece8ff;
+}
+    
 
-
-
+span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #888;
+    margin-left: 10px;
+} */

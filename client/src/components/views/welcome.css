@@ -131,8 +131,8 @@ p {
 }
 
 #compat {
-    background-color: #02c5e5 !important;
-    border-color: #02c5e5 !important;
+    background-color: #CF5A3A !important;
+    border-color: #CF5A3A !important;
 }
 
 /* .v-sheet.v-card:not(.v-sheet--outlined) {   
@@ -202,4 +202,10 @@ p {
    
 }
 
+
+#font-title{
+
+   color: #F3F7FD;
+
+}
 

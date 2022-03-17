@@ -1,5 +1,5 @@
 import React from 'react'
-
+import GroupsIcon from '@mui/icons-material/Groups';
 import './welcome.css';
 const Welcome = () => {
     return (
@@ -12,14 +12,14 @@ const Welcome = () => {
                     <section>
                         <div fluid="" className="v-parallax" style={{ height: '600px' }}>
                             <div className="v-parallax__image-container">
-                                <img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v960-ning-27-x_1.jpg?w=800&amp;dpr=1&amp;fit=default&amp;crop=default&amp;q=65&amp;vib=3&amp;con=3&amp;usm=15&amp;bg=F4F4F3&amp;ixlib=js-2.2.1&amp;s=7c7ada7218a7ff92c6efce16b75e2aea" alt="Parallax wallpaper" className="v-parallax__image"
+                                <img src="/images/Capture.PNG" alt="Parallax wallpaper" className="v-parallax__image"
                                 />
                             </div>
                             <div className="v-parallax__content">
                                 <div className="row align-center justify-center">
                                     <div className="text-center col">
 
-                                        <img alt="Ryujinx" src="images/lol.png" width="128"
+                                        <img alt="Ryujinx" src="/images/applogo.png" width="128"
                                             id="headerlogo"
                                             data-src="images/lol.png"
                                             data-srcset="images/lol.png"
@@ -27,7 +27,7 @@ const Welcome = () => {
                                         />
 
 
-                                        <p className="display-1">In partial fullfilment<br />for Capstone 2</p>
+                                        <p className="display-1" id="font-title">In partial fullfilment<br />for Capstone 2</p>
 
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@ const Welcome = () => {
 
 
                         <div className="v-parallax hidden-sm-and-down" style={{ height: "200px" }}>
-                            <div className="v-parallax__image-container"><img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v960-ning-27-x_1.jpg?w=800&amp;dpr=1&amp;fit=default&amp;crop=default&amp;q=65&amp;vib=3&amp;con=3&amp;usm=15&amp;bg=F4F4F3&amp;ixlib=js-2.2.1&amp;s=7c7ada7218a7ff92c6efce16b75e2aea" alt="" className="v-parallax__image"
+                            <div className="v-parallax__image-container"><img src="/images/Capture.PNG" alt="" className="v-parallax__image"
                                 style={{ display: "block", opacity: "1", transform: "translate('-50%', '305px')" }} /></div>
                             <div className="v-parallax__content"></div>
                         </div>
@@ -200,7 +200,7 @@ const Welcome = () => {
                         </div>
 
                         <div className="v-parallax hidden-sm-and-down" style={{ height: "200px" }}>
-                            <div className="v-parallax__image-container"><img src="https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/v960-ning-27-x_1.jpg?w=800&amp;dpr=1&amp;fit=default&amp;crop=default&amp;q=65&amp;vib=3&amp;con=3&amp;usm=15&amp;bg=F4F4F3&amp;ixlib=js-2.2.1&amp;s=7c7ada7218a7ff92c6efce16b75e2aea" alt="" className="v-parallax__image"
+                            <div className="v-parallax__image-container"><img src="/images/Capture.PNG" alt="" className="v-parallax__image"
                                 style={{ display: "block", opacity: "1", transform: "translate('-50%', '305px')" }} /></div>
                             <div className="v-parallax__content"></div>
                         </div>
@@ -211,9 +211,9 @@ const Welcome = () => {
                                     <div className="row align-start justify-center">
                                         <div className="col col-12">
                                             <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                <div className="v-card__text text-center"><i aria-hidden="true"
+                                                <div className="v-card__text text-center"><GroupsIcon aria-hidden="true"
                                                     className="v-icon notranslate --text text--lighten-2 fas fa-users theme--light"
-                                                    style={{ fontsize: "40px" }}></i></div>
+                                                    style={{ fontsize: "40px" }}/></div>
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <div className="display-1 text-center">Our Team</div>
                                                 </div>

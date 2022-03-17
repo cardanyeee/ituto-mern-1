@@ -84,26 +84,46 @@ const MoviesLists = ({ history }) => {
 
             <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
             <div className="home-section">
-                <Fragment>
 
-                    {loading ? <Loader /> : (
-                        <MDBDataTableV5
-                            data={setcourses()}
-                            striped
-                            hover
-                            scrollX
-                            scrollY
-                            maxHeight='100vh'
-                            
-                        />
+                <div className="container-fluid" id="subjectContainer">
 
-                        
-                    )}
+                    <h1 className="h3 mb-2 text-gray-800">Courses</h1>
 
-                    
-                </Fragment>
+
+                    <p className="mb-4">Listed below are the courses that are included on the mobile application </p>
+
+
+                    <div className="card shadow mb-4">
+
+                        <div className="card-header py-3">
+                            <h6 className="m-0 font-weight-bold text-primary">Courses</h6>
+                        </div>
+
+                        <div className="card-body">
+                            <div className="table-responsive">
+                                <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
+
+                                    <Fragment>
+                                        {loading ? <Loader /> : (
+                                            <MDBDataTableV5
+                                                data={setcourses()}
+                                                striped
+                                                hover
+                                            />
+                                        )}
+                                    </Fragment>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div>
-        </Fragment>
+
+        
+        </Fragment >
     )
 }
 
