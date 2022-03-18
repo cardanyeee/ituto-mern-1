@@ -5,7 +5,7 @@ import { useAlert } from 'react-alert';
 import { MDBDataTableV5 } from 'mdbreact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CSVLink } from "react-csv";
-
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { getCs, deleteC, clearErrors } from '../../../../actions/courseActions';
 
 import MetaData from '../../../layout/main/MetaData';
@@ -75,12 +75,12 @@ const MoviesLists = ({ history }) => {
         return data;
     }
 
-    // const csvReport = {
+    const csvReport = {
 
-    //     filename: 'Courses.csv',
-    //     headers: setcourses.columns,
-    //     data: setcourses.course
-    // };
+        filename: 'Courses.csv',
+        headers: setcourses.columns,
+        data: courses
+    };
 
     const deletecourseHandler = (id) => {
         dispatch(deleteC(id));
@@ -107,17 +107,17 @@ const MoviesLists = ({ history }) => {
 
                         <div className="card-header py-3">
 
-                            {/* <CSVLink {...csvReport}>
-                                export
-                            </CSVLink> */}
-                            <a href="#" className="d-sm-inline-block btn btn-sm btn-primary shadow-sm">
+                            <div className="d-sm-inline-block btn btn-sm btn-primary shadow-sm" role="button" onClick={csvReport}>
                                 <i class="fas fa-download fa-sm text-white-50">
-                                <span className="m-0 font-weight-bold" style={{ color: "#F3F7FD" }}>Generate Report</span>
-                                   
+                                    <span className="m-0 font-weight-bold" >
+                                        <CSVLink {...csvReport} style={{ color: "#F3F7FD" }}>
+                                            Generate    CSV    
+                                        </CSVLink>
+                                    </span>
 
                                 </i>
 
-                            </a>
+                            </div>
 
                         </div>
 

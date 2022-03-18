@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useAlert } from 'react-alert';
 import { MDBDataTableV5 } from 'mdbreact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { CSVLink } from "react-csv";
 
 import { getSs, deleteS, clearErrors } from '../../../../actions/subjectActions';
 
@@ -78,6 +79,14 @@ const ProducersLists = ({ history }) => {
         return data;
     }
 
+
+    const csvReport = {
+
+        filename: 'Subjects.csv',
+        headers: setsubjects.columns,
+        data: subjects
+    };
+
     const deletesubjectHandler = (id) => {
         dispatch(deleteS(id));
     }
@@ -95,12 +104,26 @@ const ProducersLists = ({ history }) => {
 
                     <p className="mb-4">Listed below are the  <b>subjects</b> that are included on the mobile application </p>
 
-               
+
                     <div className="card shadow mb-4">
 
                         <div className="card-header py-3">
-                            <h6 className="m-0 font-weight-bold text-primary">Subjects</h6>
+
+                            <div className="d-sm-inline-block btn btn-sm btn-primary shadow-sm" role="button" onClick={csvReport}>
+                                <i class="fas fa-download fa-sm text-white-50">
+                                    <span className="m-0 font-weight-bold" >
+                                        <CSVLink {...csvReport} style={{ color: "#F3F7FD" }}>
+                                            Generate CSV
+                                        </CSVLink>
+                                    </span>
+
+                                </i>
+
+                            </div>
+
                         </div>
+
+
 
                         <div className="card-body">
                             <div className="table-responsive">
