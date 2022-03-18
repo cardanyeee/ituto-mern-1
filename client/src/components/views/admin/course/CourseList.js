@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 import { useAlert } from 'react-alert';
 import { MDBDataTableV5 } from 'mdbreact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import { CSVLink } from "react-csv";
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { getCs, deleteC, clearErrors } from '../../../../actions/courseActions';
 
 import MetaData from '../../../layout/main/MetaData';
@@ -43,6 +44,7 @@ const MoviesLists = ({ history }) => {
     }, [dispatch, alert, error, history, deleteError, isDeleted]);
 
     const setcourses = () => {
+
         const data = {
             columns: [
                 { label: 'Code', field: 'Code', width: 210, sort: 'asc' },
@@ -73,6 +75,13 @@ const MoviesLists = ({ history }) => {
         return data;
     }
 
+    const csvReport = {
+
+        filename: 'Courses.csv',
+        headers: setcourses.columns,
+        data: courses
+    };
+
     const deletecourseHandler = (id) => {
         dispatch(deleteC(id));
     }
@@ -84,26 +93,60 @@ const MoviesLists = ({ history }) => {
 
             <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
             <div className="home-section">
-                <Fragment>
 
-                    {loading ? <Loader /> : (
-                        <MDBDataTableV5
-                            data={setcourses()}
-                            striped
-                            hover
-                            scrollX
-                            scrollY
-                            maxHeight='100vh'
-                            
-                        />
+                <div className="container-fluid" id="subjectContainer">
 
-                        
-                    )}
+                    <h1 className="h3 mb-2 text-gray-800">Courses</h1>
 
-                    
-                </Fragment>
+
+                    <p className="mb-4">Listed below are the courses that are included on the mobile application </p>
+
+
+
+                    <div className="card shadow mb-4">
+
+                        <div className="card-header py-3">
+
+                            <div className="d-sm-inline-block btn btn-sm btn-primary shadow-sm" role="button" onClick={csvReport}>
+                                <i class="fas fa-download fa-sm text-white-50">
+                                    <span className="m-0 font-weight-bold" >
+                                        <CSVLink {...csvReport} style={{ color: "#F3F7FD" }}>
+                                            Generate    CSV    
+                                        </CSVLink>
+                                    </span>
+
+                                </i>
+
+                            </div>
+
+                        </div>
+
+
+                        <div className="card-body">
+                            <div className="table-responsive">
+                                <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
+
+                                    <Fragment>
+                                        {loading ? <Loader /> : (
+                                            <MDBDataTableV5
+                                                data={setcourses()}
+                                                striped
+                                                hover
+                                            />
+                                        )}
+                                    </Fragment>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
             </div>
-        </Fragment>
+
+
+        </Fragment >
     )
 }
 

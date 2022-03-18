@@ -28,7 +28,9 @@ const Header = ({ history }) => {
                 <div className="container-xl">
 
                     <a className="navbar-brand" href="/#">
+
                         <h1 className="logo-brand">
+                            <img src="/images/ituto_logo_nobg.png" width="50"/>
                             iTuto
                         </h1>
                         {/* <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" className="h-8" alt="..." /> */}

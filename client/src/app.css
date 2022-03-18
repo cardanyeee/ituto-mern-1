@@ -20,7 +20,7 @@ html, body, .App {
 }
 
 * {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .thumb-post {
@@ -143,4 +143,57 @@ html, body, .App {
     font-size: 12px;
 
 } */
+/* 
 
+.card-body {
+
+    padding: 10px;
+} */
+
+#welcomeMove {
+
+    float: left;
+    text-transform: capitalize;
+    margin-left: 10px;
+
+}
+
+#widgetEnlarge{
+
+    
+
+
+}
+
+/* #widgetMove {
+
+  margin-left: 275px;  
+ 
+
+
+} */
+
+
+.widgets {
+    
+    padding: 20px;
+ 
+}
+
+#tableAdjust {
+
+    padding: 50px;
+
+}
+
+#chart {
+
+    position: relative;    
+    margin-left: 500px;
+
+    
+
+   
+   
+
+}

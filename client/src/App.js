@@ -30,6 +30,8 @@ import Dashboard from './components/views/admin/Dashboard';
 import CourseList from './components/views/admin/course/CourseList';
 import SubjectList from './components/views/admin/subject/SubjectList';
 
+
+
 import NewCourse from './components/views/admin/course/NewCourse';
 import NewSubject from './components/views/admin/subject/NewSubject';
 
@@ -70,6 +72,9 @@ const App = () => {
 
 					<ProtectedRoute path="/dashboard/courses" isAdmin={true} component={CourseList} exact />
 					<ProtectedRoute path="/dashboard/subjects" isAdmin={true} component={SubjectList} exact />
+
+
+				
 
 
 
