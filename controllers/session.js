@@ -13,7 +13,7 @@ exports.requestSession = catchAsyncErrors(async (req, res, next) => {
         const tutee = req.user._id;
         const requestDate = convertUTCDateToLocalDate(Date.now());
 
-        const { tutor, subject, description, startDate } = req.body;
+        const { tutor, subject, description, startDate, time } = req.body;
 
         const tutorObject = await Tutor.findOne({userID: tutor});
 
@@ -29,7 +29,8 @@ exports.requestSession = catchAsyncErrors(async (req, res, next) => {
             subject,
             description,
             requestDate,
-            startDate
+            startDate,
+            time: JSON.parse(time)
         });
 
         session.save();

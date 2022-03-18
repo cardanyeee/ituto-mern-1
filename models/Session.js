@@ -34,6 +34,17 @@ const SessionSchema = new Schema({
     endDate: {
         type: Date
     },
+    time: {
+        timeOfDay: {
+            type: String
+        },
+        min: {
+            type: String
+        },
+        max: {
+            type: String
+        }
+    },
     status: {
         type: String,
         enum: {
