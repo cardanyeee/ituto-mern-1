@@ -255,7 +255,7 @@ const Welcome = () => {
                                                 </div>
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <a href="https://github.com/cardanyeee"
-                                                        rel="noopener" className="headline text-center">Carl Villanueva</a></div>
+                                                        rel="noopener" className="headline text-center">Carl Daniel Villanueva</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Web Designer</p>
 
@@ -270,7 +270,7 @@ const Welcome = () => {
                                                     </div>
                                                 </div>
                                                 <div primary-title="" className="v-card__title layout justify-center"><a href="https://github.com/Thog"
-                                                    rel="noopener" className="headline text-center">Cassidy Carbajosa</a></div>
+                                                    rel="noopener" className="headline text-center">Hashime Cassidy Carbajosa</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Paper Manager</p>
 
@@ -285,7 +285,7 @@ const Welcome = () => {
                                                     </div>
                                                 </div>
                                                 <div primary-title="" className="v-card__title layout justify-center"><a href="https://github.com/Thog"
-                                                    rel="noopener" className="headline text-center">Mark Casas</a></div>
+                                                    rel="noopener" className="headline text-center">Mark Joseph Casas</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Developer</p>
 

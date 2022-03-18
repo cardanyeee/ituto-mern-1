@@ -159,7 +159,7 @@ p {
 }
 
 .v-card__subtitle, .v-card__text, .v-card__title {
-    padding: 16px;
+    padding: 20px;
 }
 
 .v-card__subtitle, .v-card__text {
@@ -183,6 +183,8 @@ p {
 
 
 .v-avatar {
+    height: 150px;
+    width: 150px;
     align-items: center;
     border-radius: 50%;
     display: flex;
@@ -197,7 +199,7 @@ p {
 
 #tryspan {
 
-    width: 2.25in;
+    width: 200px;
     margin-right: 100px;
     display: block;
     margin-left: auto;
