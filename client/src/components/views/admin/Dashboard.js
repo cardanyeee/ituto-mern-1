@@ -13,9 +13,9 @@ import {
     Tooltip,
     Legend,
     CategoryScale
-  } from "chart.js";
-  
-  
+} from "chart.js";
+
+
 
 import { Pie, Doughnut, Line } from 'react-chartjs-2'
 import './dashboard.scss'
@@ -42,7 +42,7 @@ ChartJS.register(
     Tooltip,
     Legend,
     CategoryScale
-  );
+);
 
 const Dashboard = () => {
 
@@ -71,21 +71,6 @@ const Dashboard = () => {
                             <div className="home-section">
 
                                 <div className="container-fluid">
-                                    {/* <div className="row mt-5 mb-4">
-                                    <div className="col-xl-12 col-sm-12">
-                                        <div className="card  bg-white o-hidden h-100">
-                                            <div className="card-body">
-                                                <div className="text-center card-font-size">Registered Users<br /> <b>{users && users.length}</b></div>
-                                            </div>
-                                            <Link className="card-footer  clearfix small z-1" to="/dashboard/movies">
-                                                <span className="float-left">View Details</span>
-                                                <span className="float-right">
-                                                    <i className="fa fa-angle-right"></i>
-                                                </span>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </div> */}
 
                                     <div className="row pr-4 pt-4">
 
@@ -98,26 +83,11 @@ const Dashboard = () => {
 
                                 </div>
 
-
-
-                                {/* <div className="row pr-4 pt-4">
-
-                                    </div> */}
-
-
-                                {/* <div className="col-xl-4 mb-3">
-                                    <div className="card bg-white o-hidden h-100 border-0 shadow-sm">
-                                        <div className="card-body">
-                                            <div className="text-center card-font-size">Registered User<br /> <b>{users && users.length}</b></div>
-                                        </div>
-                                    </div>
-                                </div> */}
-
-
                                 <div className="container-fluid">
 
                                     <div className="row pr-4 pt-4">
 
+                                        {/* //Donut Chart */}
 
                                         <div className="col-xl-4 mb-3" >
 
@@ -194,6 +164,8 @@ const Dashboard = () => {
 
                                         </div>
 
+                                        {/* LINE CHART */}
+
                                         <div className="col-xl-8 mb-3" >
 
                                             <div class="card shadow mb-4">
@@ -205,7 +177,7 @@ const Dashboard = () => {
                                                 <div class="card-body">
                                                     <div class="chart-pie pt-4">
 
-                                                        <Line   
+                                                        <Line
                                                             data={{
                                                                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                                                                 datasets: [
@@ -265,8 +237,13 @@ const Dashboard = () => {
                                                 </div>
                                             </div>
                                         </div>
+
+
                                     </div>
                                 </div>
+
+
+                                {/* WIDGETS */}
 
 
                                 <div className="row pr-4 pt-4">
@@ -332,68 +309,7 @@ const Dashboard = () => {
                                 </div>
 
 
-
-
                             </div>
-
-
-
-
-                            {/* <div className="col-xl-4 mb-3">
-                                            <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
-                                                <div className="card-body">
-                                                    <div className="text-center card-font-size">Subjects<br /><b>{subs && subs.length}</b></div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                        <div className="col-xl-4 mb-3">
-                                            <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
-                                                <div className="card-body">
-                                                    <div className="text-center card-font-size">Tutors<br /> <b>{tutors && tutors.length}</b></div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        </div>
-
-                                        <div className="row pr-4 pt-4">
-                                        <div className="col-xl-3 mb-3">
-                                            <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
-                                                <div className="card-body">
-                                                    <div className="text-center card-font-size">Male Users<br /> <b>{male && male}</b></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-xl-3 mb-3">
-                                            <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
-                                                <div className="card-body">
-                                                    <div className="text-center card-font-size">Female Users<br /> <b>{female && female}</b></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-xl-3 mb-3">
-                                            <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
-                                                <div className="card-body">
-                                                    <div className="text-center card-font-size">Others Users<br /> <b>{other && other}</b></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-xl-3 mb-3">
-                                            <div className="card  bg-white o-hidden h-100 border-0 shadow-sm">
-                                                <div className="card-body">
-                                                    <div className="text-center card-font-size">Prefer not to say Users<br /> <b>{pnts && pnts}</b></div>
-                                                </div>
-                                            </div>
-                                        </div> */}
-
-
-
-
-
-
-
                         </Fragment>
                     )}
                 </Fragment>
