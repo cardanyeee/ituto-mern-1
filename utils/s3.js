@@ -28,6 +28,21 @@ function uploadFile(file, dir) {
 }
 exports.uploadFile = uploadFile
 
+// delete a file to s3
+function deleteFile(file) {
+    var params = {
+        Bucket: bucketName,
+        Key: file
+    };
+    
+    s3.deleteObject(params, function (err, data) {
+        if (err) console.log(err, err.stack);  // error
+        else return true;                 // deleted
+    });
+
+}
+exports.deleteFile = deleteFile
+
 
 // downloads a file from s3
 async function getFileStream(dir, fileKey, next) {

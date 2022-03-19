@@ -19,7 +19,7 @@ const { register,
 const { upload } = require("../utils/upload");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
-router.route("/auth/register").post(register);
+router.route("/auth/register").post(upload.any(), register);
 
 router.route("/auth/activate").post(activate);
 

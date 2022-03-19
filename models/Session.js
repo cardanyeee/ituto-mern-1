@@ -24,7 +24,7 @@ const SessionSchema = new Schema({
         type: Date,
         required: true
     },
-    acceptDate: {
+    acceptDeclineDate: {
         type: Date
     },
     startDate: {
@@ -51,7 +51,8 @@ const SessionSchema = new Schema({
             values: [
                 "Request",
                 "Ongoing",
-                "Done"
+                "Done",
+                "Declined"
             ]
         },
         default: "Request"

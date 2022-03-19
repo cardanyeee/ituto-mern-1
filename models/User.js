@@ -41,6 +41,18 @@ const UserSchema = new Schema({
         type: mongoose.Schema.ObjectId,
         ref: 'Course'
     },
+    yearLevel: {
+        type: String,
+        enum: {
+            values: [
+                "Fourth",
+                "Third",
+                "Second",
+                "First"
+            ]
+        },
+        default: "Request"
+    },
     isTutor: {
         type: Boolean,
         default: false

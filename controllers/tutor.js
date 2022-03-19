@@ -61,7 +61,7 @@ exports.signUpTutor = catchAsyncErrors(async (req, res, next) => {
 
     console.log(req.body);
 
-    const { firstname, lastname, birthdate, gender, course, email, password, availability, subjectID } = req.body;
+    const { firstname, lastname, birthdate, gender, course, yearLevel, email, password, availability, subjectID } = req.body;
 
     try {
 
@@ -74,6 +74,7 @@ exports.signUpTutor = catchAsyncErrors(async (req, res, next) => {
                 birthdate,
                 gender,
                 course,
+                yearLevel,
                 email,
                 password
             }
@@ -111,6 +112,7 @@ exports.activateTutor = catchAsyncErrors(async (req, res, next) => {
             birthdate,
             gender,
             course,
+            yearLevel,
             email,
             password
         } = newTutor.user;
@@ -122,6 +124,7 @@ exports.activateTutor = catchAsyncErrors(async (req, res, next) => {
             birthdate,
             gender,
             course,
+            yearLevel,
             email,
             password,
             isTutor: true
