@@ -9,10 +9,6 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
 
 
-
-
-
-
 const Widget = ({ type }) => {
 
   const dispatch = useDispatch();

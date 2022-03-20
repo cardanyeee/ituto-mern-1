@@ -15,10 +15,10 @@ exports.requestSession = catchAsyncErrors(async (req, res, next) => {
 
         const { tutor, subject, description, startDate, time } = req.body;
 
-        const tutorObject = await Tutor.findOne({userID: tutor});
+        const tutorObject = await Tutor.findOne({ userID: tutor });
 
         console.log(tutorObject.subjects);
-        
+
         if (!tutorObject.subjects.includes(subject)) {
             return next(new ErrorResponse("Subject not offered by tutor.", 404));
         }
@@ -43,6 +43,61 @@ exports.requestSession = catchAsyncErrors(async (req, res, next) => {
     } catch (error) {
         next(error);
     }
+});
+
+exports.declineSession = catchAsyncErrors(async (req, res, next) => {
+
+    try {
+
+        const session = await Session.findById(req.params.id);
+        if (!(req.user._id.equals(session.tutor))) {
+            return next(new ErrorResponse("Unauthorized Access.", 401));
+        }
+
+        session.acceptDeclineDate = Date.now();
+        session.status = "Declined";
+
+        session.save();
+
+        res.status(200).json({
+            success: true,
+            session,
+            message: "Session Declined!"
+        });
+    } catch (error) {
+        console.log(error);
+        next(err);
+    }
+
+});
+
+exports.acceptSession = catchAsyncErrors(async (req, res, next) => {
+
+    try {
+
+        const session = await Session.findById(req.params.id);
+        console.log(session);
+        if (!(req.user._id.equals(session.tutor))) {
+            return next(new ErrorResponse("Unauthorized Access.", 401));
+        }
+        
+        session.time = JSON.parse(req.body.time);
+        session.startDate = req.body.startDate;
+        session.acceptDeclineDate = Date.now();
+        session.status = "Ongoing";
+
+        session.save();
+
+        res.status(200).json({
+            success: true,
+            session,
+            message: "Session Accepted!"
+        });
+    } catch (error) {
+        console.log(error);
+        next(err);
+    }
+
 });
 
 exports.createSession = catchAsyncErrors(async (req, res, next) => {
@@ -70,7 +125,8 @@ exports.createSession = catchAsyncErrors(async (req, res, next) => {
 
 exports.findTutorSession = catchAsyncErrors(async (req, res, next) => {
     try {
-        const sessions = await Session.find({ tutor: req.user._id })
+        console.log(req.query.status);
+        const sessions = await Session.find({ tutor: req.user._id, status: req.query.status })
             .populate("tutee")
             .populate("subject");
 
@@ -85,7 +141,8 @@ exports.findTutorSession = catchAsyncErrors(async (req, res, next) => {
 
 exports.findTuteeSession = catchAsyncErrors(async (req, res, next) => {
     try {
-        const sessions = await Session.find({ tutee: req.user._id })
+        console.log(req.query);
+        const sessions = await Session.find({ tutee: req.user._id, status: req.query.status })
             .populate("tutor")
             .populate("subject");
 
@@ -113,14 +170,25 @@ exports.allSession = catchAsyncErrors(async (req, res, next) => {
 exports.selectedSession = catchAsyncErrors(async (req, res, next) => {
     try {
 
-        Session.findOne({ _id: req.params.id }).then(session => {
-            res.status(200).json({
-                success: true,
-                session
-            });
-        }).catch(er => {
-            res.status(500).send(er);
-        })
+        const session = await Session.findOne({ _id: req.params.id })
+            .populate({
+                path: 'tutee',
+                populate: {
+                    path: 'course'
+                }
+            })
+            .populate("tutor")
+            .populate("subject");
+
+        const tutor = await Tutor.findOne({ userID: session.tutor._id }).select("-subjects -numOfReviews -ratings -reviews");
+
+        res.status(200).json({
+            success: true,
+            session,
+            availability: tutor.availability
+        });
+
+
     } catch (error) {
         next(new ErrorResponse('Session not found', 404));
     }
