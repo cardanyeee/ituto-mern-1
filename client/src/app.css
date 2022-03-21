@@ -21,7 +21,10 @@ html, body, .App {
 
 * {
     font-family: 'Roboto', sans-serif;
+
+
 }
+
 
 .thumb-post {
     object-position: center;
@@ -158,12 +161,7 @@ html, body, .App {
 
 }
 
-#widgetEnlarge{
-
-    
-
-
-}
+#widgetEnlarge {}
 
 /* #widgetMove {
 
@@ -175,9 +173,9 @@ html, body, .App {
 
 
 .widgets {
-    
+
     padding: 20px;
- 
+
 }
 
 #tableAdjust {
@@ -188,12 +186,164 @@ html, body, .App {
 
 #chart {
 
-    position: relative;    
+    position: relative;
     margin-left: 500px;
 
-    
 
-   
-   
 
+
+
+
+}
+
+
+
+.footer-container {
+    width: 100%;
+    background: #F3F7FD;
+    position: relative;
+    clear: both;
+    margin-top: 50px;
+}
+
+.footer-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+}
+
+.row1 {
+    flex: 2;
+    display: flex;
+    padding-top: 2em;
+}
+
+.row1>* {
+    flex-basis: 100%;
+}
+
+.col {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.col img {
+    width: 100%;
+    max-width: 100px;
+    min-width: 150px;
+    height: auto;
+}
+
+.col h2 {
+    font-size: 1.2em;
+    font-weight: 800;
+    padding-bottom: 0.5em;
+}
+
+.col ul li {
+    margin-bottom: 3px;
+}
+
+.col ul li a {
+    color: black;
+}
+
+.col ul li a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* .row2 {
+    flex: 1;
+} */
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row2 ul li {
+    font-size: 2em;
+    display: inline-block;
+    padding-left: .25em;
+    padding-right: .25em;
+}
+
+.row2 ul li a {
+    color: #033334;
+}
+
+.row2 ul li a:hover {
+    color: white;
+}
+
+.row2 h2 {
+    text-align: center;
+    font-size: 1em;
+}
+
+#removeList {
+
+    text-decoration: none;
+
+
+}
+
+@media screen and (max-width:1000px) {
+    .footer-container {
+        height: 580px;
+    }
+
+    .footer-content {
+        width: 90%;
+    }
+
+    .row1 {
+        flex-direction: column;
+    }
+
+    .col h2 {
+        font-size: 1.2em;
+    }
+
+    .col img {
+        max-width: 200px;
+        height: auto;
+        margin-right: 15px;
+    }
+
+    .row1 ul li {
+        font-size: 0.9em;
+    }
+
+    .row2 ul li {
+        font-size: 1.5em;
+        margin-top: 50px;
+    }
+
+    .row2 h2 {
+        text-align: center;
+        font-size: 0.75em;
+    }
+
+    #removeList {
+
+        text-decoration: none;
+
+
+    }
+
+
+}
+
+
+.media {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: start;
+    align-items: flex-start;
 }
