@@ -6,7 +6,7 @@ const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
 const forgotPasswordEmail = require('../utils/forgotPasswordEmail');
 const activateEmail = require('../utils/activateEmail');
-const { uploadFile, getFileStream, download } = require('../utils/s3');
+const { uploadFile, deleteFile, getFileStream, download } = require('../utils/s3');
 
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
@@ -57,7 +57,7 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
 
     console.log(req.body);
 
-    const { firstname, lastname, birthdate, gender, course, email, password } = req.body;
+    const { firstname, lastname, birthdate, gender, course, yearLevel, email, password } = req.body;
 
     try {
 
@@ -67,6 +67,7 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
             birthdate,
             gender,
             course,
+            yearLevel,
             email,
             password
         }
@@ -101,6 +102,7 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
             birthdate,
             gender,
             course,
+            yearLevel,
             email,
             password
         } = user;
@@ -112,6 +114,7 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
             birthdate,
             gender,
             course,
+            yearLevel,
             email,
             password
         });
@@ -304,18 +307,16 @@ exports.getCurrentUser = catchAsyncErrors(async (req, res, next) => {
 
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
-    console.log(req.files);
-
     try {
 
         const user = await User.findById(req.user._id);
-
-        console.log(user);
 
         if (req.files.length > 0) {
             const file = req.files[0];
             // apply filter
             // resize 
+            deleteFile(user.avatar.public_id);
+
             const result = await uploadFile(file, "profile/");
 
             user.avatar.public_id = result.key;
@@ -334,12 +335,6 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
             user.phone = req.body.phone;
 
         user.save();
-        console.log(user);
-        // const user = await User.findByIdAndUpdate(req.user._id, newUserData, {
-        //     new: true,
-        //     runValidators: true,
-        //     useFindAndModify: false
-        // });
 
         res.status(200).json({
             success: true,
