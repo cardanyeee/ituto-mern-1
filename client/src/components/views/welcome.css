@@ -117,7 +117,7 @@ img {
 
 }
 
-.teamHeader{
+.teamHeader {
 
     font-size: 3.5rem !important;
 
@@ -167,8 +167,8 @@ p {
     width: 100%;
 }
 
-.v-card__subtitle, .v-card__title {
-    
+.v-card__subtitle {
+
     padding: 20px;
 }
 
@@ -180,7 +180,7 @@ p {
 
 
 
-.v-card__subtitle, .v-card__text p{
+.v-card__subtitle, .v-card__text p {
 
     font-weight: 400;
     font-size: 1em;
@@ -211,7 +211,7 @@ p {
     justify-content: center;
     line-height: normal;
     position: relative;
- 
+
     vertical-align: middle;
     overflow: hidden;
 }
@@ -219,7 +219,7 @@ p {
 
 #tryspan {
 
-    width: 250px;
+    width: 300px;
     margin-right: 100px;
     display: block;
     margin-left: auto;
@@ -269,3 +269,28 @@ p {
     max-width: 100%;
     min-width: 10px;
 } */
+
+
+.headline {
+
+    font-size: 21px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+/* @media screen and (min-width: 768px) {
+    
+    #responsiveMockUp {
+
+        width: 375px;
+        position: relative;
+
+    }
+} */
+
+p {
+    font-size: 1em;
+    color: black;
+
+}
+

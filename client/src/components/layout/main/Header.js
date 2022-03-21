@@ -44,9 +44,9 @@ const Header = ({ history }) => {
 
                         <div className="navbar-nav mx-lg-auto">
                             <a className="nav-item nav-link active" href="/" aria-current="page">Home</a>
-                            <a className="nav-item nav-link" href="/#">Product</a>
-                            <a className="nav-item nav-link" href="/#">Features</a>
-                            <a className="nav-item nav-link" href="/#">Download</a>
+                            <a className="nav-item nav-link" href="/#download">Download</a>
+                            <a className="nav-item nav-link" href="/#features">Features</a> 
+                            <a className="nav-item nav-link" href="/#about">About</a>
                         </div>
 
 
