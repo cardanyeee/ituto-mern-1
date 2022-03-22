@@ -26,10 +26,8 @@ const Welcome = () => {
 
                                                 data-src="images/lol.png"
                                                 data-srcset="images/lol.png"
-
-
                                             />
-                                            <p className="display-1" id="font-title">Discover students who are interested in sharing their attained skills and knowledge.</p>
+                                            <p className="display-1" id="font-title">Discover students who are interested in sharing <br />their attained skills and knowledge.</p>
 
 
 
@@ -37,76 +35,95 @@ const Welcome = () => {
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
                     </section>
 
+
                     <section>
-                        <div className="container" id="download">
+                        <div className="container" id="what-is-ituto?">
                             <div className="row mt-5 align-center" >
                                 <div className="container container--fluid">
-                                    <div className="row align-start justify-center">
-                                        {/* <div className="col-md-6 col-12"> */}
+                                    <div fluid="" className="v-parallax" style={{ height: '750px' }}>
+                                        <div className="v-parallax__image-container">
+                                            <img src="/images/app-mockup-1.png" alt="Parallax wallpaper" className="v-parallax__image" id="banner"
+                                            />
 
-                                        <div className="text-center" >
-                                            <div className="teamHeader" id="bold">What is iTuto?</div>
-                                            <span className="subheading">
-                                                <small>
-                                                    <em>
-                                                        (Ay-Too-Toh)
-                                                    </em>
-                                                </small>
-                                                <p>iTuto is a requirement for capstone project develop using MERN.</p>
-                                                <p className="my-2">This emulator aims at p roviding excellent accuracy and performance, a user-friendly
-                                                    interface, and consistent builds.</p>
-                                                <p className="my-2">iTuto is available on GitHub under the MIT license.</p>
+                                            <div className="v-parallax__content" >
+                                                <div className="row align-center justify-center">
+                                                    <div className="text-center col">
 
-                                                <div className="row align-start">
-                                                    <div className="col-md-12 col-12">
-                                                        <div className="elevation-0 transparent v-card v-sheet theme--light" id="elevation-0" >
 
-                                                            {/* <i aria-hidden="true"
+                                                        <div className="teamHeader" id="bold">
+                                                            What is iTuto?
+                                                        </div>
+
+                                                        <span className="subheading">
+                                                            <small>
+                                                                <em>
+                                                                    (Ay-Too-Toh)
+                                                                </em>
+                                                            </small>
+                                                            <p>iTuto is a requirement for capstone project develop using MERN.</p>
+                                                            <p className="my-2">This emulator aims at providing <br />excellent accuracy and performance, a user-friendly
+                                                                interface, and consistent builds.</p>
+                                                            <p className="my-2">iTuto is available on GitHub under the MIT license.</p>
+
+                                                            <div className="row align-start">
+                                                                <div className="col-md-12 col-12">
+                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light" id="elevation-0" >
+
+                                                                        {/* <i aria-hidden="true"
                                                 className="v-icon notranslate --text text--lighten-2 fab fa-github theme--light"
                                                 style={{ fontSize: "40px" }}>
                                                     </i> */}
-                                                        </div>
+                                                                    </div>
 
-                                                        <img src="images/app-mockup.png" width="380" />
+                                                                    {/* <img src="images/app-mockup.png" width="380" /> */}
 
+
+
+                                                                </div>
+
+
+                                                            </div>
+
+
+
+
+
+
+                                                            <div className="text-center">
+                                                               
+                                                                <a href="https://drive.google.com/file/d/1Xbu9EUnwBwvgewCRHHk2XHbNDKxm1u0m/view?usp=sharing"
+                                                                    className="ma-2 v-btn v-btn--contained v-btn--router theme--dark v-size--default ryu_orange">
+                                                                    <span className="v-btn__content">
+                                                                        <i aria-hidden="true"
+                                                                            className="v-icon notranslate ml-n1 mr-2 fas fa-download theme--dark">
+                                                                        </i>
+                                                                        Download latest
+
+                                                                    </span>
+                                                                </a>
+
+                                                                <a href="/#features" className="ma-2 v-btn v-btn--contained theme--dark v-size--default ryu_blue" id="compat">
+                                                                    <span className="v-btn__content"><i aria-hidden="true"
+                                                                        className="v-icon notranslate ml-n1 mr-2 fas fa-gamepad theme--dark"></i>Learn More
+                                                                    </span>
+                                                                </a>
+                                                            </div>
+                                                        </span>
 
 
                                                     </div>
-
-
                                                 </div>
-
-
-
-
-
-
-                                                <div className="text-center" style={{ padding: "50px" }}>
-                                                    <a href="https://github.com/Ryujinx/Ryujinx-Games-List/issues" className="ma-2 v-btn v-btn--contained theme--dark v-size--default ryu_blue" id="compat">
-                                                        <span className="v-btn__content"><i aria-hidden="true"
-                                                            className="v-icon notranslate ml-n1 mr-2 fas fa-gamepad theme--dark"></i> App Versions   list
-                                                        </span>
-                                                    </a>
-                                                    <a href="/download"
-                                                        className="ma-2 v-btn v-btn--contained v-btn--router theme--dark v-size--default ryu_orange">
-                                                        <span className="v-btn__content">
-                                                            <i aria-hidden="true"
-                                                                className="v-icon notranslate ml-n1 mr-2 fas fa-download theme--dark">
-                                                            </i>
-                                                            Download latest build
-
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </span>
+                                            </div>
                                         </div>
 
+
                                     </div>
+
+
+
 
                                 </div>
                                 {/* </div> */}
@@ -163,6 +180,9 @@ const Welcome = () => {
                         </div>
 
 
+
+                        {/* FEATURESSS */}
+
                         <div className="v-parallax hidden-sm-and-down" style={{ height: "200px" }} >
                             <div className="v-parallax__image-container" id="features">
 
@@ -179,8 +199,6 @@ const Welcome = () => {
                                 </div>
                             </div>
                         </div>
-
-
 
                         <div className="container">
                             <div className="row align-center">
@@ -252,6 +270,11 @@ const Welcome = () => {
                             </div>
 
                         </div>
+
+                   
+
+                        {/* MEET THE TEAMMMMM */}
+
 
                         <div className="v-parallax hidden-sm-and-down" style={{ height: "200px" }}>
                             <div className="v-parallax__image-container">

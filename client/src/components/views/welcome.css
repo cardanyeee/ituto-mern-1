@@ -294,3 +294,25 @@ p {
 
 }
 
+/* banner */
+
+@media screen and (max-width:1080px) {
+
+
+    #banner {
+        width: 100%;
+    
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        position: center;
+        min-width: 20%;
+        min-height: 40%;
+        /* display: none;*/
+
+
+    }
+
+
+}

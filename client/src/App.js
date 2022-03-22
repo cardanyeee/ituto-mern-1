@@ -23,6 +23,7 @@ import ResetPassword from './components/views/auth/ResetPassword';
 import Profile from './components/views/Profile';
 
 import Home from './components/views/Home';
+import TermsConditions from './components/views/TermsConditions';
 
 import Dashboard from './components/views/admin/Dashboard';
 
@@ -59,6 +60,8 @@ const App = () => {
 					<Route path="/" component={Home} exact />
 					<Route path="/movies/search/:keyword" component={Home} />
 
+
+					<Route path="/terms-and-conditions" component={TermsConditions} exact />
 					<Route path="/login" exact component={Login} />
 					<Route path="/register" exact component={Register} />
 					<Route path="/forgot/password" exact component={ForgotPassword} />

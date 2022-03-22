@@ -8,7 +8,7 @@ const Footer = () => {
                     <div class="row1">
                         <div class="col">
                             <h2>Our Company</h2>
-                            <img src="" alt="GROUP-NAME" />
+                            <img src="/images/app-title.png" alt="GROUP-NAME" id="footerLogo" />
                         </div>
                         <div class="col">
                             <h2>Our Partner</h2>
