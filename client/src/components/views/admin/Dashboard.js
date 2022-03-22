@@ -17,9 +17,6 @@ import {
     Legend,
     CategoryScale
 } from "chart.js";
-
-
-
 import { Pie, Doughnut, Line } from 'react-chartjs-2'
 import './dashboard.scss'
 
@@ -28,7 +25,8 @@ import MetaData from '../../layout/main/MetaData';
 import Loader from '../../layout/main/Loader';
 import Widget from '../../widget/widget';
 
-import { clearErrors } from '../../../actions/authActions';
+import { allUsers } from '../../../actions/authActions';
+
 
 import { getData } from '../../../actions/all_actions';
 
@@ -55,22 +53,19 @@ const Dashboard = () => {
 
     const { user } = useSelector(state => state.auth);
 
+    const { users } = useSelector(state => state.allUsers);
 
-    const { loading, users, error } = useSelector(state => state.datas);
+    const { loading } = useSelector(state => state.datas);
 
     useEffect(() => {
         dispatch(getData());
-
-        if (error) {
-            alert.error(error);
-            dispatch(clearErrors())
-        }
+        dispatch(allUsers());
     }, [dispatch]);
-
 
     const setUsers = () => {
 
         const data = {
+
             columns: [
 
                 { label: 'Firstname', field: 'Firstname', width: 210, sort: 'asc' },
@@ -85,24 +80,22 @@ const Dashboard = () => {
             rows: []
         }
 
-        users.forEach(users => {
+        users.forEach(allUsers => {
             data.rows.push({
-                Firstname: users.firstname,
-                Lastname: users.lastname,
-                Username: users.username,
-                Gender: users.gender,
-                Email: users.email,
-                Role: users.role,
-                Phone: users.phone,
-
-            });
-        });
+                Firstname: allUsers.firstname,
+                Lastname: allUsers.lastname,
+                Username: allUsers.username,
+                Gender: allUsers.gender,    
+                Email: allUsers.email,
+                Role: allUsers.role,
+                Phone: allUsers.phone,
+            })
+        })
 
         return data;
+
     }
-
-
-
+    
     return (
         <Fragment>
             {loading ? <Loader /> : (
@@ -414,6 +407,3 @@ const Dashboard = () => {
 }
 
 export default Dashboard
-
-
-

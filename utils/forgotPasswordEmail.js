@@ -52,7 +52,7 @@ const sendEmail = (to, url, txt) => {
     @media only screen and (min-width: 620px){* [lang=x-wrapper] h1{}* [lang=x-wrapper] h1{font-size:26px !important;line-height:34px !important}* [lang=x-wrapper] h2{}* [lang=x-wrapper] h2{font-size:20px !important;line-height:28px !important}* [lang=x-wrapper] h3{}* [lang=x-layout__inner] p,* [lang=x-layout__inner] ol,* [lang=x-layout__inner] ul{}* div [lang=x-size-8]{font-size:8px !important;line-height:14px !important}* div [lang=x-size-9]{font-size:9px !important;line-height:16px !important}* div [lang=x-size-10]{font-size:10px !important;line-height:18px !important}* div [lang=x-size-11]{font-size:11px !important;line-height:19px !important}* div [lang=x-size-12]{font-size:12px !important;line-height:19px !important}* div [lang=x-size-13]{font-size:13px !important;line-height:21px !important}* div [lang=x-size-14]{font-size:14px !important;line-height:21px !important}* div 
     [lang=x-size-15]{font-size:15px !important;line-height:23px !important}* div [lang=x-size-16]{font-size:16px !important;line-height:24px !important}* div [lang=x-size-17]{font-size:17px !important;line-height:26px !important}* div [lang=x-size-18]{font-size:18px !important;line-height:26px !important}* div [lang=x-size-18]{font-size:18px !important;line-height:26px !important}* div [lang=x-size-20]{font-size:20px !important;line-height:28px !important}* div [lang=x-size-22]{font-size:22px !important;line-height:31px !important}* div [lang=x-size-24]{font-size:24px !important;line-height:32px !important}* div [lang=x-size-26]{font-size:26px !important;line-height:34px !important}* div [lang=x-size-28]{font-size:28px !important;line-height:36px !important}* div [lang=x-size-30]{font-size:30px !important;line-height:38px !important}* div [lang=x-size-32]{font-size:32px 
     !important;line-height:40px !important}* div [lang=x-size-34]{font-size:34px !important;line-height:43px !important}* div [lang=x-size-36]{font-size:36px !important;line-height:43px !important}* div [lang=x-size-40]{font-size:40px !important;line-height:47px !important}* div [lang=x-size-44]{font-size:44px !important;line-height:50px !important}* div [lang=x-size-48]{font-size:48px !important;line-height:54px !important}* div [lang=x-size-56]{font-size:56px !important;line-height:60px !important}* div [lang=x-size-64]{font-size:64px !important;line-height:63px !important}}
-    </style>
+    </style>    
         <style type="text/css">
     body {
       margin: 0;
@@ -611,11 +611,11 @@ const sendEmail = (to, url, txt) => {
           <div class="preheader" style="Margin: 0 auto;max-width: 560px;min-width: 280px; width: 280px;width: calc(28000% - 173040px);">
             <div style="border-collapse: collapse;display: table;width: 100%;">
             <!--[if (mso)|(IE)]><table align="center" class="preheader" cellpadding="0" cellspacing="0"><tr><td style="width: 280px" valign="top"><![endif]-->
-              <div class="snippet" style='display: table-cell;Float: left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 140px; width: 140px;width: calc(14000% - 78120px);padding: 10px 0 5px 0;color: #b9b9b9;font-family: "Open Sans",sans-serif;'>
+              <div class="snippet" style='display: table-cell;Float: left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 140px; width: 140px;width: calc(14000% - 78120px);padding: 10px 0 5px 0;color: #b9b9b9;font-family: "Roboto",sans-serif;'>
                 
               </div>
             <!--[if (mso)|(IE)]></td><td style="width: 280px" valign="top"><![endif]-->
-              <div class="webversion" style='display: table-cell;Float: left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 139px; width: 139px;width: calc(14100% - 78680px);padding: 10px 0 5px 0;text-align: right;color: #b9b9b9;font-family: "Open Sans",sans-serif;'>
+              <div class="webversion" style='display: table-cell;Float: left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 139px; width: 139px;width: calc(14100% - 78680px);padding: 10px 0 5px 0;text-align: right;color: #b9b9b9;font-family: "Roboto",sans-serif;'>
                 
               </div>
             <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
@@ -625,10 +625,10 @@ const sendEmail = (to, url, txt) => {
           <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
             <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #307fb0;" lang="x-layout__inner">
             <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" style="background-color: #307fb0;"><td style="width: 600px" class="w560"><![endif]-->
-              <div class="column" style='text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Open Sans",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
+              <div class="column" style='text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 24px;Margin-bottom: 24px;">
-          <h1 class="size-48" style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #44a8c7;font-size: 36px;line-height: 43px;font-family: bitter,georgia,serif;text-align: center;" lang="x-size-48"><span class="font-bitter"><font color="#ffffff"><strong>Photobook App</strong></font></span></h1>
+          <h1 class="size-48" style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #44a8c7;font-size: 36px;line-height: 43px;font-family: roboto;text-align: center;" lang="x-size-48"><span class="font-bitter"><font color="#ffffff"><strong>iTuto</strong></font></span></h1>
         </div>
             
               </div>
@@ -639,7 +639,7 @@ const sendEmail = (to, url, txt) => {
           <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
             <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" lang="x-layout__inner" emb-background-style>
             <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" emb-background-style><td style="width: 600px" class="w560"><![endif]-->
-              <div class="column" style='text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Open Sans",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
+              <div class="column" style='text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 24px;">
           <div style="line-height:10px;font-size:1px">&nbsp;</div>
@@ -649,16 +649,16 @@ const sendEmail = (to, url, txt) => {
           <h2 class="size-24" style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #44a8c7;font-size: 20px;line-height: 28px;text-align: center;" lang="x-size-24"><strong>Verify Your Email</strong></h2>
                   
                    <div style="font-size: 12px;font-style: normal;font-weight: normal;" align="center">
-              <img class="gnd-corner-image gnd-corner-image-center gnd-corner-image-bottom" style="border: 0;display: block;height: auto;width: 90%;max-width: 720px;" alt="" width="600" src="https://i1.createsend1.com/ei/d/E8/44B/C1E/133021/csfinal/64fdceb12bf24b41b92e654dee7b59cf.jpg">
+              <img class="gnd-corner-image gnd-corner-image-center gnd-corner-image-bottom" style="border: 0;display: block;height: auto;width: 90%;max-width: 720px;" alt="" width="600" src="https://c.neh.tw/thumb/f/720/5b5b8f3ff3684af39ffa.jpg">
             </div>
                   
                   
-                  <p style="Margin-top: 16px;Margin-bottom: 0;"><strong>Hello [name],</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Thank you for signing up to Photobook App.</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Please click on the following button to activate your token.</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Sincerely,<br>Team Photobook</strong></p>
+                  <p style="Margin-top: 16px;Margin-bottom: 0;"><strong>Hello iTuto user,</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Congratulations! your email has been verified for changin your password</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Before we get started, please click the button </strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Sincerely,<br>iTuto Team</strong></p>
         </div>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;">
           <div class="btn btn--flat btn--large" style="Margin-bottom: 20px;text-align: center;">
-            <![if !mso]><a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #5c91ad;font-family: 'Open Sans', sans-serif;" href="${url}">Click here</a><![endif]>
+            <![if !mso]><a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #5c91ad;font-family: 'Roboto', sans-serif;" href="${url}">Click here</a><![endif]>
           <!--[if mso]><p style="line-height:0;margin:0;">&nbsp;</p><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-l-dlldol-l-r/" style="width:118px" arcsize="9%" fillcolor="#5C91AD" stroke="f"><v:textbox style="mso-fit-shape-to-text:t" inset="0px,11px,0px,11px"><center style="font-size:14px;line-height:24px;color:#FFFFFF;font-family:sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Click here</center></v:textbox></v:roundrect><![endif]--></div>
         </div>
           
@@ -670,14 +670,14 @@ const sendEmail = (to, url, txt) => {
           <div class="layout email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
             <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;" lang="x-layout__inner">
             <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-email-footer"><td style="width: 400px;" valign="top" class="w360"><![endif]-->
-              <div class="column wide" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Open Sans",sans-serif;Float: left;max-width: 400px;min-width: 320px; width: 320px;width: calc(8000% - 47600px);'>
+              <div class="column wide" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Roboto",sans-serif;Float: left;max-width: 400px;min-width: 320px; width: 320px;width: calc(8000% - 47600px);'>
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
                   <table class="email-footer__links emb-web-links" style="border-collapse: collapse;table-layout: fixed;"><tbody><tr>
                   
     <td class="emb-web-links" style="padding: 0;width: 26px;"></td>
                   </tr></tbody></table>
                   <div style="Margin-top: 20px;">
-                    <div>Copyright &#169; 2016 Photobook Worldwide. All rights reserved.&nbsp;</div>
+                    <div>Copyright &#169; 2021-2022 iTuto. All rights reserved.&nbsp;</div>
                   </div>
                   <div style="Margin-top: 18px;">
                     
@@ -685,7 +685,7 @@ const sendEmail = (to, url, txt) => {
                 </div>
               </div>
             <!--[if (mso)|(IE)]></td><td style="width: 200px;" valign="top" class="w160"><![endif]-->
-              <!-- <div class="column narrow" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Open Sans",sans-serif;Float: left;max-width: 320px;min-width: 200px; width: 320px;width: calc(72200px - 12000%);'>
+              <!-- <div class="column narrow" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Roboto",sans-serif;Float: left;max-width: 320px;min-width: 200px; width: 320px;width: calc(72200px - 12000%);'>
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
                   <div class="footer__share-button">
                     <!--[if mso]><p style="line-height:0;">&nbsp;</p><![endif]
@@ -710,7 +710,7 @@ const sendEmail = (to, url, txt) => {
           <div class="layout one-col email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
             <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;" lang="x-layout__inner">
             <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-email-footer"><td style="width: 600px;" class="w560"><![endif]-->
-              <!-- <div class="column" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Open Sans",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
+              <!-- <div class="column" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
                   <div>
                     <a style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #b9b9b9;" href="http://photobookworldwide.createsend1.com/t/d-u-dlldol-l-m/">Unsubscribe</a>
