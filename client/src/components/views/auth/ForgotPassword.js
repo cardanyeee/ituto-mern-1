@@ -46,7 +46,7 @@ const ForgotPassword = ({ history }) => {
                     <MetaData title={'ForgotPassword'} styles={'html, body, .App { background-color: #75BBB3 !important; }'} />
                     <div className="d-lg-flex half">
                         <div className="d-flex justify-content-center">
-                            <img className="bg order-1 order-md-2 h-75 w-75 my-auto img-fluid half" src="/images/undraw_login_re_4vu2.svg" alt="ForgotPassword" />
+                            <img className="bg order-1 order-md-2 h-75 w-75 my-auto img-fluid half" src="/images/undraw_forgot_password_re_hxwm.svg" alt="ForgotPassword" />
                         </div>
                         <div className="contents order-2 order-md-1 bg-app-primary-light">
 

@@ -55,8 +55,8 @@ img {
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    /* display: none;
-    transform: translate(-50%); */
+    /* display: none;*/
+
     will-change: transform;
     transition: opacity .3s cubic-bezier(.25, .8, .5, 1);
     z-index: 1;
@@ -105,9 +105,9 @@ img {
     padding: 12px;
 }
 
-.text-center {
+/* .text-center {
     text-align: center !important;
-}
+} */
 
 .display-1 {
 
@@ -116,6 +116,15 @@ img {
     letter-spacing: .0073529412em !important;
 
 }
+
+.teamHeader {
+
+    font-size: 3.5rem !important;
+
+    letter-spacing: .0073529412em !important;
+
+}
+
 
 #bold {
     font-weight: bold;
@@ -158,15 +167,26 @@ p {
     width: 100%;
 }
 
-.v-card__subtitle, .v-card__text, .v-card__title {
-    padding: 16px;
+.v-card__subtitle {
+
+    padding: 20px;
 }
 
-.v-card__subtitle, .v-card__text {
-    font-size: .875rem;
+#picturePad {
+
+
+    padding: 20px;
+}
+
+
+
+.v-card__subtitle, .v-card__text p {
+
     font-weight: 400;
-    line-height: 1.375rem;
-    letter-spacing: .0071428571em;
+    font-size: 1em;
+    color: black;
+    text-align: justify;
+
 }
 
 .fab {
@@ -183,13 +203,15 @@ p {
 
 
 .v-avatar {
+    /* height: 150px;
+    width: 150px; */
     align-items: center;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     line-height: normal;
     position: relative;
-    text-align: center;
+
     vertical-align: middle;
     overflow: hidden;
 }
@@ -197,7 +219,7 @@ p {
 
 #tryspan {
 
-    width: 2.25in;
+    width: 300px;
     margin-right: 100px;
     display: block;
     margin-left: auto;
@@ -208,7 +230,7 @@ p {
 
 #font-title {
 
-    
+
     font-weight: 500;
     color: #EEF6FF;
 
@@ -217,6 +239,80 @@ p {
 #headerlogo {
 
     margin: 0 0 20px;
+
+
+}
+
+
+/* // THE TEAMMMMMMMMMM */
+
+
+
+/* .even-columns2 {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.col2 {
+    padding: 20px;
+    line-height: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.even-columns2 > * {
+    flex-basis: 100%;
+}
+
+.picture img {
+    max-width: 100%;
+    min-width: 10px;
+} */
+
+
+.headline {
+
+    font-size: 21px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+/* @media screen and (min-width: 768px) {
+    
+    #responsiveMockUp {
+
+        width: 375px;
+        position: relative;
+
+    }
+} */
+
+p {
+    font-size: 1em;
+    color: black;
+
+}
+
+/* banner */
+
+@media screen and (max-width:1080px) {
+
+
+    #banner {
+        width: 100%;
+    
+        
+        position: absolute;
+        top: 0;
+        left: 0;
+        position: center;
+        min-width: 20%;
+        min-height: 40%;
+        /* display: none;*/
+
+
+    }
 
 
 }

@@ -63,7 +63,7 @@ const sendEmail = (to, url, txt) => {
       </style>
       <!--[if !mso]><!-->
       <style type="text/css">
-        @media only screen and (max-width:480px) {
+        @media only screen and (max-width:320px) {
           @-ms-viewport { width:320px; }
           @viewport { width:320px; }
         }
@@ -93,7 +93,7 @@ const sendEmail = (to, url, txt) => {
       
           </style>
         <!--<![endif]--><style type="text/css">
-        @media only screen and (min-width:480px) {
+        @media only screen and (min-width:320px) {
           .mj-column-per-100, * [aria-labelledby="mj-column-per-100"] { width:100%!important; }
         }
       </style>

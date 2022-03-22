@@ -30,7 +30,7 @@ const Header = ({ history }) => {
                     <a className="navbar-brand" href="/#">
 
                         <h1 className="logo-brand">
-                            <img src="/images/ituto_logo_nobg.png" width="50"/>
+                            <img src="/images/ituto_logo_nobg.png" width="50" />
                             iTuto
                         </h1>
                         {/* <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" className="h-8" alt="..." /> */}
@@ -44,9 +44,11 @@ const Header = ({ history }) => {
 
                         <div className="navbar-nav mx-lg-auto">
                             <a className="nav-item nav-link active" href="/" aria-current="page">Home</a>
-                            <a className="nav-item nav-link" href="/#">Product</a>
-                            <a className="nav-item nav-link" href="/#">Features</a>
-                            <a className="nav-item nav-link" href="/#">Download</a>
+                            
+                            <a className="nav-item nav-link" href="/#what-is-ituto?">Download</a>
+                            <a className="nav-item nav-link" href="/#features">Features</a>
+                            <a className="nav-item nav-link" href="/#about">About</a>
+                            <a className="nav-item nav-link" href="/terms-and-conditions">Terms & Conditions</a>   
                         </div>
 
 
