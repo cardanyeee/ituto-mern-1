@@ -27,7 +27,7 @@ const AssessmentSchema = new Schema({
     },
     tutor: {
         type: Schema.Types.ObjectID,
-        ref: "Tutor",
+        ref: "User",
         required: true
     },
     tutee: {
@@ -39,16 +39,16 @@ const AssessmentSchema = new Schema({
         type: Number,
         default: 0
     },
+    answerDate: {
+        type: Date
+    },
     deleted: {
         type: Boolean,
         default: false
     }
 }, {
     timestamps: true
-
-
 }
-
 );
 
 const Assessment = mongoose.model('Assessment', AssessmentSchema);

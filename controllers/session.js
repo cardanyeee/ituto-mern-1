@@ -54,7 +54,7 @@ exports.declineSession = catchAsyncErrors(async (req, res, next) => {
             return next(new ErrorResponse("Unauthorized Access.", 401));
         }
 
-        session.acceptDeclineDate = Date.now();
+        session.acceptDeclineDate = convertUTCDateToLocalDate(Date.now());
         session.status = "Declined";
 
         session.save();
@@ -83,7 +83,7 @@ exports.acceptSession = catchAsyncErrors(async (req, res, next) => {
         
         session.time = JSON.parse(req.body.time);
         session.startDate = req.body.startDate;
-        session.acceptDeclineDate = Date.now();
+        session.acceptDeclineDate = convertUTCDateToLocalDate(Date.now());
         session.status = "Ongoing";
 
         session.save();
@@ -178,7 +178,8 @@ exports.selectedSession = catchAsyncErrors(async (req, res, next) => {
                 }
             })
             .populate("tutor")
-            .populate("subject");
+            .populate("subject")
+            .populate("assessments", "-answers -questions.answer -questions.choices -subject");
 
         const tutor = await Tutor.findOne({ userID: session.tutor._id }).select("-subjects -numOfReviews -ratings -reviews");
 

@@ -1,4 +1,5 @@
 const Assessment = require('../models/Assessment');
+const Session = require('../models/Session');
 
 const ErrorResponse = require('../utils/errorResponse');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
@@ -7,32 +8,50 @@ const APIFeatures = require('../utils/apiFeatures');
 
 exports.create = catchAsyncErrors(async (req, res, next) => {
     try {
+        const { sessionID, name, questions, subject, tutee } = req.body;
 
-        const { name, questions, subject, tutor, tutee } = req.body;
+        const tutor = req.user._id;
+        const session = await Session.findOne({ _id: sessionID });
 
-        console.log(name)
+        if (!(tutor.equals(session.tutor))) {
+            next(new ErrorResponse('Unauthorized Access', 401));
+        }
+        
+        const questionArray = JSON.parse(questions);
 
-        let quiz = new Assessment({
+        let assessment = new Assessment({
             name,
             subject,
-            tutor,
             tutee,
-            questions: questions.map(ques => {
+            tutor,
+            questions: questionArray.map(ques => {
                 return {
                     ...ques,
-                    choices: ques.choices.map(choice => {
+                    choices: JSON.parse(ques.choices).map(choice => {
                         return {
-                            name: choice,
-                            selected: false
+                            choice
                         }
                     })
                 }
             })
         });
-        quiz.save().then(result => {
-            res.status(200).json({ success: true });
-        })
+
+
+        session.assessments.push(assessment._id);
+
+        await session.save({ validateBeforeSave: false });
+
+        await assessment.save();
+
+        console.log(session);
+
+        res.status(200).json({
+            success: true,
+            assessment,
+            message: "Assessment Successfully Created!"
+        });
     } catch (error) {
+        console.log(error);
         next(error);
     }
 });
@@ -67,9 +86,9 @@ exports.allExam = catchAsyncErrors(async (req, res, next) => {
     try {
 
         Assessment.find()
-        .then(result => {
-            res.status(200).json(result);
-        })
+            .then(result => {
+                res.status(200).json(result);
+            })
     } catch (error) {
         next(new ErrorResponse('Quiz not found', 404));
     }

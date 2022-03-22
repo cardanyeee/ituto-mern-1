@@ -11,7 +11,7 @@ const {
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
-router.route("/assessment/create").post(create);
+router.route("/assessment/create").post(isAuthenticatedUser, create);
 router.route("/assessment/tutor").get(isAuthenticatedUser, findTutorAssessments);
 router.route("/assessment/tutee").get(isAuthenticatedUser, findTuteeAssessments);
 router.route("/assessments").get(allExam);
