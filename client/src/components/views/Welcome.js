@@ -88,7 +88,7 @@ const Welcome = () => {
                                                             </div>
                                                             <div className="text-center">
 
-                                                                <a href="https://drive.google.com/file/d/1mKA_qDNRKAK8Ym63LqMtewR2vT2Cwwu1/view"
+                                                                <a href="https://drive.google.com/file/d/1mKA_qDNRKAK8Ym63LqMtewR2vT2Cwwu1/view" target="_blank"
                                                                     className="ma-2 v-btn v-btn--contained v-btn--router theme--dark v-size--default ryu_orange">
                                                                     <span className="v-btn__content">
                                                                         <i aria-hidden="true"

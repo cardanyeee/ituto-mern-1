@@ -60,19 +60,6 @@ const NewMovie = ({ history }) => {
 
                 <div className="home-section">
 
-                    <div className="container-fluid">
-
-                        <div className="row pr-4 pt-4">
-
-                            <div className="col-xl-5 mb-3">
-                                <div className="card-body" id="welcomeMove">
-                                    <div className="text-center card-font-size"><h1>Create New <b>Course</b></h1></div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
                     {/* USERS TABLES */}
                     <div className="container-fluid">
                             <div className="col col-lg-12">
@@ -80,7 +67,7 @@ const NewMovie = ({ history }) => {
                                 <div class="card shadow mb-4">
                                     {/* <!-- Card Header - Dropdown --> */}
                                     <div class="card-header py-3">
-                                        <h6 class="m-0 font-weight-bold text-primary">Create New Course</h6>
+                                        <h1 class="m-0 font-weight-bold text-primary">Create New Course</h1>
                                     </div>
                                     {/* <!-- Card Body --> */}
                                     <div class="card-body">

@@ -153,15 +153,14 @@ html, body, .App {
     padding: 10px;
 } */
 
-#welcomeMove {
+#Username {
 
-    float: left;
+  
     text-transform: capitalize;
-    margin-left: 10px;
 
 }
 
-#widgetEnlarge {}
+
 
 /* #widgetMove {
 
@@ -341,6 +340,12 @@ html, body, .App {
         text-decoration: none;
 
 
+    }
+
+    .rounded {
+
+
+        width: 50%;
     }
 
 

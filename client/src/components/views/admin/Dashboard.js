@@ -85,7 +85,7 @@ const Dashboard = () => {
                 Firstname: allUsers.firstname,
                 Lastname: allUsers.lastname,
                 Username: allUsers.username,
-                Gender: allUsers.gender,    
+                Gender: allUsers.gender,
                 Email: allUsers.email,
                 Role: allUsers.role,
                 Phone: allUsers.phone,
@@ -95,7 +95,7 @@ const Dashboard = () => {
         return data;
 
     }
-    
+
     return (
         <Fragment>
             {loading ? <Loader /> : (
@@ -114,79 +114,101 @@ const Dashboard = () => {
 
                                     <div className="row pr-4 pt-4">
 
-                                        <div className="col-xl-5 mb-3">
-                                            <div className="card-body" id="welcomeMove">
-                                                <div className="text-center card-font-size"><h1>Welcome, <b>{user.username}!</b></h1></div>
+                                        <div className="col-xl-4 mb-3" >
+
+                                            <div class="card shadow mb-4">
+                                                {/* <!-- Card Header - Dropdown --> */}
+                                                <div class="card-header py-3">
+                                                    <h2 class="m-0 font-weight-bold text-primary" id="Username">Welcome <b>{user.username}!</b></h2>
+                                                </div>
+                                                {/* <!-- Card Body --> */}
+                                                <div className="d-flex flex-column align-items-center text-center p-3 py-4">
+                                                    <img className="rounded" width="200" src={user.avatar.url} alt={user.avatar.public_id} />
+                                                    <span className="font-weight-bold mt-4">{user.username}</span>
+                                                    <span className="text-black-50">{user.email}</span>
+                                                    <span></span>
+                                                </div>
                                             </div>
                                         </div>
+
+
+                                        <div className="col-xl-8 mb-3" >
+
+                                            <div className="row pr-4">
+
+                                                <div className="col-xl-4 mb-3">
+                                                    <div className="widgets">
+                                                        <Widget type="subject" />
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="col-xl-4 mb-3">
+                                                    <div className="widgets" >
+                                                        <Widget type="user" />
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="col-xl-4 mb-3">
+
+
+                                                    <div className="widgets">
+                                                        <Widget type="tutor" />
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div className="col-xl-4 mb-3">
+
+
+                                                    <div className="widgets">
+                                                        <Widget type="male" />
+
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div className="col-xl-4 mb-3">
+
+
+                                                    <div className="widgets">
+                                                        <Widget type="female" />
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div className="col-xl-4 mb-3">
+
+
+                                                    <div className="widgets">
+                                                        <Widget type="other" />
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
                                     </div>
+
+
 
                                 </div>
 
                                 {/* WIDGETS */}
 
 
-                                <div className="row pr-4 pt-4">
-
-                                    <div className="col-xl-4 mb-3">
-                                        <div className="widgets">
-                                            <Widget type="subject" />
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="col-xl-4 mb-3">
-                                        <div className="widgets" >
-                                            <Widget type="user" />
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="col-xl-4 mb-3">
-
-
-                                        <div className="widgets">
-                                            <Widget type="tutor" />
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div className="col-xl-4 mb-3">
-
-
-                                        <div className="widgets">
-                                            <Widget type="male" />
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div className="col-xl-4 mb-3">
-
-
-                                        <div className="widgets">
-                                            <Widget type="female" />
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="col-xl-4 mb-3">
-
-
-                                        <div className="widgets">
-                                            <Widget type="other" />
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
 
 
 
@@ -407,3 +429,6 @@ const Dashboard = () => {
 }
 
 export default Dashboard
+
+
+

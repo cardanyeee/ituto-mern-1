@@ -11,7 +11,7 @@ import { getCs, deleteC, clearErrors } from '../../../../actions/courseActions';
 import MetaData from '../../../layout/main/MetaData';
 import Loader from '../../../layout/main/Loader';
 
-import AdminHeader from '../../../layout/admin/AdminHeader';
+    import AdminHeader from '../../../layout/admin/AdminHeader';
 
 const MoviesLists = ({ history }) => {
 

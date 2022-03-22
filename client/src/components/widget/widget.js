@@ -145,18 +145,20 @@ const Widget = ({ type }) => {
         <span className="title">{data.title}</span>
         <span className="counter">
           <b>{data.display}</b>
-        </span> {data.isTrue === true && <span>
-          <Link to="/dashboard/subjects" style={{textDecoration: "none"}}>
-            {data.link}
-          </Link>
-        </span>}
+        </span>
+        {data.isTrue === true &&
+          <span id="link">
+            <Link to="/dashboard/subjects" style={{ textDecoration: "none" }}>
+              {data.link}
+            </Link>
+          </span>}
 
         {data.isNoLink === true &&
-          <span>
+          <span id="link">
             {data.link}
           </span>
         }
-        
+
       </div>
       <div className="right">
         <div className="percentage positive">
