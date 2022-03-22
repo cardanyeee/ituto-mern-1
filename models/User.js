@@ -50,8 +50,7 @@ const UserSchema = new Schema({
                 "Second",
                 "First"
             ]
-        },
-        default: "Request"
+        }
     },
     isTutor: {
         type: Boolean,
