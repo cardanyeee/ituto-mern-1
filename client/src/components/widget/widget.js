@@ -1,4 +1,5 @@
 import "./widget.scss";
+import { Link } from 'react-router-dom'
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -144,8 +145,18 @@ const Widget = ({ type }) => {
         <span className="title">{data.title}</span>
         <span className="counter">
           <b>{data.display}</b>
-        </span> {data.isTrue &&  <a href="/dashboard/subjects" className="link_name">{data.link}</a>}
-        {data.isNoLink &&  <span>{data.link}</span>}
+        </span> {data.isTrue === true && <span>
+          <Link to="/dashboard/subjects" style={{textDecoration: "none"}}>
+            {data.link}
+          </Link>
+        </span>}
+
+        {data.isNoLink === true &&
+          <span>
+            {data.link}
+          </span>
+        }
+        
       </div>
       <div className="right">
         <div className="percentage positive">

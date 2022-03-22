@@ -1,5 +1,8 @@
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { MDBDataTableV5 } from 'mdbreact';
+
 // import { Link } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 import {
@@ -23,7 +26,9 @@ import './dashboard.scss'
 import AdminHeader from '../../layout/admin/AdminHeader';
 import MetaData from '../../layout/main/MetaData';
 import Loader from '../../layout/main/Loader';
-import Widget from '../../widget/widget'
+import Widget from '../../widget/widget';
+
+import { clearErrors } from '../../../actions/authActions';
 
 import { getData } from '../../../actions/all_actions';
 
@@ -50,11 +55,53 @@ const Dashboard = () => {
 
     const { user } = useSelector(state => state.auth);
 
-    const { loading } = useSelector(state => state.datas);
+
+    const { loading, users, error } = useSelector(state => state.datas);
 
     useEffect(() => {
         dispatch(getData());
+
+        if (error) {
+            alert.error(error);
+            dispatch(clearErrors())
+        }
     }, [dispatch]);
+
+
+    const setUsers = () => {
+
+        const data = {
+            columns: [
+
+                { label: 'Firstname', field: 'Firstname', width: 210, sort: 'asc' },
+                { label: 'Lastname', field: 'Lastname', width: 150, sort: 'asc' },
+                { label: 'Username', field: 'Username', width: 230, sort: 'asc' },
+                { label: 'Gender', field: 'Gender', width: 230, sort: 'asc' },
+                { label: 'Email', field: 'Email', width: 230, sort: 'asc' },
+                { label: 'Role', field: 'Role', width: 230, sort: 'asc' },
+                { label: 'Phone', field: 'Phone', width: 230, sort: 'asc' },
+
+            ],
+            rows: []
+        }
+
+        users.forEach(users => {
+            data.rows.push({
+                Firstname: users.firstname,
+                Lastname: users.lastname,
+                Username: users.username,
+                Gender: users.gender,
+                Email: users.email,
+                Role: users.role,
+                Phone: users.phone,
+
+            });
+        });
+
+        return data;
+    }
+
+
 
     return (
         <Fragment>
@@ -81,6 +128,117 @@ const Dashboard = () => {
                                         </div>
                                     </div>
 
+                                </div>
+
+                                {/* WIDGETS */}
+
+
+                                <div className="row pr-4 pt-4">
+
+                                    <div className="col-xl-4 mb-3">
+                                        <div className="widgets">
+                                            <Widget type="subject" />
+
+                                        </div>
+
+                                    </div>
+
+                                    <div className="col-xl-4 mb-3">
+                                        <div className="widgets" >
+                                            <Widget type="user" />
+
+                                        </div>
+
+                                    </div>
+
+                                    <div className="col-xl-4 mb-3">
+
+
+                                        <div className="widgets">
+                                            <Widget type="tutor" />
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div className="col-xl-4 mb-3">
+
+
+                                        <div className="widgets">
+                                            <Widget type="male" />
+
+                                        </div>
+
+                                    </div>
+
+
+                                    <div className="col-xl-4 mb-3">
+
+
+                                        <div className="widgets">
+                                            <Widget type="female" />
+
+                                        </div>
+
+                                    </div>
+
+                                    <div className="col-xl-4 mb-3">
+
+
+                                        <div className="widgets">
+                                            <Widget type="other" />
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+
+
+                                {/* USERS TABLES */}
+                                <div className="container-fluid">
+
+                                    <div className="row pr-4 pt-4">
+
+
+                                        <div className="col col-lg-12">
+
+                                            <div class="card shadow mb-4">
+                                                {/* <!-- Card Header - Dropdown --> */}
+                                                <div class="card-header py-3">
+                                                    <h6 class="m-0 font-weight-bold text-primary">REGISTERED USERS</h6>
+                                                </div>
+                                                {/* <!-- Card Body --> */}
+                                                <div class="card-body">
+
+                                                    {/* USER DATA SECTION */}
+
+
+                                                    <div className="table-responsive">
+                                                        <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
+
+                                                            <Fragment>
+                                                                {loading ? <Loader /> : (
+                                                                    <MDBDataTableV5
+                                                                        data={setUsers()}
+                                                                        striped
+                                                                        hover
+                                                                    />
+                                                                )}
+                                                            </Fragment>
+                                                        </div>
+                                                    </div>
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
                                 </div>
 
                                 <div className="container-fluid">
@@ -243,70 +401,6 @@ const Dashboard = () => {
                                 </div>
 
 
-                                {/* WIDGETS */}
-
-
-                                <div className="row pr-4 pt-4">
-
-                                    <div className="col-xl-4 mb-3">
-                                        <div className="widgets">
-                                            <Widget type="subject" />
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="col-xl-4 mb-3">
-                                        <div className="widgets" >
-                                            <Widget type="user" />
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="col-xl-4 mb-3">
-
-
-                                        <div className="widgets">
-                                            <Widget type="tutor" />
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div className="col-xl-4 mb-3">
-
-
-                                        <div className="widgets">
-                                            <Widget type="male" />
-
-                                        </div>
-
-                                    </div>
-
-
-                                    <div className="col-xl-4 mb-3">
-
-
-                                        <div className="widgets">
-                                            <Widget type="female" />
-
-                                        </div>
-
-                                    </div>
-
-                                    <div className="col-xl-4 mb-3">
-
-
-                                        <div className="widgets">
-                                            <Widget type="other" />
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
 
 
                             </div>
@@ -320,3 +414,6 @@ const Dashboard = () => {
 }
 
 export default Dashboard
+
+
+

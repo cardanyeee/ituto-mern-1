@@ -94,7 +94,7 @@ const Welcome = () => {
                                                                         <i aria-hidden="true"
                                                                             className="v-icon notranslate ml-n1 mr-2 fas fa-download theme--dark">
                                                                         </i>
-                                                                        Download latest
+                                                                        Download
 
                                                                     </span>
                                                                 </a>

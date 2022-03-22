@@ -133,7 +133,7 @@ export const logout = () => async (dispatch) => {
     }
 }
 
-export const allUsers = () => async (dispatch) => {
+export const allUsers = (keyword = '', currentPage = 1) => async (dispatch) => {
     try {
 
         dispatch({ type: ALL_USERS_REQUEST });
