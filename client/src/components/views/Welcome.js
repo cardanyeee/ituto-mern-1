@@ -125,7 +125,7 @@ const Welcome = () => {
 
                             </div>
                             <div className="row align-start">
-                                <div className="col-md-4 col-12">
+                                <div className="col1 col-md-4 col-12">
                                     <div className="elevation-0 transparent v-card v-sheet theme--light" id="elevation-0" >
                                         <div className="v-card__text text-center">
                                             {/* <i aria-hidden="true"
@@ -155,7 +155,7 @@ const Welcome = () => {
                                         <div className="v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p></div>
                                     </div>
                                 </div>
-                                <div className="col-md-4 col-12">
+                                <div className="col1 col-md-4 col-12">
                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
                                         <div className="v-card__text text-center">
                                             {/* <i aria-hidden="true"
@@ -307,7 +307,7 @@ const Welcome = () => {
                                                 </div>
                                                 <div primary-title="" className="v-card__title layout justify-center" ><a
                                                     href="https://github.com/sayrsalad" rel="noopener"
-                                                    className="headline text-center" >Jose Angelo Arboleda</a></div>
+                                                    className="color1 headline text-center" >Jose Angelo Arboleda</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p>
 
@@ -323,7 +323,7 @@ const Welcome = () => {
                                                 </div>
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <a href="https://github.com/cardanyeee"
-                                                        rel="noopener" className="headline text-center" >Carl Daniel Villanueva</a></div>
+                                                        rel="noopener" className="color1 headline text-center" >Carl Daniel Villanueva</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate
                                                     </p>
@@ -337,8 +337,8 @@ const Welcome = () => {
                                                         src="/images/teamDp-1.png" className="g-image" />
                                                     </div>
                                                 </div>
-                                                <div primary-title="" className="v-card__title layout justify-center"><a href="https://github.com/Thog"
-                                                    rel="noopener" className="headline text-center" >Cassidy Hashime  Carbajosa</a></div>
+                                                <div primary-title="" className="v-card__title layout justify-center"><a href="https://github.com/arcane3"
+                                                    rel="noopener" className="color1 headline text-center" >Cassidy Hashime  Carbajosa</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p>
 
@@ -352,8 +352,8 @@ const Welcome = () => {
                                                         src="/images/teamDp-4.png" className="g-image" />
                                                     </div>
                                                 </div>
-                                                <div primary-title="" className="v-card__title layout justify-center"><a href="https://github.com/Thog"
-                                                    rel="noopener" className="headline text-center">Mark Joseph Casas</a></div>
+                                                <div primary-title="" className="v-card__title layout justify-center"><a href="https://www.facebook.com/macmac0123"
+                                                    rel="noopener" className="color1 headline text-center">Mark Joseph Casas</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p>
 
