@@ -37,7 +37,7 @@ function ActivationEmail() {
                         <div className="col-md-10" id="Align">
                             <h3 className="fs-1">
                                 <strong>
-                                    Congratulations! Your email has been Activated *for tutors.
+                                    Congratulations! Your email has been Activated.
                                 </strong>
                             </h3>
                             {/* <p className="ForgotPassword-subheading fs-5 fw-light mb-4">Discover students who are interested in sharing their attained skills and knowledge.</p> */}

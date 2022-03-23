@@ -26,7 +26,7 @@ const Welcome = () => {
                                                 data-src="images/lol.png"
                                                 data-srcset="images/lol.png"
                                             />
-                                            <p className="display-1" id="font-title">Discover students who are interested in sharing <br />their attained skills and knowledge. okay ang lahat</p>
+                                            <p className="display-1" id="font-title">Discover students who are interested in sharing <br />their attained skills and knowledge</p>
 
 
 
