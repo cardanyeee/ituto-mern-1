@@ -7,9 +7,9 @@ import { MDBDataTableV5 } from 'mdbreact';
 // import { Link } from 'react-router-dom';
 import {
     Chart as ChartJS,
-    registerables 
+    registerables
 } from "chart.js";
-import { Pie, Doughnut, Line, Bar } from 'react-chartjs-2'
+import { Doughnut, Line, Bar } from 'react-chartjs-2'
 import './dashboard.scss'
 
 import AdminHeader from '../../layout/admin/AdminHeader';
@@ -28,7 +28,7 @@ import { getData } from '../../../actions/all_actions';
 
 
 ChartJS.register(
-  ...registerables
+    ...registerables
 );
 
 
@@ -40,7 +40,7 @@ const Dashboard = () => {
 
     const { users } = useSelector(state => state.allUsers);
 
-    const { loading } = useSelector(state => state.datas);
+    const { loading, male, female, pnts } = useSelector(state => state.datas);
 
     useEffect(() => {
         dispatch(getData());
@@ -53,14 +53,14 @@ const Dashboard = () => {
 
             columns: [
 
-                { label: 'Firstname', field: 'Firstname', width: 210, sort: 'asc' },
-                { label: 'Lastname', field: 'Lastname', width: 150, sort: 'asc' },
-                { label: 'Username', field: 'Username', width: 230, sort: 'asc' },
-                { label: 'Gender', field: 'Gender', width: 230, sort: 'asc' },
-                { label: 'Email', field: 'Email', width: 230, sort: 'asc' },
-                { label: 'Role', field: 'Role', width: 230, sort: 'asc' },
-                { label: 'Phone', field: 'Phone', width: 230, sort: 'asc' },
-                { label: 'Time', field: 'Time', width: 230, sort: 'asc' }
+                { label: 'Firstname', field: 'Firstname', width: 210 },
+                { label: 'Lastname', field: 'Lastname', width: 150 },
+                { label: 'Username', field: 'Username', width: 230 },
+                { label: 'Gender', field: 'Gender', width: 230 },
+                { label: 'Email', field: 'Email', width: 230 }, 
+                { label: 'Role', field: 'Role', width: 230 },
+                { label: 'Phone', field: 'Phone', width: 230 },
+                { label: 'Time', field: 'Time', width: 240 }
 
             ],
             rows: []
@@ -103,10 +103,10 @@ const Dashboard = () => {
 
                                         <div className="col-xl-4 mb-3" >
 
-                                            <div class="card shadow mb-4">
+                                            <div className="card shadow mb-4">
                                                 {/* <!-- Card Header - Dropdown --> */}
-                                                <div class="card-header py-3">
-                                                    <h2 class="m-0 font-weight-bold text-primary" id="Username">Welcome <b>{user.username}!</b></h2>
+                                                <div className="card-header py-3">
+                                                    <h2 className="m-0 font-weight-bold text-primary" id="Username">Welcome <b>{user.username}!</b></h2>
                                                 </div>
                                                 {/* <!-- Card Body --> */}
                                                 <div className="d-flex flex-column align-items-center text-center p-3 py-4">
@@ -118,6 +118,7 @@ const Dashboard = () => {
                                             </div>
                                         </div>
 
+                                        {/* WIDGETS */}
 
                                         <div className="col-xl-8 mb-3" >
 
@@ -192,13 +193,6 @@ const Dashboard = () => {
 
 
                                 </div>
-
-                                {/* WIDGETS */}
-
-
-
-
-
                                 {/* USERS TABLES */}
                                 <div className="container-fluid">
 
@@ -207,13 +201,13 @@ const Dashboard = () => {
 
                                         <div className="col col-lg-12">
 
-                                            <div class="card shadow mb-4">
+                                            <div className="card shadow mb-4">
                                                 {/* <!-- Card Header - Dropdown --> */}
-                                                <div class="card-header py-3">
-                                                    <h6 class="m-0 font-weight-bold text-primary">REGISTERED USERS</h6>
+                                                <div className="card-header py-3">
+                                                    <h6 className="m-0 font-weight-bold text-primary">REGISTERED USERS</h6>
                                                 </div>
                                                 {/* <!-- Card Body --> */}
-                                                <div class="card-body">
+                                                <div className="card-body">
 
                                                     {/* USER DATA SECTION */}
 
@@ -251,39 +245,45 @@ const Dashboard = () => {
 
                                         <div className="col-xl-4 mb-3" >
 
-                                            <div class="card shadow mb-4">
+                                            <div className="card shadow mb-4">
                                                 {/* <!-- Card Header - Dropdown --> */}
-                                                <div class="card-header py-3">
-                                                    <h6 class="m-0 font-weight-bold text-primary">Male and Female Populations</h6>
+                                                <div className="card-header py-3">
+                                                    <h6 className="m-0 font-weight-bold text-primary"
+                                                    >Male and Female Populations</h6>
                                                 </div>
                                                 {/* <!-- Card Body --> */}
-                                                <div class="card-body">
-                                                    <div class="chart-pie pt-4">
+                                                <div className="card-body">
+                                                    <h6 className="color1 m-0 font-weight-bold">
+                                                        <b>{users && users.length} </b>Total Users
+                                                    </h6>
+                                                    <div className="chart-pie pt-4">
+
+
 
                                                         <Doughnut
 
                                                             data={{
-                                                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                                                labels: ['Female', 'Male', 'Prefer Not to Say'],
                                                                 datasets: [
                                                                     {
                                                                         label: '# of votes',
-                                                                        data: [12, 19, 3, 5, 2, 3],
+                                                                        data: [female && female, male && male, pnts && pnts],
 
                                                                         backgroundColor: [
                                                                             '#FF6384',
                                                                             '#36A2EB',
                                                                             '#FFCE56    ',
-                                                                            '#4BC0C0',
-                                                                            '#9966FF',
-                                                                            '#FF9F40',
+                                                                            // '#4BC0C0',
+                                                                            // '#9966FF',
+                                                                            // '#FF9F40',
                                                                         ],
                                                                         borderColor: [
                                                                             'rgba(255, 99, 132, 1)',
                                                                             'rgba(54, 162, 235, 1)',
                                                                             'rgba(255, 206, 86, 1)',
-                                                                            'rgba(75, 192, 192, 1)',
-                                                                            'rgba(153, 102, 255, 1)',
-                                                                            'rgba(255, 159, 64, 1)',
+                                                                            // 'rgba(75, 192, 192, 1)',
+                                                                            // 'rgba(153, 102, 255, 1)',
+                                                                            // 'rgba(255, 159, 64, 1)',
                                                                         ],
                                                                         borderWidth: 1,
                                                                     },
@@ -305,6 +305,10 @@ const Dashboard = () => {
                                                                             ticks: {
                                                                                 beginAtZero: true,
                                                                             },
+
+                                                                            gridLines: {
+                                                                                color: 'white'
+                                                                            }
                                                                         },
                                                                     ],
                                                                 },
@@ -328,14 +332,14 @@ const Dashboard = () => {
 
                                         <div className="col-xl-8 mb-3" >
 
-                                            <div class="card shadow mb-4">
+                                            <div className="card shadow mb-4">
                                                 {/* <!-- Card Header - Dropdown --> */}
-                                                <div class="card-header py-3">
-                                                    <h6 class="m-0 font-weight-bold text-primary">Line Chart</h6>
+                                                <div className="card-header py-3">
+                                                    <h6 className="m-0 font-weight-bold text-primary">Line Chart</h6>
                                                 </div>
                                                 {/* <!-- Card Body --> */}
-                                                <div class="card-body">
-                                                    <div class="chart-pie pt-4">
+                                                <div className="card-body">
+                                                    <div className="chart-pie pt-4">
 
                                                         <Line
                                                             data={{
@@ -408,16 +412,17 @@ const Dashboard = () => {
 
                                     <div className="col-xl-12 mb-3" >
 
-                                        <div class="card shadow mb-4">
+                                        <div className="card shadow mb-4">
                                             {/* <!-- Card Header - Dropdown --> */}
-                                            <div class="card-header py-3">
-                                                <h6 class="m-0 font-weight-bold text-primary">MOST INQUIRED SUBJECT</h6>
+                                            <div className="card-header py-3">
+                                                <h6 className="m-0 font-weight-bold text-primary">Most Inquired Subject</h6>
                                             </div>
                                             {/* <!-- Card Body --> */}
-                                            <div class="card-body">
-                                                <div class="chart-pie pt-4">
+                                            <div className="card-body">
+                                                <div className="chart-pie pt-4">
 
                                                     <Bar
+
                                                         data={{
                                                             labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
                                                             datasets: [
@@ -476,7 +481,10 @@ const Dashboard = () => {
 
                                             </div>
                                         </div>
+
+
                                     </div>
+
 
 
 

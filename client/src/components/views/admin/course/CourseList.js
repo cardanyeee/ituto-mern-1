@@ -5,7 +5,6 @@ import { useAlert } from 'react-alert';
 import { MDBDataTableV5 } from 'mdbreact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CSVLink } from "react-csv";
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { getCs, deleteC, clearErrors } from '../../../../actions/courseActions';
 
 import MetaData from '../../../layout/main/MetaData';
@@ -108,7 +107,7 @@ const MoviesLists = ({ history }) => {
                         <div className="card-header py-3">
 
                             <div className="d-sm-inline-block btn btn-sm btn-primary shadow-sm" role="button" onClick={csvReport}>
-                                <i class="fas fa-download fa-sm text-white-50">
+                                <i className="fas fa-download fa-sm text-white-50">
                                     <span className="m-0 font-weight-bold" >
                                         <CSVLink {...csvReport} style={{ color: "#F3F7FD", textDecoration: "none" }}>
                                             Generate CSV    

@@ -45,7 +45,7 @@ const sendEmail = (to, url, txt) => {
     to: to,
     subject: "iTuto Email Activation",
     html: `
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!--[if IE]><html xmlns="http://www.w3\.org/1999/xhtml" class="ie"><![endif]--><!--[if !IE]><!--><html style="margin: 0;padding: 0;" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]--><head>
+        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!--[if IE]><html xmlns="http://www.w3\.org/1999/xhtml" className="ie"><![endif]--><!--[if !IE]><!--><html style="margin: 0;padding: 0;" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]--><head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
         <meta name="viewport" content="width=device-width"><style type="text/css">
@@ -602,33 +602,33 @@ const sendEmail = (to, url, txt) => {
     <link href="https://css.createsend1.com/css/social.min.css?h=0ED47CE120160920" media="screen,projection" rel="stylesheet" type="text/css" />
     </head>
     <!--[if mso]>
-      <body class="mso">
+      <body className="mso">
     <![endif]-->
     <!--[if !mso]><!-->
-      <body class="full-padding" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;">
+      <body className="full-padding" style="margin: 0;padding: 0;-webkit-text-size-adjust: 100%;">
     <!--<![endif]-->
-        <div class="wrapper" style="min-width: 320px;background-color: #f5f7fa;" lang="x-wrapper">
-          <div class="preheader" style="Margin: 0 auto;max-width: 560px;min-width: 280px; width: 280px;width: calc(28000% - 173040px);">
+        <div className="wrapper" style="min-width: 320px;background-color: #f5f7fa;" lang="x-wrapper">
+          <div className="preheader" style="Margin: 0 auto;max-width: 560px;min-width: 280px; width: 280px;width: calc(28000% - 173040px);">
             <div style="border-collapse: collapse;display: table;width: 100%;">
-            <!--[if (mso)|(IE)]><table align="center" class="preheader" cellpadding="0" cellspacing="0"><tr><td style="width: 280px" valign="top"><![endif]-->
-              <div class="snippet" style='display: table-cell;Float: left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 140px; width: 140px;width: calc(14000% - 78120px);padding: 10px 0 5px 0;color: #b9b9b9;font-family: "Roboto",sans-serif;'>
+            <!--[if (mso)|(IE)]><table align="center" className="preheader" cellpadding="0" cellspacing="0"><tr><td style="width: 280px" valign="top"><![endif]-->
+              <div className="snippet" style='display: table-cell;Float: left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 140px; width: 140px;width: calc(14000% - 78120px);padding: 10px 0 5px 0;color: #b9b9b9;font-family: "Roboto",sans-serif;'>
                 
               </div>
             <!--[if (mso)|(IE)]></td><td style="width: 280px" valign="top"><![endif]-->
-              <div class="webversion" style='display: table-cell;Float: left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 139px; width: 139px;width: calc(14100% - 78680px);padding: 10px 0 5px 0;text-align: right;color: #b9b9b9;font-family: "Roboto",sans-serif;'>
+              <div className="webversion" style='display: table-cell;Float: left;font-size: 12px;line-height: 19px;max-width: 280px;min-width: 139px; width: 139px;width: calc(14100% - 78680px);padding: 10px 0 5px 0;text-align: right;color: #b9b9b9;font-family: "Roboto",sans-serif;'>
                 
               </div>
             <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
             </div>
           </div>
           
-          <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
-            <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #307fb0;" lang="x-layout__inner">
-            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" style="background-color: #307fb0;"><td style="width: 600px" class="w560"><![endif]-->
-              <div class="column" style='text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
+          <div className="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+            <div className="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #307fb0;" lang="x-layout__inner">
+            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr className="layout-fixed-width" style="background-color: #307fb0;"><td style="width: 600px" className="w560"><![endif]-->
+              <div className="column" style='text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 24px;Margin-bottom: 24px;">
-          <h1 class="size-48" style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #44a8c7;font-size: 36px;line-height: 43px;font-family: roboto;text-align: center;" lang="x-size-48"><span class="font-bitter"><font color="#ffffff"><strong>iTuto</strong></font></span></h1>
+          <h1 className="size-48" style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #44a8c7;font-size: 36px;line-height: 43px;font-family: roboto;text-align: center;" lang="x-size-48"><span className="font-bitter"><font color="#ffffff"><strong>iTuto</strong></font></span></h1>
         </div>
             
               </div>
@@ -636,20 +636,20 @@ const sendEmail = (to, url, txt) => {
             </div>
           </div>
       
-          <div class="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
-            <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" lang="x-layout__inner" emb-background-style>
-            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-fixed-width" emb-background-style><td style="width: 600px" class="w560"><![endif]-->
-              <div class="column" style='text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
+          <div className="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+            <div className="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #ffffff;" lang="x-layout__inner" emb-background-style>
+            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr className="layout-fixed-width" emb-background-style><td style="width: 600px" className="w560"><![endif]-->
+              <div className="column" style='text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 24px;">
           <div style="line-height:10px;font-size:1px">&nbsp;</div>
         </div>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;">
-          <h2 class="size-24" style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #44a8c7;font-size: 20px;line-height: 28px;text-align: center;" lang="x-size-24"><strong>Verify Your Email</strong></h2>
+          <h2 className="size-24" style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #44a8c7;font-size: 20px;line-height: 28px;text-align: center;" lang="x-size-24"><strong>Verify Your Email</strong></h2>
                   
                    <div style="font-size: 12px;font-style: normal;font-weight: normal;" align="center">
-              <img class="gnd-corner-image gnd-corner-image-center gnd-corner-image-bottom" style="border: 0;display: block;height: auto;width: 90%;max-width: 720px;" alt="" width="600" src="https://c.neh.tw/thumb/f/720/5b5b8f3ff3684af39ffa.jpg">
+              <img className="gnd-corner-image gnd-corner-image-center gnd-corner-image-bottom" style="border: 0;display: block;height: auto;width: 90%;max-width: 720px;" alt="" width="600" src="https://c.neh.tw/thumb/f/720/5b5b8f3ff3684af39ffa.jpg">
             </div>
                   
                   
@@ -657,7 +657,7 @@ const sendEmail = (to, url, txt) => {
         </div>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;">
-          <div class="btn btn--flat btn--large" style="Margin-bottom: 20px;text-align: center;">
+          <div className="btn btn--flat btn--large" style="Margin-bottom: 20px;text-align: center;">
             <![if !mso]><a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #5c91ad;font-family: 'Roboto', sans-serif;" href="${url}">Click here</a><![endif]>
           <!--[if mso]><p style="line-height:0;margin:0;">&nbsp;</p><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-l-dlldol-l-r/" style="width:118px" arcsize="9%" fillcolor="#5C91AD" stroke="f"><v:textbox style="mso-fit-shape-to-text:t" inset="0px,11px,0px,11px"><center style="font-size:14px;line-height:24px;color:#FFFFFF;font-family:sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Click here</center></v:textbox></v:roundrect><![endif]--></div>
         </div>
@@ -667,14 +667,14 @@ const sendEmail = (to, url, txt) => {
             </div>
           </div>
       
-          <div class="layout email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
-            <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;" lang="x-layout__inner">
-            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-email-footer"><td style="width: 400px;" valign="top" class="w360"><![endif]-->
-              <div class="column wide" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Roboto",sans-serif;Float: left;max-width: 400px;min-width: 320px; width: 320px;width: calc(8000% - 47600px);'>
+          <div className="layout email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+            <div className="layout__inner" style="border-collapse: collapse;display: table;width: 100%;" lang="x-layout__inner">
+            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr className="layout-email-footer"><td style="width: 400px;" valign="top" className="w360"><![endif]-->
+              <div className="column wide" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Roboto",sans-serif;Float: left;max-width: 400px;min-width: 320px; width: 320px;width: calc(8000% - 47600px);'>
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
-                  <table class="email-footer__links emb-web-links" style="border-collapse: collapse;table-layout: fixed;"><tbody><tr>
+                  <table className="email-footer__links emb-web-links" style="border-collapse: collapse;table-layout: fixed;"><tbody><tr>
                   
-    <td class="emb-web-links" style="padding: 0;width: 26px;"></td>
+    <td className="emb-web-links" style="padding: 0;width: 26px;"></td>
                   </tr></tbody></table>
                   <div style="Margin-top: 20px;">
                     <div>Copyright &#169; 2021-2022 iTuto. All rights reserved.&nbsp;</div>
@@ -684,22 +684,22 @@ const sendEmail = (to, url, txt) => {
                   </div>
                 </div>
               </div>
-            <!--[if (mso)|(IE)]></td><td style="width: 200px;" valign="top" class="w160"><![endif]-->
-              <!-- <div class="column narrow" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Roboto",sans-serif;Float: left;max-width: 320px;min-width: 200px; width: 320px;width: calc(72200px - 12000%);'>
+            <!--[if (mso)|(IE)]></td><td style="width: 200px;" valign="top" className="w160"><![endif]-->
+              <!-- <div className="column narrow" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Roboto",sans-serif;Float: left;max-width: 320px;min-width: 200px; width: 320px;width: calc(72200px - 12000%);'>
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
-                  <div class="footer__share-button">
+                  <div className="footer__share-button">
                     <!--[if mso]><p style="line-height:0;">&nbsp;</p><![endif]
                     
-    <p style="Margin-top: 0;Margin-bottom: 5px;line-height: 26px;mso-line-height-rule: exactly;"><![if !mso]><a class="fblike" style="background-image: url(https://i8.createsend1.com/static/eb/customise/13-the-blueprint-3/images/fblike.png);text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: inline-block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;background-color: #7b7c7d;" href="http://photobookworldwide.createsend1.com/t/d-fb-dlldol-l-b/" left-align-text="true" rel="cs_facebox">Like</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-fb-dlldol-l-b/" style="width:62px" arcsize="8%" 
+    <p style="Margin-top: 0;Margin-bottom: 5px;line-height: 26px;mso-line-height-rule: exactly;"><![if !mso]><a className="fblike" style="background-image: url(https://i8.createsend1.com/static/eb/customise/13-the-blueprint-3/images/fblike.png);text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: inline-block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;background-color: #7b7c7d;" href="http://photobookworldwide.createsend1.com/t/d-fb-dlldol-l-b/" left-align-text="true" rel="cs_facebox">Like</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-fb-dlldol-l-b/" style="width:62px" arcsize="8%" 
     fill="t" stroke="f"><v:fill type="tile" src="https://i8.createsend1.com/static/eb/customise/13-the-blueprint-3/images/fblike.png" color="#7B7C7D"></v:fill><v:textbox style="mso-fit-shape-to-text:t" inset="27px,7px,0,6px"><p style="font-size:11px;line-height:11px;color:#FFFFFF;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:-1px">Like</p></v:textbox></v:roundrect><![endif]</p>
                     
-    <p style="Margin-top: 0;Margin-bottom: 5px;line-height: 26px;mso-line-height-rule: exactly;"><![if !mso]><a class="tweet" style="background-image: url(https://i7.createsend1.com/static/eb/customise/13-the-blueprint-3/images/tweet.png);text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: inline-block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;background-color: #7b7c7d;" href="http://photobookworldwide.createsend1.com/t/d-tw-dlldol-l-n/" left-align-text="true">Tweet</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-tw-dlldol-l-n/" style="width:73px" arcsize="8%" fill="t" 
+    <p style="Margin-top: 0;Margin-bottom: 5px;line-height: 26px;mso-line-height-rule: exactly;"><![if !mso]><a className="tweet" style="background-image: url(https://i7.createsend1.com/static/eb/customise/13-the-blueprint-3/images/tweet.png);text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: inline-block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;background-color: #7b7c7d;" href="http://photobookworldwide.createsend1.com/t/d-tw-dlldol-l-n/" left-align-text="true">Tweet</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-tw-dlldol-l-n/" style="width:73px" arcsize="8%" fill="t" 
     stroke="f"><v:fill type="tile" src="https://i7.createsend1.com/static/eb/customise/13-the-blueprint-3/images/tweet.png" color="#7B7C7D"></v:fill><v:textbox style="mso-fit-shape-to-text:t" inset="27px,7px,0,6px"><p style="font-size:11px;line-height:11px;color:#FFFFFF;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:-1px">Tweet</p></v:textbox></v:roundrect><![endif]</p>
                     
-    <p style="Margin-top: 0;Margin-bottom: 5px;line-height: 26px;mso-line-height-rule: exactly;"><![if !mso]><a class="linkedinshare" style="background-image: url(https://i10.createsend1.com/static/eb/customise/13-the-blueprint-3/images/lishare.png);text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: inline-block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;background-color: #7b7c7d;" href="http://photobookworldwide.createsend1.com/t/d-li-dlldol-l-p/" left-align-text="true">Share</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-li-dlldol-l-p/" style="width:70px" arcsize="8%" fill="t" 
+    <p style="Margin-top: 0;Margin-bottom: 5px;line-height: 26px;mso-line-height-rule: exactly;"><![if !mso]><a className="linkedinshare" style="background-image: url(https://i10.createsend1.com/static/eb/customise/13-the-blueprint-3/images/lishare.png);text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: inline-block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;background-color: #7b7c7d;" href="http://photobookworldwide.createsend1.com/t/d-li-dlldol-l-p/" left-align-text="true">Share</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-li-dlldol-l-p/" style="width:70px" arcsize="8%" fill="t" 
     stroke="f"><v:fill type="tile" src="https://i10.createsend1.com/static/eb/customise/13-the-blueprint-3/images/lishare.png" color="#7B7C7D"></v:fill><v:textbox style="mso-fit-shape-to-text:t" inset="27px,7px,0,6px"><p style="font-size:11px;line-height:11px;color:#FFFFFF;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:-1px">Share</p></v:textbox></v:roundrect><![endif]</p>
                     
-    <p style="Margin-top: 0;Margin-bottom: 5px;line-height: 26px;mso-line-height-rule: exactly;"><![if !mso]><a class="forwardtoafriend" style="background-image: url(https://i9.createsend1.com/static/eb/customise/13-the-blueprint-3/images/forward.png);text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: inline-block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;background-color: #7b7c7d;" href="http://photobookworldwide.forwardtomyfriend.com/d-l-2AD73FFF-dlldol-l-x" left-align-text="true">Forward</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.forwardtomyfriend.com/d-l-2AD73FFF-dlldol-l-x" style="width:85px" arcsize="8%" fill="t" stroke="f"><v:fill type="tile" 
+    <p style="Margin-top: 0;Margin-bottom: 5px;line-height: 26px;mso-line-height-rule: exactly;"><![if !mso]><a className="forwardtoafriend" style="background-image: url(https://i9.createsend1.com/static/eb/customise/13-the-blueprint-3/images/forward.png);text-decoration: none;transition: opacity 0.1s ease-in;color: #ffffff;background-repeat: no-repeat;background-size: 200px 56px;border-radius: 2px;display: inline-block;font-size: 11px;font-weight: bold;line-height: 11px;padding: 8px 11px 7px 28px;text-align: left;background-color: #7b7c7d;" href="http://photobookworldwide.forwardtomyfriend.com/d-l-2AD73FFF-dlldol-l-x" left-align-text="true">Forward</a><![endif]><!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.forwardtomyfriend.com/d-l-2AD73FFF-dlldol-l-x" style="width:85px" arcsize="8%" fill="t" stroke="f"><v:fill type="tile" 
     src="https://i9.createsend1.com/static/eb/customise/13-the-blueprint-3/images/forward.png" color="#7B7C7D"></v:fill><v:textbox style="mso-fit-shape-to-text:t" inset="27px,7px,0,6px"><p style="font-size:11px;line-height:11px;color:#FFFFFF;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:-1px">Forward</p></v:textbox></v:roundrect><![endif]</p>
                   </div>
                 </div>
@@ -707,10 +707,10 @@ const sendEmail = (to, url, txt) => {
             <!--[if (mso)|(IE)]></td></tr></table><![endif]-->
             </div>
           </div>
-          <div class="layout one-col email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
-            <div class="layout__inner" style="border-collapse: collapse;display: table;width: 100%;" lang="x-layout__inner">
-            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr class="layout-email-footer"><td style="width: 600px;" class="w560"><![endif]-->
-              <!-- <div class="column" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
+          <div className="layout one-col email-footer" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
+            <div className="layout__inner" style="border-collapse: collapse;display: table;width: 100%;" lang="x-layout__inner">
+            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr className="layout-email-footer"><td style="width: 600px;" className="w560"><![endif]-->
+              <!-- <div className="column" style='text-align: left;font-size: 12px;line-height: 19px;color: #b9b9b9;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 10px;Margin-bottom: 10px;">
                   <div>
                     <a style="text-decoration: underline;transition: opacity 0.1s ease-in;color: #b9b9b9;" href="http://photobookworldwide.createsend1.com/t/d-u-dlldol-l-m/">Unsubscribe</a>

@@ -1,21 +1,23 @@
 import "./widget.scss";
 import { Link } from 'react-router-dom'
-import React, { Fragment, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
+
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import SchoolIcon from '@mui/icons-material/School';
+import MaleIcon from '@mui/icons-material/Male';
+import FemaleIcon from '@mui/icons-material/Female';
+import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
+
 
 
 const Widget = ({ type }) => {
 
-  const dispatch = useDispatch();
 
 
-  const { loading, users, subs, tutors, male, female, other, pnts } = useSelector(state => state.datas);
+  const { users, subs, tutors, male, female, pnts } = useSelector(state => state.datas);
 
   // useEffect(() => {
   //     dispatch(getData());
@@ -29,8 +31,7 @@ const Widget = ({ type }) => {
   const tutorCount = tutors && tutors.length;
   const maleCount = male && male;
   const femaleCount = female && female;
-  const otherCount = other && other;
-  const pntsCount = pnts && pnts;
+  const otherCount = pnts && pnts;
 
 
   switch (type) {
@@ -58,7 +59,7 @@ const Widget = ({ type }) => {
         isTrue: true,
         link: "View All Subjects",
         icon: (
-          <ShoppingCartOutlinedIcon
+          <MenuBookIcon
             className="icon"
             style={{
               backgroundColor: "rgba(218, 165, 32, 0.2)",
@@ -75,7 +76,7 @@ const Widget = ({ type }) => {
         isNoLink: true,
         link: "Lorem Ipsum",
         icon: (
-          <MonetizationOnOutlinedIcon
+          <SchoolIcon
             className="icon"
             style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
           />
@@ -89,11 +90,11 @@ const Widget = ({ type }) => {
         isNoLink: true,
         link: "Lorem Ipsum",
         icon: (
-          <AccountBalanceWalletOutlinedIcon
+          <MaleIcon
             className="icon"
             style={{
-              backgroundColor: "rgba(128, 0, 128, 0.2)",
-              color: "purple",
+              backgroundColor: "#2F4858",
+              color: "#F3F7FD",
             }}
           />
         ),
@@ -106,11 +107,11 @@ const Widget = ({ type }) => {
         isNoLink: true,
         link: "Lorem Ipsum",
         icon: (
-          <AccountBalanceWalletOutlinedIcon
+          <FemaleIcon
             className="icon"
             style={{
-              backgroundColor: "rgba(128, 0, 128, 0.2)",
-              color: "purple",
+              color: "crimson",
+              backgroundColor: "rgba(255, 0, 0, 0.2)",
             }}
           />
         ),
@@ -119,16 +120,16 @@ const Widget = ({ type }) => {
 
     case "other":
       data = {
-        title: "OTHERS",
+        title: "Prefer Not to Say",
         display: otherCount,
         isNoLink: true,
         link: "Lorem Ipsum",
         icon: (
-          <AccountBalanceWalletOutlinedIcon
+          <DoNotDisturbIcon
             className="icon"
             style={{
-              backgroundColor: "rgba(128, 0, 128, 0.2)",
-              color: "purple",
+              color: "crimson",
+              backgroundColor: "rgba(255, 0, 0, 0.2)",
             }}
           />
         ),
@@ -148,7 +149,7 @@ const Widget = ({ type }) => {
         </span>
         {data.isTrue === true &&
           <span id="link">
-            <Link to="/dashboard/subjects" style={{ textDecoration: "none" }}>
+            <Link to="/dashboard/subjects" style={{ textDecoration: "none", color: "#0A8B5C" }}>
               {data.link}
             </Link>
           </span>}

@@ -18,7 +18,7 @@ const UpdateMovie = ({ match, history }) => {
     const dispatch = useDispatch();
 
     const { subject, error } = useSelector(state => state.subject_details);
-    const { loading, error: updateError, isUpdated } = useSelector(state => state.subject);
+    const { error: updateError, isUpdated } = useSelector(state => state.subject);
 
     const subjectId = match.params.id;
 
@@ -81,13 +81,13 @@ const UpdateMovie = ({ match, history }) => {
                     <div className="container-fluid">
                         <div className="col col-lg-12">
 
-                            <div class="card shadow mb-4">
+                            <div className="card shadow mb-4">
                                 {/* <!-- Card Header - Dropdown --> */}
-                                <div class="card-header py-3">
-                                    <h1 class="m-0 font-weight-bold text-primary">Edit Subject</h1>
+                                <div className="card-header py-3">
+                                    <h1 className="m-0 font-weight-bold text-primary">Edit Subject</h1>
                                 </div>
                                 {/* <!-- Card Body --> */}
-                                <div class="card-body">
+                                <div className="card-body">
 
                                     {/* USER DATA SECTION */}
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import GroupsIcon from '@mui/icons-material/Groups';
 import './welcome.css';
 
 const TermsConditionContent = () => {

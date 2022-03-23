@@ -1,5 +1,4 @@
 import React from 'react'
-import GroupsIcon from '@mui/icons-material/Groups';
 import './welcome.css';
 
 const Welcome = () => {
@@ -88,7 +87,7 @@ const Welcome = () => {
                                                             </div>
                                                             <div className="text-center">
 
-                                                                <a href="https://drive.google.com/file/d/1mKA_qDNRKAK8Ym63LqMtewR2vT2Cwwu1/view" target="_blank"
+                                                                <a href="https://drive.google.com/file/d/1mKA_qDNRKAK8Ym63LqMtewR2vT2Cwwu1/view" target="_blank" rel="noreferrer"
                                                                     className="ma-2 v-btn v-btn--contained v-btn--router theme--dark v-size--default ryu_orange">
                                                                     <span className="v-btn__content">
                                                                         <i aria-hidden="true"
@@ -219,7 +218,7 @@ const Welcome = () => {
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 1</div>
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                        <img src="images/app-mockup.png" width="300" />
+                                                        <img src="images/app-mockup.png" alt="app-mockup" width="300" />
                                                     </div>
                                                 </div>
                                                 <div className="v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p></div>
@@ -236,7 +235,7 @@ const Welcome = () => {
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 2</div>
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                        <img src="images/app-mockup.png" width="300" />
+                                                        <img src="images/app-mockup.png" alt="app-mockup" width="300" />
                                                     </div>
                                                 </div>
                                                 <div className="v-card__text text-center">
@@ -251,7 +250,7 @@ const Welcome = () => {
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 3</div>
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                        <img src="images/app-mockup.png" width="300" />
+                                                        <img src="images/app-mockup.png" alt="app-mockup" width="300" />
                                                     </div>
                                                 </div>
                                                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
