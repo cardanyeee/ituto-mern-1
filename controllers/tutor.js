@@ -20,7 +20,8 @@ exports.index = catchAsyncErrors(async (req, res, next) => {
         const userIDArray = users.map(user => user._id);
 
         const tutorsQuery = new APIFeatures(Tutor.find({ "userID": { $in: userIDArray } }).populate("userID").populate("subjects"), req.query)
-            .filter();
+            .filter()
+            .filterByDay();
 
         const tutors = await tutorsQuery.query;
 

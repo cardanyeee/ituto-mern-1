@@ -60,6 +60,22 @@ class APIFeatures {
         return this;
     }
 
+    filterByDay() {
+
+        const queryCopy = { ...this.queryStr };
+        
+
+        const removeFields = ['keyword', 'limit', 'page'];
+
+        removeFields.forEach(el => delete queryCopy[el]);
+
+        console.log(queryCopy);
+
+        this.query = queryCopy.day ? this.query.find({ "availability.days": queryCopy.day }) : this.query.find({});
+
+        return this;
+    }
+
     pagination(resPerPage) {
 
         const currentPage = Number(this.queryStr.page) || 1;
