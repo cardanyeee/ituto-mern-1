@@ -83,7 +83,7 @@ exports.signUpTutor = catchAsyncErrors(async (req, res, next) => {
 
         const activation_token = createActivationToken(newTutor);
 
-        const url = `http://mern-ituto.herokuapp.com/tutor/activate/${activation_token}`;
+        const url = `https://mern-ituto.herokuapp.com/tutor/activate/${activation_token}`;
         activateEmail(email, url, "Verify your email address");
 
         res.status(200).json({

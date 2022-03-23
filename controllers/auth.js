@@ -74,7 +74,7 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
 
         const activation_token = createActivationToken(newUser);
 
-        const url = `http://mern-ituto.herokuapp.com/user/activate/${activation_token}`;
+        const url = `https://mern-ituto.herokuapp.com/user/activate/${activation_token}`;
         activateEmail(email, url, "Verify your email address");
 
         res.status(200).json({
@@ -413,12 +413,33 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
     })
 });
 
+
+exports.findUser = catchAsyncErrors(async (req, res, next) => {
+    try {
+        const user = await User.findById(req.params.id);
+
+        res.status(200).json({
+            success: true,
+            user
+        });
+    } catch (error) {
+        next(new ErrorResponse('User not found', 404));
+    }
+});
+
+
 // Update user profile   =>   /api/v1/admin/user/:id
 exports.updateUser = catchAsyncErrors(async (req, res, next) => {
     const newUserData = {
-        name: req.body.name,
-        email: req.body.email,
-        role: req.body.role
+       
+
+       firstname : req.body.firstname,
+       lastname : req.body.lastname,
+       username : req.body.username,
+       birthdate : req.body.birthdate,
+       gender : req.body.gender,
+       role : req.body.role,
+       phone : req.body.phone
     }
 
     const user = await User.findByIdAndUpdate(req.params.id, newUserData, {

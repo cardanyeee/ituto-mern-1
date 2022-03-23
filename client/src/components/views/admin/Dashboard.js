@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
+import EditIcon from '@mui/icons-material/Edit';
 
 import { MDBDataTableV5 } from 'mdbreact';
 
@@ -60,7 +62,8 @@ const Dashboard = () => {
                 { label: 'Email', field: 'Email', width: 230 }, 
                 { label: 'Role', field: 'Role', width: 230 },
                 { label: 'Phone', field: 'Phone', width: 230 },
-                { label: 'Time', field: 'Time', width: 240 }
+                { label: 'Time', field: 'Time', width: 240 },
+                { label: 'Actions', field: 'actions', width: 100 }
 
             ],
             rows: []
@@ -76,6 +79,13 @@ const Dashboard = () => {
                 Role: allUsers.role,
                 Phone: allUsers.phone,
                 Time: allUsers.createdAt,
+                actions:
+                <Fragment>
+                    <Link to={`/dashboard/user/update/${allUsers._id}`} className="btn btn-primary py-1 px-2 me-3">
+                        <EditIcon/>
+                    </Link>
+                   
+                </Fragment>
             })
         })
 

@@ -36,6 +36,8 @@ import SubjectList from './components/views/admin/subject/SubjectList';
 import NewCourse from './components/views/admin/course/NewCourse';
 import NewSubject from './components/views/admin/subject/NewSubject';
 
+
+import UpdateUser from './components/views/admin/user/UpdateUser';
 import UpdateCourse from './components/views/admin/course/UpdateCourse';
 import UpdateSubject from './components/views/admin/subject/UpdateSubject';
 
@@ -85,6 +87,8 @@ const App = () => {
 					<ProtectedRoute path="/dashboard/subject/add" isAdmin={true} component={NewSubject} exact />
 
 
+
+					<ProtectedRoute path="/dashboard/user/update/:id" isAdmin={true} component={UpdateUser} exact />
 					<ProtectedRoute path="/dashboard/course/update/:id" isAdmin={true} component={UpdateCourse} exact />
 					<ProtectedRoute path="/dashboard/subject/update/:id" isAdmin={true} component={UpdateSubject} exact />
 

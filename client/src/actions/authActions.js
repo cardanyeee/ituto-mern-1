@@ -153,6 +153,62 @@ export const allUsers = (keyword = '', currentPage = 1) => async (dispatch) => {
     }
 }
 
+
+export const getUserDetails = (id) => async (dispatch) => {
+    try {
+
+        dispatch({ type: 'ALL_USERS_DETAILS_REQUEST' });
+
+        const { data } = await axios.get(`/api/user/${id}`);
+
+        dispatch({
+            type: 'ALL_USERS_DETAILS_SUCCESS',
+            payload: data.user
+        })
+
+        
+  
+    } catch (error) {
+        dispatch({
+            type: 'ALL_USERS_DETAILS_FAIL',
+            payload: error.response.data.message
+        })
+    }
+}
+
+
+
+
+// EDIT USERSSS
+
+export const updateUser = (id, userData) => async (dispatch) => {
+    try {
+
+        dispatch({ type: 'UPDATE_ALL_USERS_REQUEST' });
+        
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const { data } = await axios.put(`/api/user/update/${id}`, userData, config);
+
+        console.log(userData);
+
+        dispatch({
+            type: 'UPDATE_ALL_USERS_SUCCESS',
+            payload: data.success
+        });
+        
+    } catch (error) {
+        dispatch({
+            type: 'UPDATE_ALL_USERS_FAIL',
+            payload: error.response.data.message
+        });
+    }
+}
+
 export const clearErrors = () => async (dispatch) => {
     dispatch({
         type: CLEAR_ERRORS

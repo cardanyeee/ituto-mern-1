@@ -649,7 +649,7 @@ const sendEmail = (to, url, txt) => {
             </div>
                   
                   
-                  <p style="Margin-top: 16px;Margin-bottom: 0;"><strong>Hello iTuto user,</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Thank you for signing up to iTuto!</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Please click on the following button to activate your token.</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Sincerely,<br>iTuto Team</strong></p>
+                  <p style="Margin-top: 16px;Margin-bottom: 0;"><strong>Hello iTuto user,</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Thank you for signing up to iTuto!</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Please click on the button below to activate your account.</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Sincerely,<br>iTuto Team</strong></p>
         </div>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;">

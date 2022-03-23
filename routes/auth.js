@@ -9,6 +9,8 @@ const { register,
     forgotpassword,
     resetpassword,
     getCurrentUser,
+    updateUser,
+    findUser,
     updatePassword,
     updateProfile,
     allUsers,
@@ -34,6 +36,10 @@ router.route("/auth/password/forgot").post(forgotpassword);
 router.route("/auth/password/reset").post(resetpassword);
 
 router.route("/profile/me").get(isAuthenticatedUser, getCurrentUser);
+
+router.route('/user/update/:id').put(isAuthenticatedUser, updateUser);
+
+router.route('/user/:id').get(findUser);
 
 router.route("/auth/password/update").put(isAuthenticatedUser, updatePassword);
 

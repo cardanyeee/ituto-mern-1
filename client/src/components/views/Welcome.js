@@ -215,13 +215,13 @@ const Welcome = () => {
                                                             className="v-icon notranslate --text text--lighten-2 fab fa-linux theme--light"
                                                             style={{ fontsize: "40px" }}></i> */}
                                                 </div>
-                                                <div primary-title="" className="v-card__title layout justify-center">
+                                                <div primary-title="" className="col1 v-card__title layout justify-center">
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 1</div>
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
                                                         <img src="images/app-mockup.png" alt="app-mockup" width="300" />
                                                     </div>
                                                 </div>
-                                                <div className="v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p></div>
+                                                <div className="col1 v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p></div>
                                             </div>
                                         </div>
                                         <div className="col-md-4 col-12">
@@ -247,13 +247,15 @@ const Welcome = () => {
                                         <div className="col-md-4 col-12">
                                             <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                <div primary-title="" className="v-card__title layout justify-center">
+                                                <div primary-title="" className="col1 v-card__title layout justify-center">
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 3</div>
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
                                                         <img src="images/app-mockup.png" alt="app-mockup" width="300" />
                                                     </div>
                                                 </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                <div className="col1 v-card__text text-center">
+                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                </div>
                                             </div>
                                         </div>
 
