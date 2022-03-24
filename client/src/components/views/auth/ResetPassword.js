@@ -27,6 +27,8 @@ const initialState = {
 const ResetPassword = ({ history }) => {
 
 
+
+
     const [data, setData] = useState(initialState)
     const { accesstoken } = useParams()
 
@@ -36,6 +38,9 @@ const ResetPassword = ({ history }) => {
     const { loading } = data
 
     const handleResetPass = async () => {
+
+        
+        
         if (isLength(password))
             return setData({ ...data, err: "Password must be at least 6 characters.", success: '' })
 
@@ -43,9 +48,13 @@ const ResetPassword = ({ history }) => {
             return setData({ ...data, err: "Password did not match.", success: '' })
 
         try {
+            
             const res = await axios.post('/api/auth/password/reset', { password, cf_password }, {
                 headers: { Authorization: accesstoken }
             })
+
+
+            alert.success('Password has been reset successfully');
 
             return setData({ ...data, err: "", success: res.data.msg })
 
@@ -88,7 +97,7 @@ const ResetPassword = ({ history }) => {
                                         <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={handleResetPass}>Verify Email</button>
 
 
-                                        <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-secondary" to='/register'>Register Here</Link></p>
+                                        <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-secondary" to='/'>Go to Home</Link></p>
 
                                     </div>
                                 </div>

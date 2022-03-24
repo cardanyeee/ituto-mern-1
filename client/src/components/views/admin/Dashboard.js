@@ -273,7 +273,7 @@ const Dashboard = () => {
                                                         <Doughnut
 
                                                             data={{
-                                                                labels: ['Female', 'Male', 'Prefer Not to Say'],
+                                                                labels: ['Female', 'Male', 'Prefer Not to Say', 'Total Users'],
                                                                 datasets: [
                                                                     {
                                                                         label: '# of votes',
