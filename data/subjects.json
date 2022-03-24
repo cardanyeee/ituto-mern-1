@@ -3,540 +3,540 @@
         "code": "ITCC111L",
         "name": "Computer Programming 1 (Lab)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCC111",
         "name": "Computer Programming 1 (Lec)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITMS110",
         "name": "Discrete Mathematics",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "DRAW1",
         "name": "Engineering Drawing and Plans",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCI110",
         "name": "Human Computer Interaction",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCC110",
         "name": "Introduction to Computing",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "MATHB-T",
         "name": "Mathematics (Pre-Calculus)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "NSTP1-NS-T",
         "name": "National Service Training Program 1 (Naval Science 1)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "NSTP1-CWTS-T",
         "name": "National Service Training Program 1 (CWTS1)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "PE1",
         "name": "Physical Fitness & Exercise",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GE-C-5",
         "name": "Purposive Communication",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCM120-T",
         "name": "Advance HTML",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCC122-T",
         "name": "Computer Programming 2 (lec\/lab)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCC123-T",
         "name": "Data Structures and Algorithm (lec\/lab)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "CHEMB-T",
         "name": "General Chemistry (lec\/lab)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "PE2-T",
         "name": "Individual & Dual Sports",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "NSTP2-CWTS-T",
         "name": "National Service Training Program 2 (CWTS2)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "NSTP2-NS-T",
         "name": "National Service Training Program 2 (Naval Science 2)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEE13D-T",
         "name": "Reading Visual Art (Free Elective)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEC2-T",
         "name": "Readings in Philippine History",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "NSTP2",
         "name": "National Service Training Program 2",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCP134-134L-T",
         "name": "Computer Programming 3 - Database Programming (lec\/lab)",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITNET130-130L-T",
         "name": "Data Communication and Networking 1 (lec\/lab)",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITIM130-130L-T",
         "name": "Fundamentals of Database Systems (lec\/lab)",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITIM130-T",
         "name": "Fundamentals of Database Systems (lec\/lab)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "PHYSB-T",
         "name": "General Physics (lec\/lab)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITLC130-130L-T",
         "name": "Logic and Digital Circuit Design (lec\/lab)",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "PE3-T",
         "name": "Rhythmic Activities",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEC7-T",
         "name": "Science, Technology and Society",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEC1-T",
         "name": "Understanding the Self",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITAS311-T",
         "name": "Information Assurance and Security 2",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCP318-T",
         "name": "Integrative Programming and Technology 1 (lec\/lab)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITEP310-T",
         "name": "IT Professional Elective 1",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEC4-T",
         "name": "Mathematics in the Modern World",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITNET313-T",
         "name": "System Administration and Maintenance (lec\/lab)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITNET312-T",
         "name": "System Architecture and Integration 1 (lec\/lab)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITOS322-T",
         "name": "Computer Systems and Platform Technologies",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITMS322-T",
         "name": "Probability and Statistics",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCP239-T",
         "name": "Programming Language - Design and Implementation (lec\/lab)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITMR320-T",
         "name": "Quantitative Methods",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITNET324-T",
         "name": "System Integration and Architecture 2 (lec\/lab)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCC334-T",
         "name": "Application Development and Emerging Technologies",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITBM330-T",
         "name": "Business Intelligence",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCAP330-T",
         "name": "IT Project Capstone 1 (lec\/lab)",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITLC332-T",
         "name": "Microcontroller Systems (lec\/lab)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITMS331-T",
         "name": "Numerical Methods",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITSP330-T",
         "name": "Social and Professional Issues",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCP215-215L-T",
         "name": "Computer Programming 4 - Object Oriented Programming (lec\/lab)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCM211-T",
         "name": "Content Management System",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITNET211-T",
         "name": "Data Communication and Networking 2 (lec\/lab)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITIM211-T",
         "name": "Information Management (lec\/lab)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "PE4-T",
         "name": "Team Sports",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEE12D-T",
         "name": "The Entrepreneurial Mind (Free Elective)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEC6-T",
         "name": "Art Appreciation",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITLC221-T",
         "name": "Computer Organization, Architecture and Assembly (lec\/lab)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCP226-T",
         "name": "Computer Programming 5 - Web Development (lec\/lab)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEE15-T",
         "name": "Living in the IT Era (Free Elective)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITOS220-T",
         "name": "Operating Systems (lec\/lab)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITSD220-T",
         "name": "System Analysis and Design",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCP237-T",
         "name": "Advance Web Application (lec\/lab)",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEC8-T",
         "name": "Ethics",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITAS230-T",
         "name": "Information Assurance and Security 1",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCI231-T",
         "name": "Multimedia and Authoring (lec\/lab)",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITSE231-T",
         "name": "Software Engineering",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEC3-T",
         "name": "The Contemporary World",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITAS311-T",
         "name": "Information Assurance and Security 2",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCP318-T",
         "name": "Integrative Programming and Technology 1 (lec\/lab)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITEP310-T",
         "name": "IT Professional Elective 1",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEC4-T",
         "name": "Mathematics in the Modern World",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITNET313-T",
         "name": "System Administration and Maintenance (lec\/lab)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITNET312-T",
         "name": "System Architecture and Integration 1 (lec\/lab)",
         "semester": "First Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITOS322-T",
         "name": "Computer Systems and Platform Technologies",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITMS322-T",
         "name": "Probability and Statistics",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCP239-T",
         "name": "Programming Language - Design and Implementation (lec\/lab)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITMR320-T",
         "name": "Quantitative Methods",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITNET324-T",
         "name": "System Integration and Architecture 2 (lec\/lab)",
         "semester": "Second Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCC334-T",
         "name": "Application Development and Emerging Technologies",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITBM330-T",
         "name": "Business Intelligence",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCAP330-T",
         "name": "IT Project Capstone 1 (lec\/lab)",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITLC332-T",
         "name": "Microcontroller Systems (lec\/lab)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITMS331-T",
         "name": "Numerical Methods",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITSP330-T",
         "name": "Social and Professional Issues",
         "semester": "Third Term",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCP410-T",
         "name": "Mobile Application and Development (lec\/lab)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITICS410-T",
         "name": "ICS Field Trips and Seminars (lab)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITEP411-T",
         "name": "IT Professional Elective 2",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITEP412-T",
         "name": "IT Professional Elective 3",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITEP413-T",
         "name": "IT Professional Elective 4",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "GEM14-T",
         "name": "Life and Works of Rizal",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "ITCAP421-T",
         "name": "IT Project Capstone 2 (lec\/lab)",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     },
     {
         "code": "SIT-BSIT-T",
         "name": "Supervised Industrial Training for IT",
         "semester": "null",
-        "course": ["6212388f5e805c84cf51295c"]
+        "course": ["623b3b0cb95f314a54b03f46"]
     }
 ]

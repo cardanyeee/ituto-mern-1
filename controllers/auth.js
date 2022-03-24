@@ -95,6 +95,7 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
         console.log(activation_token);
 
         const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
+        
         console.log(user);
         const {
             firstname,
@@ -453,5 +454,5 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
 // });
 
 const createActivationToken = (payload) => {
-    return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, { expiresIn: '5m' })
+    return jwt.sign(payload, process.env.ACTIVATION_TOKEN_SECRET, { expiresIn: '1h' })
 }
