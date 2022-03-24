@@ -202,6 +202,7 @@ html, body, .App {
 
 
     background: #D6E9FF;
+    width: 100%;
 }
 
 .footer-content {
@@ -298,10 +299,7 @@ html, body, .App {
 }
 
 @media screen and (max-width:1000px) {
-    .footer-container {
-        height: 580px;
-    }
-
+  
     .footer-content {
         width: 90%;
     }
