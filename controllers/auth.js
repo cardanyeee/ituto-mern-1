@@ -124,7 +124,7 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
 
     } catch (err) {
         console.log(err);
-        next(error);
+        next(err);
     }
 });
 
