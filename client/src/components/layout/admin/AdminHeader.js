@@ -51,11 +51,11 @@ const   AdminHeader = (props) => {
                                     <ul className="navbar-nav" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
                                         <li className="nav-item dropdown">
                                             {/* data-bs-toggle="dropdown" */}
-                                            <a className={dropdown === true ? "nav-link dropdown-toggle show" : "nav-link dropdown-toggle"} href="/me" id="navbarDropdown" role="button" aria-expanded={dropdown}>
+                                            <a className={dropdown === true ? "nav-link dropdown-toggle show" : "nav-link dropdown-toggle"} href="/" id="navbarDropdown" role="button" aria-expanded={dropdown}>
                                                 <img src={user.avatar && user.avatar.url} alt={user && user.name} className="rounded header-profile" />
                                             </a>
                                             <ul className={dropdown === true ? "dropdown-menu dropdown-menu-end m-0 show" : "dropdown-menu dropdown-menu-end m-0"} aria-labelledby="navbarDropdown" data-bs-popper="">
-                                                <li><a className="dropdown-item" href="/me">Profile</a></li>
+                                              
                                                 {user && user.role === 'admin' && (
                                                     <li><a className="dropdown-item" href="/dashboard">Dashboard</a></li>
                                                 )}

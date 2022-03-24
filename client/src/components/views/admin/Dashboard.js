@@ -59,7 +59,7 @@ const Dashboard = () => {
                 { label: 'Lastname', field: 'Lastname', width: 150 },
                 { label: 'Username', field: 'Username', width: 230 },
                 { label: 'Gender', field: 'Gender', width: 230 },
-                { label: 'Email', field: 'Email', width: 230 }, 
+                { label: 'Email', field: 'Email', width: 230 },
                 { label: 'Role', field: 'Role', width: 230 },
                 { label: 'Phone', field: 'Phone', width: 230 },
                 { label: 'Time', field: 'Time', width: 240 },
@@ -80,12 +80,12 @@ const Dashboard = () => {
                 Phone: allUsers.phone,
                 Time: allUsers.createdAt,
                 actions:
-                <Fragment>
-                    <Link to={`/dashboard/user/update/${allUsers._id}`} className="btn btn-primary py-1 px-2 me-3">
-                        <EditIcon/>
-                    </Link>
-                   
-                </Fragment>
+                    <Fragment>
+                        <Link to={`/dashboard/user/update/${allUsers._id}`} className="btn btn-primary py-1 px-2 me-3">
+                            <EditIcon />
+                        </Link>
+
+                    </Fragment>
             })
         })
 
@@ -115,15 +115,40 @@ const Dashboard = () => {
 
                                             <div className="card shadow mb-4">
                                                 {/* <!-- Card Header - Dropdown --> */}
-                                                <div className="card-header py-3">
-                                                    <h2 className="m-0 font-weight-bold text-primary" id="Username">Welcome <b>{user.username}!</b></h2>
+                                                <div className=" card-header py-3">
+                                                    <h5 className="color1 m-0 font-weight-bold" id="Username">Welcome <b>{user.username}!</b></h5>
                                                 </div>
                                                 {/* <!-- Card Body --> */}
                                                 <div className="d-flex flex-column align-items-center text-center p-3 py-4">
-                                                    <img className="rounded" width="200" src={user.avatar.url} alt={user.avatar.public_id} />
+                                                    {/* <img className="rounded" width="200" src={user.avatar.url} alt={user.avatar.public_id} />
                                                     <span className="font-weight-bold mt-4">{user.username}</span>
                                                     <span className="text-black-50">{user.email}</span>
-                                                    <span></span>
+                                                    <span></span> */}
+
+
+
+
+                                                    <div className="col-sm-4 col-md-2 col-12" id="tryspan">
+                                                        <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                            <div className="v-card__text text-center" id="picturePad">
+                                                                <div className="v-avatar">
+                                                                    <img style={{ height: "225px",  width: "250px" }}
+                                                                    src={user.avatar.url} alt={user.avatar.public_id} className="g-image" />
+                                                                </div>
+                                                            </div>
+                                                            <div primary-title="" className="v-card__title layout justify-center" >
+                                                                <div className="color1 headline text-center" target="_blank" rel="noreferrer" >
+                                                                    {user.username}
+                                                                </div>
+                                                            </div>
+
+                                                            <div primary-title="" className="v-card__title layout justify-center" >
+
+                                                                <h6><b>{user.email}</b></h6>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

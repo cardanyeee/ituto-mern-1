@@ -62,7 +62,7 @@ const Header = ({ history }) => {
                                         <img src={user.avatar && user.avatar.url} alt={user && user.name} className="rounded header-profile" />
                                     </div>
                                     <ul className={dropdown === true ? "dropdown-menu dropdown-menu-end m-0 show" : "dropdown-menu dropdown-menu-end m-0"} aria-labelledby="navbarDropdown" data-bs-popper="">
-                                        <li><a className="dropdown-item" href="/me">Profile</a></li>
+                                   
                                         {user && user.role === 'admin' && 
                                             <li>
                                                 <Link className="dropdown-item" to="/dashboard" >

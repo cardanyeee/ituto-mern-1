@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from "react-router-dom";
+import { useAlert } from 'react-alert';
 
 import MetaData from '../../layout/main/MetaData';
 import Loader from '../../layout/main/Loader';
@@ -26,8 +27,7 @@ const initialState = {
 
 const ResetPassword = ({ history }) => {
 
-
-
+    const alert = useAlert();
 
     const [data, setData] = useState(initialState)
     const { accesstoken } = useParams()
@@ -38,9 +38,6 @@ const ResetPassword = ({ history }) => {
     const { loading } = data
 
     const handleResetPass = async () => {
-
-        
-        
         if (isLength(password))
             return setData({ ...data, err: "Password must be at least 6 characters.", success: '' })
 
@@ -48,13 +45,16 @@ const ResetPassword = ({ history }) => {
             return setData({ ...data, err: "Password did not match.", success: '' })
 
         try {
-            
+
             const res = await axios.post('/api/auth/password/reset', { password, cf_password }, {
-                headers: { Authorization: accesstoken }
-            })
+                headers: { Authorization: accesstoken },
 
-
+            }); 
+            
             alert.success('Password has been reset successfully');
+
+
+
 
             return setData({ ...data, err: "", success: res.data.msg })
 
@@ -82,7 +82,7 @@ const ResetPassword = ({ history }) => {
                                         {/* <p className="ForgotPassword-subheading fs-5 fw-light mb-4">Discover students who are interested in sharing their attained skills and knowledge.</p> */}
 
                                         <div className="form-floating mb-3">
-                                            <input type="text" className="form-control" id="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                                            <input type="text" className="form-control" id="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                                             {/* <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> */}
 
                                             <label htmlFor="password">Enter Password</label>
@@ -97,7 +97,7 @@ const ResetPassword = ({ history }) => {
                                         <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={handleResetPass}>Verify Email</button>
 
 
-                                        <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-secondary" to='/'>Go to Home</Link></p>
+                                        <p className="mb-2 pb-lg-2 text-secondary"><Link className="link-secondary" to='/'>Go to Home</Link></p>
 
                                     </div>
                                 </div>

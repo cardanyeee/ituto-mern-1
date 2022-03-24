@@ -1,9 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { useAlert } from 'react-alert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import SchoolIcon from '@mui/icons-material/School';
+import { logout } from '../../../actions/authActions';
 
 const Sidebar = (props) => {
 
@@ -11,6 +16,17 @@ const Sidebar = (props) => {
         let arrowParent = e.target.parentElement.parentElement;
         arrowParent.classList.toggle("showMenu");
     }
+
+
+    const alert = useAlert();
+    const dispatch = useDispatch();
+
+    const logoutHandler = () => {
+
+        dispatch(logout());
+        alert.success('Logged out successfully.')
+    }
+
 
     return (
         <div className={"sidebar h-100 shadow-sm " + (props.sidebarToggle === true ? "close" : "")}>
@@ -56,7 +72,7 @@ const Sidebar = (props) => {
                 <li>
                     <div className="iocn-link" id="subjectMove">
                         <Link to="/dashboard/subjects">
-                            <FontAwesomeIcon icon="book" className="main-side-nav-icon text-white" />
+                            <MenuBookIcon className="main-side-nav-icon text-white" />
                             <span className="link_name fs-6 text-white">Subject</span>
                         </Link>
                         <FontAwesomeIcon icon="chevron-down" className="arrow text-white" onClick={toggleDropdown} />
@@ -65,6 +81,21 @@ const Sidebar = (props) => {
                         <li><Link to="/dashboard/subjects" className="link_name">Subject</Link></li>
                         <li><Link to="/dashboard/subject/add"><FontAwesomeIcon icon="plus" className="submenu-side-nav-icon" />Add New Subject</Link></li>
                     </ul>
+                </li>
+
+
+                <p className="title-table">PROFILE</p>
+                <li>
+                    <div className="iocn-link" id="courseMove">
+                        <Link to="/" onClick={logoutHandler}>
+                        <b><ExitToAppIcon className="main-side-nav-icon text-white" /></b>
+
+                            <span className="link_name fs-6 text-white">Logout</span>
+
+                        </Link>
+
+                    </div>
+
                 </li>
 
 
