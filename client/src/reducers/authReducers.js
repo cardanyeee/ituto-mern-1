@@ -13,6 +13,13 @@ import {
     ALL_USERS_REQUEST,
     ALL_USERS_SUCCESS,
     ALL_USERS_FAIL,
+    ALL_USERS_DETAILS_REQUEST,
+    ALL_USERS_DETAILS_SUCCESS,
+    ALL_USERS_DETAILS_FAIL,
+    UPDATE_ALL_USERS_REQUEST,
+    UPDATE_ALL_USERS_SUCCESS,
+    UPDATE_ALL_USERS_RESET,
+    UPDATE_ALL_USERS_FAIL,
     CLEAR_ERRORS
 } from '../constants/userConstants';
 
@@ -109,5 +116,76 @@ export const allUsersReducer = (state = { users: [] }, action) => {
 
         default:
             return state;
+    }
+}
+
+export const allUsersUpdateReducer = (state = {}, action) => {
+    switch (action.type) {
+        case UPDATE_ALL_USERS_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+
+        case UPDATE_ALL_USERS_SUCCESS:
+            return {
+                ...state,
+                loading: false,
+                isUpdated: action.payload
+            }
+ 
+        case UPDATE_ALL_USERS_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+
+
+        case UPDATE_ALL_USERS_RESET:
+            return {
+                ...state,
+                isUpdated: false
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
+    }
+}
+
+export const allUsersDetailsReducer = (state = { user: {} }, action) => {
+    switch (action.type) {
+
+        case ALL_USERS_DETAILS_REQUEST:
+            return {
+                ...state,
+                loading: true
+            }
+
+        case ALL_USERS_DETAILS_SUCCESS:
+            return {
+                loading: false,
+                user: action.payload
+            }
+
+        case ALL_USERS_DETAILS_FAIL:
+            return {
+                ...state,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
     }
 }

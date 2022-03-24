@@ -2,6 +2,8 @@ import React, { Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAlert } from 'react-alert';
 
+import { Link } from 'react-router-dom';
+
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { logout } from '../../../actions/authActions';
@@ -30,7 +32,7 @@ const Header = ({ history }) => {
                     <a className="navbar-brand" href="/#">
 
                         <h1 className="logo-brand">
-                            <img src="/images/ituto_logo_nobg.png" width="50" />
+                            <img src="/images/ituto_logo_nobg.png" alt="logo" width="50" />
                             iTuto
                         </h1>
                         {/* <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" className="h-8" alt="..." /> */}
@@ -44,11 +46,11 @@ const Header = ({ history }) => {
 
                         <div className="navbar-nav mx-lg-auto">
                             <a className="nav-item nav-link active" href="/" aria-current="page">Home</a>
-                            
+
                             <a className="nav-item nav-link" href="/#what-is-ituto?">Download</a>
                             <a className="nav-item nav-link" href="/#features">Features</a>
                             <a className="nav-item nav-link" href="/#about">About</a>
-                            <a className="nav-item nav-link" href="/terms-and-conditions">Terms & Conditions</a>   
+                            <a className="nav-item nav-link" href="/terms-and-conditions">Terms & Conditions</a>
                         </div>
 
 
@@ -61,9 +63,13 @@ const Header = ({ history }) => {
                                     </div>
                                     <ul className={dropdown === true ? "dropdown-menu dropdown-menu-end m-0 show" : "dropdown-menu dropdown-menu-end m-0"} aria-labelledby="navbarDropdown" data-bs-popper="">
                                         <li><a className="dropdown-item" href="/me">Profile</a></li>
-                                        {user && user.role === 'admin' && (
-                                            <li><a className="dropdown-item" href="/dashboard">Dashboard</a></li>
-                                        )}
+                                        {user && user.role === 'admin' && 
+                                            <li>
+                                                <Link className="dropdown-item" to="/dashboard" >
+                                                    Dashboard
+                                                </Link>
+                                            </li>
+                                        }
                                         <li><hr className="dropdown-divide m-1" /></li>
                                         {/* <Link className="dropdown-item" to="/" onClick={logoutHandler}>Logout</Link> */}
                                         <li><a className="dropdown-item" onClick={logoutHandler} href="/">Logout</a></li>

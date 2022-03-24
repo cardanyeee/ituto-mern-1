@@ -1,5 +1,4 @@
 import React from 'react'
-import GroupsIcon from '@mui/icons-material/Groups';
 import './welcome.css';
 
 const Welcome = () => {
@@ -27,7 +26,7 @@ const Welcome = () => {
                                                 data-src="images/lol.png"
                                                 data-srcset="images/lol.png"
                                             />
-                                            <p className="display-1" id="font-title">Discover students who are interested in sharing <br />their attained skills and knowledge.</p>
+                                            <p className="display-1" id="font-title">Discover students who are interested in sharing <br />their attained skills and knowledge</p>
 
 
 
@@ -45,7 +44,7 @@ const Welcome = () => {
                                 <div className="container container--fluid">
                                     <div fluid="" className="v-parallax" style={{ height: '750px' }}>
                                         <div className="v-parallax__image-container">
-                                            <img src="/images/app-mockup-1.png" alt="Parallax wallpaper" className="v-parallax__image" id="banner"
+                                            <img src="/images/app-mockup-1.PNG" alt="Parallax wallpaper" className="v-parallax__image" id="banner"
                                             />
 
                                             <div className="v-parallax__content" >
@@ -86,21 +85,15 @@ const Welcome = () => {
 
 
                                                             </div>
-
-
-
-
-
-
                                                             <div className="text-center">
-                                                               
-                                                                <a href="https://drive.google.com/file/d/1Xbu9EUnwBwvgewCRHHk2XHbNDKxm1u0m/view?usp=sharing"
+
+                                                                <a href="https://drive.google.com/file/d/1mKA_qDNRKAK8Ym63LqMtewR2vT2Cwwu1/view" target="_blank" rel="noreferrer"
                                                                     className="ma-2 v-btn v-btn--contained v-btn--router theme--dark v-size--default ryu_orange">
                                                                     <span className="v-btn__content">
                                                                         <i aria-hidden="true"
                                                                             className="v-icon notranslate ml-n1 mr-2 fas fa-download theme--dark">
                                                                         </i>
-                                                                        Download latest
+                                                                        Download
 
                                                                     </span>
                                                                 </a>
@@ -131,7 +124,7 @@ const Welcome = () => {
 
                             </div>
                             <div className="row align-start">
-                                <div className="col-md-4 col-12">
+                                <div className="col1 col-md-4 col-12">
                                     <div className="elevation-0 transparent v-card v-sheet theme--light" id="elevation-0" >
                                         <div className="v-card__text text-center">
                                             {/* <i aria-hidden="true"
@@ -161,7 +154,7 @@ const Welcome = () => {
                                         <div className="v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p></div>
                                     </div>
                                 </div>
-                                <div className="col-md-4 col-12">
+                                <div className="col1 col-md-4 col-12">
                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
                                         <div className="v-card__text text-center">
                                             {/* <i aria-hidden="true"
@@ -222,13 +215,13 @@ const Welcome = () => {
                                                             className="v-icon notranslate --text text--lighten-2 fab fa-linux theme--light"
                                                             style={{ fontsize: "40px" }}></i> */}
                                                 </div>
-                                                <div primary-title="" className="v-card__title layout justify-center">
+                                                <div primary-title="" className="col1 v-card__title layout justify-center">
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 1</div>
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                        <img src="images/app-mockup.png" width="300" />
+                                                        <img src="images/app-mockup.png" alt="app-mockup" width="300" />
                                                     </div>
                                                 </div>
-                                                <div className="v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p></div>
+                                                <div className="col1 v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p></div>
                                             </div>
                                         </div>
                                         <div className="col-md-4 col-12">
@@ -242,7 +235,7 @@ const Welcome = () => {
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 2</div>
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                        <img src="images/app-mockup.png" width="300" />
+                                                        <img src="images/app-mockup.png" alt="app-mockup" width="300" />
                                                     </div>
                                                 </div>
                                                 <div className="v-card__text text-center">
@@ -254,13 +247,15 @@ const Welcome = () => {
                                         <div className="col-md-4 col-12">
                                             <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                <div primary-title="" className="v-card__title layout justify-center">
+                                                <div primary-title="" className="col1 v-card__title layout justify-center">
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 3</div>
                                                     <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                        <img src="images/app-mockup.png" width="300" />
+                                                        <img src="images/app-mockup.png" alt="app-mockup" width="300" />
                                                     </div>
                                                 </div>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                <div className="col1 v-card__text text-center">
+                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -271,7 +266,7 @@ const Welcome = () => {
 
                         </div>
 
-                   
+
 
                         {/* MEET THE TEAMMMMM */}
 
@@ -313,7 +308,7 @@ const Welcome = () => {
                                                 </div>
                                                 <div primary-title="" className="v-card__title layout justify-center" ><a
                                                     href="https://github.com/sayrsalad" rel="noopener"
-                                                    className="headline text-center" >Jose Angelo Arboleda</a></div>
+                                                    className="color1 headline text-center" >Jose Angelo Arboleda</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p>
 
@@ -329,7 +324,7 @@ const Welcome = () => {
                                                 </div>
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <a href="https://github.com/cardanyeee"
-                                                        rel="noopener" className="headline text-center" >Carl Daniel Villanueva</a></div>
+                                                        rel="noopener" className="color1 headline text-center" >Carl Daniel Villanueva</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate
                                                     </p>
@@ -343,8 +338,8 @@ const Welcome = () => {
                                                         src="/images/teamDp-1.png" className="g-image" />
                                                     </div>
                                                 </div>
-                                                <div primary-title="" className="v-card__title layout justify-center"><a href="https://github.com/Thog"
-                                                    rel="noopener" className="headline text-center" >Cassidy Hashime  Carbajosa</a></div>
+                                                <div primary-title="" className="v-card__title layout justify-center"><a href="https://github.com/arcane3"
+                                                    rel="noopener" className="color1 headline text-center" >Cassidy Hashime  Carbajosa</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p>
 
@@ -358,8 +353,8 @@ const Welcome = () => {
                                                         src="/images/teamDp-4.png" className="g-image" />
                                                     </div>
                                                 </div>
-                                                <div primary-title="" className="v-card__title layout justify-center"><a href="https://github.com/Thog"
-                                                    rel="noopener" className="headline text-center">Mark Joseph Casas</a></div>
+                                                <div primary-title="" className="v-card__title layout justify-center"><a href="https://www.facebook.com/macmac0123"
+                                                    rel="noopener" className="color1 headline text-center">Mark Joseph Casas</a></div>
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p>
 

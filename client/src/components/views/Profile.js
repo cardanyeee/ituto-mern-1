@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 
 import MetaData from '../layout/main/MetaData';
 import Loader from '../layout/main/Loader';
+import AdminHeader from '../layout/admin/AdminHeader';
 
 const Profile = () => {
 
@@ -11,6 +12,7 @@ const Profile = () => {
 
     return (
         <Fragment>
+            <AdminHeader />
             {loading ? <Loader /> : (
                 <Fragment>
                     <MetaData title={'Login'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
@@ -18,7 +20,7 @@ const Profile = () => {
                         <div className="row">
                             <div className="col-md-3 border-right">
                                 <div className="d-flex flex-column align-items-center text-center p-3 py-2">
-                                    <img className="rounded mt-4" width="150px" src={user.avatar.url} alt={user.avatar.public_id}/>
+                                    <img className="rounded mt-4" width="150px" src={user.avatar.url} alt={user.avatar.public_id} />
                                     <span className="font-weight-bold mt-4">{user.username}</span>
                                     <span className="text-black-50">{user.email}</span>
                                     <span></span>
@@ -29,13 +31,11 @@ const Profile = () => {
                             </div>
                             <div className="col-md-4">
                                 <div className="p-3 py-5">
-                                    
+
                                 </div>
                             </div>
                         </div>
                     </div>
-
-
                     {/* <h2 className="mt-5 ml-5">My Profile</h2>
                     <div className="row justify-content-around mt-5 user-info">
                         <div className="col-12 col-md-3">
