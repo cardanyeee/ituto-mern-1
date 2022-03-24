@@ -131,7 +131,7 @@ const Footer = () => {
                     </div>
                     <div className="row2">
 
-                        <div className="teamcolor socials">
+                        <div className="teamcolor1 socials">
                             <h2> Copyright <CopyrightIcon /> iTuto - 2021-2022, All Rights Reserved</h2>
                             {/* <ul>
                                 <li><a href="https://www.instagram.com/beak_a_boo_ar/"><i className="fab fa-instagram"></i></a></li>

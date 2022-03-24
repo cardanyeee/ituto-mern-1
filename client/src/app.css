@@ -193,10 +193,15 @@ html, body, .App {
 
 .footer-container {
     width: 100%;
-    background: #f3f7fd;
+    background: #D6E9FF;
     position: relative;
     clear: both;
-    margin-top: 50px;
+}
+
+.teamcolor1 {
+
+
+    background: #D6E9FF;
 }
 
 .footer-content {
