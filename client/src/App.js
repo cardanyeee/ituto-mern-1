@@ -20,7 +20,7 @@ import ActivationEmail from './components/views/auth/ActivationEmail';
 import TutorActivationEmail from './components/views/auth/TutorActivationEmail';
 import ForgotPassword from './components/views/auth/ForgotPassword';
 import ResetPassword from './components/views/auth/ResetPassword';
-import Profile from './components/views/Profile';
+// import Profile from './components/views/Profile';
 
 import Home from './components/views/Home';
 import TermsConditions from './components/views/TermsConditions';
@@ -70,7 +70,7 @@ const App = () => {
 					<Route path="/reset/password/:accesstoken" exact component={ResetPassword} />
 					<Route path="/user/activate/:activation_token" exact component={ActivationEmail} />
 					<Route path="/tutor/activate/:activation_token" exact component={TutorActivationEmail} />
-					<ProtectedRoute path="/me" component={Profile} exact />
+					{/* <ProtectedRoute path="/me" component={Profile} exact /> */}
 
 					<ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />
 
