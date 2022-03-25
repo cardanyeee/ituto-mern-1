@@ -9,8 +9,8 @@ const {
     selectedSession,
     requestSession,
     acceptSession,
-    declineSession
-
+    declineSession,
+    reviewTutor
 } = require('../controllers/session');
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
@@ -21,6 +21,7 @@ router.route("/sessions/tutor").get(isAuthenticatedUser, findTutorSession);
 router.route("/sessions/tutee").get(isAuthenticatedUser, findTuteeSession);
 router.route('/session/decline/:id').put(isAuthenticatedUser, declineSession);
 router.route('/session/accept/:id').put(isAuthenticatedUser, acceptSession);
+router.route("/session/tutor/review").put(isAuthenticatedUser, reviewTutor);
 router.route("/sessions").get(allSession);
 router.route("/session/:id").get(selectedSession);
 

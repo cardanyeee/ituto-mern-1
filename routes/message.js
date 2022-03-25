@@ -5,7 +5,7 @@ const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 const { upload } = require("../utils/upload");
 
 router.route("/messages/:conversationID").get(isAuthenticatedUser, allMessages);
-router.route("/message/send").post(isAuthenticatedUser, sendMessage);
+router.route("/message/send").post(upload.any(), isAuthenticatedUser, sendMessage);
 router.route("/file/:key").get(accessFile);
 router.route("/file/send").post(upload.any(), sendFile);
 

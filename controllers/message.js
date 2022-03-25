@@ -36,12 +36,30 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
         console.log("Invalid data passed into request");
         return res.sendStatus(400);
     }
+    
+    if (req.files.length > 0) {
+        const file = req.files[0];
+        // apply filter
+        // resize 
 
-    var newMessage = {
-        sender: req.user._id,
-        content: content,
-        conversationID: conversationID,
-    };
+        const result = await uploadFile(file, `files/${conversationID}/`);
+
+        console.log(result);
+        await unlinkFile(file.path);
+
+        var newMessage = {
+            sender: req.user._id,
+            content: content,
+            conversationID: conversationID,
+            attachment: result.key
+        };
+    } else {
+        var newMessage = {
+            sender: req.user._id,
+            content: content,
+            conversationID: conversationID,
+        };
+    }
 
     try {
         var message = await Message.create(newMessage);
@@ -60,8 +78,8 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
             message
         });
     } catch (error) {
-        res.status(400);
-        throw new Error(error.message);
+        console.log(error);
+        next(error);
     }
 });
 
@@ -98,12 +116,13 @@ const accessFile = catchAsyncErrors(async (req, res, next) => {
     try {
         console.log(req.params)
         const key = req.params.key
-        const readStream = await getFileStream("profile/", key, next);
+        const readStream = await getFileStream("files/", key, next);
         readStream.pipe(res)
     } catch (error) {
         next(new ErrorResponse('File not found', 404));
     }
 
 });
+
 
 module.exports = { allMessages, sendMessage, sendFile, downloadFile, accessFile };
