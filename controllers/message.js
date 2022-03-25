@@ -116,7 +116,7 @@ const accessFile = catchAsyncErrors(async (req, res, next) => {
     try {
         console.log(req.params)
         const key = req.params.key
-        const readStream = await getFileStream("profile/", key, next);
+        const readStream = await getFileStream("files/", key, next);
         readStream.pipe(res)
     } catch (error) {
         next(new ErrorResponse('File not found', 404));
