@@ -46,17 +46,13 @@ const ResetPassword = ({ history }) => {
 
         try {
 
-            const res = await axios.post('/api/auth/password/reset', { password, cf_password }, {
-                headers: { Authorization: accesstoken },
+            const res = await axios.post('/api/auth/password/reset', { password, cf_password }, alert.success('Password has been reset successfully'), {
+                headers: { Authorization: accesstoken }
 
-            }); 
-            
-            alert.success('Password has been reset successfully');
-
-
-
+            });
 
             return setData({ ...data, err: "", success: res.data.msg })
+
 
         } catch (err) {
             err.response.data.msg && setData({ ...data, err: err.response.data.msg, success: '' })
@@ -94,7 +90,7 @@ const ResetPassword = ({ history }) => {
 
                                             <label htmlFor="password">Confirm Password</label>
                                         </div>
-                                        <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={handleResetPass}>Verify Email</button>
+                                        <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={handleResetPass}>Submit</button>
 
 
                                         <p className="mb-2 pb-lg-2 text-secondary"><Link className="link-secondary" to='/'>Go to Home</Link></p>

@@ -111,7 +111,15 @@
 
     .display-1 {
 
-        font-size: 2rem !important;
+        font-size: 1.75rem !important;
+        line-height: 2rem;
+        letter-spacing: .0073529412em !important;
+
+    }
+
+    .display-straight {
+
+        font-size: 1.75rem !important;
         line-height: 2rem;
         letter-spacing: .0073529412em !important;
 
@@ -351,12 +359,12 @@
 
     }
 
-    .appTitle {
+    /* .appTitle {
         
        height: 80%;
 
 
-    }
+    } */
 /* 
     .subRole {
 
@@ -376,3 +384,5 @@
       
 
     }
+
+   

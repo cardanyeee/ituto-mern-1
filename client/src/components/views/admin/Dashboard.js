@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
-
 import { MDBDataTableV5 } from 'mdbreact';
 
 // import { Link } from "react-router-dom";
@@ -132,8 +131,8 @@ const Dashboard = () => {
                                                         <div className="elevation-0 transparent v-card v-sheet theme--light">
                                                             <div className="v-card__text text-center" id="picturePad">
                                                                 <div className="v-avatar">
-                                                                    <img style={{ height: "225px",  width: "250px" }}
-                                                                    src={user.avatar.url} alt={user.avatar.public_id} className="g-image" />
+                                                                    <img style={{ height: "225px", width: "250px" }}
+                                                                        src={user.avatar.url} alt={user.avatar.public_id} className="g-image" />
                                                                 </div>
                                                             </div>
                                                             <div primary-title="" className="v-card__title layout justify-center" >
@@ -284,7 +283,24 @@ const Dashboard = () => {
                                                 {/* <!-- Card Header - Dropdown --> */}
                                                 <div className="card-header py-3">
                                                     <h6 className="m-0 font-weight-bold text-primary"
-                                                    >Male and Female Populations</h6>
+                                                    >
+                                                        <a href="/dashboard/tutor" style={{ textDecoration:  "none"}}>
+                                                            Male and Female Populations
+                                                        </a>
+                                                    </h6>
+                                                    
+
+                                                    {/* <Dropdown>
+                                                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                                            Dropdown Button
+                                                        </Dropdown.Toggle>
+
+                                                        <Dropdown.Menu>
+                                                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                                        </Dropdown.Menu>
+                                                    </Dropdown>  */}
                                                 </div>
                                                 {/* <!-- Card Body --> */}
                                                 <div className="card-body">
@@ -298,7 +314,7 @@ const Dashboard = () => {
                                                         <Doughnut
 
                                                             data={{
-                                                                labels: ['Female', 'Male', 'Prefer Not to Say', 'Total Users'],
+                                                                labels: ['Female', 'Male', 'Prefer Not to Say'],
                                                                 datasets: [
                                                                     {
                                                                         label: '# of votes',

@@ -10,7 +10,7 @@ import { logout } from '../../../actions/authActions';
 
 import './header.css';
 
-const Header = ({ history }) => {
+const Header = () => {
 
     const [dropdown, setDropdown] = useState("");
     const alert = useAlert();
@@ -68,9 +68,10 @@ const Header = ({ history }) => {
                                                 <Link className="dropdown-item" to="/dashboard" >
                                                     Dashboard
                                                 </Link>
+                                                <hr className="dropdown-divide m-1" />
                                             </li>
                                         }
-                                        <li><hr className="dropdown-divide m-1" /></li>
+                                        <li></li>
                                         {/* <Link className="dropdown-item" to="/" onClick={logoutHandler}>Logout</Link> */}
                                         <li><a className="dropdown-item" onClick={logoutHandler} href="/">Logout</a></li>
                                     </ul>

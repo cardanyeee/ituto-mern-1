@@ -1,5 +1,8 @@
 import React from 'react'
 import './welcome.css';
+import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
+import LiveHelpIcon from '@mui/icons-material/LiveHelp';
+import BadgeIcon from '@mui/icons-material/Badge';
 
 const Welcome = () => {
 
@@ -125,51 +128,75 @@ const Welcome = () => {
 
 
                             </div>
-                            <div className="row align-start">
-                                <div className="col1 col-md-4 col-12">
-                                    <div className="elevation-0 transparent v-card v-sheet theme--light" id="elevation-0" >
-                                        <div className="v-card__text text-center">
-                                            {/* <i aria-hidden="true"
-                                                className="v-icon notranslate --text text--lighten-2 fab fa-github theme--light"
-                                                style={{ fontSize: "40px" }}>
-                                                    </i> */}
-                                        </div>
-                                        <div primary-title="" className="v-card__title layout justify-center">
-                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Where can I grab it?</div>
-                                        </div>
-                                        <div className="v-card__text text-center">
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col2 col-md-4 col-12">
-                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                        <div className="v-card__text text-center">
-                                            {/* <i aria-hidden="true"
-                                                className="v-icon notranslate --text text--lighten-2 fas fa-code theme--light"
-                                                style={{ fontsize: "40px" }}>
-                                                    </i> */}
-                                        </div>
-                                        <div primary-title="" className="v-card__title layout justify-center">
-                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>How can I contribute?</div>
-                                        </div>
-                                        <div className="v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p></div>
-                                    </div>
-                                </div>
-                                <div className="col1 col-md-4 col-12">
-                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                        <div className="v-card__text text-center">
-                                            {/* <i aria-hidden="true"
-                                                className="v-icon notranslate --text text--lighten-2 fas fa-gamepad theme--light"
-                                                style={{ fontsize: "40px" }}>
-                                                    </i> */}
 
+                        </div>
+
+                        {/* MOVE 1 DIV ABOVEEEEEEEE */}
+
+                        <div className="teamcolor col-12">
+                            <div className="elevation-0 transparent v-card v-sheet theme--light" >
+
+                                <div primary-title="" className="v-card__title layout justify-center">
+
+                                    <div className="row align-center">
+                                        <div className="container">
+                                            <div className="row align-start">
+                                                <div className="col1 col-md-4 col-12">
+
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+
+                                                        <div className="v-card__text text-center">
+
+                                                        <CloudDownloadIcon fontSize="large"/>
+                                                        </div>
+                                                        <div primary-title="" className="col1 v-card__title layout justify-center">
+                                                            <div className="display-straight text-center" style={{ fontWeight: "bold" }}>Where can i grab it?</div>
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
+                                                                {/* <img src="images/app-mockup.png" alt="app-mockup" width="300" /> */}
+                                                            </div>
+                                                        </div>
+                                                        <div className="col1 v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p></div>
+                                                    </div>
+                                                </div>
+                                                <div className="col2 col-md-4 col-12">
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                        <div className="v-card__text text-center">
+                                                        <LiveHelpIcon fontSize="large"/>
+                                                         
+                                                        </div>
+                                                        <div primary-title="" className="v-card__title layout justify-center">
+                                                            <div className="display-straight text-center" style={{ fontWeight: "bold" }}>How can i contribute?</div>
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
+                                                                {/* <img src="images/app-mockup.png" alt="app-mockup" width="300" /> */}
+                                                            </div>
+                                                        </div>
+                                                        <div className="v-card__text text-center">
+                                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="col1 col-md-4 col-12">
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                        <div className="v-card__text text-center">
+                                                        <BadgeIcon fontSize="large"/>
+                                                        </div>  
+                                                        <div primary-title="" className="v-card__title layout justify-center">
+                                                            <div className="display-straight text-center" style={{ fontWeight: "bold" }}>Why the name?</div>
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
+                                                                {/* <img src="images/app-mockup.png" alt="app-mockup" width="300" /> */}
+                                                            </div>
+                                                        </div>
+                                                        <div className="v-card__text text-center">
+                                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+                                            </div>
                                         </div>
-                                        <div primary-title="" className="v-card__title layout justify-center">
-                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Why the name?</div>
-                                        </div>
-                                        <div className="v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p></div>
                                     </div>
                                 </div>
                             </div>
@@ -177,9 +204,12 @@ const Welcome = () => {
 
 
 
+
+
                         {/* FEATURESSS */}
 
                         <div className="teamcolor v-parallax hidden-sm-and-down" style={{ height: "200px" }} >
+
                             <div className="v-parallax__image-container" id="features">
 
                             </div>
@@ -192,82 +222,83 @@ const Welcome = () => {
 
                                 <div primary-title="" className="v-card__title layout justify-center">
 
-                                </div>
-                            </div>
-                        </div>
+                                    <div className="row align-center">
+                                        <div className="container">
+                                            <div className="row align-start">
+                                                <div className="col1 col-md-4 col-12">
 
-                        <div className="container">
-                            <div className="row align-center">
-                                <div className="container">
-                                    <div className="row align-start">
-                                        <div className="col1 col-md-4 col-12">
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                            <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                <div className="v-card__text text-center">
+                                                        <div className="v-card__text text-center">
 
 
-                                                    {/* <i aria-hidden="true"
+                                                            {/* <i aria-hidden="true"
                                                     className="v-icon notranslate --text text--lighten-2 mr-4 fab fa-windows theme--light"
                                                     style={{ fontsize: "40px" }}>
                                                         </i> */}
-                                                    {/* <i aria-hidden="true"
+                                                            {/* <i aria-hidden="true"
                                                         className="v-icon notranslate --text text--lighten-2 mr-4 fab fa-apple theme--light"
                                                         style={{ fontsize: "40px" }}></i>
                                                         <i aria-hidden="true"
                                                             className="v-icon notranslate --text text--lighten-2 fab fa-linux theme--light"
                                                             style={{ fontsize: "40px" }}></i> */}
-                                                </div>
-                                                <div primary-title="" className="col1 v-card__title layout justify-center">
-                                                    <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 1</div>
-                                                    <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                        <img src="images/app-mockup.png" alt="app-mockup" width="300" />
+                                                        </div>
+                                                        <div primary-title="" className="col1 v-card__title layout justify-center">
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 1</div>
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
+                                                                <img src="images/app-mockup.png" alt="app-mockup" width="300" />
+                                                            </div>
+                                                        </div>
+                                                        <div className="col1 v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p></div>
                                                     </div>
                                                 </div>
-                                                <div className="col1 v-card__text text-center"><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p></div>
-                                            </div>
-                                        </div>
-                                        <div className="col2 col-md-4 col-12">
-                                            <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                <div className="v-card__text text-center">
-                                                    {/* <i aria-hidden="true"
+                                                <div className="col2 col-md-4 col-12">
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                        <div className="v-card__text text-center">
+                                                            {/* <i aria-hidden="true"
                                                     className="v-icon notranslate --text text--lighten-2 fab fa-discord theme--light"
                                                     style={{ fontsize: "40px" }}>
                                                         </i> */}
-                                                </div>
-                                                <div primary-title="" className="v-card__title layout justify-center">
-                                                    <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 2</div>
-                                                    <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                        <img src="images/app-mockup.png" alt="app-mockup" width="300" />
+                                                        </div>
+                                                        <div primary-title="" className="v-card__title layout justify-center">
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 2</div>
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
+                                                                <img src="images/app-mockup.png" alt="app-mockup" width="300" />
+                                                            </div>
+                                                        </div>
+                                                        <div className="v-card__text text-center">
+                                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div className="v-card__text text-center">
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
-                                                </div>
-                                            </div>
-                                        </div>
 
-                                        <div className="col1 col-md-4 col-12">
-                                            <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                <div className="col1 col-md-4 col-12">
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                <div primary-title="" className="col1 v-card__title layout justify-center">
-                                                    <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 3</div>
-                                                    <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                        <img src="images/app-mockup.png" alt="app-mockup" width="300" />
+                                                        <div primary-title="" className="col1 v-card__title layout justify-center">
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>Step 3</div>
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
+                                                                <img src="images/app-mockup.png" alt="app-mockup" width="300" />
+                                                            </div>
+                                                        </div>
+                                                        <div className="col1 v-card__text text-center">
+                                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div className="col1 v-card__text text-center">
-                                                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
-                                                </div>
+
+
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+
+                        {/* <div className="container">
+
+
+                        </div> */}
 
 
 
@@ -310,7 +341,7 @@ const Welcome = () => {
                                                     </div>
                                                 </div>
                                                 <div primary-title="" className="v-card__title layout justify-center" >
-                                                    <a href="https://github.com/sayrsalad" 
+                                                    <a href="https://github.com/sayrsalad"
                                                         className="color1 headline text-center" target="_blank" rel="noreferrer" >
                                                         Jose Angelo Arboleda
                                                     </a>
@@ -336,7 +367,7 @@ const Welcome = () => {
                                                 </div>
                                                 <div primary-title="" className="v-card__title layout justify-center">
                                                     <a href="https://github.com/cardanyeee"
-                                                    className="color1 headline text-center" target="_blank" rel="noreferrer">Carl Daniel Villanueva
+                                                        className="color1 headline text-center" target="_blank" rel="noreferrer">Carl Daniel Villanueva
                                                     </a>
                                                 </div>
 
@@ -380,7 +411,7 @@ const Welcome = () => {
                                                     </div>
                                                 </div>
                                                 <div primary-title="" className="v-card__title layout justify-center"><a href="https://www.facebook.com/macmac0123"
-                                                   className="color1 headline text-center" target="_blank" rel="noreferrer">Mark Joseph Casas</a></div>
+                                                    className="color1 headline text-center" target="_blank" rel="noreferrer">Mark Joseph Casas</a></div>
 
                                                 <div primary-title="" className="subRole2 v-card__title layout justify-center" >
 
