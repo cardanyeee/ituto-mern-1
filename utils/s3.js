@@ -65,11 +65,11 @@ async function getFileStream(dir, fileKey, next) {
 }
 exports.getFileStream = getFileStream
 
-function download(filename) {
-    const file = s3.getObject({ Bucket: bucketName, Key: filename });
+function download(dir, filename) {
+    // const file = s3.getObject({ Bucket: bucketName, Key: dir + filename });
 
-    console.log(file);
+    // console.log(file);
 
-    // return s3.getObject({ Bucket: bucketName, Key: filename }).promise();
+    return s3.getObject({ Bucket: bucketName, Key: dir + filename }).promise();
 }
 exports.download = download

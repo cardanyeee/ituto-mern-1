@@ -44,6 +44,9 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
 
         const result = await uploadFile(file, `files/${conversationID}/`);
 
+        result.Key = result.Key.substr(6);
+        result.Key = result.Key.replace(/\//g, '%2F');
+
         console.log(result);
         await unlinkFile(file.path);
 
@@ -51,7 +54,7 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
             sender: req.user._id,
             content: content,
             conversationID: conversationID,
-            attachment: result.key
+            attachment: result.Key
         };
     } else {
         var newMessage = {
@@ -60,6 +63,8 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
             conversationID: conversationID,
         };
     }
+
+    console.log(newMessage);
 
     try {
         var message = await Message.create(newMessage);
@@ -83,27 +88,28 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
     }
 });
 
-const sendFile = catchAsyncErrors(async (req, res) => {
-    try {
-        const file = req.files[0];
-        // apply filter
-        // resize 
-        const result = await uploadFile(file);
-        console.log(result);
-        await unlinkFile(file.path);
-        res.send({ imagePath: `/images/${result.Key}` });
-    } catch (error) {
-        console.log(error);
-    }
+// const sendFile = catchAsyncErrors(async (req, res) => {
+//     try {
+//         const file = req.files[0];
+//         // apply filter
+//         // resize 
+//         const result = await uploadFile(file);
+//         console.log(result);
+//         await unlinkFile(file.path);
+//         res.send({ imagePath: `/images/${result.Key}` });
+//     } catch (error) {
+//         console.log(error);
+//     }
 
-});
+// });
 
 const downloadFile = catchAsyncErrors(async (req, res) => {
 
     try {
         const filename = req.params.filename
         console.log(filename);
-        let x = await download(filename);
+        let x = await download("files/", filename);
+        console.log(x);
         res.send(x.Body)
     } catch (error) {
         console.log(error);
@@ -125,4 +131,4 @@ const accessFile = catchAsyncErrors(async (req, res, next) => {
 });
 
 
-module.exports = { allMessages, sendMessage, sendFile, downloadFile, accessFile };
+module.exports = { allMessages, sendMessage, downloadFile, accessFile };
