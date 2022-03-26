@@ -1,5 +1,6 @@
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const Conversation = require("../models/Conversation");
+const APIFeatures = require('../utils/apiFeatures');
 const User = require("../models/User");
 
 const jwt = require('jsonwebtoken');
@@ -62,7 +63,15 @@ const accessConversation = catchAsyncErrors(async (req, res) => {
 const fetchConversations = catchAsyncErrors(async (req, res) => {
 
     try {
-        Conversation.find({ users: { $elemMatch: { $eq: req.user._id } } })
+
+        const userQuery = new APIFeatures(User.find(), req.query)
+            .search();
+
+        const userss = await userQuery.query;
+
+        const userIDArray = userss.map(user => user._id);
+
+        Conversation.find(userss ? { $and: [{ users: { $elemMatch: { $eq: req.user._id } } }, { users: { $in: userIDArray } }] } : { users: { $elemMatch: { $eq: req.user._id } } })
             .populate("users", "-password -username -birthdate -gender -isTutor -enmail -role")
             .populate("latestMessage")
             .sort({ updatedAt: -1 })
@@ -76,6 +85,21 @@ const fetchConversations = catchAsyncErrors(async (req, res) => {
                     results
                 });
             });
+
+        // Conversation.find({ users: { $elemMatch: { $eq: req.user._id } } })
+        // .populate("users", "-password -username -birthdate -gender -isTutor -enmail -role")
+        // .populate("latestMessage")
+        // .sort({ updatedAt: -1 })
+        // .then(async (results) => {
+        //     results = await User.populate(results, {
+        //         path: "latestMessage.sender",
+        //         select: "firstname lastname avatar.url"
+        //     });
+        //     res.status(200).send({
+        //         success: true,
+        //         results
+        //     });
+        // });
 
     } catch (error) {
         res.status(400);

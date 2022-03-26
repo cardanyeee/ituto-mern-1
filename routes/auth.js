@@ -15,11 +15,14 @@ const { register,
     updateProfile,
     allUsers,
     dashboard,
-    getProfile
+    getProfile,
+    checkEmail
 } = require('../controllers/auth');
 
 const { upload } = require("../utils/upload");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+
+router.route("/auth/check/email").post(checkEmail);
 
 router.route("/auth/register").post(upload.any(), register);
 
