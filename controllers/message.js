@@ -16,6 +16,7 @@ const allMessages = catchAsyncErrors(async (req, res) => {
     try {
 
         const messages = await Message.find({ conversationID: req.params.conversationID })
+            .sort({createdAt: -1})
             .populate("sender", "firstname avatar")
             .populate("conversationID");
         res.json({
