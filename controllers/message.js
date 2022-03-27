@@ -4,7 +4,6 @@ const User = require("../models/User");
 const Conversation = require("../models/Conversation");
 const ErrorResponse = require('../utils/errorResponse');
 
-const multer = require('multer');
 const util = require('util');
 const fs = require('fs');
 const unlinkFile = util.promisify(fs.unlink);
@@ -64,12 +63,10 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
         };
     }
 
-    console.log(newMessage);
-
     try {
         var message = await Message.create(newMessage);
 
-        message = await message.populate("sender", "firstname avatar");
+        message = await message.populate("sender", "firstname lastname avatar");
         message = await message.populate("conversationID");
         message = await User.populate(message, {
             path: "users",
@@ -87,21 +84,6 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
         next(error);
     }
 });
-
-// const sendFile = catchAsyncErrors(async (req, res) => {
-//     try {
-//         const file = req.files[0];
-//         // apply filter
-//         // resize 
-//         const result = await uploadFile(file);
-//         console.log(result);
-//         await unlinkFile(file.path);
-//         res.send({ imagePath: `/images/${result.Key}` });
-//     } catch (error) {
-//         console.log(error);
-//     }
-
-// });
 
 const downloadFile = catchAsyncErrors(async (req, res) => {
 
