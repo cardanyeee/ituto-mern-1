@@ -80,7 +80,7 @@ exports.acceptSession = catchAsyncErrors(async (req, res, next) => {
         if (!(req.user._id.equals(session.tutor))) {
             return next(new ErrorResponse("Unauthorized Access.", 401));
         }
-        
+
         session.time = JSON.parse(req.body.time);
         session.startDate = req.body.startDate;
         session.acceptDeclineDate = convertUTCDateToLocalDate(Date.now());
@@ -192,6 +192,60 @@ exports.selectedSession = catchAsyncErrors(async (req, res, next) => {
 
     } catch (error) {
         next(new ErrorResponse('Session not found', 404));
+    }
+});
+
+exports.reviewTutor = catchAsyncErrors(async (req, res, next) => {
+    try {
+        const tutee = req.user._id;
+        const { sessionID, tutorID, subject, rating, comment } = req.body;
+
+        const session = await Session.findById(sessionID);
+
+        if (!tutee.equals(session.tutee)) {
+            return next(new ErrorResponse("Unauthorized Access.", 401));
+        }
+
+        const tutor = await Tutor.findOne({ userID: tutorID });
+        console.log(tutorID);
+        const review = {
+            tutee,
+            subject,
+            rating: Number(rating),
+            comment,
+            reviewDate: convertUTCDateToLocalDate(Date.now())
+        }
+
+        const isReviewed = tutor.reviews.find(
+            r => r.tutee.toString() === req.user._id.toString() && r.subject.toString() === subject
+        );
+
+        if (isReviewed) {
+            tutor.reviews.forEach(review => {
+                if (review.tutee.toString() === req.user._id.toString()) {
+                    review.comment = comment;
+                    review.rating = rating;
+                    review.reviewDate = convertUTCDateToLocalDate(Date.now());
+                }
+            });
+        } else {
+            tutor.reviews.push(review);
+            tutor.numOfReviews = tutor.reviews.length;
+        }
+
+        tutor.ratings = tutor.reviews.reduce((acc, item) => item.rating + acc, 0) / tutor.reviews.length;
+
+        await tutor.save({ validateBeforeSave: false });
+
+        console.log(tutor);
+
+        res.status(200).json({
+            success: true,
+            tutor
+        });
+    } catch (error) {
+        console.log(error);
+        next(error);
     }
 });
 

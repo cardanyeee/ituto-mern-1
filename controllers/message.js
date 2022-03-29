@@ -4,7 +4,6 @@ const User = require("../models/User");
 const Conversation = require("../models/Conversation");
 const ErrorResponse = require('../utils/errorResponse');
 
-const multer = require('multer');
 const util = require('util');
 const fs = require('fs');
 const unlinkFile = util.promisify(fs.unlink);
@@ -17,6 +16,7 @@ const allMessages = catchAsyncErrors(async (req, res) => {
     try {
 
         const messages = await Message.find({ conversationID: req.params.conversationID })
+            .sort({createdAt: -1})
             .populate("sender", "firstname avatar")
             .populate("conversationID");
         res.json({
@@ -36,17 +36,38 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
         console.log("Invalid data passed into request");
         return res.sendStatus(400);
     }
+    
+    if (req.files.length > 0) {
+        const file = req.files[0];
+        // apply filter
+        // resize 
 
-    var newMessage = {
-        sender: req.user._id,
-        content: content,
-        conversationID: conversationID,
-    };
+        const result = await uploadFile(file, `files/${conversationID}/`);
+
+        result.Key = result.Key.substr(6);
+        result.Key = result.Key.replace(/\//g, '%2F');
+
+        console.log(result);
+        await unlinkFile(file.path);
+
+        var newMessage = {
+            sender: req.user._id,
+            content: content,
+            conversationID: conversationID,
+            attachment: result.Key
+        };
+    } else {
+        var newMessage = {
+            sender: req.user._id,
+            content: content,
+            conversationID: conversationID,
+        };
+    }
 
     try {
         var message = await Message.create(newMessage);
 
-        message = await message.populate("sender", "firstname avatar");
+        message = await message.populate("sender", "firstname lastname avatar");
         message = await message.populate("conversationID");
         message = await User.populate(message, {
             path: "users",
@@ -60,24 +81,9 @@ const sendMessage = catchAsyncErrors(async (req, res) => {
             message
         });
     } catch (error) {
-        res.status(400);
-        throw new Error(error.message);
-    }
-});
-
-const sendFile = catchAsyncErrors(async (req, res) => {
-    try {
-        const file = req.files[0];
-        // apply filter
-        // resize 
-        const result = await uploadFile(file);
-        console.log(result);
-        await unlinkFile(file.path);
-        res.send({ imagePath: `/images/${result.Key}` });
-    } catch (error) {
         console.log(error);
+        next(error);
     }
-
 });
 
 const downloadFile = catchAsyncErrors(async (req, res) => {
@@ -85,7 +91,8 @@ const downloadFile = catchAsyncErrors(async (req, res) => {
     try {
         const filename = req.params.filename
         console.log(filename);
-        let x = await download(filename);
+        let x = await download("files/", filename);
+        console.log(x);
         res.send(x.Body)
     } catch (error) {
         console.log(error);
@@ -98,7 +105,7 @@ const accessFile = catchAsyncErrors(async (req, res, next) => {
     try {
         console.log(req.params)
         const key = req.params.key
-        const readStream = await getFileStream("profile/", key, next);
+        const readStream = await getFileStream("files/", key, next);
         readStream.pipe(res)
     } catch (error) {
         next(new ErrorResponse('File not found', 404));
@@ -106,4 +113,5 @@ const accessFile = catchAsyncErrors(async (req, res, next) => {
 
 });
 
-module.exports = { allMessages, sendMessage, sendFile, downloadFile, accessFile };
+
+module.exports = { allMessages, sendMessage, downloadFile, accessFile };

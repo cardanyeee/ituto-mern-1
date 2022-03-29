@@ -25,30 +25,6 @@ exports.index = catchAsyncErrors(async (req, res, next) => {
 
         const tutors = await tutorsQuery.query;
 
-        // search before filter
-        // const tutorsQuery = new APIFeatures(Tutor.find(), req.query)
-        //     .filter();
-
-        // const tutors = await tutorsQuery.query;
-
-        // const tutorIDArray = tutors.map(tutor => tutor.userID);
-
-        // const usersQuery = new APIFeatures(User.find({ "_id" : { $in: tutorIDArray } }), req.query)
-        //     .search();
-
-        // const users = await usersQuery.query;
-
-        // var tutorInfo = [];
-
-        // users.map(user => {
-        //     tutors.map(tutor =>{
-        //         if (user._id.toString() === tutor.userID.toString()) {
-        //             user.tutorAccount = tutor;
-        //             tutorInfo.push(user);
-        //         }
-        //     });
-        // });
-
         res.status(200).json({
             success: true,
             tutors
@@ -105,7 +81,7 @@ exports.activateTutor = catchAsyncErrors(async (req, res, next) => {
         const newTutor = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
 
         console.log(newTutor);
-        
+
         const {
             firstname,
             lastname,
@@ -199,6 +175,28 @@ exports.addSubject = catchAsyncErrors(async (req, res, next) => {
     } catch (error) {
         next(error);
     }
+});
+
+exports.getTutorReviews = catchAsyncErrors(async (req, res, next) => {
+
+    try {
+
+        const tutor = await Tutor.findOne({ _id: req.params.id })
+            .populate("reviews.tutee", " -birthdate -isTutor -role -phone -createdAt -updatedAt")
+            .populate("reviews.subject");
+
+        if(!tutor) {
+            return next(new ErrorResponse("Tutor not found.", 404));
+        }
+    
+        res.status(200).json({
+            success: true,
+            reviews: tutor.reviews
+        })
+    } catch (error) {
+        next(error);
+    }
+
 });
 
 exports.findTutor = catchAsyncErrors(async (req, res, next) => {

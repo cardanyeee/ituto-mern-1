@@ -50,15 +50,32 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
     })
 });
 
-//Register User
-exports.register = catchAsyncErrors(async (req, res, next) => {
-    console.log("Registering");
-
-    console.log(req.body);
-
-    const { firstname, lastname, birthdate, gender, course, yearLevel, email, password } = req.body;
+exports.checkEmail = catchAsyncErrors(async (req, res, next) => {
 
     try {
+
+        const user = await User.findOne({ email: req.body.email });
+
+        if (user) {
+            return next(new ErrorResponse('An account with that email already exists. Please use another email.', 401));
+        }
+
+        res.status(200).json({
+            success: true,
+            message: "Email available to use!"
+        });
+    } catch (error) {
+        console.log(error);
+        next(err);
+    }
+
+});
+
+//Register User
+exports.register = catchAsyncErrors(async (req, res, next) => {
+
+    try {
+        const { firstname, lastname, birthdate, gender, course, yearLevel, email, password } = req.body;
 
         const newUser = {
             firstname,
@@ -94,7 +111,7 @@ exports.activate = catchAsyncErrors(async (req, res, next) => {
         console.log(activation_token);
 
         const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET);
-        
+
         console.log(user);
         const {
             firstname,
@@ -149,6 +166,10 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
             return next(new ErrorResponse("You don't have a tutor account", 404));
         }
 
+        if (loggedInAs == "TUTEE" && user.isTutor) {
+            return next(new ErrorResponse("Your account is registered as a tutor. Please use another email", 404));
+        }
+
         const isMatch = await user.matchPasswords(password);
         
         if (!isMatch) {
@@ -158,6 +179,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
         sendToken(user, 200, res);
 
     } catch (error) {
+        console.log(error);
         next(error);
     }
 });
@@ -326,13 +348,13 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
             await unlinkFile(file.path);
         }
 
-            user.firstname = req.body.firstname;
-            user.lastname = req.body.lastname;
-            user.username = req.body.username;
-            user.birthdate = req.body.birthdate;
-            user.gender = req.body.gender;
-            user.course = req.body.course;
-            user.phone = req.body.phone;
+        user.firstname = req.body.firstname;
+        user.lastname = req.body.lastname;
+        user.username = req.body.username;
+        user.birthdate = req.body.birthdate;
+        user.gender = req.body.gender;
+        user.course = req.body.course;
+        user.phone = req.body.phone;
 
         user.save();
 
@@ -430,27 +452,30 @@ exports.findUser = catchAsyncErrors(async (req, res, next) => {
 
 // Update user profile   =>   /api/v1/admin/user/:id
 exports.updateUser = catchAsyncErrors(async (req, res, next) => {
-    const newUserData = {
-       
+    try {
+        const newUserData = {
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            username: req.body.username,
+            birthdate: req.body.birthdate,
+            gender: req.body.gender,
+            role: req.body.role,
+            phone: req.body.phone
+        }
 
-       firstname : req.body.firstname,
-       lastname : req.body.lastname,
-       username : req.body.username,
-       birthdate : req.body.birthdate,
-       gender : req.body.gender,
-       role : req.body.role,
-       phone : req.body.phone
+        const user = await User.findByIdAndUpdate(req.params.id, newUserData, {
+            new: true,
+            runValidators: true,
+            useFindAndModify: false
+        })
+
+        res.status(200).json({
+            success: true
+        })
+    } catch (error) {
+        console.log(error);
+        next(error);
     }
-
-    const user = await User.findByIdAndUpdate(req.params.id, newUserData, {
-        new: true,
-        runValidators: true,
-        useFindAndModify: false
-    })
-
-    res.status(200).json({
-        success: true
-    })
 });
 
 // Delete user   =>   /api/v1/admin/user/:id

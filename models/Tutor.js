@@ -32,12 +32,20 @@ const TutorSchema = new Schema({
                 ref: 'User',
                 required: true
             },
+            subject: {
+                type: mongoose.Schema.ObjectId,
+                ref: 'Subject'
+            },
             rating: {
                 type: Number,
                 required: true
             },
             comment: {
                 type: String,
+                required: true
+            },
+            reviewDate: {
+                type: Date,
                 required: true
             }
         }

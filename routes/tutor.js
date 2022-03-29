@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { index, signUpTutor, addSubject, getCurrentTutor, findTutor, activateTutor } = require('../controllers/tutor');
+const { index, signUpTutor, addSubject, getCurrentTutor, findTutor, activateTutor, getTutorReviews } = require('../controllers/tutor');
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
@@ -11,6 +11,7 @@ router.route("/tutor/activate").post(activateTutor);
 
 router.route("/tutors").get(isAuthenticatedUser, index);
 router.route("/tutor/subject/add").post(isAuthenticatedUser, addSubject);
+router.route("/tutor/reviews/:id").get(isAuthenticatedUser, getTutorReviews);
 router.route("/tutor/:id").get(isAuthenticatedUser, findTutor);
 
 //Browser
