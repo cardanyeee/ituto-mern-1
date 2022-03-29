@@ -27,7 +27,7 @@ import TermsConditions from './components/views/TermsConditions';
 
 import Dashboard from './components/views/admin/Dashboard';
 
-
+import Chart from './components/views/admin/report/Charts';
 import CourseList from './components/views/admin/course/CourseList';
 import SubjectList from './components/views/admin/subject/SubjectList';
 
@@ -74,7 +74,7 @@ const App = () => {
 
 					<ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />
 
-
+					<ProtectedRoute path="/dashboard/reports" isAdmin={true} component={Chart} exact />
 					<ProtectedRoute path="/dashboard/courses" isAdmin={true} component={CourseList} exact />
 					<ProtectedRoute path="/dashboard/subjects" isAdmin={true} component={SubjectList} exact />
 

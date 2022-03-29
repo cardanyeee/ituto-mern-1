@@ -41,7 +41,7 @@ const Dashboard = () => {
 
     const { users } = useSelector(state => state.allUsers);
 
-    const { loading, male, female, pnts } = useSelector(state => state.datas);
+    const { loading, male, female } = useSelector(state => state.datas);
 
     useEffect(() => {
         dispatch(getData());
@@ -113,6 +113,7 @@ const Dashboard = () => {
                                         <div className="col-xl-4 mb-3" >
 
                                             <div className="card shadow mb-4">
+
                                                 {/* <!-- Card Header - Dropdown --> */}
                                                 <div className=" card-header py-3">
                                                     <h5 className="color1 m-0 font-weight-bold" id="Username">Welcome <b>{user.username}!</b></h5>
@@ -284,11 +285,11 @@ const Dashboard = () => {
                                                 <div className="card-header py-3">
                                                     <h6 className="m-0 font-weight-bold text-primary"
                                                     >
-                                                        <a href="/dashboard/tutor" style={{ textDecoration:  "none"}}>
+                                                        <a href="/dashboard/tutor" style={{ textDecoration: "none" }}>
                                                             Male and Female Populations
                                                         </a>
                                                     </h6>
-                                                    
+
 
                                                     {/* <Dropdown>
                                                         <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -314,11 +315,11 @@ const Dashboard = () => {
                                                         <Doughnut
 
                                                             data={{
-                                                                labels: ['Female', 'Male', 'Prefer Not to Say'],
+                                                                labels: ['Female', 'Male'],
                                                                 datasets: [
                                                                     {
                                                                         label: '# of votes',
-                                                                        data: [female && female, male && male, pnts && pnts],
+                                                                        data: [female && female, male && male],
 
                                                                         backgroundColor: [
                                                                             '#FF6384',
@@ -398,7 +399,7 @@ const Dashboard = () => {
                                                                 datasets: [
                                                                     {
                                                                         label: '# of votes',
-                                                                        data: [12, 19, 3, 5, 2, 3],
+                                                                        data: [17, 52, 67, 58, 9, 50],
 
                                                                         backgroundColor: [
                                                                             '#FF6384',
@@ -409,21 +410,13 @@ const Dashboard = () => {
                                                                             '#FF9F40',
                                                                         ],
                                                                         borderColor: [
-                                                                            'rgba(255, 99, 132, 1)',
+
                                                                             'rgba(54, 162, 235, 1)',
-                                                                            'rgba(255, 206, 86, 1)',
-                                                                            'rgba(75, 192, 192, 1)',
-                                                                            'rgba(153, 102, 255, 1)',
-                                                                            'rgba(255, 159, 64, 1)',
+
                                                                         ],
                                                                         borderWidth: 1,
                                                                     },
-                                                                    // {
-                                                                    //   label: 'Quantity',
-                                                                    //   data: [47, 52, 67, 58, 9, 50],
-                                                                    //   backgroundColor: 'orange',
-                                                                    //   borderColor: 'red',
-                                                                    // },
+
                                                                 ],
                                                             }}
                                                             height={300}
@@ -540,10 +533,6 @@ const Dashboard = () => {
 
 
                                 </div>
-
-
-
-
                             </div>
                         </Fragment>
                     )}

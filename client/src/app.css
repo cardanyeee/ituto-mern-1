@@ -165,11 +165,6 @@ html, body, .App {
 } */
 
 
-.widgets {
-
-    padding: 20px;
-
-}
 
 #tableAdjust {
 
@@ -229,18 +224,14 @@ html, body, .App {
     padding-right: 20px;
 }
 
-.col img {
+.footerLogo {
+
     width: 100%;
-    max-width: 100px;
     min-width: 150px;
     height: auto;
+
 }
-/* 
-#footerLogo {
 
-    width: 20px;
-
-} */
 
 .col h2 {
     font-size: 1.2em;
@@ -299,7 +290,11 @@ html, body, .App {
 }
 
 @media screen and (max-width:1000px) {
+
+    
   
+
+
     .footer-content {
         width: 90%;
     }
@@ -348,9 +343,9 @@ html, body, .App {
     #Username {
         text-transform: capitalize;
         font-size: 14px;
-    
+
     }
-    
+
 
 
 }
@@ -362,3 +357,4 @@ html, body, .App {
     -ms-flex-align: start;
     align-items: flex-start;
 }
+

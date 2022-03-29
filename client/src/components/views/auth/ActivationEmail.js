@@ -46,12 +46,6 @@ function ActivationEmail() {
                             {/* <p className="ForgotPassword-subheading fs-5 fw-light mb-4">Discover students who are interested in sharing their attained skills and knowledge.</p> */}
 
 
-                            <a href="/">
-                                <button className="btn btn-primary w-100 text-white mb-2" type="submit">
-                                    Proceed
-                                </button>
-                            </a>
-
 
                         </div>
                     </div>

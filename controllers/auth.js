@@ -25,7 +25,6 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
     const subs = await Sub.find();
     var male = 0;
     var female = 0;
-
     var other = 0;
     var pnts = 0;
 
@@ -151,7 +150,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
         }
 
         const isMatch = await user.matchPasswords(password);
-
+        
         if (!isMatch) {
             return next(new ErrorResponse("Wrong email or password", 401));
         }

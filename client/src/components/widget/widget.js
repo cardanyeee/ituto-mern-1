@@ -40,7 +40,7 @@ const Widget = ({ type }) => {
         title: "REGISTERED USERS",
         display: userCount,
         isNoLink: true,
-        link: "Lorem Ipsum",
+        link: "Registered Users",
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -74,7 +74,7 @@ const Widget = ({ type }) => {
         title: "TOTAL TUTORS",
         display: tutorCount,
         isNoLink: true,
-        link: "Lorem Ipsum",
+        link: "Total Tutors",
         icon: (
           <SchoolIcon
             className="icon"
@@ -88,7 +88,7 @@ const Widget = ({ type }) => {
         title: "MALE USERS",
         display: maleCount,
         isNoLink: true,
-        link: "Lorem Ipsum",
+        link: "Male Users",
         icon: (
           <MaleIcon
             className="icon"
@@ -105,7 +105,7 @@ const Widget = ({ type }) => {
         title: "FEMALE USERS",
         display: femaleCount,
         isNoLink: true,
-        link: "Lorem Ipsum",
+        link: "Female Users",
         icon: (
           <FemaleIcon
             className="icon"

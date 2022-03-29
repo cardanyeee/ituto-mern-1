@@ -1,3 +1,35 @@
+@media only screen and (min-width:320px) and (max-width:2040px) {
+  .left,
+  .right {
+ 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #link {
+
+    width: 200px;
+    font-size: 18px;
+   
+  }
+
+  .title {
+    width: 195px;
+    font-weight: bold;
+    font-size: 21px !important;
+    color: rgb(160, 160, 160);
+  }
+
+  .counter {
+  
+    font-size: 74px !important;
+    font-weight: 500 !important;
+  }
+
+  
+
+  
+}
 .widget {
     display: flex;
     justify-content: space-between;
@@ -54,19 +86,9 @@
         align-self: flex-end;
       } 
       
-        @media screen and (max-width:1000px) {
+        @media screen and (min-width:320px) and (max-width:1023px) {
 
-          #link {
-
-            font-size: 11px;
-           
-          }
-
-          .title {
-            font-weight: bold;
-            font-size: 11px;
-            color: rgb(160, 160, 160);
-          }
+         
 
           .counter {
             font-size: 48px;

@@ -32,8 +32,9 @@ const Header = () => {
                     <a className="navbar-brand" href="/#">
 
                         <h1 className="logo-brand">
-                            <img src="/images/ituto_logo_nobg.png" alt="logo" width="50" />
-                            iTuto
+                            <img src="/images/applogo.png" alt="logo" width="50" />
+                            &nbsp;
+                             iTuto
                         </h1>
                         {/* <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" className="h-8" alt="..." /> */}
                     </a>

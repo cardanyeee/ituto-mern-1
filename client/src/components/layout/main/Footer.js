@@ -12,9 +12,9 @@ const Footer = () => {
                     <div className="row1">
                         <div className="col">
                             <h2>Our Company</h2>
-                            <img src="/images/ourCompany.PNG" alt="GROUP-NAME" id="footerLogo" />
+                            <img className="footerLogo" src="/images/footerLogo.png" alt="GROUP-NAME" />
                         </div>
-                        <div className="col" >
+                        <div className="col">
                             <h2>Contact</h2>
                             {/* <a href=""><img src="" alt="TUPT-LOGO" /></a> */}
 

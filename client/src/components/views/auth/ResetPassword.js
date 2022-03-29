@@ -40,14 +40,28 @@ const ResetPassword = ({ history }) => {
     const handleResetPass = async () => {
         if (isLength(password))
             return setData({ ...data, err: "Password must be at least 6 characters.", success: '' })
+            alert.success('password has been reset successfully');
 
         if (!isMatch(password, cf_password))
             return setData({ ...data, err: "Password did not match.", success: '' })
 
         try {
 
-            const res = await axios.post('/api/auth/password/reset', { password, cf_password }, alert.success('Password has been reset successfully'), {
+            const res = await axios.post('/api/auth/password/reset', { password, cf_password }, {
                 headers: { Authorization: accesstoken }
+
+            }).catch(function (error) {
+                console.log(error);
+                if (error.response) {
+                    // Request made and server responded
+
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log('Error', error.message);
+                }
 
             });
 
@@ -55,7 +69,7 @@ const ResetPassword = ({ history }) => {
 
 
         } catch (err) {
-            err.response.data.msg && setData({ ...data, err: err.response.data.msg, success: '' })
+            // err.response.data.msg && setData({ ...data, err: err.response.data.msg, success: '' })
         }
 
     }

@@ -10,7 +10,9 @@ import { getCs, deleteC, clearErrors } from '../../../../actions/courseActions';
 import MetaData from '../../../layout/main/MetaData';
 import Loader from '../../../layout/main/Loader';
 
-    import AdminHeader from '../../../layout/admin/AdminHeader';
+import AdminHeader from '../../../layout/admin/AdminHeader';
+
+import moment from 'moment';
 
 const MoviesLists = ({ history }) => {
 
@@ -73,12 +75,13 @@ const MoviesLists = ({ history }) => {
 
         return data;
     }
-
+    const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
     const csvReport = {
 
-        filename: 'Courses.csv',
+        filename: `${csvDownloadDate}-Courses.csv`,
         headers: setcourses.columns,
         data: courses
+
     };
 
     const deletecourseHandler = (id) => {
@@ -100,8 +103,6 @@ const MoviesLists = ({ history }) => {
 
                     <p className="mb-4">Listed below are the courses that are included on the mobile application </p>
 
-
-
                     <div className="card shadow mb-4">
 
                         <div className="card-header py-3">
@@ -110,7 +111,7 @@ const MoviesLists = ({ history }) => {
                                 <i className="fas fa-download fa-sm text-white-50">
                                     <span className="m-0 font-weight-bold" >
                                         <CSVLink {...csvReport} style={{ color: "#F3F7FD", textDecoration: "none" }}>
-                                            Generate CSV    
+                                            Generate CSV
                                         </CSVLink>
                                     </span>
                                 </i>
