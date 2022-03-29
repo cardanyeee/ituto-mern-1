@@ -143,7 +143,7 @@ const Widget = ({ type }) => {
   return (
     <div className="widget">
       <div className="left">
-        <span className="title">{data.title}</span>
+        <span className="title-widget">{data.title}</span>
         <span className="counter">
           <b>{data.display}</b>
         </span>
