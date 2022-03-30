@@ -11,11 +11,11 @@ import '../../layout/admin/Sidebar.css';
 
 
 
-const   AdminHeader = () => {
+const AdminHeader = () => {
 
     const [sidebar, setSidebar] = useState(false);
-    
-    
+
+
 
     const toggleSidebar = () => {
         setSidebar(!sidebar);
@@ -23,7 +23,7 @@ const   AdminHeader = () => {
 
 
 
-    const {loading } = useSelector(state => state.auth);
+    const { loading } = useSelector(state => state.auth);
 
 
     return (
@@ -31,11 +31,15 @@ const   AdminHeader = () => {
             {loading ? <Loader /> : (
                 <Fragment>
                     <Sidebar sidebarToggle={sidebar} />
-                    <nav className="home-section navbar navbar-expand-lg navbar-light bg-white sticky-top topbar shadow-sm">
+                    <nav className="home-section navbar navbar-expand-lg navbar-light bg-white topbar sticky-top shadow-sm">
                         <div className="container-fluid">
                             <FontAwesomeIcon icon="bars" className="sidebar-toggler" size="2x" onClick={toggleSidebar} />
+                            <div >
+                            <img className="logo-close" src="/images/footerLogo.PNG" alt="GROUP-NAME" width="50"/>
+                            </div>
+
                             {/* <a className="navbar-brand fw-bold" href="/#">Movies</a> */}
-                           
+
                         </div>
                     </nav>
                 </Fragment>

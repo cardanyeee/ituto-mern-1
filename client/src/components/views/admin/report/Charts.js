@@ -54,80 +54,6 @@ const Charts = () => {
 
                         {/* BAAAR CT */}
 
-                        <div className="col-xl-12 mb-5" >
-
-                            <div className="card shadow mb-4">
-                                {/* <!-- Card Header - Dropdown --> */}
-                                <div className="card-header py-3">
-                                    <h6 className="color1 m-0 font-weight-bold">Most Inquired Subject</h6>
-                                </div>
-                                {/* <!-- Card Body --> */}
-                                <div className="card-body">
-                                    <div className="chart-pie pt-4">
-
-                                        <Bar
-
-                                            data={{
-                                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                                                datasets: [
-                                                    {
-                                                        label: '# of votes',
-                                                        data: [12, 19, 3, 5, 2, 3],
-
-                                                        backgroundColor: [
-                                                            '#FF6384',
-                                                            '#36A2EB',
-                                                            '#FFCE56    ',
-                                                            '#4BC0C0',
-                                                            '#9966FF',
-                                                            '#FF9F40',
-                                                        ],
-                                                        borderColor: [
-                                                            'rgba(255, 99, 132, 1)',
-                                                            'rgba(54, 162, 235, 1)',
-                                                            'rgba(255, 206, 86, 1)',
-                                                            'rgba(75, 192, 192, 1)',
-                                                            'rgba(153, 102, 255, 1)',
-                                                            'rgba(255, 159, 64, 1)',
-                                                        ],
-                                                        borderWidth: 1,
-                                                    },
-                                                    // {
-                                                    //   label: 'Quantity',
-                                                    //   data: [47, 52, 67, 58, 9, 50],
-                                                    //   backgroundColor: 'orange',
-                                                    //   borderColor: 'red',
-                                                    // },
-                                                ],
-                                            }}
-                                            height={300}
-                                            width={600}
-                                            options={{
-                                                maintainAspectRatio: false,
-                                                scales: {
-                                                    yAxes: [
-                                                        {
-                                                            ticks: {
-                                                                beginAtZero: true,
-                                                            },
-                                                        },
-                                                    ],
-                                                },
-                                                legend: {
-                                                    labels: {
-                                                        fontSize: 25,
-                                                    },
-                                                },
-                                            }}
-                                        />
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-                        </div>
 
 
                         <div className="container-fluid">
@@ -315,6 +241,82 @@ const Charts = () => {
 
                             </div>
                         </div>
+
+                        <div className="col-xl-12 mb-5" >
+
+                            <div className="card shadow mb-4">
+                                {/* <!-- Card Header - Dropdown --> */}
+                                <div className="card-header py-3">
+                                    <h6 className="color1 m-0 font-weight-bold">Most Inquired Subject</h6>
+                                </div>
+                                {/* <!-- Card Body --> */}
+                                <div className="card-body">
+                                    <div className="chart-pie pt-4">
+
+                                        <Bar
+
+                                            data={{
+                                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+                                                datasets: [
+                                                    {
+                                                        label: '# of votes',
+                                                        data: [12, 19, 3, 5, 2, 3],
+
+                                                        backgroundColor: [
+                                                            '#FF6384',
+                                                            '#36A2EB',
+                                                            '#FFCE56    ',
+                                                            '#4BC0C0',
+                                                            '#9966FF',
+                                                            '#FF9F40',
+                                                        ],
+                                                        borderColor: [
+                                                            'rgba(255, 99, 132, 1)',
+                                                            'rgba(54, 162, 235, 1)',
+                                                            'rgba(255, 206, 86, 1)',
+                                                            'rgba(75, 192, 192, 1)',
+                                                            'rgba(153, 102, 255, 1)',
+                                                            'rgba(255, 159, 64, 1)',
+                                                        ],
+                                                        borderWidth: 1,
+                                                    },
+                                                    // {
+                                                    //   label: 'Quantity',
+                                                    //   data: [47, 52, 67, 58, 9, 50],
+                                                    //   backgroundColor: 'orange',
+                                                    //   borderColor: 'red',
+                                                    // },
+                                                ],
+                                            }}
+                                            height={300}
+                                            width={600}
+                                            options={{
+                                                maintainAspectRatio: false,
+                                                scales: {
+                                                    yAxes: [
+                                                        {
+                                                            ticks: {
+                                                                beginAtZero: true,
+                                                            },
+                                                        },
+                                                    ],
+                                                },
+                                                legend: {
+                                                    labels: {
+                                                        fontSize: 25,
+                                                    },
+                                                },
+                                            }}
+                                        />
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+
 
                         <div className="container-fluid">
 

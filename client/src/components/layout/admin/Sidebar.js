@@ -9,7 +9,6 @@ import InsertChartIcon from '@mui/icons-material/InsertChart';
 import StarRateIcon from '@mui/icons-material/StarRate';
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import SchoolIcon from '@mui/icons-material/School';
 import { logout } from '../../../actions/authActions';
 
 
@@ -38,7 +37,7 @@ const Sidebar = (props) => {
         <div className={"sidebar h-100 shadow-sm " + (props.sidebarToggle === true ? "open" : "close")}>
             <Link to="/" className="text-decoration-none">
                 <div className="logo-details shadow-sm">
-                    <SchoolIcon className="side-logo" />
+                    <img className="app-logo" alt="" src="/images/applogo.png" width="50"/>
                     {/* <img src="/images/applogo.png" width="50"/> */}
                     <span className="logo_name fw-bold text-nowrap logo-brand text-white">iTuto</span>
                 </div>

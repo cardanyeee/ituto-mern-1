@@ -112,45 +112,42 @@ const Dashboard = () => {
 
                                         <div className="col-xl-4 mb-3" >
 
-                                            <div className="card shadow mb-4">
+                                            <div className="greeting-font card shadow mb-4">
 
                                                 {/* <!-- Card Header - Dropdown --> */}
-                                                <div className=" card-header py-3">
-                                                    <h5 className="color1 m-0 font-weight-bold" id="Username">Welcome <b>{user.username}!</b></h5>
+                                                <div className="color1 card-header py-3">
+                                                    <h5 className="greeting-font m-0 font-weight-bold" id="Username">Welcome <b>{user.username}!</b></h5>
                                                 </div>
                                                 {/* <!-- Card Body --> */}
-                                                <div className="d-flex flex-column align-items-center text-center p-3 py-4">
-                                                    {/* <img className="rounded" width="200" src={user.avatar.url} alt={user.avatar.public_id} />
-                                                    <span className="font-weight-bold mt-4">{user.username}</span>
-                                                    <span className="text-black-50">{user.email}</span>
-                                                    <span></span> */}
 
 
 
 
-                                                    <div className="col-sm-4 col-md-2 col-12" id="tryspan">
-                                                        <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                            <div className="v-card__text text-center" id="picturePad">
-                                                                <div className="v-avatar">
-                                                                    <img style={{ height: "225px", width: "250px" }}
-                                                                        src={user.avatar.url} alt={user.avatar.public_id} className="g-image" />
-                                                                </div>
+
+
+                                                <div className="no-card col-sm-4 col-md-2 col-12 align-items-center text-center" id="tryspan">
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                        <div className="v-card__text text-center" id="picturePad">
+                                                            <div className="v-avatar">
+                                                                <img style={{ height: "225px", width: "250px" }}
+                                                                    src={user.avatar.url} alt={user.avatar.public_id} className="g-image" />
                                                             </div>
-                                                            <div primary-title="" className="v-card__title layout justify-center" >
-                                                                <div className="color1 headline text-center" target="_blank" rel="noreferrer" >
-                                                                    {user.username}
-                                                                </div>
+                                                        </div>
+                                                        <div primary-title="" className="v-card__title layout justify-center" >
+                                                            <div className="color1 headline text-center" target="_blank" rel="noreferrer" >
+                                                                {user.username}
                                                             </div>
+                                                        </div>
 
-                                                            <div primary-title="" className="v-card__title layout justify-center" >
+                                                        <div primary-title="" className="v-card__title layout justify-center" >
 
-                                                                <h6><b>{user.email}</b></h6>
+                                                            <h6><b>{user.email}</b></h6>
 
-                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+
                                         </div>
 
                                         {/* WIDGETS */}

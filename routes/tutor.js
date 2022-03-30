@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
 
-const { index, signUpTutor, addSubject, getCurrentTutor, findTutor, activateTutor, getTutorReviews } = require('../controllers/tutor');
+const { index, signUpTutor, addSubject, getCurrentTutor, findTutor, activateTutor, getTutorReviews, reportsTopTutors } = require('../controllers/tutor');
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
+
+
+//ANALYTICS //
+
+router.route("/reports/tutors/toprated").get(isAuthenticatedUser, reportsTopTutors);
 
 router.route("/tutor/signup").post(signUpTutor);
 router.route("/tutor/activate").post(activateTutor);
