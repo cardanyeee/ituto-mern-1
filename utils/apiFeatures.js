@@ -44,7 +44,6 @@ class APIFeatures {
             subjectArray = this.queryStr.subjects.trim().split('-').filter(subject => subject);
         }
 
-        console.log(subjectArray);
         const queryCopy = { ...this.queryStr };
 
         const removeFields = ['keyword', 'limit', 'page'];
@@ -52,8 +51,6 @@ class APIFeatures {
         removeFields.forEach(el => delete queryCopy[el]);
 
         const subjects = subjectArray ? subjectArray : [];
-
-        console.log(subjectArray);
 
         this.query = subjectArray ? this.query.find({ "subjects": { $in: subjects } }) : this.query.find({});
 

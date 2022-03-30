@@ -34,6 +34,9 @@ const SessionSchema = new Schema({
     endDate: {
         type: Date
     },
+    // reviewDate: {
+    //     type: Date
+    // },
     time: {
         timeOfDay: {
             type: String
@@ -52,7 +55,8 @@ const SessionSchema = new Schema({
                 "Request",
                 "Ongoing",
                 "Done",
-                "Declined"
+                "Declined",
+                "Cancelled"
             ]
         },
         default: "Request"
