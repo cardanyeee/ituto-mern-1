@@ -10,6 +10,7 @@ import SchoolIcon from '@mui/icons-material/School';
 import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
 import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 
 
@@ -17,7 +18,7 @@ const Widget = ({ type }) => {
 
 
 
-  const { users, subs, tutors, male, female, pnts } = useSelector(state => state.datas);
+  const { users, subs, tutors, male, female, tutee } = useSelector(state => state.datas);
 
   // useEffect(() => {
   //     dispatch(getData());
@@ -31,7 +32,7 @@ const Widget = ({ type }) => {
   const tutorCount = tutors && tutors.length;
   const maleCount = male && male;
   const femaleCount = female && female;
-  const otherCount = pnts && pnts;
+  const tuteeCount = tutee && tutee  ;
 
 
   switch (type) {
@@ -40,7 +41,7 @@ const Widget = ({ type }) => {
         title: "REGISTERED USERS",
         display: userCount,
         isNoLink: true,
-        link: "Lorem Ipsum",
+        link: "Registered Users",
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -74,7 +75,7 @@ const Widget = ({ type }) => {
         title: "TOTAL TUTORS",
         display: tutorCount,
         isNoLink: true,
-        link: "Lorem Ipsum",
+        link: "Total Tutors",
         icon: (
           <SchoolIcon
             className="icon"
@@ -88,7 +89,7 @@ const Widget = ({ type }) => {
         title: "MALE USERS",
         display: maleCount,
         isNoLink: true,
-        link: "Lorem Ipsum",
+        link: "Male Users",
         icon: (
           <MaleIcon
             className="icon"
@@ -105,7 +106,7 @@ const Widget = ({ type }) => {
         title: "FEMALE USERS",
         display: femaleCount,
         isNoLink: true,
-        link: "Lorem Ipsum",
+        link: "Female Users",
         icon: (
           <FemaleIcon
             className="icon"
@@ -120,8 +121,8 @@ const Widget = ({ type }) => {
 
     case "other":
       data = {
-        title: "Prefer Not to Say",
-        display: otherCount,
+        title: "TOTAL TUTEE",
+        display: tuteeCount,  
         isNoLink: true,
         link: "Lorem Ipsum",
         icon: (
@@ -131,6 +132,7 @@ const Widget = ({ type }) => {
               color: "crimson",
               backgroundColor: "rgba(255, 0, 0, 0.2)",
             }}
+            
           />
         ),
       };
@@ -143,7 +145,7 @@ const Widget = ({ type }) => {
   return (
     <div className="widget">
       <div className="left">
-        <span className="title">{data.title}</span>
+        <span className="title-widget">{data.title}</span>
         <span className="counter">
           <b>{data.display}</b>
         </span>
@@ -163,8 +165,7 @@ const Widget = ({ type }) => {
       </div>
       <div className="right">
         <div className="percentage positive">
-          {/* <KeyboardArrowUpIcon />
-          20 % */}
+          <KeyboardArrowUpIcon />
         </div>
         {data.icon}
       </div>

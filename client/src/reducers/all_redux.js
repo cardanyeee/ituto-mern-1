@@ -16,6 +16,7 @@ export const AllDatas = (state = { datas: [] }, action) => {
                 users: action.payload.users,
                 tutors: action.payload.tutors,
                 subs: action.payload.subs,
+                tutee: action.payload.tutee,
 
             }
             case "ALL_DATA_FAIL":

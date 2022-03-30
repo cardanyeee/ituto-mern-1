@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from "react-router-dom";
+import { useAlert } from 'react-alert';
 
 import MetaData from '../../layout/main/MetaData';
 import Loader from '../../layout/main/Loader';
@@ -26,6 +27,7 @@ const initialState = {
 
 const ResetPassword = ({ history }) => {
 
+    const alert = useAlert();
 
     const [data, setData] = useState(initialState)
     const { accesstoken } = useParams()
@@ -38,19 +40,36 @@ const ResetPassword = ({ history }) => {
     const handleResetPass = async () => {
         if (isLength(password))
             return setData({ ...data, err: "Password must be at least 6 characters.", success: '' })
+            alert.success('password has been reset successfully');
 
         if (!isMatch(password, cf_password))
             return setData({ ...data, err: "Password did not match.", success: '' })
 
         try {
+
             const res = await axios.post('/api/auth/password/reset', { password, cf_password }, {
                 headers: { Authorization: accesstoken }
-            })
+
+            }).catch(function (error) {
+                console.log(error);
+                if (error.response) {
+                    // Request made and server responded
+
+                } else if (error.request) {
+                    // The request was made but no response was received
+                    console.log(error.request);
+                } else {
+                    // Something happened in setting up the request that triggered an Error
+                    console.log('Error', error.message);
+                }
+
+            });
 
             return setData({ ...data, err: "", success: res.data.msg })
 
+
         } catch (err) {
-            err.response.data.msg && setData({ ...data, err: err.response.data.msg, success: '' })
+            // err.response.data.msg && setData({ ...data, err: err.response.data.msg, success: '' })
         }
 
     }
@@ -73,7 +92,7 @@ const ResetPassword = ({ history }) => {
                                         {/* <p className="ForgotPassword-subheading fs-5 fw-light mb-4">Discover students who are interested in sharing their attained skills and knowledge.</p> */}
 
                                         <div className="form-floating mb-3">
-                                            <input type="text" className="form-control" id="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required/>
+                                            <input type="text" className="form-control" id="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
                                             {/* <input type="email" name="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required /> */}
 
                                             <label htmlFor="password">Enter Password</label>
@@ -85,10 +104,10 @@ const ResetPassword = ({ history }) => {
 
                                             <label htmlFor="password">Confirm Password</label>
                                         </div>
-                                        <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={handleResetPass}>Verify Email</button>
+                                        <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={handleResetPass}>Submit</button>
 
 
-                                        <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-secondary" to='/register'>Register Here</Link></p>
+                                        <p className="mb-2 pb-lg-2 text-secondary"><Link className="link-secondary" to='/'>Go to Home</Link></p>
 
                                     </div>
                                 </div>

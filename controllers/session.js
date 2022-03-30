@@ -5,6 +5,37 @@ const ErrorResponse = require('../utils/errorResponse');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures');
 
+
+//FOR ANALYTICSSSSSSS //////////////////////////////////
+
+exports.reportstuteeYearLevel = catchAsyncErrors(async (req, res, next) => {
+    try {
+        res.status(200).json({
+            success: true,
+
+        })
+
+    } catch (error) {
+        next(error);
+    }
+    
+});
+
+
+exports.reportsprefferedDays = catchAsyncErrors(async (req, res, next) => {
+    try {
+        res.status(200).json({
+            success: true,
+
+        })
+
+    } catch (error) {
+        next(error);
+    }
+    
+});
+
+
 exports.requestSession = catchAsyncErrors(async (req, res, next) => {
 
     console.log(req.body);

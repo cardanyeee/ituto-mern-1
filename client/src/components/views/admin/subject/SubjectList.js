@@ -15,6 +15,8 @@ import './producer.css'
 
 import AdminHeader from '../../../layout/admin/AdminHeader';
 
+import moment from 'moment';
+
 const ProducersLists = ({ history }) => {
 
     const alert = useAlert();
@@ -79,10 +81,10 @@ const ProducersLists = ({ history }) => {
         return data;
     }
 
-
+    const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
+    
     const csvReport = {
-
-        filename: 'Subjects.csv',
+        filename: `${csvDownloadDate}-Subjects.csv`,
         headers: setsubjects.columns,
         data: subjects
     };

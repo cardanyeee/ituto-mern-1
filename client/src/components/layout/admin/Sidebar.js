@@ -1,22 +1,43 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { useAlert } from 'react-alert';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
+import StarRateIcon from '@mui/icons-material/StarRate';
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import SchoolIcon from '@mui/icons-material/School';
+import { logout } from '../../../actions/authActions';
+
 
 const Sidebar = (props) => {
+
+    const { user } = useSelector(state => state.auth);
+
 
     const toggleDropdown = (e) => {
         let arrowParent = e.target.parentElement.parentElement;
         arrowParent.classList.toggle("showMenu");
     }
 
+
+    const alert = useAlert();
+    const dispatch = useDispatch();
+
+    const logoutHandler = () => {
+
+        dispatch(logout());
+        alert.success('Logged out successfully.')
+    }
+
+
     return (
-        <div className={"sidebar h-100 shadow-sm " + (props.sidebarToggle === true ? "close" : "")}>
+        <div className={"sidebar h-100 shadow-sm " + (props.sidebarToggle === true ? "open" : "close")}>
             <Link to="/" className="text-decoration-none">
                 <div className="logo-details shadow-sm">
-                    <SchoolIcon className="text-white" />
+                    <img className="app-logo" alt="" src="/images/applogo.png" width="50"/>
                     {/* <img src="/images/applogo.png" width="50"/> */}
                     <span className="logo_name fw-bold text-nowrap logo-brand text-white">iTuto</span>
                 </div>
@@ -28,7 +49,7 @@ const Sidebar = (props) => {
 
                     <div className="iocn-link" >
                         <Link to="/dashboard">
-                            <DashboardIcon className="main-side-nav-icon text-white" />
+                            <DashboardIcon className="main-side-nav-icon" />
                             <span className="link_name fs-6 text-white">Dashboard</span>
                         </Link>
                         {/* <FontAwesomeIcon icon="chevron-down" className="arrow" onClick={toggleDropdown} /> */}
@@ -41,7 +62,7 @@ const Sidebar = (props) => {
                 <li>
                     <div className="iocn-link" id="courseMove">
                         <Link to="/dashboard/courses">
-                            <FontAwesomeIcon icon="award" className="main-side-nav-icon text-white" />
+                            <FontAwesomeIcon icon="award" className="main-side-nav-icon" />
 
                             <span className="link_name fs-6 text-white">Course</span>
                         </Link>
@@ -56,7 +77,7 @@ const Sidebar = (props) => {
                 <li>
                     <div className="iocn-link" id="subjectMove">
                         <Link to="/dashboard/subjects">
-                            <FontAwesomeIcon icon="book" className="main-side-nav-icon text-white" />
+                            <MenuBookIcon fontSize='small' className="main-side-nav-icon" />
                             <span className="link_name fs-6 text-white">Subject</span>
                         </Link>
                         <FontAwesomeIcon icon="chevron-down" className="arrow text-white" onClick={toggleDropdown} />
@@ -67,36 +88,59 @@ const Sidebar = (props) => {
                     </ul>
                 </li>
 
+                <p className="title-table"> CHARTS</p>
+                <li>
+                    <div className="iocn-link" id="courseMove">
+                        <Link to="/dashboard/reports">
+                            <b>
+                                <InsertChartIcon fontSize='small' className="main-side-nav-icon" />
+                            </b>
 
-                {/* <li>
-                    <div className="iocn-link">
-                        <Link to="/dashboard/testing">
-                            <FontAwesomeIcon icon="fork" className="main-side-nav-icon text-white" />
-                            <span className="link_name fs-6 text-white">Subject</span>
+                            <span className="link_name fs-6 text-white">
+                               Reports
+                            </span>
+
                         </Link>
                         <FontAwesomeIcon icon="chevron-down" className="arrow text-white" onClick={toggleDropdown} />
+
                     </div>
                     <ul className="sub-menu">
-                        <li><Link to="/dashboard/subjects" className="link_name">Subject</Link></li>
-                        <li><Link to="/dashboard/subject/add"><FontAwesomeIcon icon="plus" className="submenu-side-nav-icon" />Add New Subject</Link></li>
+                        <li><Link to="/dashboard/reports" className="link_name">Reports</Link></li>
+                        <li><Link to="/dashboard/reports/#"><StarRateIcon className="submenu-side-nav-icon" />Top 10</Link></li>
+                        <li><Link to="/dashboard/reports/#"><StarRateIcon className="submenu-side-nav-icon"/>Top Offered</Link></li>
+                        <li><Link to="/dashboard/reports/#"><StarRateIcon className="submenu-side-nav-icon"/>Top Requested</Link></li>
                     </ul>
-                </li> */}
+
+                </li>
 
 
+                <p className="title-table">PROFILE</p>
+                <li>
+                    <div className="iocn-link" id="courseMove">
+                        <Link to="/" onClick={logoutHandler}>
+                            <b><ExitToAppIcon className="main-side-nav-icon"/></b>
 
+                            <span className="link_name fs-6 text-white">Logout</span>
 
-                {/* <li>
-                <div className="profile-details">
-                    <div className="profile-content">
-                        <img src={empty_profile} alt=" " />
+                        </Link>
+
                     </div>
-                    <div className="name-job">
-                        <div className="profile_name">Prem Shahi</div>
-                        <div className="job">Web Desginer</div>
+
+                </li>
+
+
+                <li>
+                    <div className="profile-details">
+                        <div className="profile-content">
+                            <img src={user.avatar.url} alt=" " />
+                        </div>
+                        <div className="name-job">
+                            <div className="profile_name">{user.username}</div>
+                            <div className="job">{user.email}</div>
+                        </div>
+                        <i className='bx bx-log-out' ></i>
                     </div>
-                    <i className='bx bx-log-out' ></i>
-                </div>
-            </li> */}
+                </li>
             </ul>
 
 

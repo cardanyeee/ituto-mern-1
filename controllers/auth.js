@@ -23,10 +23,9 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
     const users = await User.find();
     const tutors = await Tutor.find();
     const subs = await Sub.find();
+    var tutee = 0;
     var male = 0;
     var female = 0;
-
-    var other = 0;
     var pnts = 0;
 
 
@@ -35,16 +34,13 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
             male = male + 1;
         } else if (value.gender == "Female") {
             female = female + 1;
-        } else if (value.gender == "Others") {
-            other = other + 1;
-        } else {
-            pnts = pnts + 1;
-        }
+
+        } 
     })
 
     res.status(200).json({
         success: true,
-        male, female, other, pnts,
+        male, female, tutee,
         users,
         tutors,
         subs
@@ -252,7 +248,7 @@ exports.forgotpassword = catchAsyncErrors(async (req, res, next) => {
 
         await user.save({ validateBeforeSave: false });
 
-        const url = `http://mern-ituto.herokuapp.com/reset/password/${resetToken}`
+        const url = `http://localhost:3000/reset/password/${resetToken}`
 
         forgotPasswordEmail(req.body.email, url, "Reset your password")
 

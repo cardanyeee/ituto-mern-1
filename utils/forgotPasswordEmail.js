@@ -43,7 +43,7 @@ const sendEmail = (to, url, txt) => {
   const mailOptions = {
     from: SENDER_EMAIL_ADDRESS,
     to: to,
-    subject: "iTuto Email Activation",
+    subject: "iTuto Forgot Password verification",
     html: `
         <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!--[if IE]><html xmlns="http://www.w3\.org/1999/xhtml" className="ie"><![endif]--><!--[if !IE]><!--><html style="margin: 0;padding: 0;" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]--><head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -623,8 +623,8 @@ const sendEmail = (to, url, txt) => {
           </div>
           
           <div className="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
-            <div className="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #307fb0;" lang="x-layout__inner">
-            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr className="layout-fixed-width" style="background-color: #307fb0;"><td style="width: 600px" className="w560"><![endif]-->
+            <div className="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #0A8B5C;" lang="x-layout__inner">
+            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr className="layout-fixed-width" style="background-color: #0A8B5C;"><td style="width: 600px" className="w560"><![endif]-->
               <div className="column" style='text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 24px;Margin-bottom: 24px;">
@@ -646,19 +646,19 @@ const sendEmail = (to, url, txt) => {
         </div>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;">
-          <h2 className="size-24" style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #44a8c7;font-size: 20px;line-height: 28px;text-align: center;" lang="x-size-24"><strong>Verify Your Email</strong></h2>
+          <h2 className="size-24" style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #2F4858;font-size: 20px;line-height: 28px;text-align: center;" lang="x-size-24"><strong>Email Found!</strong></h2>
                   
                    <div style="font-size: 12px;font-style: normal;font-weight: normal;" align="center">
               <img className="gnd-corner-image gnd-corner-image-center gnd-corner-image-bottom" style="border: 0;display: block;height: auto;width: 90%;max-width: 720px;" alt="" width="600" src="https://c.neh.tw/thumb/f/720/5b5b8f3ff3684af39ffa.jpg">
             </div>
                   
                   
-                  <p style="Margin-top: 16px;Margin-bottom: 0;"><strong>Hello iTuto user,</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Congratulations! your email has been verified for changin your password</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Before we get started, please click the button </strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Sincerely,<br>iTuto Team</strong></p>
+                  <p style="Margin-top: 16px;Margin-bottom: 0;"><strong>Hello iTuto user,</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Congratulations! your email has been verified for changing your password</strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Before we get started, please click the button </strong></p><p style="Margin-top: 20px;Margin-bottom: 20px;"><strong>Sincerely,<br>iTuto team</strong></p>
         </div>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;">
           <div className="btn btn--flat btn--large" style="Margin-bottom: 20px;text-align: center;">
-            <![if !mso]><a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #5c91ad;font-family: 'Roboto', sans-serif;" href="${url}">Click here</a><![endif]>
+            <![if !mso]><a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #4FBD95;font-family: 'Roboto', sans-serif;" href="${url}">Click here</a><![endif]>
           <!--[if mso]><p style="line-height:0;margin:0;">&nbsp;</p><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-l-dlldol-l-r/" style="width:118px" arcsize="9%" fillcolor="#5C91AD" stroke="f"><v:textbox style="mso-fit-shape-to-text:t" inset="0px,11px,0px,11px"><center style="font-size:14px;line-height:24px;color:#FFFFFF;font-family:sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Click here</center></v:textbox></v:roundrect><![endif]--></div>
         </div>
           
@@ -677,7 +677,7 @@ const sendEmail = (to, url, txt) => {
     <td className="emb-web-links" style="padding: 0;width: 26px;"></td>
                   </tr></tbody></table>
                   <div style="Margin-top: 20px;">
-                    <div>Copyright &#169; 2021-2022 iTuto. All rights reserved.&nbsp;</div>
+                    <div>Copyright &#169; ituto.developers@gmail.com - 2021-2022 iTuto. All rights reserved.&nbsp;</div>
                   </div>
                   <div style="Margin-top: 18px;">
                     

@@ -2,12 +2,15 @@ import React, { Fragment, useState } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
+
+import { useAlert } from 'react-alert';
 import MetaData from '../../layout/main/MetaData';
 import Loader from '../../layout/main/Loader';
 
 
 const ForgotPassword = ({ history }) => {
 
+    const alert = useAlert();
     const isEmail = email => {
         // const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return email;
@@ -28,14 +31,17 @@ const ForgotPassword = ({ history }) => {
     const forgotPassword = async () => {
         if (!isEmail(email))
             return setData({ ...data, err: 'Invalid emails.', success: '' })
-
-        try {
+        try {   
             const res = await axios.post('/api/auth/password/forgot', { email });
+            alert.success('Email has been sent. Check your Email');
+            return setData({ ...data, err: '', success: res.data.msg });
 
-            return setData({ ...data, err: '', success: res.data.msg })
-        } catch (err) {
-            err.response.data.msg && setData({ ...data, err: err.response.data.msg, success: '' })
+
+        } catch (err) { 
+            alert.error('Email does not exist');
         }
+
+    
     }
 
 
@@ -61,7 +67,7 @@ const ForgotPassword = ({ history }) => {
 
                                         <label htmlFor="password">Enter your Email Address</label>
                                     </div>
-                                    <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={forgotPassword}>Verify Email</button>
+                                    <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={forgotPassword}>Find Email</button>
 
 
                                     <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-secondary" to='/register'>Register Here</Link></p>

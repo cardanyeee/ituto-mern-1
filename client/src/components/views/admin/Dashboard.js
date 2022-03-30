@@ -2,7 +2,6 @@ import React, { Fragment, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
-
 import { MDBDataTableV5 } from 'mdbreact';
 
 // import { Link } from "react-router-dom";
@@ -42,7 +41,7 @@ const Dashboard = () => {
 
     const { users } = useSelector(state => state.allUsers);
 
-    const { loading, male, female, pnts } = useSelector(state => state.datas);
+    const { loading, male, female } = useSelector(state => state.datas);
 
     useEffect(() => {
         dispatch(getData());
@@ -59,7 +58,7 @@ const Dashboard = () => {
                 { label: 'Lastname', field: 'Lastname', width: 150 },
                 { label: 'Username', field: 'Username', width: 230 },
                 { label: 'Gender', field: 'Gender', width: 230 },
-                { label: 'Email', field: 'Email', width: 230 }, 
+                { label: 'Email', field: 'Email', width: 230 },
                 { label: 'Role', field: 'Role', width: 230 },
                 { label: 'Phone', field: 'Phone', width: 230 },
                 { label: 'Time', field: 'Time', width: 240 },
@@ -80,12 +79,12 @@ const Dashboard = () => {
                 Phone: allUsers.phone,
                 Time: allUsers.createdAt,
                 actions:
-                <Fragment>
-                    <Link to={`/dashboard/user/update/${allUsers._id}`} className="btn btn-primary py-1 px-2 me-3">
-                        <EditIcon/>
-                    </Link>
-                   
-                </Fragment>
+                    <Fragment>
+                        <Link to={`/dashboard/user/update/${allUsers._id}`} className="btn btn-primary py-1 px-2 me-3">
+                            <EditIcon />
+                        </Link>
+
+                    </Fragment>
             })
         })
 
@@ -113,19 +112,42 @@ const Dashboard = () => {
 
                                         <div className="col-xl-4 mb-3" >
 
-                                            <div className="card shadow mb-4">
+                                            <div className="greeting-font card shadow mb-4">
+
                                                 {/* <!-- Card Header - Dropdown --> */}
-                                                <div className="card-header py-3">
-                                                    <h2 className="m-0 font-weight-bold text-primary" id="Username">Welcome <b>{user.username}!</b></h2>
+                                                <div className="color1 card-header py-3">
+                                                    <h5 className="greeting-font m-0 font-weight-bold" id="Username">Welcome <b>{user.username}!</b></h5>
                                                 </div>
                                                 {/* <!-- Card Body --> */}
-                                                <div className="d-flex flex-column align-items-center text-center p-3 py-4">
-                                                    <img className="rounded" width="200" src={user.avatar.url} alt={user.avatar.public_id} />
-                                                    <span className="font-weight-bold mt-4">{user.username}</span>
-                                                    <span className="text-black-50">{user.email}</span>
-                                                    <span></span>
+
+
+
+
+
+
+                                                <div className="no-card col-sm-4 col-md-2 col-12 align-items-center text-center" id="tryspan">
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                        <div className="v-card__text text-center" id="picturePad">
+                                                            <div className="v-avatar">
+                                                                <img style={{ height: "225px", width: "250px" }}
+                                                                    src={user.avatar.url} alt={user.avatar.public_id} className="g-image" />
+                                                            </div>
+                                                        </div>
+                                                        <div primary-title="" className="v-card__title layout justify-center" >
+                                                            <div className="color1 headline text-center" target="_blank" rel="noreferrer" >
+                                                                {user.username}
+                                                            </div>
+                                                        </div>
+
+                                                        <div primary-title="" className="v-card__title layout justify-center" >
+
+                                                            <h6><b>{user.email}</b></h6>
+
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
+
                                         </div>
 
                                         {/* WIDGETS */}
@@ -259,7 +281,24 @@ const Dashboard = () => {
                                                 {/* <!-- Card Header - Dropdown --> */}
                                                 <div className="card-header py-3">
                                                     <h6 className="m-0 font-weight-bold text-primary"
-                                                    >Male and Female Populations</h6>
+                                                    >
+                                                        <a href="/dashboard/tutor" style={{ textDecoration: "none" }}>
+                                                            Male and Female Populations
+                                                        </a>
+                                                    </h6>
+
+
+                                                    {/* <Dropdown>
+                                                        <Dropdown.Toggle variant="success" id="dropdown-basic">
+                                                            Dropdown Button
+                                                        </Dropdown.Toggle>
+
+                                                        <Dropdown.Menu>
+                                                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                                                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                                                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                                                        </Dropdown.Menu>
+                                                    </Dropdown>  */}
                                                 </div>
                                                 {/* <!-- Card Body --> */}
                                                 <div className="card-body">
@@ -273,11 +312,11 @@ const Dashboard = () => {
                                                         <Doughnut
 
                                                             data={{
-                                                                labels: ['Female', 'Male', 'Prefer Not to Say'],
+                                                                labels: ['Female', 'Male'],
                                                                 datasets: [
                                                                     {
                                                                         label: '# of votes',
-                                                                        data: [female && female, male && male, pnts && pnts],
+                                                                        data: [female && female, male && male],
 
                                                                         backgroundColor: [
                                                                             '#FF6384',
@@ -357,7 +396,7 @@ const Dashboard = () => {
                                                                 datasets: [
                                                                     {
                                                                         label: '# of votes',
-                                                                        data: [12, 19, 3, 5, 2, 3],
+                                                                        data: [17, 52, 67, 58, 9, 50],
 
                                                                         backgroundColor: [
                                                                             '#FF6384',
@@ -368,21 +407,13 @@ const Dashboard = () => {
                                                                             '#FF9F40',
                                                                         ],
                                                                         borderColor: [
-                                                                            'rgba(255, 99, 132, 1)',
+
                                                                             'rgba(54, 162, 235, 1)',
-                                                                            'rgba(255, 206, 86, 1)',
-                                                                            'rgba(75, 192, 192, 1)',
-                                                                            'rgba(153, 102, 255, 1)',
-                                                                            'rgba(255, 159, 64, 1)',
+
                                                                         ],
                                                                         borderWidth: 1,
                                                                     },
-                                                                    // {
-                                                                    //   label: 'Quantity',
-                                                                    //   data: [47, 52, 67, 58, 9, 50],
-                                                                    //   backgroundColor: 'orange',
-                                                                    //   borderColor: 'red',
-                                                                    // },
+
                                                                 ],
                                                             }}
                                                             height={300}
@@ -499,10 +530,6 @@ const Dashboard = () => {
 
 
                                 </div>
-
-
-
-
                             </div>
                         </Fragment>
                     )}

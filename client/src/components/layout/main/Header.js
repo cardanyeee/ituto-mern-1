@@ -10,7 +10,7 @@ import { logout } from '../../../actions/authActions';
 
 import './header.css';
 
-const Header = ({ history }) => {
+const Header = () => {
 
     const [dropdown, setDropdown] = useState("");
     const alert = useAlert();
@@ -32,8 +32,9 @@ const Header = ({ history }) => {
                     <a className="navbar-brand" href="/#">
 
                         <h1 className="logo-brand">
-                            <img src="/images/ituto_logo_nobg.png" alt="logo" width="50" />
-                            iTuto
+                            <img src="/images/applogo.png" alt="logo" width="50" />
+                            &nbsp;
+                             iTuto
                         </h1>
                         {/* <img src="https://preview.webpixels.io/web/img/logos/clever-primary.svg" className="h-8" alt="..." /> */}
                     </a>
@@ -62,15 +63,16 @@ const Header = ({ history }) => {
                                         <img src={user.avatar && user.avatar.url} alt={user && user.name} className="rounded header-profile" />
                                     </div>
                                     <ul className={dropdown === true ? "dropdown-menu dropdown-menu-end m-0 show" : "dropdown-menu dropdown-menu-end m-0"} aria-labelledby="navbarDropdown" data-bs-popper="">
-                                        <li><a className="dropdown-item" href="/me">Profile</a></li>
+                                   
                                         {user && user.role === 'admin' && 
                                             <li>
                                                 <Link className="dropdown-item" to="/dashboard" >
                                                     Dashboard
                                                 </Link>
+                                                <hr className="dropdown-divide m-1" />
                                             </li>
                                         }
-                                        <li><hr className="dropdown-divide m-1" /></li>
+                                        <li></li>
                                         {/* <Link className="dropdown-item" to="/" onClick={logoutHandler}>Logout</Link> */}
                                         <li><a className="dropdown-item" onClick={logoutHandler} href="/">Logout</a></li>
                                     </ul>

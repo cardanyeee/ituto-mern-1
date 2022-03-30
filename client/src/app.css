@@ -153,12 +153,6 @@ html, body, .App {
     padding: 10px;
 } */
 
-#Username {
-
-  
-    text-transform: capitalize;
-
-}
 
 
 
@@ -170,12 +164,6 @@ html, body, .App {
 
 } */
 
-
-.widgets {
-
-    padding: 20px;
-
-}
 
 #tableAdjust {
 
@@ -199,10 +187,16 @@ html, body, .App {
 
 .footer-container {
     width: 100%;
-    background: #EEF6FF;
+    background: #D6E9FF;
     position: relative;
     clear: both;
-    margin-top: 50px;
+}
+
+.teamcolor1 {
+
+
+    background: #D6E9FF;
+    width: 100%;
 }
 
 .footer-content {
@@ -229,18 +223,14 @@ html, body, .App {
     padding-right: 20px;
 }
 
-.col img {
+.footerLogo {
+
     width: 100%;
-    max-width: 100px;
     min-width: 150px;
     height: auto;
+
 }
-/* 
-#footerLogo {
 
-    width: 20px;
-
-} */
 
 .col h2 {
     font-size: 1.2em;
@@ -299,9 +289,10 @@ html, body, .App {
 }
 
 @media screen and (max-width:1000px) {
-    .footer-container {
-        height: 580px;
-    }
+
+    
+  
+
 
     .footer-content {
         width: 90%;
@@ -348,6 +339,13 @@ html, body, .App {
         width: 50%;
     }
 
+    #Username {
+        text-transform: capitalize;
+     
+
+    }
+
+
 
 }
 
@@ -358,3 +356,4 @@ html, body, .App {
     -ms-flex-align: start;
     align-items: flex-start;
 }
+
