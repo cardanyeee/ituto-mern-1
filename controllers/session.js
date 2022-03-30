@@ -102,12 +102,38 @@ exports.declineSession = catchAsyncErrors(async (req, res, next) => {
 
 });
 
+exports.cancelSession = catchAsyncErrors(async (req, res, next) => {
+
+    try {
+
+        const session = await Session.findById(req.params.id);
+        if (!(req.user._id.equals(session.tutee))) {
+            return next(new ErrorResponse("Unauthorized Access.", 401));
+        }
+
+        session.acceptDeclineDate = convertUTCDateToLocalDate(Date.now());
+        session.status = "Cancelled";
+
+        session.save();
+
+        res.status(200).json({
+            success: true,
+            session,
+            message: "Session Cancelled!"
+        });
+    } catch (error) {
+        console.log(error);
+        next(err);
+    }
+
+});
+
 exports.acceptSession = catchAsyncErrors(async (req, res, next) => {
 
     try {
 
         const session = await Session.findById(req.params.id);
-        console.log(session);
+
         if (!(req.user._id.equals(session.tutor))) {
             return next(new ErrorResponse("Unauthorized Access.", 401));
         }
@@ -123,6 +149,33 @@ exports.acceptSession = catchAsyncErrors(async (req, res, next) => {
             success: true,
             session,
             message: "Session Accepted!"
+        });
+    } catch (error) {
+        console.log(error);
+        next(err);
+    }
+
+});
+
+exports.doneSession = catchAsyncErrors(async (req, res, next) => {
+
+    try {
+
+        const session = await Session.findById(req.params.id);
+
+        if (!(req.user._id.equals(session.tutor))) {
+            return next(new ErrorResponse("Unauthorized Access.", 401));
+        }
+        
+        session.endDate = convertUTCDateToLocalDate(Date.now());
+        session.status = "Done";
+
+        session.save();
+
+        res.status(200).json({
+            success: true,
+            session,
+            message: "Session Done!"
         });
     } catch (error) {
         console.log(error);
@@ -156,8 +209,9 @@ exports.createSession = catchAsyncErrors(async (req, res, next) => {
 
 exports.findTutorSession = catchAsyncErrors(async (req, res, next) => {
     try {
-        console.log(req.query.status);
         const sessions = await Session.find({ tutor: req.user._id, status: req.query.status })
+            .sort({ updatedAt: -1 })
+            .populate("tutor")
             .populate("tutee")
             .populate("subject");
 
@@ -174,8 +228,12 @@ exports.findTuteeSession = catchAsyncErrors(async (req, res, next) => {
     try {
         console.log(req.query);
         const sessions = await Session.find({ tutee: req.user._id, status: req.query.status })
+            .sort({ updatedAt: -1 })
             .populate("tutor")
+            .populate("tutee")
             .populate("subject");
+
+        console.log(sessions[0])
 
         res.status(200).json({
             success: true,
@@ -208,7 +266,12 @@ exports.selectedSession = catchAsyncErrors(async (req, res, next) => {
                     path: 'course'
                 }
             })
-            .populate("tutor")
+            .populate({
+                path: 'tutor',
+                populate: {
+                    path: 'course'
+                }
+            })
             .populate("subject")
             .populate("assessments", "-answers -questions.answer -questions.choices -subject");
 
