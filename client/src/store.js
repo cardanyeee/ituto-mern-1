@@ -3,11 +3,22 @@ import thunk from 'redux-thunk';
 import { AllDatas } from './reducers/all_redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-
-import { authReducer, allUsersReducer, allUsersDetailsReducer, allUsersUpdateReducer} from './reducers/authReducers';
-import { coursesC , newCReducer, CDetailsReducer, CReducer } from './reducers/courseReducers';
-import { subjectsReducer , newsubjectReducer, subjectDetailsReducer, subjectReducer } from './reducers/subjectReducers';
+import { requestedSubjectsReducer, requestedbyMaleReducer, requestedbyFemaleReducer,  topSubjectsReducer, topTutorsReducer, topYearLevelReducer, prefferedDaysReducer } from './reducers/reportReducer';
+import { authReducer, allUsersReducer, allUsersDetailsReducer, allUsersUpdateReducer } from './reducers/authReducers';
+import { coursesC, newCReducer, CDetailsReducer, CReducer } from './reducers/courseReducers';
+import { subjectsReducer, newsubjectReducer, subjectDetailsReducer, subjectReducer } from './reducers/subjectReducers';
 const reducer = combineReducers({
+
+    //ANALYTICSSS///
+    requestedSubjects: requestedSubjectsReducer,
+    requestedbyMale: requestedbyMaleReducer,
+    requestedbyFemale: requestedbyFemaleReducer,
+    topSubjects: topSubjectsReducer,
+    topTutors: topTutorsReducer,
+    topYearLevel: topYearLevelReducer,
+    prefferedDays: prefferedDaysReducer,    
+
+
 
     auth: authReducer,
     allUsers: allUsersReducer,

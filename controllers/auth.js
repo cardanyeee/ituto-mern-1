@@ -23,9 +23,9 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
     const users = await User.find();
     const tutors = await Tutor.find();
     const subs = await Sub.find();
+    var tutee = 0;
     var male = 0;
     var female = 0;
-    var other = 0;
     var pnts = 0;
 
 
@@ -34,16 +34,13 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
             male = male + 1;
         } else if (value.gender == "Female") {
             female = female + 1;
-        } else if (value.gender == "Others") {
-            other = other + 1;
-        } else {
-            pnts = pnts + 1;
-        }
+
+        } 
     })
 
     res.status(200).json({
         success: true,
-        male, female, other, pnts,
+        male, female, tutee,
         users,
         tutors,
         subs
@@ -171,7 +168,7 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
         }
 
         const isMatch = await user.matchPasswords(password);
-        
+
         if (!isMatch) {
             return next(new ErrorResponse("Wrong email or password", 401));
         }

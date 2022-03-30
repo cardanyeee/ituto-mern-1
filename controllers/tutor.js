@@ -1,12 +1,47 @@
 const Tutor = require('../models/Tutor');
 const User = require('../models/User');
-
 const ErrorResponse = require('../utils/errorResponse');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures');
 const activateEmail = require('../utils/activateEmail');
 
 const jwt = require('jsonwebtoken');
+
+
+///FOR ANALYTICSSSSSSS////////////////////////////////
+exports.reportsTopTutors = catchAsyncErrors(async (req, res, next) => {
+    try {
+        res.status(200).json({
+            success: true,
+
+        })
+
+    } catch (error) {
+        next(error);
+    }
+    
+});
+
+
+exports.reportsYearLevel = catchAsyncErrors(async (req, res, next) => {
+    try {
+        res.status(200).json({
+            success: true,
+
+        })
+
+    } catch (error) {
+        next(error);
+    }
+    
+});
+
+
+
+
+
+
+
 
 exports.index = catchAsyncErrors(async (req, res, next) => {
     try {

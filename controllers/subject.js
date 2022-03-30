@@ -4,6 +4,81 @@ const ErrorResponse = require('../utils/errorResponse');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
 const APIFeatures = require('../utils/apiFeatures');
 
+
+//  FOR ANALYTICSSSSSSS///////
+
+exports.reportsRequestedSubject = catchAsyncErrors(async (req, res, next) => {
+    try {
+
+
+        res.status(200).json({
+            success: true,
+
+        })
+
+    } catch (error) {
+        next(error);
+    }
+
+
+});
+
+
+exports.reportsTopSubject = catchAsyncErrors(async (req, res, next) => {
+    try {
+
+
+        res.status(200).json({
+            success: true,
+
+        })
+
+    } catch (error) {
+        next(error);
+    }
+
+
+});
+
+
+exports.reportsRequestedbyMale = catchAsyncErrors(async (req, res, next) => {
+    try {
+        res.status(200).json({
+            success: true,
+
+        })
+
+    } catch (error) {
+        next(error);
+    }
+
+
+});
+
+
+exports.reportsRequestedbyFemale = catchAsyncErrors(async (req, res, next) => {
+    try {
+        res.status(200).json({
+            success: true,
+
+        })
+
+    } catch (error) {
+        next(error);
+    }
+
+
+});
+
+
+
+
+
+
+
+
+
+
 exports.index = catchAsyncErrors(async (req, res, next) => {
     try {
 
