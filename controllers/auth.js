@@ -87,7 +87,7 @@ exports.register = catchAsyncErrors(async (req, res, next) => {
 
         const activation_token = createActivationToken(newUser);
 
-        const url = `https://localhost:3000/user/activate/${activation_token}`;
+        const url = `https://mern-ituto.herokuapp.com/user/activate/${activation_token}`;
         activateEmail(email, url, "Verify your email address");
 
         res.status(200).json({
