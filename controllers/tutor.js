@@ -47,7 +47,7 @@ exports.index = catchAsyncErrors(async (req, res, next) => {
     try {
 
 
-        const usersQuery = new APIFeatures(User.find({ "isTutor": true }), req.query)
+        const usersQuery = new APIFeatures(User.find({ "isTutor": true, _id: { $nin: [req.user._id] } }), req.query)
             .search();
 
         const users = await usersQuery.query;
@@ -220,10 +220,10 @@ exports.getTutorReviews = catchAsyncErrors(async (req, res, next) => {
             .populate("reviews.tutee", " -birthdate -isTutor -role -phone -createdAt -updatedAt")
             .populate("reviews.subject");
 
-        if(!tutor) {
+        if (!tutor) {
             return next(new ErrorResponse("Tutor not found.", 404));
         }
-    
+
         res.status(200).json({
             success: true,
             reviews: tutor.reviews
