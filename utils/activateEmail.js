@@ -619,8 +619,8 @@ const sendEmail = (to, url, txt) => {
           </div>
           
           <div className="layout one-col fixed-width" style="Margin: 0 auto;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 173000px);overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;">
-            <div className="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #307fb0;" lang="x-layout__inner">
-            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr className="layout-fixed-width" style="background-color: #307fb0;"><td style="width: 600px" className="w560"><![endif]-->
+            <div className="layout__inner" style="border-collapse: collapse;display: table;width: 100%;background-color: #57B894;" lang="x-layout__inner">
+            <!--[if (mso)|(IE)]><table align="center" cellpadding="0" cellspacing="0"><tr className="layout-fixed-width" style="background-color: #57B894;"><td style="width: 600px" className="w560"><![endif]-->
               <div className="column" style='text-align: left;color: #60666d;font-size: 14px;line-height: 21px;font-family: "Roboto",sans-serif;max-width: 600px;min-width: 320px; width: 320px;width: calc(28000% - 167400px);'>
             
                 <div style="Margin-left: 20px;Margin-right: 20px;Margin-top: 24px;Margin-bottom: 24px;">
@@ -654,8 +654,8 @@ const sendEmail = (to, url, txt) => {
             
                 <div style="Margin-left: 20px;Margin-right: 20px;">
           <div className="btn btn--flat btn--large" style="Margin-bottom: 20px;text-align: center;">
-            <![if !mso]><a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #5c91ad;font-family: 'Roboto', sans-serif;" href="${url}">Click here</a><![endif]>
-          <!--[if mso]><p style="line-height:0;margin:0;">&nbsp;</p><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-l-dlldol-l-r/" style="width:118px" arcsize="9%" fillcolor="#5C91AD" stroke="f"><v:textbox style="mso-fit-shape-to-text:t" inset="0px,11px,0px,11px"><center style="font-size:14px;line-height:24px;color:#FFFFFF;font-family:sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Click here</center></v:textbox></v:roundrect><![endif]--></div>
+            <![if !mso]><a style="border-radius: 4px;display: inline-block;font-size: 14px;font-weight: bold;line-height: 24px;padding: 12px 24px;text-align: center;text-decoration: none !important;transition: opacity 0.1s ease-in;color: #fff;background-color: #57B894 !important;font-family: 'Roboto', sans-serif;" href="${url}">Click here</a><![endif]>
+          <!--[if mso]><p style="line-height:0;margin:0;">&nbsp;</p><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" href="http://photobookworldwide.createsend1.com/t/d-l-dlldol-l-r/" style="width:118px" arcsize="9%" fillcolor="#57B894" stroke="f"><v:textbox style="mso-fit-shape-to-text:t" inset="0px,11px,0px,11px"><center style="font-size:14px;line-height:24px;color:#FFFFFF;font-family:sans-serif;font-weight:bold;mso-line-height-rule:exactly;mso-text-raise:4px">Click here</center></v:textbox></v:roundrect><![endif]--></div>
         </div>
           
               </div>

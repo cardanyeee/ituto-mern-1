@@ -85,6 +85,10 @@ const UserSchema = new Schema({
             default: 'https://res.cloudinary.com/djqpxmv5o/image/upload/v1647321463/movflix/avatars/blank_avatar_x64ypn.png'
         }
     },
+    active: {
+        type: Boolean,
+        default: true
+    },
     role: {
         type: String,
         default: 'user'

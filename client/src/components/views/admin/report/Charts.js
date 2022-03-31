@@ -2,17 +2,24 @@ import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
 
 
+
+
+
 // import { Link } from "react-router-dom";
 // import { Link } from 'react-router-dom';
 import {
     Chart as ChartJS,
     registerables
 } from "chart.js";
-import { Doughnut, Line, Bar } from 'react-chartjs-2'
+import { Pie, Doughnut, Line, Bar } from 'react-chartjs-2'
 import '../dashboard.scss'
 
 import AdminHeader from '../../../layout/admin/AdminHeader';
 import MetaData from '../../../layout/main/MetaData';
+
+import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
+
+import jsPDF from 'jspdf';
 
 
 // defaults.tooltips.enabled = false
@@ -24,11 +31,49 @@ ChartJS.register(
 );
 
 
+// function pdfDownload ({
+
+
+// });
+
 const Charts = () => {
 
     const { users } = useSelector(state => state.allUsers);
 
     const { male, female } = useSelector(state => state.datas);
+
+    // const bgColor = () => {
+
+    //    beforeDraw: (chart, steps, options) => {
+
+
+
+    //    }      
+
+    // }
+
+    const pdfDownload = () => {
+
+
+
+        const canvas = document.getElementById('mf-populations');
+
+        const canvasImage = canvas.toDataURL('image/png', 1.0);
+
+
+        let pdf = new jsPDF();
+        pdf.setFontSize(20); 
+        // pdf.setFillColor(204, 204,204,0);
+        // pdf.rect(10, 10, 150, 160, "F");
+        pdf.text(15, 15, "MALE & FEMALE POPULATIONS");
+        pdf.addImage(canvasImage, 10, 10, 180, 150);
+        pdf.save('mf-populations.pdf');
+
+    }
+
+
+
+
 
 
     return (
@@ -67,25 +112,21 @@ const Charts = () => {
                                     <div className="card shadow mb-4">
                                         {/* <!-- Card Header - Dropdown --> */}
                                         <div className="card-header py-3">
-                                            <h6 className="m-0 font-weight-bold text-primary"
-                                            >
-                                                <a href="/dashboard/tutor" style={{ textDecoration: "none" }}>
-                                                    Male and Female Populations
-                                                </a>
-                                            </h6>
+                                            <div className="row align-center">
+                                                <div className="container">
+                                                    <div className="row align-start">
+                                                        <div className="col-md-8 col-12">
+                                                            <h6 className="color1 mt-2 font-weight-bold">
+                                                                Male and Female Populations
+                                                            </h6>
+                                                        </div>
+                                                        <div className="pdficon-align col-md-4 col-12">
+                                                            <LocalPrintshopIcon className="pdf-icon" role="button" onClick={pdfDownload} />
 
-
-                                            {/* <Dropdown>
-                                                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                                            Dropdown Button
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu>
-                                                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>  */}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                         {/* <!-- Card Body --> */}
                                         <div className="card-body">
@@ -96,7 +137,7 @@ const Charts = () => {
 
 
 
-                                                <Doughnut
+                                                <Doughnut id="mf-populations"
 
                                                     data={{
                                                         labels: ['Female', 'Male'],

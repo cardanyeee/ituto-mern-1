@@ -16,6 +16,8 @@ import './producer.css'
 import AdminHeader from '../../../layout/admin/AdminHeader';
 
 import moment from 'moment';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 const ProducersLists = ({ history }) => {
 
@@ -81,13 +83,58 @@ const ProducersLists = ({ history }) => {
         return data;
     }
 
+    const csvData = [];
+
+    subjects.forEach(subject => {
+        csvData.push({
+            _id: subject._id,
+            code: subject.code,
+            name: subject.name,
+            semester: subject.semester,
+            course: subject.course[0].code
+        })
+    })
+
+
+    const columns = [
+        { title: "ID", field: "_id", },
+        { title: "Code", field: "code", },
+        { title: "Name", field: "name",},
+        { title: "Semester", field: "semester",},
+        { title: "Course", field: "course",},
+    ]
+
     const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
-    
-    const csvReport = {
+
+    const csvReport = { 
         filename: `${csvDownloadDate}-Subjects.csv`,
         headers: setsubjects.columns,
-        data: subjects
+        data: csvData
     };
+
+    const downloadPdf = () => {
+
+        const doc = new jsPDF()
+        doc.text("Course Details", 20, 10)
+        doc.autoTable({
+            // columnStyles: {
+            //     0: { cellWidth: 20 },
+            //     1: { cellWidth: 30 },
+            //     2: { cellWidth: 30 },
+            //     3: { cellWidth: 20 },
+            //     4: { cellWidth: 20 },
+            //     5: { cellWidth: 20 },   
+            //     6: { cellWidth: 20 },
+            //     7: { cellWidth: 20 },
+            //     // etc
+            // },   
+            margin: { top: 25 },
+            columns: columns.map(col => ({ ...col, dataKey: col.field })),
+            theme: "striped",
+            body: csvData 
+        })
+        doc.save(`${csvDownloadDate}-Subject.pdf`)
+    }
 
     const deletesubjectHandler = (id) => {
         dispatch(deleteS(id));
@@ -110,17 +157,25 @@ const ProducersLists = ({ history }) => {
                     <div className="card shadow mb-4">
 
                         <div className="card-header py-3">
+                            <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
+                                <div className="btn" role="button" onClick={csvReport} style={{ backgroundColor: "#2A4250" }}>
+                                    <i className="color-report fas fa-print fa-xs" >
+                                        <span className="m-0 font-weight-bold" >
+                                            &nbsp;CSV
 
-                            <div className="d-sm-inline-block btn btn-sm btn-primary shadow-sm" role="button" onClick={csvReport}>
-                                <i className="fas fa-download fa-sm text-white-50">
+                                        </span>
+                                    </i>
+                                </div>
+                            </CSVLink>
+                            &nbsp;
+
+                            <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#9FDACA" }}>
+                                <i className="color-report fas fa-print fa-xs" >
                                     <span className="m-0 font-weight-bold" >
-                                        <CSVLink {...csvReport} style={{ color: "#F3F7FD", textDecoration: "none" }}>
-                                            Generate CSV
-                                        </CSVLink>
+                                        &nbsp;PDF
+
                                     </span>
-
                                 </i>
-
                             </div>
 
                         </div>

@@ -247,10 +247,11 @@
     }
 
 
-    #font-title {
+    .display-cover {
 
         font-weight: 500;
         color: #EEF6FF;
+        font-size: 52px;
 
 
     }
@@ -445,6 +446,15 @@
 
     @media only screen and (max-width:320px) {
 
+        .display-cover {
+
+            font-weight: 500;
+            color: #EEF6FF;
+            font-size: 23px;
+    
+    
+        }
+
         .swiper-button-next,
         .swiper-button-prev {
 
@@ -510,6 +520,16 @@
     }
 
     @media only screen and (max-width:375px) {
+
+        .display-cover {
+
+            font-weight: 500;
+            color: #EEF6FF;
+            font-size: 21px!important;
+    
+    
+        }
+
 
 
         .swiper-button-next {
@@ -582,6 +602,16 @@
 
     @media screen and (max-width:425px) {
 
+        .display-cover {
+
+            font-weight: 500;
+            color: #EEF6FF;
+            font-size: 21px!important;
+    
+    
+        }
+
+
         .swiper-button-next,
         .swiper-button-prev {
 
@@ -651,6 +681,15 @@
     /* banner TABLETTTTT*/
 
     @media only screen and (max-width:768px) {
+
+        .display-cover {
+
+            font-weight: 500;
+            color: #EEF6FF;
+            font-size: 28px!important;
+    
+    
+        }
 
         .swiper-button-next,
         .swiper-button-prev {
