@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
 import { MDBDataTableV5 } from 'mdbreact';
+import jsPDF from 'jspdf';
 
 // import { Link } from "react-router-dom";
 // import { Link } from 'react-router-dom';
@@ -23,6 +24,8 @@ import { allUsers } from '../../../actions/authActions';
 
 import { getData } from '../../../actions/all_actions';
 
+import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
+
 
 // defaults.tooltips.enabled = false
 // defaults.legend.position = 'bottom'
@@ -42,6 +45,7 @@ const Dashboard = () => {
     const { users } = useSelector(state => state.allUsers);
 
     const { loading, male, female } = useSelector(state => state.datas);
+
 
     useEffect(() => {
         dispatch(getData());
@@ -92,6 +96,20 @@ const Dashboard = () => {
 
     }
 
+
+    const pdfDownload = () => {
+
+
+
+        const canvas = document.getElementById('mf-populations');
+
+        const canvasImage = canvas.toDataURL('image/jpeg', 1.0);
+        let pdf = new jsPDF();
+        pdf.setFontSize(20);
+        pdf.addImage(canvasImage, 10, 10, 180, 150);
+        pdf.save('mf-populations.pdf');
+
+    }
     return (
         <Fragment>
             {loading ? <Loader /> : (
@@ -129,7 +147,7 @@ const Dashboard = () => {
                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
                                                         <div className="v-card__text text-center" id="picturePad">
                                                             <div className="v-avatar">
-                                                                <img style={{ height: "225px", width: "250px" }}
+                                                                <img style={{ height: "250px", width: "250px", minHeight: "100%", maxWidth: "100%" }}
                                                                     src={user.avatar.url} alt={user.avatar.public_id} className="g-image" />
                                                             </div>
                                                         </div>
@@ -236,301 +254,40 @@ const Dashboard = () => {
                                             <div className="card shadow mb-4">
                                                 {/* <!-- Card Header - Dropdown --> */}
                                                 <div className="card-header py-3">
-                                                    <h6 className="m-0 font-weight-bold text-primary">REGISTERED USERS</h6>
+                                                    <h6 className="color1 m-0 font-weight-bold">REGISTERED USERS</h6>
                                                 </div>
                                                 {/* <!-- Card Body --> */}
-                                                <div className="card-body">
 
-                                                    {/* USER DATA SECTION */}
+                                                {/* USER DATA SECTION */}
 
 
-                                                    <div className="table-responsive">
-                                                        <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
+                                                <div className="table-responsive">
+                                                    <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
 
-                                                            <Fragment>
-                                                                {loading ? <Loader /> : (
-                                                                    <MDBDataTableV5
-                                                                        data={setUsers()}
-                                                                        striped
-                                                                        hover
-                                                                    />
-                                                                )}
-                                                            </Fragment>
-                                                        </div>
+                                                        <Fragment>
+                                                            {loading ? <Loader /> : (
+                                                                <MDBDataTableV5 className="adjust-table"
+                                                                    data={setUsers()}
+                                                                    striped
+                                                                    hover
+                                                                />
+                                                            )}
+                                                        </Fragment>
                                                     </div>
-
-
-
                                                 </div>
+
+
+
                                             </div>
                                         </div>
-
-
                                     </div>
-                                </div>
-
-                                <div className="container-fluid">
-
-                                    <div className="row pr-4 pt-4">
-
-                                        {/* //Donut Chart */}
-
-                                        <div className="col-xl-4 mb-3" >
-
-                                            <div className="card shadow mb-4">
-                                                {/* <!-- Card Header - Dropdown --> */}
-                                                <div className="card-header py-3">
-                                                    <h6 className="m-0 font-weight-bold text-primary"
-                                                    >
-                                                        <a href="/dashboard/tutor" style={{ textDecoration: "none" }}>
-                                                            Male and Female Populations
-                                                        </a>
-                                                    </h6>
-
-
-                                                    {/* <Dropdown>
-                                                        <Dropdown.Toggle variant="success" id="dropdown-basic">
-                                                            Dropdown Button
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu>
-                                                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                                        </Dropdown.Menu>
-                                                    </Dropdown>  */}
-                                                </div>
-                                                {/* <!-- Card Body --> */}
-                                                <div className="card-body">
-                                                    <h6 className="color1 m-0 font-weight-bold">
-                                                        <b>{users && users.length} </b>Total Users
-                                                    </h6>
-                                                    <div className="chart-pie pt-4">
-
-
-
-                                                        <Doughnut
-
-                                                            data={{
-                                                                labels: ['Female', 'Male'],
-                                                                datasets: [
-                                                                    {
-                                                                        label: '# of votes',
-                                                                        data: [female && female, male && male],
-
-                                                                        backgroundColor: [
-                                                                            '#FF6384',
-                                                                            '#36A2EB',
-                                                                            '#FFCE56    ',
-                                                                            // '#4BC0C0',
-                                                                            // '#9966FF',
-                                                                            // '#FF9F40',
-                                                                        ],
-                                                                        borderColor: [
-                                                                            'rgba(255, 99, 132, 1)',
-                                                                            'rgba(54, 162, 235, 1)',
-                                                                            'rgba(255, 206, 86, 1)',
-                                                                            // 'rgba(75, 192, 192, 1)',
-                                                                            // 'rgba(153, 102, 255, 1)',
-                                                                            // 'rgba(255, 159, 64, 1)',
-                                                                        ],
-                                                                        borderWidth: 1,
-                                                                    },
-                                                                    // {
-                                                                    //   label: 'Quantity',
-                                                                    //   data: [47, 52, 67, 58, 9, 50],
-                                                                    //   backgroundColor: 'orange',
-                                                                    //   borderColor: 'red',
-                                                                    // },
-                                                                ],
-                                                            }}
-                                                            height={300}
-                                                            width={600}
-                                                            options={{
-                                                                maintainAspectRatio: false,
-                                                                scales: {
-                                                                    yAxes: [
-                                                                        {
-                                                                            ticks: {
-                                                                                beginAtZero: true,
-                                                                            },
-
-                                                                            gridLines: {
-                                                                                color: 'white'
-                                                                            }
-                                                                        },
-                                                                    ],
-                                                                },
-                                                                legend: {
-                                                                    labels: {
-                                                                        fontSize: 25,
-                                                                    },
-                                                                },
-                                                            }}
-                                                        />
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-
-                                        {/* LINE CHART */}
-
-                                        <div className="col-xl-8 mb-3" >
-
-                                            <div className="card shadow mb-4">
-                                                {/* <!-- Card Header - Dropdown --> */}
-                                                <div className="card-header py-3">
-                                                    <h6 className="m-0 font-weight-bold text-primary">Line Chart</h6>
-                                                </div>
-                                                {/* <!-- Card Body --> */}
-                                                <div className="card-body">
-                                                    <div className="chart-pie pt-4">
-
-                                                        <Line
-                                                            data={{
-                                                                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                                                                datasets: [
-                                                                    {
-                                                                        label: '# of votes',
-                                                                        data: [17, 52, 67, 58, 9, 50],
-
-                                                                        backgroundColor: [
-                                                                            '#FF6384',
-                                                                            '#36A2EB',
-                                                                            '#FFCE56    ',
-                                                                            '#4BC0C0',
-                                                                            '#9966FF',
-                                                                            '#FF9F40',
-                                                                        ],
-                                                                        borderColor: [
-
-                                                                            'rgba(54, 162, 235, 1)',
-
-                                                                        ],
-                                                                        borderWidth: 1,
-                                                                    },
-
-                                                                ],
-                                                            }}
-                                                            height={300}
-                                                            width={600}
-                                                            options={{
-                                                                maintainAspectRatio: false,
-                                                                scales: {
-                                                                    yAxes: [
-                                                                        {
-                                                                            ticks: {
-                                                                                beginAtZero: true,
-                                                                            },
-                                                                        },
-                                                                    ],
-                                                                },
-                                                                legend: {
-                                                                    labels: {
-                                                                        fontSize: 25,
-                                                                    },
-                                                                },
-                                                            }}
-                                                        />
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-                                <div className="container-fluid">
-
-                                    {/* BAAAR CT */}
-
-                                    <div className="col-xl-12 mb-3" >
-
-                                        <div className="card shadow mb-4">
-                                            {/* <!-- Card Header - Dropdown --> */}
-                                            <div className="card-header py-3">
-                                                <h6 className="m-0 font-weight-bold text-primary">Most Inquired Subject</h6>
-                                            </div>
-                                            {/* <!-- Card Body --> */}
-                                            <div className="card-body">
-                                                <div className="chart-pie pt-4">
-
-                                                    <Bar
-
-                                                        data={{
-                                                            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                                                            datasets: [
-                                                                {
-                                                                    label: '# of votes',
-                                                                    data: [12, 19, 3, 5, 2, 3],
-
-                                                                    backgroundColor: [
-                                                                        '#FF6384',
-                                                                        '#36A2EB',
-                                                                        '#FFCE56    ',
-                                                                        '#4BC0C0',
-                                                                        '#9966FF',
-                                                                        '#FF9F40',
-                                                                    ],
-                                                                    borderColor: [
-                                                                        'rgba(255, 99, 132, 1)',
-                                                                        'rgba(54, 162, 235, 1)',
-                                                                        'rgba(255, 206, 86, 1)',
-                                                                        'rgba(75, 192, 192, 1)',
-                                                                        'rgba(153, 102, 255, 1)',
-                                                                        'rgba(255, 159, 64, 1)',
-                                                                    ],
-                                                                    borderWidth: 1,
-                                                                },
-                                                                // {
-                                                                //   label: 'Quantity',
-                                                                //   data: [47, 52, 67, 58, 9, 50],
-                                                                //   backgroundColor: 'orange',
-                                                                //   borderColor: 'red',
-                                                                // },
-                                                            ],
-                                                        }}
-                                                        height={300}
-                                                        width={600}
-                                                        options={{
-                                                            maintainAspectRatio: false,
-                                                            scales: {
-                                                                yAxes: [
-                                                                    {
-                                                                        ticks: {
-                                                                            beginAtZero: true,
-                                                                        },
-                                                                    },
-                                                                ],
-                                                            },
-                                                            legend: {
-                                                                labels: {
-                                                                    fontSize: 25,
-                                                                },
-                                                            },
-                                                        }}
-                                                    />
-
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-
 
 
                                 </div>
                             </div>
+
+
+
                         </Fragment>
                     )}
                 </Fragment>

@@ -13,6 +13,8 @@ import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 // Styles must use direct files imports
 
+
+
 const Welcome = () => {
 
     return (
@@ -37,7 +39,7 @@ const Welcome = () => {
                                                 data-src="images/lol.png"
                                                 data-srcset="images/lol.png"
                                             />
-                                            <p className="display-1" id="font-title">Discover students who are interested in sharing their attained skills and knowledge</p>
+                                            <p className="display-cover" id="font-title">Discover students who are interested in sharing their attained skills and knowledge</p>
                                         </div>
                                     </div>
                                 </div>
@@ -129,90 +131,14 @@ const Welcome = () => {
 
                         {/* MOVE 1 DIV ABOVEEEEEEEE */}
 
-                        <div className="swiper-color col-12">
-                            <div className="elevation-0 transparent v-card v-sheet theme--light" >
 
-                                <div primary-title="" className="v-card__title layout justify-center">
-
-                                    <div className="row align-center">
-                                        <div className="container">
-                                            <div className="row align-start">
-                                                <div className="col1 col-md-4 col-12">
-
-                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                        <div className="v-card__text text-center">
-
-                                                            <CloudDownloadIcon fontSize="large" />
-                                                        </div>
-                                                        <div primary-title="" className="col1 v-card__title layout justify-center">
-                                                            <div className="display-straight text-center" style={{ fontWeight: "bold" }}>Where can i download?</div>
-                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                                {/* <img src="images/app-mockup.png" alt="app-mockup" width="300" /> */}
-                                                            </div>
-                                                        </div>
-                                                        <div className="col1 v-card__text text-center">
-                                                            <p>
-                                                                You can download the iTuto Service application on the website itself. Upon clicking
-                                                                the download button it will redirect visitors to a google drive account. This application will help you find tutors inside the Technological university of the Philippines - Taguig Campus. 
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div className="col2 col-md-4 col-12">
-                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                        <div className="v-card__text text-center">
-                                                            <LiveHelpIcon fontSize="large" />
-
-                                                        </div>
-                                                        <div primary-title="" className="col2 v-card__title layout justify-center">
-                                                            <div className="display-straight text-center" style={{ fontWeight: "bold" }}>How to participate?</div>
-                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                                {/* <img src="images/app-mockup.png" alt="app-mockup" width="300" /> */}
-                                                            </div>
-                                                        </div>
-                                                        <div className="col2 v-card__text text-center">
-                                                            <p>
-                                                                After downloading the application, you can either sign-up as Tutor or Tutee.  offer for you. You can help the students of the technological university of the Philippines- Taguig campus who have difficulty with their subjects to catch up and even better understand their lessons.
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div className="col1 col-md-4 col-12">
-                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                        <div className="v-card__text text-center">
-                                                            <BadgeIcon fontSize="large" />
-                                                        </div>
-                                                        <div primary-title="" className="col1 v-card__title layout justify-center">
-                                                            <div className="display-straight text-center" style={{ fontWeight: "bold" }}>Why does it called iTuto?</div>
-                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
-                                                                {/* <img src="images/app-mockup.png" alt="app-mockup" width="300" /> */}
-                                                            </div>
-                                                        </div>
-                                                        <div className="col1 v-card__text text-center">
-                                                            <p>
-                                                                The name <b>iTuto</b> is loosely based on the english word <i>Tutor</i> and filipino word <i>Matuto</i> which means <i>"to learn"</i>. Whereas the letter <i>i</i> represents the students that are finding tutors. Resulting to an amalgamation of the word <b>iTuto</b> that can be defined as <i>learning among the students.</i>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="swiper-color v-parallax hidden-sm-and-down" style={{ height: "200px" }} >
+                        <div className="col1 v-parallax hidden-sm-and-down" style={{ height: "200px" }} >
 
                             <div className="v-parallax__image-container" id="features">
 
                             </div>
                             <div className="v-parallax__content" >
-                                <div className="teamHeader text-center" style={{ fontWeight: "bold" }} >How Does it Work?</div>
+                                <div className="teamHeader text-center" style={{ fontWeight: "bold" }} >Features</div>
                             </div>
                         </div>
 
@@ -233,7 +159,7 @@ const Welcome = () => {
                                                             slidesPerView={1}
                                                             spaceBetween={30}
                                                             effect={"fade"}
-                                                            loop={true}             
+                                                            loop={true}
                                                             autoplay={{
                                                                 delay: 3000,
                                                                 disableOnInteraction: false,
@@ -591,6 +517,84 @@ const Welcome = () => {
                                                         </Swiper>
                                                     </div>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col1 col-12">
+                            <div className="elevation-0 transparent v-card v-sheet theme--light" >
+
+                                <div primary-title="" className="v-card__title layout justify-center">
+
+                                    <div className="row align-center">
+                                        <div className="container">
+                                            <div className="row align-start">
+                                                <div className="col1 col-md-4 col-12">
+
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+
+                                                        <div className="v-card__text text-center">
+
+                                                            <CloudDownloadIcon fontSize="large" />
+                                                        </div>
+                                                        <div primary-title="" className="col1 v-card__title layout justify-center">
+                                                            <div className="display-straight text-center" style={{ fontWeight: "bold" }}>Where can i download?</div>
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
+                                                                {/* <img src="images/app-mockup.png" alt="app-mockup" width="300" /> */}
+                                                            </div>
+                                                        </div>
+                                                        <div className="col1 v-card__text text-center">
+                                                            <p>
+                                                                You can download the iTuto Service application on the website itself. Upon clicking
+                                                                the download button it will redirect visitors to a google drive account. This application will help you find tutors inside the Technological university of the Philippines - Taguig Campus.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div className="col2 col-md-4 col-12">
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                        <div className="v-card__text text-center">
+                                                            <LiveHelpIcon fontSize="large" />
+
+                                                        </div>
+                                                        <div primary-title="" className="col2 v-card__title layout justify-center">
+                                                            <div className="display-straight text-center" style={{ fontWeight: "bold" }}>How to participate?</div>
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
+                                                                {/* <img src="images/app-mockup.png" alt="app-mockup" width="300" /> */}
+                                                            </div>
+                                                        </div>
+                                                        <div className="col2 v-card__text text-center">
+                                                            <p>
+                                                                After downloading the application, you can either sign-up as Tutor or Tutee.  offer for you. You can help the students of the technological university of the Philippines- Taguig campus who have difficulty with their subjects to catch up and even better understand their lessons.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="col1 col-md-4 col-12">
+                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                        <div className="v-card__text text-center">
+                                                            <BadgeIcon fontSize="large" />
+                                                        </div>
+                                                        <div primary-title="" className="col1 v-card__title layout justify-center">
+                                                            <div className="display-straight text-center" style={{ fontWeight: "bold" }}>Why does it called iTuto?</div>
+                                                            <div className="display-1 text-center" style={{ fontWeight: "bold" }}>
+                                                                {/* <img src="images/app-mockup.png" alt="app-mockup" width="300" /> */}
+                                                            </div>
+                                                        </div>
+                                                        <div className="col1 v-card__text text-center">
+                                                            <p>
+                                                                The name <b>iTuto</b> is loosely based on the english word <i>Tutor</i> and filipino word <i>Matuto</i> which means <i>"to learn"</i>. Whereas the letter <i>i</i> represents the students that are finding tutors. Resulting to an amalgamation of the word <b>iTuto</b> that can be defined as <i>learning among the students.</i>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
                                             </div>
                                         </div>
                                     </div>

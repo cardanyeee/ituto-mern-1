@@ -4,9 +4,10 @@ import MetaData from '../../../layout/main/MetaData';
 
 import { useAlert } from 'react-alert';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { newS, clearErrors } from '../../../../actions/subjectActions';
 
-// import { getCs } from '../../actions/courseActions';
+import { getCs } from '../../../../actions/courseActions';
 
 import AdminHeader from '../../../layout/admin/AdminHeader';
 
@@ -19,8 +20,10 @@ const NewMovie = ({ history }) => {
     const alert = useAlert();
     const dispatch = useDispatch();
     const { error, success } = useSelector(state => state.newsubject);
+    const { courses } = useSelector(state => state.courses);
 
     useEffect(() => {
+        dispatch(getCs());
 
 
         if (error) {
@@ -33,6 +36,7 @@ const NewMovie = ({ history }) => {
             alert.success('Subject created successfully');
             dispatch({ type: 'NEW_SUBJECT_RESET' })
         }
+
 
     }, [dispatch, alert, error, success, history]);
 
@@ -77,7 +81,7 @@ const NewMovie = ({ history }) => {
                                     <div className="table-responsive">
                                         <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
                                             <form className="submit" onSubmit={submitHandler} encType='multipart/form-data'>
-                                              
+
 
                                                 <div className="form-group mb-3">
                                                     <label htmlFor="code">Code</label>
@@ -95,8 +99,15 @@ const NewMovie = ({ history }) => {
                                                 </div>
 
                                                 <div className="form-group mb-3">
-                                                    <label htmlFor="degree">Couse</label>
-                                                    <input type="text" id="degree" className="form-control" value={degree} onChange={(e) => setdegree(e.target.value)} required />
+                                                    <label htmlFor="degree">Course</label>
+                                                    <select class="form-select" aria-label="Default select example">
+                                                        <option value="0" disabled selected>-- Select Course --</option>
+                                                        {courses.map(course => (
+                                                            <option key={course._id} value={course._id} >{course.name}</option>
+                                                        ))}
+                                                    </select>
+
+                                                    {/* <input type="text" id="degree" className="form-control" value={degree} onChange={(e) => setdegree(e.target.value)} required /> */}
                                                 </div>
 
 

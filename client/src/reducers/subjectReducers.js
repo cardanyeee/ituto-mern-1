@@ -10,7 +10,7 @@ export const subjectsReducer = (state = { subjects: [] }, action) => {
                 loading: false,
                 subjects: action.payload.subjects
             }
-        
+            
         case 'ALL_SUBJECTS_FAIL':
             return {
                 loading: false,
