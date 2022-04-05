@@ -80,6 +80,10 @@ io.on("connection", (socket) => {
         });
     });
 
+    socket.on("assessment create", (assessment) => {
+        socket.to(assessment.tutee).emit("assessment notify", assessment);
+    });
+
     socket.on("call", (call) => {
         console.log(call);
 

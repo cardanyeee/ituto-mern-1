@@ -1,4 +1,5 @@
 const Subject = require('../models/Subject');
+const Tutor = require('../models/Tutor');
 
 const ErrorResponse = require('../utils/errorResponse');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
@@ -23,14 +24,25 @@ exports.reportsRequestedSubject = catchAsyncErrors(async (req, res, next) => {
 
 });
 
-
-exports.reportsTopSubject = catchAsyncErrors(async (req, res, next) => {
+exports.reportsToOfferedSubject = catchAsyncErrors(async (req, res, next) => {
     try {
 
+        const subjectsCount = await Tutor.aggregate([
+            { $unwind: "$subjects" },
+            {
+                $group: {
+                    _id: "$subjects",
+                    count: { $sum: 1 }
+                }
+            },
+            { $sort: { count: -1 } },
+            { $limit: 10 },
+            { $lookup: { from: 'subjects', localField: '_id', foreignField: '_id', as: 'subject' } }
+        ]);
 
         res.status(200).json({
             success: true,
-
+            subjectsCount
         })
 
     } catch (error) {

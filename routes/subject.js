@@ -10,7 +10,7 @@ const {
     update,
     find,
     reportsRequestedSubject,
-    reportsTopSubject,
+    reportsToOfferedSubject,
     reportsRequestedbyMale,
     reportsRequestedbyFemale
 } = require('../controllers/subject');
@@ -21,11 +21,9 @@ const {
 
 
 router.route('/reports/subjects/toprequested').get(reportsRequestedSubject);
+router.route('/reports/subjects/topoffered').get(reportsToOfferedSubject);
 router.route('/reports/subjects/requestedbymale').get(reportsRequestedbyMale);
 router.route('/reports/subjects/requestedbyfemale').get(reportsRequestedbyFemale);
-router.route('/reports/subjects/topoffered').get(reportsTopSubject);
-
-
 
 router.route('/subjects').get(index);
 router.route('/course-subjects/:course').get(courseSubjects);

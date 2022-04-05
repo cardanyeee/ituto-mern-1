@@ -11,9 +11,11 @@ const jwt = require('jsonwebtoken');
 ///FOR ANALYTICSSSSSSS////////////////////////////////
 exports.reportsTopTutors = catchAsyncErrors(async (req, res, next) => {
     try {
+        const tutor = await Tutor.find().sort({ratings:-1}).limit(10);
+
         res.status(200).json({
             success: true,
-
+            tutor
         })
 
     } catch (error) {
@@ -275,6 +277,46 @@ exports.updateAvailability = catchAsyncErrors(async (req, res, next) => {
         res.status(200).json({
             success: true,
             message: "Availability successfully changed!"
+        });
+    } catch (error) {
+        console.log(error);
+        next(err);
+    }
+
+});
+
+exports.updateSubjects = catchAsyncErrors(async (req, res, next) => {
+
+    try {
+        const tutor = await Tutor.findOne({ userID: req.user._id });
+
+        tutor.subjects = JSON.parse(req.body.subjects);
+
+        tutor.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Subjects successfully changed!"
+        });
+    } catch (error) {
+        console.log(error);
+        next(err);
+    }
+
+});
+
+exports.updateAboutMe = catchAsyncErrors(async (req, res, next) => {
+
+    try {
+        const tutor = await Tutor.findOne({ userID: req.user._id });
+
+        tutor.aboutMe = req.body.aboutMe;
+
+        tutor.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Subjects successfully changed!"
         });
     } catch (error) {
         console.log(error);

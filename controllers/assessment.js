@@ -36,14 +36,16 @@ exports.create = catchAsyncErrors(async (req, res, next) => {
             })
         });
 
-
         session.assessments.push(assessment._id);
 
         await session.save({ validateBeforeSave: false });
 
         await assessment.save();
 
-        console.log(session);
+        assessment = await assessment.populate("subject");
+        assessment = await assessment.populate("tutor");
+
+        // console.log(assessment);
 
         res.status(200).json({
             success: true,
