@@ -11,7 +11,11 @@ const jwt = require('jsonwebtoken');
 ///FOR ANALYTICSSSSSSS////////////////////////////////
 exports.reportsTopTutors = catchAsyncErrors(async (req, res, next) => {
     try {
-        const tutor = await Tutor.find().sort({ratings:-1}).limit(10);
+        const tutor = await Tutor.find()
+            .sort({ ratings: -1 })
+            .limit(10)
+            .select("-availability -subjects -reviews -__v")
+            .populate("userID", "-isTutor -active -role -__v");
 
         res.status(200).json({
             success: true,
@@ -21,21 +25,37 @@ exports.reportsTopTutors = catchAsyncErrors(async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-    
+
 });
 
 
-exports.reportsYearLevel = catchAsyncErrors(async (req, res, next) => {
+exports.reportsTuteeYearLevel = catchAsyncErrors(async (req, res, next) => {
     try {
+
+        const users = await User.aggregate([
+            {
+                $match:
+                {
+                    'isTutor': false
+                }
+            },
+            {
+                $group: {
+                    _id: "$yearLevel",
+                    count: { $sum: 1 }
+                }
+            }
+        ]);
+
         res.status(200).json({
             success: true,
-
+            users
         })
 
     } catch (error) {
         next(error);
     }
-    
+
 });
 
 

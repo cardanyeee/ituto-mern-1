@@ -1,5 +1,6 @@
 const Subject = require('../models/Subject');
 const Tutor = require('../models/Tutor');
+const Session = require('../models/Session');
 
 const ErrorResponse = require('../utils/errorResponse');
 const catchAsyncErrors = require('../middleware/catchAsyncErrors');
@@ -11,10 +12,22 @@ const APIFeatures = require('../utils/apiFeatures');
 exports.reportsRequestedSubject = catchAsyncErrors(async (req, res, next) => {
     try {
 
+        const subjects = await Session.aggregate([
+            {
+                $group: {
+                    _id: "$subject",
+                    count: { $sum: 1 }
+                }
+            },
+            { $sort: { count: -1 } },
+            { $limit: 10 },
+            { $lookup: { from: 'subjects', localField: '_id', foreignField: '_id', as: 'subject' } }
+        ]);
+
 
         res.status(200).json({
             success: true,
-
+            subjects
         })
 
     } catch (error) {
@@ -27,7 +40,7 @@ exports.reportsRequestedSubject = catchAsyncErrors(async (req, res, next) => {
 exports.reportsToOfferedSubject = catchAsyncErrors(async (req, res, next) => {
     try {
 
-        const subjectsCount = await Tutor.aggregate([
+        const subjects = await Tutor.aggregate([
             { $unwind: "$subjects" },
             {
                 $group: {
@@ -42,7 +55,7 @@ exports.reportsToOfferedSubject = catchAsyncErrors(async (req, res, next) => {
 
         res.status(200).json({
             success: true,
-            subjectsCount
+            subjects
         })
 
     } catch (error) {
@@ -55,9 +68,28 @@ exports.reportsToOfferedSubject = catchAsyncErrors(async (req, res, next) => {
 
 exports.reportsRequestedbyMale = catchAsyncErrors(async (req, res, next) => {
     try {
+        const subjects = await Session.aggregate([
+            {
+                $lookup: {
+                    from: 'users', localField: 'tutee', foreignField: '_id', as: 'tutee'
+                }
+            },
+            { "$match": { "tutee.gender": "Male" } },
+            {
+                $group: {
+                    _id: "$subject",
+                    count: { $sum: 1 }
+                }
+            },
+            { $sort: { count: -1 } },
+            { $limit: 10 },
+            { $lookup: { from: 'subjects', localField: '_id', foreignField: '_id', as: 'subject' } }
+        ]);
+
+
         res.status(200).json({
             success: true,
-
+            subjects
         })
 
     } catch (error) {
@@ -70,9 +102,28 @@ exports.reportsRequestedbyMale = catchAsyncErrors(async (req, res, next) => {
 
 exports.reportsRequestedbyFemale = catchAsyncErrors(async (req, res, next) => {
     try {
+        const subjects = await Session.aggregate([
+            {
+                $lookup: {
+                    from: 'users', localField: 'tutee', foreignField: '_id', as: 'tutee'
+                }
+            },
+            { "$match": { "tutee.gender": "Female" } },
+            {
+                $group: {
+                    _id: "$subject",
+                    count: { $sum: 1 }
+                }
+            },
+            { $sort: { count: -1 } },
+            { $limit: 10 },
+            { $lookup: { from: 'subjects', localField: '_id', foreignField: '_id', as: 'subject' } }
+        ]);
+
+
         res.status(200).json({
             success: true,
-
+            subjects
         })
 
     } catch (error) {
@@ -82,14 +133,7 @@ exports.reportsRequestedbyFemale = catchAsyncErrors(async (req, res, next) => {
 
 });
 
-
-
-
-
-
-
-
-
+//  FOR ANALYTICSSSSSSS///////
 
 exports.index = catchAsyncErrors(async (req, res, next) => {
     try {

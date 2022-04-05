@@ -18,22 +18,89 @@ exports.reportstuteeYearLevel = catchAsyncErrors(async (req, res, next) => {
     } catch (error) {
         next(error);
     }
-    
+
 });
 
 
 exports.reportsprefferedDays = catchAsyncErrors(async (req, res, next) => {
     try {
+        const days = await Session.aggregate([
+            {
+                $group: {
+                    _id: { "$dayOfWeek": "$startDate" },
+                    count: { $sum: 1 }
+                }
+            },
+            { $sort: { count: -1 } },
+            // { $lookup: { from: 'subjects', localField: '_id', foreignField: '_id', as: 'subject' } }
+        ]);
+
+
         res.status(200).json({
             success: true,
-
+            days
         })
+
 
     } catch (error) {
         next(error);
     }
-    
+
 });
+
+exports.reportsMostMonthsRequested = catchAsyncErrors(async (req, res, next) => {
+    try {
+        const months = await Session.aggregate([
+            {
+                $group: {
+                    _id: { "$month": "$requestDate" },
+                    count: { $sum: 1 }
+                }
+            },
+            { $sort: { count: -1 } },
+            // { $lookup: { from: 'subjects', localField: '_id', foreignField: '_id', as: 'subject' } }
+        ]);
+
+
+        res.status(200).json({
+            success: true,
+            months
+        })
+
+
+    } catch (error) {
+        next(error);
+    }
+
+});
+
+exports.reportsPreferredTime = catchAsyncErrors(async (req, res, next) => {
+    try {
+        const days = await Session.aggregate([
+            { $unwind: '$time' },
+            {
+                $group: {
+                    _id: "$time.timeOfDay",
+                    count: { $sum: 1 }
+                }
+            },
+            { $sort: { count: -1 } },
+            // { $lookup: { from: 'subjects', localField: '_id', foreignField: '_id', as: 'subject' } }
+        ]);
+
+
+        res.status(200).json({
+            success: true,
+            days
+        })
+
+
+    } catch (error) {
+        next(error);
+    }
+
+});
+
 
 
 exports.requestSession = catchAsyncErrors(async (req, res, next) => {
@@ -356,3 +423,9 @@ function convertUTCDateToLocalDate(date) {
     return date;
 
 };
+
+function isoStringToDate(s) {
+    var b = s.split(/\D/);
+    var days = [""]
+    return new Date(Date.UTC(b[0], --b[1], b[2], b[3] || 0, b[4] || 0, b[5] || 0, b[6] || 0));
+}

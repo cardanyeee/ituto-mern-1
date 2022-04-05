@@ -14,14 +14,18 @@ const {
     doneSession,
     reviewTutor,
     reportstuteeYearLevel,
-    reportsprefferedDays
+    reportsprefferedDays,
+    reportsMostMonthsRequested,
+    reportsPreferredTime
 } = require('../controllers/session');
 
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
 //ANALYTICSSSSSS ///
-router.route("/reports/session/topratedyearlevel").post(isAuthenticatedUser, reportstuteeYearLevel);
-router.route("/reports/session/prefferedsessiondays").post(isAuthenticatedUser, reportsprefferedDays);
+router.route("/reports/session/topratedyearlevel").get(isAuthenticatedUser, reportstuteeYearLevel);
+router.route("/reports/session/prefferedsessiondays").get(isAuthenticatedUser, reportsprefferedDays);
+router.route("/reports/session/topmonthsrequested").get(isAuthenticatedUser, reportsMostMonthsRequested);
+router.route("/reports/session/preferredtime").get(isAuthenticatedUser, reportsPreferredTime);
 
 
 router.route("/session/create").post(isAuthenticatedUser, createSession);
