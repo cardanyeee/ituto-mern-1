@@ -404,22 +404,6 @@ const MostTuteeYearLevel = () => {
                                                             height={400}
                                                             width={600}
                                                             options={{
-
-                                                                plugins: {
-                                                                    datalabels: {
-                                                                        formatter: (value, ctx) => {
-                                                                            let sum = 0;
-                                                                            let dataArr = ctx.chart.data.datasets[0].data;
-                                                                            dataArr.map(data => {
-                                                                                sum += data;
-                                                                            });
-                                                                            let percentage = (value*100 / sum).toFixed(2)+"%";
-                                                                            return percentage;
-                                                                        },
-                                                                        color: '#fff',
-                                                                    },
-                                                                },
-                                                                
                                                                 maintainAspectRatio: false,
                                                                 render: 'percentage',
                                                                 scales: {

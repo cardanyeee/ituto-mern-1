@@ -1,6 +1,4 @@
 import React, { Fragment } from 'react';
-import { useSelector } from 'react-redux';
-
 
 
 
@@ -38,10 +36,6 @@ ChartJS.register(
 // });
 
 const MostRequestedSubjects = () => {
-
-    const { users } = useSelector(state => state.allUsers);
-
-    const { male, female } = useSelector(state => state.datas);
 
 
     //REPORT CHARTSS DOWNLOADS
