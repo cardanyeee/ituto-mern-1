@@ -69,7 +69,7 @@ const UpdateMovie = ({ match, history }) => {
             'role': role,
             'phone': phone
         }
-        
+
         console.log(formData)
 
         dispatch(updateUser(user._id, formData));
@@ -105,7 +105,7 @@ const UpdateMovie = ({ match, history }) => {
                                     <div className="table-responsive">
                                         <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
                                             <form className="submit" onSubmit={submitHandler} encType='multipart/form-data'>
-                                                
+
 
                                                 <div className="form-group mb-3">
                                                     <label htmlFor="code">Firstname</label>
@@ -128,16 +128,30 @@ const UpdateMovie = ({ match, history }) => {
                                                 </div>
 
                                                 <div className="form-group mb-3">
+                                                    <label htmlFor="degree">Role</label>
+                                                    <select class="form-select" aria-label="Default select example" value={role} onChange={(e) => setRole(e.target.value)} required>
+                                                        <option value="0" disabled>-- Select Role --</option>
+                                                        <option value="user">user</option>
+                                                        <option value="admin">admin</option>
+
+                                                    </select>
+
+                                                    {/* <input type="text" id="degree" className="form-control" value={degree} onChange={(e) => setdegree(e.target.value)} required /> */}
+                                                </div>
+
+                                                {/* <div className="form-group mb-3">
                                                     <label htmlFor="name">Role</label>
                                                     <input type="text" id="name" className="form-control" value={role} onChange={(e) => setRole(e.target.value)} required />
-                                                </div>
+                                                </div> */}
 
                                                 <div className="form-group mb-3">
                                                     <label htmlFor="name">Phone</label>
                                                     <input type="text" id="name" className="form-control" value={phone} onChange={(e) => setPhone(e.target.value)} required />
                                                 </div>
 
-                                                
+
+
+
 
                                                 <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit">Update</button>
 

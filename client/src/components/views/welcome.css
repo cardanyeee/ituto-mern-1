@@ -204,9 +204,17 @@
         font-weight: 400;
         font-size: 1em;
         color: black;
-        text-align: justify;
+      
+       
 
     }
+
+    .title {
+
+        text-align: justify;
+    }
+
+
 
     .fab {
         font-family: Font Awesome\ 5 Brands;
@@ -326,9 +334,15 @@
 
     }
 
+    .col-outline {
+
+
+        background-color: #2A4250;
+    }
+
     .color1 {
 
-        color: #0A8B5C;
+        color: #6deebf;
 
     }
 
@@ -350,10 +364,11 @@
 
     }
 
+
     .swiper-color {
 
 
-        background-color: #F1F3F4;
+        background-color: #EFF4FA;
 
     }
 
@@ -372,15 +387,11 @@
 
     /* SSSSSSSSSWIPER CSSSSSSSSSSSSSSS */
 
-    .swiper {
-        width: 100%;
-        height: 100vh;
-    }
 
     .swiper-slide {
         text-align: center;
         font-size: 18px;
-        background-color: #F1F3F4;
+        background-color: #EFF4FA;
 
 
         /* Center slide text vertically */
@@ -430,6 +441,7 @@
 
     .swiper-content {
         margin-top: -30%;
+        text-align: justify;
 
     }
 
@@ -446,13 +458,41 @@
 
     @media only screen and (max-width:320px) {
 
+        .swiper {
+
+            height: 100vh;
+
+        }
+
+
+
+        .subheading {
+            margin: -30% 0 10% 0 !important;
+
+
+
+        }
+
+        .ma-2 {
+            margin: 0 4px 0 2px !important;
+            font-size: 11px !important;
+        }
+
+        .ituto-desc {
+
+            width: 100% !important;
+            margin: 0 0 0 0 !important;
+
+        }
+
+
         .display-cover {
 
             font-weight: 500;
             color: #EEF6FF;
             font-size: 23px;
-    
-    
+
+
         }
 
         .swiper-button-next,
@@ -512,8 +552,9 @@
         }
 
         .whatisHeader {
-            font-size: 5rem !important;
-            letter-spacing: .0073529412em !important;
+
+            font-size: 12px !important;
+
         }
 
 
@@ -521,13 +562,38 @@
 
     @media only screen and (max-width:375px) {
 
+        .swiper {
+
+            height: 100vh;
+
+        }
+
+
+        .subheading {
+            margin: -30% 0 10% 0 !important;
+
+
+
+        }
+
+        .ma-2 {
+            margin: 0 4px 0 4px !important;
+        }
+
+        .ituto-desc {
+
+            width: 100% !important;
+            margin: 0 0 0 0 !important;
+            line-height: 2.15em !important;
+        }
+
         .display-cover {
 
             font-weight: 500;
             color: #EEF6FF;
-            font-size: 21px!important;
-    
-    
+            font-size: 21px !important;
+
+
         }
 
 
@@ -593,6 +659,7 @@
         }
 
         .whatisHeader {
+            margin: -35% 0 25% 0 !important;
             font-size: 5rem !important;
             letter-spacing: .0073529412em !important;
         }
@@ -602,13 +669,39 @@
 
     @media screen and (max-width:425px) {
 
+        .swiper {
+
+            height: 100vh;
+
+        }
+
+
+        .subheading {
+            margin: -30% 0 10% 0 !important;
+
+
+
+        }
+
+        .ma-2 {
+            margin: 0 4px 0 4px !important;
+        }
+
+        .ituto-desc {
+
+            width: 100% !important;
+            margin: 0 0 0 0 !important;
+            line-height: 2.15em !important;
+        }
+
+
         .display-cover {
 
             font-weight: 500;
             color: #EEF6FF;
-            font-size: 21px!important;
-    
-    
+            font-size: 21px !important;
+
+
         }
 
 
@@ -670,6 +763,7 @@
         }
 
         .whatisHeader {
+            margin: -35% 0 25% 0 !important;
             font-size: 5rem !important;
             letter-spacing: .0073529412em !important;
         }
@@ -682,13 +776,33 @@
 
     @media only screen and (max-width:768px) {
 
+
+        .subheading {
+            margin: -30% 0 10% 0 !important;
+
+
+
+        }
+
+        .ma-2 {
+            margin: 0 4px 0 4px !important;
+        }
+
+        .ituto-desc {
+
+            width: 100% !important;
+            margin: 0 0 0 0 !important;
+            line-height: 2.15em !important;
+        }
+
+
         .display-cover {
 
             font-weight: 500;
             color: #EEF6FF;
-            font-size: 28px!important;
-    
-    
+            font-size: 28px !important;
+
+
         }
 
         .swiper-button-next,
@@ -750,6 +864,7 @@
         }
 
         .whatisHeader {
+            margin: -35% 0 25% 0 !important;
             font-size: 5rem !important;
             letter-spacing: .0073529412em !important;
         }
@@ -759,15 +874,15 @@
 
 
 
-      /* banner respoonsive*/
+    /* banner respoonsive*/
 
-      @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 1024px) {
 
 
         .swiperImg {
 
             align-items: center !important;
-            width: 50%!important;
+            width: 50% !important;
         }
 
         .display-1 {
@@ -807,11 +922,11 @@
     @media screen and (min-width:1440px) and (max-width: 2560px) {
 
 
-        .swiperImg {
+        /* .swiperImg {
 
             align-items: center !important;
-            width: 25%!important;
-        }
+            width: 25% !important;
+        } */
 
         .display-1 {
 
@@ -843,4 +958,12 @@
         }
 
 
+    }
+
+
+    .ituto-desc {
+
+        width: 50%;
+        margin: 2% 0 2% 25%;
+        line-height: 2em;
     }

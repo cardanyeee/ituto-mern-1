@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import InsertChartIcon from '@mui/icons-material/InsertChart';
-import StarRateIcon from '@mui/icons-material/StarRate';
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import { logout } from '../../../actions/authActions';
@@ -37,7 +36,7 @@ const Sidebar = (props) => {
         <div className={"sidebar h-100 shadow-sm " + (props.sidebarToggle === true ? "open" : "close")}>
             <Link to="/" className="text-decoration-none">
                 <div className="logo-details shadow-sm">
-                    <img className="app-logo" alt="" src="/images/applogo.png" width="50"/>
+                    <img className="app-logo" alt="" src="/images/applogo.png" width="50" />
                     {/* <img src="/images/applogo.png" width="50"/> */}
                     <span className="logo_name fw-bold text-nowrap logo-brand text-white">iTuto</span>
                 </div>
@@ -91,13 +90,13 @@ const Sidebar = (props) => {
                 <p className="title-table"> CHARTS</p>
                 <li>
                     <div className="iocn-link" id="courseMove">
-                        <Link to="/dashboard/reports">
+                        <Link to="/dashboard/reports/top-tutor">
                             <b>
                                 <InsertChartIcon fontSize='small' className="main-side-nav-icon" />
                             </b>
 
                             <span className="link_name fs-6 text-white">
-                               Reports
+                                Reports
                             </span>
 
                         </Link>
@@ -105,10 +104,14 @@ const Sidebar = (props) => {
 
                     </div>
                     <ul className="sub-menu">
-                        <li><Link to="/dashboard/reports" className="link_name">Reports</Link></li>
-                        <li><Link to="/dashboard/reports/#"><StarRateIcon className="submenu-side-nav-icon" />Top 10</Link></li>
-                        <li><Link to="/dashboard/reports/#"><StarRateIcon className="submenu-side-nav-icon"/>Top Offered</Link></li>
-                        <li><Link to="/dashboard/reports/#"><StarRateIcon className="submenu-side-nav-icon"/>Top Requested</Link></li>
+                        <li><Link to="/dashboard/reports/top-tutor">Top Tutor</Link></li>
+                        <li><Link to="/dashboard/reports/most-tutee-year-level">Tutee Per Year Level </Link></li>
+                        <li><Link to="/dashboard/reports/most-offered-subjects">Most Offered Subjects</Link></li>
+                        <li><Link to="/dashboard/reports/most-requested-subjects">Most Requested Subject</Link></li>
+                        <li><Link to="/dashboard/reports/most-requested-by-male">Most Requested By Male</Link></li>
+                        <li><Link to="/dashboard/reports/most-requested-by-female">Most Requested By Female</Link></li>
+                        
+                        <li><Link to="/dashboard/reports/most-preferred-days">Most Preferred Days</Link></li>
                     </ul>
 
                 </li>
@@ -118,7 +121,7 @@ const Sidebar = (props) => {
                 <li>
                     <div className="iocn-link" id="courseMove">
                         <Link to="/" onClick={logoutHandler}>
-                            <b><ExitToAppIcon className="main-side-nav-icon"/></b>
+                            <b><ExitToAppIcon className="main-side-nav-icon" /></b>
 
                             <span className="link_name fs-6 text-white">Logout</span>
 

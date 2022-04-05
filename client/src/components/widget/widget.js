@@ -94,8 +94,8 @@ const Widget = ({ type }) => {
           <MaleIcon
             className="icon"
             style={{
-              backgroundColor: "#2F4858",
-              color: "#F3F7FD",
+              backgroundColor: "rgb(49 143 203 / 46%)",
+              color: "#2F4858",
             }}
           />
         ),

@@ -10,10 +10,10 @@ import { subjectsReducer, newsubjectReducer, subjectDetailsReducer, subjectReduc
 const reducer = combineReducers({
 
     //ANALYTICSSS///
-    requestedSubjects: requestedSubjectsReducer,
+    requestedSubjects: requestedSubjectsReducer, 
     requestedbyMale: requestedbyMaleReducer,
     requestedbyFemale: requestedbyFemaleReducer,
-    topSubjects: topSubjectsReducer,
+    topSubjects: topSubjectsReducer, //offered
     topTutors: topTutorsReducer,
     topYearLevel: topYearLevelReducer,
     prefferedDays: prefferedDaysReducer,    
