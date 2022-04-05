@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
 import { MDBDataTableV5 } from 'mdbreact';
-import jsPDF from 'jspdf';
+
 
 // import { Link } from "react-router-dom";
 // import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ import {
     Chart as ChartJS,
     registerables
 } from "chart.js";
-import { Doughnut, Line, Bar } from 'react-chartjs-2'
+// import { Doughnut, Line, Bar } from 'react-chartjs-2'
 import './dashboard.scss'
 
 import AdminHeader from '../../layout/admin/AdminHeader';
@@ -24,7 +24,12 @@ import { allUsers } from '../../../actions/authActions';
 
 import { getData } from '../../../actions/all_actions';
 
-import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
+import { Doughnut } from 'react-chartjs-2'
+import jsPDF from 'jspdf';
+import moment from 'moment';
+
+// import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
 
 
 // defaults.tooltips.enabled = false
@@ -38,13 +43,15 @@ ChartJS.register(
 
 const Dashboard = () => {
 
+    const { datas, male, female } = useSelector(state => state.datas);
+
     const dispatch = useDispatch();
 
     const { user } = useSelector(state => state.auth);
 
     const { users } = useSelector(state => state.allUsers);
 
-    const { loading, male, female } = useSelector(state => state.datas);
+    const { loading } = useSelector(state => state.datas);
 
 
     useEffect(() => {
@@ -97,19 +104,65 @@ const Dashboard = () => {
     }
 
 
-    const pdfDownload = () => {
+    const pdfDonut = () => {
 
+        const columns = [
+            { title: "Male", field: male, },
+            { title: "Female", field: female, },
 
+        ]
+
+        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
 
         const canvas = document.getElementById('mf-populations');
 
-        const canvasImage = canvas.toDataURL('image/jpeg', 1.0);
+        const canvasImage = canvas.toDataURL('image/png', 1.0);
+
+
         let pdf = new jsPDF();
-        pdf.setFontSize(20);
-        pdf.addImage(canvasImage, 10, 10, 180, 150);
+
+
+        pdf.setFont("helvetica", "bold")
+        pdf.setFontSize(40)
+        pdf.text(15, 25, 'Male & Female Populations')
+        pdf.setFont("helvetica", "normal")
+        pdf.setFontSize(16)
+
+        pdf.text(16, 35, `Male: ${male && male}`)
+        pdf.text(80, 35, `Female: ${female && female}`)
+        pdf.text(150, 35, `Total Users: ${users && users.length}`)
+
+
+        pdf.setFontSize(16)
+        pdf.setFont("helvetica", "bolditalic")
+        pdf.text(100, 250, `Data gathered as of ${DateGathered}`)
+
+        pdf.addImage(canvasImage, 15, 50, 180, 160);
+
+        pdf.addPage()
+
+        pdf.text("Course Details", 20, 10)
+        pdf.autoTable({
+            // columnStyles: {
+            //     0: { cellWidth: 20 },
+            //     1: { cellWidth: 30 },    
+            //     2: { cellWidth: 30 },
+            //     3: { cellWidth: 20 },
+            //     4: { cellWidth: 20 },
+            //     5: { cellWidth: 20 },   
+            //     6: { cellWidth: 20 },
+            //     7: { cellWidth: 20 },
+            //     // etc   
+            // },   
+            margin: { top: 25 },
+            theme: "striped",
+            columns: columns.map(col => ({ ...col, dataKey: col.field })),
+            body: datas
+        })
         pdf.save('mf-populations.pdf');
 
     }
+
     return (
         <Fragment>
             {loading ? <Loader /> : (
@@ -168,7 +221,7 @@ const Dashboard = () => {
 
                                         </div>
 
-                                        {/* WIDGETS */}
+                                        {/* WWWIDGETSSSSSSSSS */}
 
                                         <div className="col-xl-8 mb-3" >
 
@@ -177,24 +230,6 @@ const Dashboard = () => {
                                                 <div className="col-xl-4 mb-3">
                                                     <div className="widgets">
                                                         <Widget type="subject" />
-
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="col-xl-4 mb-3">
-                                                    <div className="widgets" >
-                                                        <Widget type="user" />
-
-                                                    </div>
-
-                                                </div>
-
-                                                <div className="col-xl-4 mb-3">
-
-
-                                                    <div className="widgets">
-                                                        <Widget type="tutor" />
 
                                                     </div>
 
@@ -223,6 +258,29 @@ const Dashboard = () => {
                                                 </div>
 
                                                 <div className="col-xl-4 mb-3">
+                                                    <div className="widgets" >
+                                                        <Widget type="user" />
+
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div className="col-xl-4 mb-3">
+
+
+                                                    <div className="widgets">
+                                                        <Widget type="tutor" />
+
+                                                    </div>
+
+                                                </div>
+
+
+
+
+                                                <div className="col-xl-4 mb-3">
 
 
                                                     <div className="widgets">
@@ -235,9 +293,6 @@ const Dashboard = () => {
                                             </div>
                                         </div>
 
-
-
-
                                     </div>
 
 
@@ -249,7 +304,7 @@ const Dashboard = () => {
                                     <div className="row pr-4 pt-4">
 
 
-                                        <div className="col col-lg-12">
+                                        <div className="col col-lg-8">
 
                                             <div className="card shadow mb-4">
                                                 {/* <!-- Card Header - Dropdown --> */}
@@ -270,6 +325,8 @@ const Dashboard = () => {
                                                                     data={setUsers()}
                                                                     striped
                                                                     hover
+                                                                    order={['Date', 'asc']}
+
                                                                 />
                                                             )}
                                                         </Fragment>
@@ -280,7 +337,111 @@ const Dashboard = () => {
 
                                             </div>
                                         </div>
+
+
+
+                                        {/* DONUTTTT SECTIONNNNN*/}
+                                        <div className="col col-lg-4">
+
+                                            <div className="card shadow mb-4">
+                                                {/* <!-- Card TITLE*/}
+                                                <div className="card-header">
+                                                    <div className="row align-center">
+                                                        <div className="container">
+                                                            <div className="row align-start">
+                                                                <div className="col-md-8 col-12">
+                                                                    <h6 className="color1 mt-2 font-weight-bold">
+                                                                        Male and Female Populations
+                                                                    </h6>
+                                                                    <h6 className="color1 m-0 font-weight-bold">
+                                                                        <b>{users && users.length} </b>Total Users
+                                                                    </h6>
+                                                                </div>
+                                                                <div className="pdficon-align col-md-4 col-12">
+                                                                    <FileDownloadIcon className="pdf-icon" role="button" onClick={pdfDonut} />
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {/* <!-- Card Body --> */}
+                                                <div className="card-body">
+
+                                                    <div className="chart-pie pt-4">
+
+                                                        <Doughnut id="mf-populations"
+
+                                                            data={{
+                                                                labels: ['Female', 'Male'],
+                                                                datasets: [
+                                                                    {
+                                                                        label: '# of votes',
+                                                                        data: [female && female, male && male],
+
+                                                                        backgroundColor: [
+                                                                            '#FF6384',
+                                                                            '#36A2EB',
+                                                                            '#FFCE56    ',
+                                                                            // '#4BC0C0',
+                                                                            // '#9966FF',
+                                                                            // '#FF9F40',
+                                                                        ],
+                                                                        borderColor: [
+                                                                            'rgba(255, 99, 132, 1)',
+                                                                            'rgba(54, 162, 235, 1)',
+                                                                            'rgba(255, 206, 86, 1)',
+                                                                            // 'rgba(75, 192, 192, 1)',
+                                                                            // 'rgba(153, 102, 255, 1)',
+                                                                            // 'rgba(255, 159, 64, 1)',
+                                                                        ],
+                                                                        borderWidth: 1,
+                                                                    },
+                                                                    // {
+                                                                    //   label: 'Quantity',
+                                                                    //   data: [47, 52, 67, 58, 9, 50],
+                                                                    //   backgroundColor: 'orange',
+                                                                    //   borderColor: 'red',
+                                                                    // },
+                                                                ],
+                                                            }}
+                                                            height={400}
+                                                            width={600}
+                                                            options={{
+                                                                maintainAspectRatio: false,
+                                                           
+                                                                scales: {
+                                                                    yAxes: [
+                                                                        {
+                                                                            ticks: {
+                                                                                beginAtZero: true,
+                                                                            },
+
+                                                                            gridLines: {
+                                                                                color: 'white'
+                                                                            }
+                                                                        },
+                                                                    ],
+                                                                },
+                                                                legend: {
+                                                                    labels: {
+                                                                        fontSize: 25,
+                                                                    },
+                                                                },
+                                                            }}
+                                                        />
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
                                     </div>
+
+
 
 
                                 </div>

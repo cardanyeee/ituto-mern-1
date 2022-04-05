@@ -27,7 +27,17 @@ import TermsConditions from './components/views/TermsConditions';
 
 import Dashboard from './components/views/admin/Dashboard';
 
-import Chart from './components/views/admin/report/Charts';
+
+import TopTutor from './components/views/admin/report/TopTutor';
+import MostOfferedSubject from './components/views/admin/report/MostOfferedSubjects';
+import MostPreferredDays from './components/views/admin/report/MostPreferredDays';
+import MostRequestedByFemale from './components/views/admin/report/MostRequestedByFemale';
+import MostRequestedByMale from './components/views/admin/report/MostRequestedByMale';
+import MostRequestedSubject from './components/views/admin/report/MostRequestedSubjects';
+import MostTuteeYearLevel from './components/views/admin/report/MostTuteeYearLevel';
+
+
+
 import CourseList from './components/views/admin/course/CourseList';
 import SubjectList from './components/views/admin/subject/SubjectList';
 
@@ -74,7 +84,24 @@ const App = () => {
 
 					<ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />
 
-					<ProtectedRoute path="/dashboard/reports" isAdmin={true} component={Chart} exact />
+
+					{/* SIDEBARRRR  REPORT LINKSSS */}
+					
+					<ProtectedRoute path="/dashboard/reports/top-tutor" isAdmin={true} component={TopTutor} exact />
+					
+					<ProtectedRoute path="/dashboard/reports/most-requested-subjects" isAdmin={true} component={MostRequestedSubject} exact />
+					<ProtectedRoute path="/dashboard/reports/most-requested-by-male" isAdmin={true} component={MostRequestedByMale} exact />
+					<ProtectedRoute path="/dashboard/reports/most-requested-by-female" isAdmin={true} component={MostRequestedByFemale} exact />
+					
+					
+					<ProtectedRoute path="/dashboard/reports/most-offered-subjects" isAdmin={true} component={MostOfferedSubject} exact />
+					<ProtectedRoute path="/dashboard/reports/most-tutee-year-level" isAdmin={true} component={MostTuteeYearLevel} exact />
+					<ProtectedRoute path="/dashboard/reports/most-preferred-days" isAdmin={true} component={MostPreferredDays} exact />
+				
+
+
+
+
 					<ProtectedRoute path="/dashboard/courses" isAdmin={true} component={CourseList} exact />
 					<ProtectedRoute path="/dashboard/subjects" isAdmin={true} component={SubjectList} exact />
 

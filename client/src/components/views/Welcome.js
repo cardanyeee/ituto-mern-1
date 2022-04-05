@@ -24,6 +24,8 @@ const Welcome = () => {
 
             <div className="teamcolor v-main__wrap">
                 <div>
+
+                    {/* LANDING COVER */}
                     <section>
                         <div fluid="" className="v-parallax" style={{ height: '750px' }}>
                             <div className="v-parallax__image-container">
@@ -47,8 +49,10 @@ const Welcome = () => {
                         </div>
                     </section>
 
-
+                    {/* LANDING BODY */}
                     <section>
+
+                        {/* DDDDDDDDOWNLOAD SECTIONNNNNN */}
                         <div className="teamcolor container" id="what-is-ituto?">
                             <div className="row mt-5 align-center" >
                                 <div className="container container--fluid">
@@ -66,57 +70,69 @@ const Welcome = () => {
                                                             What is iTuto?
                                                         </div>
 
-                                                        <span className="subheading">
-                                                            <small>
-                                                                <em>
-                                                                    (Ay-Too-Toh)
-                                                                </em>
+                                                        <div className="subheading">
 
-                                                            </small>
-                                                            <br />
-                                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-                                                            <p className="my-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo.</p>
-                                                            <p className="my-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
-                                                            <p className="my-2">Lorem ipsum dolor sit amet.</p>
+                                                            <span>
+                                                                <small>
+                                                                    <em>
+                                                                        (Ay-Too-Toh)<br />
+                                                                    </em>
 
-                                                            <div className="row align-start">
-                                                                <div className="col-md-12 col-12">
-                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light" id="elevation-0" >
+                                                                </small>
 
-                                                                        {/* <i aria-hidden="true"
+                                                                <small>
+
+                                                                    In partial fullfilment on the subject <i>Capstone 2.</i>
+
+
+                                                                </small>
+                                                                <br />
+                                                            </span>
+
+
+                                                        </div>
+
+                                                        <p className="ituto-desc">iTuto is a mobile application and a capstone project titled as <i>Android based community application focusing on tutoring services offered by the TUPT-T students.</i> Our team created this project with objectives to fulfill such as to promote a peer-to-peer tutoring among the students.</p>
+
+
+                                                        <div className="row align-start">
+                                                            <div className="col-md-12 col-12">
+                                                                <div className="elevation-0 transparent v-card v-sheet theme--light" id="elevation-0" >
+
+                                                                    {/* <i aria-hidden="true"
                                                 className="v-icon notranslate --text text--lighten-2 fab fa-github theme--light"
                                                 style={{ fontSize: "40px" }}>
                                                     </i> */}
-                                                                    </div>
-
-                                                                    {/* <img src="images/app-mockup.png" width="380" /> */}
-
-
-
                                                                 </div>
 
+                                                                {/* <img src="images/app-mockup.png" width="380" /> */}
+
+
 
                                                             </div>
-                                                            <div className="text-center">
 
-                                                                <a href="https://drive.google.com/file/d/1mKA_qDNRKAK8Ym63LqMtewR2vT2Cwwu1/view" target="_blank" rel="noreferrer"
-                                                                    className="ma-2 v-btn v-btn--contained v-btn--router theme--dark v-size--default ryu_orange">
-                                                                    <span className="v-btn__content">
-                                                                        <i aria-hidden="true"
-                                                                            className="v-icon notranslate ml-n1 mr-2 fas fa-download theme--dark">
-                                                                        </i>
-                                                                        Download
 
-                                                                    </span>
-                                                                </a>
+                                                        </div>
+                                                        <div className="text-center">
 
-                                                                <a href="/#features" className="ma-2 v-btn v-btn--contained theme--dark v-size--default ryu_blue" id="compat">
-                                                                    <span className="v-btn__content"><i aria-hidden="true"
-                                                                        className="v-icon notranslate ml-n1 mr-2 fas fa-gamepad theme--dark"></i>Learn More
-                                                                    </span>
-                                                                </a>
-                                                            </div>
-                                                        </span>
+                                                            <a href="https://drive.google.com/file/d/1mKA_qDNRKAK8Ym63LqMtewR2vT2Cwwu1/view" target="_blank" rel="noreferrer"
+                                                                className="ma-2 v-btn v-btn--contained v-btn--router theme--dark v-size--default ryu_orange">
+                                                                <span className="v-btn__content">
+                                                                    <i aria-hidden="true"
+                                                                        className="v-icon notranslate ml-n1 mr-2 fas fa-download theme--dark">
+                                                                    </i>
+                                                                    Download
+
+                                                                </span>
+                                                            </a>
+
+                                                            <a href="/#features" className="ma-2 v-btn v-btn--contained theme--dark v-size--default ryu_blue" id="compat">
+                                                                <span className="v-btn__content"><i aria-hidden="true"
+                                                                    className="v-icon notranslate ml-n1 mr-2 fas fa-gamepad theme--dark"></i>Learn More
+                                                                </span>
+                                                            </a>
+                                                        </div>
+
 
 
                                                     </div>
@@ -132,6 +148,12 @@ const Welcome = () => {
                         {/* MOVE 1 DIV ABOVEEEEEEEE */}
 
 
+
+
+
+                        {/* SSSSSSSSWIPER SECTIONNNNNNNNNN */}
+
+
                         <div className="col1 v-parallax hidden-sm-and-down" style={{ height: "200px" }} >
 
                             <div className="v-parallax__image-container" id="features">
@@ -142,379 +164,380 @@ const Welcome = () => {
                             </div>
                         </div>
 
+                        <div className="container">
+
+                            <div className="swiper-color col-12">
+                                <div className="elevation-0 transparent v-card v-sheet theme--light" >
+
+                                    <div primary-title="" className="v-card__title layout justify-center">
+
+                                        <div className="row align-center">
+                                            <div className="container">
+                                                <div className="row align-start">
+                                                    <div className="col-md-12 col-12">
+
+                                                        <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                            <Swiper
+                                                                slidesPerView={1}
+                                                                spaceBetween={30}
+                                                                effect={"fade"}
+                                                                loop={true}
+                                                                autoplay={{
+                                                                    delay: 3000,
+                                                                    disableOnInteraction: false,
+                                                                }}
+                                                                pagination={{
+                                                                    clickable: true,
+                                                                }}
+                                                                navigation={true}
+                                                                modules={[EffectFade, Autoplay, Pagination, Navigation]}
+                                                                className="mySwiper">
 
 
-                        <div className="swiper-color col-12">
-                            <div className="elevation-0 transparent v-card v-sheet theme--light" >
+                                                                {/* Step 1 */}
+                                                                <SwiperSlide>
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
 
-                                <div primary-title="" className="v-card__title layout justify-center">
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                    <div className="row align-center">
-                                        <div className="container">
-                                            <div className="row align-start">
-                                                <div className="col-md-12 col-12">
-
-                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                        <Swiper
-                                                            slidesPerView={1}
-                                                            spaceBetween={30}
-                                                            effect={"fade"}
-                                                            loop={true}
-                                                            autoplay={{
-                                                                delay: 3000,
-                                                                disableOnInteraction: false,
-                                                            }}
-                                                            pagination={{
-                                                                clickable: true,
-                                                            }}
-                                                            navigation={true}
-                                                            modules={[EffectFade, Autoplay, Pagination, Navigation]}
-                                                            className="mySwiper">
-
-
-                                                            {/* Step 1 */}
-                                                            <SwiperSlide>
-                                                                <div className="row align-center">
-                                                                    <div className="container">
-                                                                        <div className="row align-start">
-                                                                            <div className="col-md-4 col-12">
-
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="swiper-display" id="swiperDisplay">
-                                                                                            Download the App
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Download the App
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
 
 
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className="swiper-align col-md-8 col-12">
-                                                                                <img className="swiperImg" src="images/swiper-mockup1.png" alt="app-mockup" width="200" />
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                    </div>
-                                                                                    <div className="swiper-content v-card__text text-center">
-                                                                                        <p style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
                                                                                     </div>
                                                                                 </div>
-                                                                            </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/swiper-mockup1.png" alt="app-mockup" width="200" />
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
 
-
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </SwiperSlide>
-
-
-                                                            {/* Step 2 */}
-                                                            <SwiperSlide>
-                                                                <div className="row align-center">
-                                                                    <div className="container">
-                                                                        <div className="row align-start">
-                                                                            <div className="col-md-4 col-12">
-
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="swiper-display" id="swiperDisplay">
-                                                                                            Step 2
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
-
-
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className="swiper-align col-md-8 col-12">
-                                                                                <img className="swiperImg" src="images/app-mockup2.png" alt="app-mockup" width="200" />
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
 
                                                                                         </div>
-                                                                                    </div>
-                                                                                    <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                    </div>
-                                                                                    <div className="swiper-content v-card__text text-center">
-                                                                                        <p style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
-
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </SwiperSlide>
-
-                                                            {/* Step 3 */}
-                                                            <SwiperSlide>
-                                                                <div className="row align-center">
-                                                                    <div className="container">
-                                                                        <div className="row align-start">
-                                                                            <div className="col-md-4 col-12">
-
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="swiper-display" id="swiperDisplay">
-                                                                                            Step 3
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
                                                                                         </div>
                                                                                     </div>
-
-
                                                                                 </div>
-                                                                            </div>
-                                                                            <div className="swiper-align col-md-8 col-12">
-                                                                                <img className="swiperImg" src="images/app-mockup3.png" alt="app-mockup" width="200" />
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                    </div>
-                                                                                    <div className="swiper-content v-card__text text-center">
-                                                                                        <p style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
 
 
 
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </SwiperSlide>
-
-                                                            {/* Step 4*/}
-                                                            <SwiperSlide>
-                                                                <div className="row align-center">
-                                                                    <div className="container">
-                                                                        <div className="row align-start">
-                                                                            <div className="col-md-4 col-12">
-
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="swiper-display" id="swiperDisplay">
-                                                                                            Step 4
-                                                                                        </div>
-                                                                                    </div>
-
-
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className="swiper-align col-md-8 col-12">
-                                                                                <img className="swiperImg" src="images/app-mockup4.png" alt="app-mockup" width="200" />
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                    </div>
-                                                                                    <div className="swiper-content v-card__text text-center">
-                                                                                        <p style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
-                                                                                    </div>
-                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </SwiperSlide>
+                                                                </SwiperSlide>
 
-                                                            {/* Step 5 */}
-                                                            <SwiperSlide>
 
-                                                                <div className="row align-center">
-                                                                    <div className="container">
-                                                                        <div className="row align-start">
-                                                                            <div className="col-md-4 col-12">
+                                                                {/* Step 2 */}
+                                                                <SwiperSlide>
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
 
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="swiper-display" id="swiperDisplay">
-                                                                                            Step 5
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Step 2
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
 
 
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className="swiper-align col-md-8 col-12">
-                                                                                <img className="swiperImg" src="images/app-mockup5.png" alt="app-mockup" width="200" />
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                    </div>
-                                                                                    <div className="swiper-content v-card__text text-center">
-                                                                                        <p style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
                                                                                     </div>
                                                                                 </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/app-mockup2.png" alt="app-mockup" width="200" />
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
                                                                             </div>
-
-
-
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </SwiperSlide>
 
-                                                            </SwiperSlide>
+                                                                {/* Step 3 */}
+                                                                <SwiperSlide>
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
 
-                                                            {/* Step 6 */}
-                                                            <SwiperSlide>
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                                <div className="row align-center">
-                                                                    <div className="container">
-                                                                        <div className="row align-start">
-                                                                            <div className="col-md-4 col-12">
-
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="swiper-display" id="swiperDisplay">
-                                                                                            Step 6
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Step 3
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
 
 
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className="swiper-align col-md-8 col-12">
-                                                                                <img className="swiperImg" src="images/app-mockup6.png" alt="app-mockup" width="200" />
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                    </div>
-                                                                                    <div className="swiper-content v-card__text text-center">
-                                                                                        <p style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
                                                                                     </div>
                                                                                 </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/app-mockup3.png" alt="app-mockup" width="200" />
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
                                                                             </div>
-
-
-
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </SwiperSlide>
 
-                                                            </SwiperSlide>
+                                                                {/* Step 4*/}
+                                                                <SwiperSlide>
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
 
-                                                            {/* Step 7 */}
-                                                            <SwiperSlide>
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                                <div className="row align-center">
-                                                                    <div className="container">
-                                                                        <div className="row align-start">
-                                                                            <div className="col-md-4 col-12">
-
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="swiper-display" id="swiperDisplay">
-                                                                                            Step 7
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Step 4
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
 
 
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className="swiper-align col-md-8 col-12">
-                                                                                <img className="swiperImg" src="images/app-mockup7.png" alt="app-mockup" width="200" />
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                    </div>
-                                                                                    <div className="swiper-content v-card__text text-center">
-                                                                                        <p style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
                                                                                     </div>
                                                                                 </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/app-mockup4.png" alt="app-mockup" width="200" />
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
-
-
-
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </SwiperSlide>
 
-                                                            </SwiperSlide>
+                                                                {/* Step 5 */}
+                                                                <SwiperSlide>
 
-                                                            {/* Step 8 */}
-                                                            <SwiperSlide>
-                                                                <div className="row align-center">
-                                                                    <div className="container">
-                                                                        <div className="row align-start">
-                                                                            <div className="col-md-4 col-12">
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
 
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="swiper-display" id="swiperDisplay">
-                                                                                            Step 8
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Step 5
+                                                                                            </div>
                                                                                         </div>
-                                                                                    </div>
 
 
-                                                                                </div>
-                                                                            </div>
-                                                                            <div className="swiper-align col-md-8 col-12">
-                                                                                <img className="swiperImg" src="images/app-mockup8.png" alt="app-mockup" width="200" />
-                                                                                <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                    <div className="v-card__text text-center">
-                                                                                        <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
-
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                    </div>
-                                                                                    <div className="swiper-content v-card__text text-center">
-                                                                                        <p style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
                                                                                     </div>
                                                                                 </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/app-mockup5.png" alt="app-mockup" width="200" />
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
                                                                             </div>
-
-
-
                                                                         </div>
                                                                     </div>
-                                                                </div>
 
-                                                            </SwiperSlide>
+                                                                </SwiperSlide>
+
+                                                                {/* Step 6 */}
+                                                                <SwiperSlide>
+
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Step 6
+                                                                                            </div>
+                                                                                        </div>
 
 
-                                                        </Swiper>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/app-mockup6.png" alt="app-mockup" width="200" />
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </SwiperSlide>
+
+                                                                {/* Step 7 */}
+                                                                <SwiperSlide>
+
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Step 7
+                                                                                            </div>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/app-mockup7.png" alt="app-mockup" width="200" />
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </SwiperSlide>
+
+                                                                {/* Step 8 */}
+                                                                <SwiperSlide>
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Step 8
+                                                                                            </div>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/app-mockup8.png" alt="app-mockup" width="200" />
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </SwiperSlide>
+
+
+                                                            </Swiper>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -522,9 +545,10 @@ const Welcome = () => {
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
-                        <div className="col1 col-12">
+                        <div className="col-12">
                             <div className="elevation-0 transparent v-card v-sheet theme--light" >
 
                                 <div primary-title="" className="v-card__title layout justify-center">
@@ -613,12 +637,7 @@ const Welcome = () => {
                                 <div className="row align-start justify-center">
                                     <div className="col col-12">
                                         <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                            <div className="v-card__text text-center" id="picturePad">
-                                                <i aria-hidden="true"
-                                                    className=" v-icon notranslate --text text--lighten-2 fas fa-users  "
-                                                    style={{ fontSize: '30px', color: '#2F4858' }}>
-                                                </i>
-                                            </div>
+
                                             <div primary-title="" className="v-card__title layout justify-center" >
                                                 <div className="teamHeader text-center" style={{ fontWeight: "bold" }}>Meet Our Team</div>
                                             </div>
@@ -639,7 +658,10 @@ const Welcome = () => {
                                                         src="/images/teamDp-2.png" className="g-image" />
                                                     </div>
                                                 </div>
+
+
                                                 <div primary-title="" className="v-card__title layout justify-center" >
+
                                                     <a href="https://github.com/sayrsalad"
                                                         className="color1 headline text-center" target="_blank" rel="noreferrer" >
                                                         Jose Angelo Arboleda
@@ -651,6 +673,8 @@ const Welcome = () => {
                                                     <h6><b>Project Manager / Lead Developer / Mobile Developer</b></h6><br />
 
                                                 </div>
+
+
                                                 <div className="v-card__text text-center">
                                                     <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p>
 
