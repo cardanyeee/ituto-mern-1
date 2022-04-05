@@ -172,17 +172,25 @@ exports.activateTutor = catchAsyncErrors(async (req, res, next) => {
 });
 
 exports.getCurrentTutor = catchAsyncErrors(async (req, res, next) => {
-    console.log('Getting');
+    try {
+        const tutor = await Tutor.findOne({ userID: req.user._id })
+            .populate({
+                path: 'userID',
+                populate: {
+                    path: 'course'
+                }
+            })
+            .populate("subjects");
 
-    const tutor = await Tutor.findOne({ userID: req.user._id }).populate("subjects");
+        console.log(tutor);
 
-    // console.log(user);
-
-    res.status(200).json({
-        success: true,
-        tutor
-    })
-
+        res.status(200).json({
+            success: true,
+            tutor
+        })
+    } catch (error) {
+        next(new ErrorResponse('Tutor not found', 404));
+    }
 });
 
 exports.addSubject = catchAsyncErrors(async (req, res, next) => {
@@ -252,6 +260,27 @@ exports.findTutor = catchAsyncErrors(async (req, res, next) => {
     } catch (error) {
         next(new ErrorResponse('Tutor not found', 404));
     }
+});
+
+exports.updateAvailability = catchAsyncErrors(async (req, res, next) => {
+
+    try {
+
+        const tutor = await Tutor.findOne({ userID: req.user._id });
+
+        tutor.availability = JSON.parse(req.body.availability);
+
+        tutor.save();
+
+        res.status(200).json({
+            success: true,
+            message: "Availability successfully changed!"
+        });
+    } catch (error) {
+        console.log(error);
+        next(err);
+    }
+
 });
 
 const createActivationToken = (payload) => {

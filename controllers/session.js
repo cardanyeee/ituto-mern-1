@@ -161,12 +161,13 @@ exports.doneSession = catchAsyncErrors(async (req, res, next) => {
 
     try {
 
-        const session = await Session.findById(req.params.id);
+        const session = await Session.findById(req.params.id)
+            .populate("assessments");
 
         if (!(req.user._id.equals(session.tutor))) {
             return next(new ErrorResponse("Unauthorized Access.", 401));
         }
-        
+
         session.endDate = convertUTCDateToLocalDate(Date.now());
         session.status = "Done";
 
@@ -226,14 +227,11 @@ exports.findTutorSession = catchAsyncErrors(async (req, res, next) => {
 
 exports.findTuteeSession = catchAsyncErrors(async (req, res, next) => {
     try {
-        console.log(req.query);
         const sessions = await Session.find({ tutee: req.user._id, status: req.query.status })
             .sort({ updatedAt: -1 })
             .populate("tutor")
             .populate("tutee")
             .populate("subject");
-
-        console.log(sessions[0])
 
         res.status(200).json({
             success: true,
@@ -316,7 +314,7 @@ exports.reviewTutor = catchAsyncErrors(async (req, res, next) => {
 
         if (isReviewed) {
             tutor.reviews.forEach(review => {
-                if (review.tutee.toString() === req.user._id.toString()) {
+                if (review.tutee.toString() === req.user._id.toString() && review.subject.toString() === subject) {
                     review.comment = comment;
                     review.rating = rating;
                     review.reviewDate = convertUTCDateToLocalDate(Date.now());
