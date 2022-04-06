@@ -101,11 +101,8 @@ exports.reportsPreferredTime = catchAsyncErrors(async (req, res, next) => {
 
 });
 
-
-
 exports.requestSession = catchAsyncErrors(async (req, res, next) => {
 
-    console.log(req.body);
     try {
 
         const tutee = req.user._id;
@@ -115,7 +112,18 @@ exports.requestSession = catchAsyncErrors(async (req, res, next) => {
 
         const tutorObject = await Tutor.findOne({ userID: tutor });
 
-        console.log(tutorObject.subjects);
+        const checkSession = await Session.find({ tutee, subject, status: "Request" });
+        const checkSessionDateTime = await Session.find({ tutee, startDate, status: "Request" });
+
+        
+        if (checkSessionDateTime) {
+            return next(new ErrorResponse("You have already sent a request with the same date.", 409));
+        }
+
+        if (checkSession) {
+            return next(new ErrorResponse("You have already sent a request with the same subject.", 409));
+        }
+
 
         if (!tutorObject.subjects.includes(subject)) {
             return next(new ErrorResponse("Subject not offered by tutor.", 404));
@@ -132,6 +140,9 @@ exports.requestSession = catchAsyncErrors(async (req, res, next) => {
         });
 
         session.save();
+
+        session = await session.populate("tutee");
+        session = await session.populate("subject");
 
         res.status(200).json({
             success: true,

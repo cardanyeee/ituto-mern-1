@@ -80,6 +80,11 @@ io.on("connection", (socket) => {
         });
     });
 
+    socket.on("session request", (session) => {
+        console.log(session);
+        socket.to(session.tutor).emit("session notify", session);
+    });
+
     socket.on("assessment create", (assessment) => {
         console.log(assessment);
         socket.to(assessment.tutee).emit("assessment notify", assessment);
