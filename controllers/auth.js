@@ -35,7 +35,7 @@ exports.dashboard = catchAsyncErrors(async (req, res, next) => {
         } else if (value.gender == "Female") {
             female = female + 1;
 
-        } 
+        }
     })
 
     res.status(200).json({

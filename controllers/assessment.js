@@ -62,7 +62,7 @@ exports.answerAssessment = catchAsyncErrors(async (req, res, next) => {
     try {
 
         const tutee = req.user._id;
-        const assessment = await Assessment.findOne({ _id: req.params.id });
+        var assessment = await Assessment.findOne({ _id: req.params.id });
         const questions = assessment.questions;
         const answers = JSON.parse(req.body.answers);
         var score = 0;
@@ -94,7 +94,7 @@ exports.answerAssessment = catchAsyncErrors(async (req, res, next) => {
         })
 
         questions.map((question, i) => {
-            console.log(question.choices[convertedAnswer[i]].choice, question.answer);
+            // console.log(question.choices[convertedAnswer[i]].choice, question.answer);
             if (question.choices[convertedAnswer[i]].choice == question.answer) {
                 score++;
             }
@@ -104,19 +104,14 @@ exports.answerAssessment = catchAsyncErrors(async (req, res, next) => {
         assessment.answerDate = convertUTCDateToLocalDate(Date.now());
         assessment.answers = convertedAnswer;
 
-        // console.log(JSON.parse(req.body.answers));
-        // console.log(req.params.id);
-        // console.log(tutee);
-        // console.log(assessment);
-        // console.log(score);
-        // const { sessionID, name, questions, subject, tutee } = req.body;
-
         await assessment.save();
 
-        console.log(assessment);
+        assessment = await assessment.populate("subject");
+        assessment = await assessment.populate("tutee");
 
         res.status(200).json({
             success: true,
+            assessment,
             score,
             totalItems: questions.length,
             message: "Assessment Successfully Created!"

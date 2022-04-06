@@ -59,10 +59,20 @@ exports.reportsTuteeYearLevel = catchAsyncErrors(async (req, res, next) => {
 });
 
 
+exports.getTutees = catchAsyncErrors(async (req, res, next) => {
+    try {
 
+        const tutees = await User.find({ "isTutor": false });
 
-
-
+        res.status(200).json({
+            success: true,
+            tutees
+        })
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
 
 
 exports.index = catchAsyncErrors(async (req, res, next) => {

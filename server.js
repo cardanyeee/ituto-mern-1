@@ -81,7 +81,13 @@ io.on("connection", (socket) => {
     });
 
     socket.on("assessment create", (assessment) => {
+        console.log(assessment);
         socket.to(assessment.tutee).emit("assessment notify", assessment);
+    });
+
+    socket.on("assessment answer", (assessment) => {
+        console.log(assessment.tutor);
+        socket.to(assessment.tutor).emit("assessment check", assessment);
     });
 
     socket.on("call", (call) => {
