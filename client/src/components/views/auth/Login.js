@@ -1,14 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import GoogleLogin from 'react-google-login';
-import { Link } from "react-router-dom";
 import { useAlert } from 'react-alert';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import MetaData from '../../layout/main/MetaData';
 import Loader from '../../layout/main/Loader';
 
-import { login, googleLogin, clearErrors } from '../../../actions/authActions';
+import { login, clearErrors } from '../../../actions/authActions';
 
 import './login.css';
 
@@ -27,7 +24,7 @@ const Login = ({ history }) => {
     useEffect(() => {
 
         if (isAuthenticated) {
-            history.push('/');
+            history.push('/dashboard');
         }
 
         if (error && !(error === 'You have to login first to access this.')) {
@@ -42,14 +39,6 @@ const Login = ({ history }) => {
         e.preventDefault();
         dispatch(login(email, password));
     };
-
-    const responseGoogleSuccess = async (res) => {
-        dispatch(googleLogin(res));
-    }
-
-    const responseGoogleFailure = () => {
-        console.log("Sign in was unsuccessful.")
-    }
 
     return (
         <Fragment>
@@ -88,33 +77,11 @@ const Login = ({ history }) => {
                                             </div>
 
                                             <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit">Login</button>
-
-                                            <div className="row my-2">
-                                                <div className="col"><hr /></div>
-                                                <div className="col-auto mt-1">OR</div>
-                                                <div className="col"><hr /></div>
-                                            </div>
-
-                                            <div className="pt-1 mt-2 mb-4">
-                                                <GoogleLogin
-                                                    clientId="924372861452-4fl88545df8le5tu7e6f1tlgclt2cp78.apps.googleusercontent.com"
-                                                    render={renderProps => (
-                                                        <button onClick={renderProps.onClick} className="btn btn-danger btn-lg btn-block w-100 text-white"><FontAwesomeIcon icon={["fab", "google"]} className="me-3" />Continue with Google</button>
-                                                    )}
-                                                    onSuccess={responseGoogleSuccess}
-                                                    onFailure={responseGoogleFailure}
-                                                    cookiePolicy={'single_host_origin'}
-                                                />
-                                            </div>
-
-                                            <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-secondary" to='/register'>Register Here</Link></p>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </Fragment>
             )}

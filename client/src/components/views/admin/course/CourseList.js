@@ -72,6 +72,10 @@ const MoviesLists = ({ history }) => {
                             <FontAwesomeIcon icon="trash" />
                         </button>
                     </Fragment>
+
+
+
+
             })
         })
 
@@ -82,8 +86,8 @@ const MoviesLists = ({ history }) => {
     const columns = [
         { title: "ID", field: "_id", },
         { title: "Code", field: "code", },
-        { title: "Name", field: "name",},
-        { title: "Degree", field: "degree",},
+        { title: "Name", field: "name", },
+        { title: "Degree", field: "degree", },
     ]
 
 
@@ -98,100 +102,116 @@ const MoviesLists = ({ history }) => {
 
     const downloadPdf = () => {
 
-    const doc = new jsPDF()
-    doc.text("Course Details", 20, 10)
-    doc.autoTable({
-        // columnStyles: {
-        //     0: { cellWidth: 20 },
-        //     1: { cellWidth: 30 },
-        //     2: { cellWidth: 30 },
-        //     3: { cellWidth: 20 },
-        //     4: { cellWidth: 20 },
-        //     5: { cellWidth: 20 },   
-        //     6: { cellWidth: 20 },
-        //     7: { cellWidth: 20 },
-        //     // etc
-        // },   
-        margin: { top: 25 },
-        columns: columns.map(col => ({ ...col, dataKey: col.field })),  
-        theme: "striped",
-        body: courses
-    })
-    doc.save(`${csvDownloadDate}-Courses.pdf`)
-}
+        const doc = new jsPDF()
+        doc.text("Course Details", 20, 10)
+        doc.autoTable({
+            // columnStyles: {
+            //     0: { cellWidth: 20 },
+            //     1: { cellWidth: 30 },
+            //     2: { cellWidth: 30 },
+            //     3: { cellWidth: 20 },
+            //     4: { cellWidth: 20 },
+            //     5: { cellWidth: 20 },   
+            //     6: { cellWidth: 20 },
+            //     7: { cellWidth: 20 },
+            //     // etc
+            // },   
+            margin: { top: 25 },
+            columns: columns.map(col => ({ ...col, dataKey: col.field })),
+            theme: "striped",
+            body: courses
+        })
+        doc.save(`${csvDownloadDate}-Courses.pdf`)
+    }
 
 
-const deletecourseHandler = (id) => {
-    dispatch(deleteC(id));
-}
+    const deletecourseHandler = (id) => {
+        dispatch(deleteC(id));
+    }
 
-return (
+    return (
 
-    <Fragment>
-        <AdminHeader />
-
-        <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
-        <div className="home-section">
-
-            <div className="container-fluid" id="subjectContainer">
-
-                <h1 className="h3 mb-2 text-gray-800">Courses</h1>
+        <Fragment>
+            <AdminHeader />
 
 
-                <p className="mb-4">Listed below are the courses that are included on the mobile application </p>
 
-                <div className="card shadow mb-4">
+            <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
 
-                    <div className="card-header py-3">
-                        <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
-                            <div className="btn" role="button" onClick={csvReport} style={{ backgroundColor: "#2A4250" }}>
-                                <i className="color-report fas fa-print fa-xs" >
-                                    <span className="m-0 font-weight-bold" >
-                                        &nbsp;CSV
 
-                                    </span>
-                                </i>
+
+            <Fragment>
+                {loading ? <Loader /> : (
+                    <div className="home-section">
+
+                        <div className="container-fluid" id="subjectContainer">
+
+                            <h1 className="h3 mb-2 text-gray-800">Courses</h1>
+
+
+                            <p className="mb-4">Listed below are the courses that are included on the mobile application </p>
+
+                            <div className="card shadow mb-4">
+
+                                <div className="card-header py-3">
+                                    <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
+                                        <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
+                                            <i className="color-report fas fa-print fa-xs" >
+                                                <span className="m-0 font-weight-bold" >
+                                                    &nbsp;CSV
+
+                                                </span>
+                                            </i>
+                                        </div>
+                                    </CSVLink>
+                                    &nbsp;
+
+                                    <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#9FDACA" }}>
+                                        <i className="color-report fas fa-print fa-xs" >
+                                            <span className="m-0 font-weight-bold" >
+                                                &nbsp;PDF
+
+                                            </span>
+                                        </i>
+                                    </div>
+
+                                </div>
+
+                                <div className="card-body">
+                                    <div className="table-responsive">
+                                        <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
+
+                                            <Fragment>
+                                                {loading ? <Loader /> : (
+                                                    <MDBDataTableV5
+                                                        data={setcourses()}
+                                                        striped
+                                                        hover
+                                                        searchTop
+                                                        searchRight
+                                                        barReverse
+                                                        searchBottom={false}
+                                                    />
+                                                )}
+                                            </Fragment>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </CSVLink>
-                        &nbsp;
 
-                        <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#9FDACA" }}>
-                            <i className="color-report fas fa-print fa-xs" >
-                                <span className="m-0 font-weight-bold" >
-                                    &nbsp;PDF
-
-                                </span>
-                            </i>
                         </div>
+
 
                     </div>
 
-                    <div className="card-body">
-                        <div className="table-responsive">
-                            <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
+                )}
 
-                                <Fragment>
-                                    {loading ? <Loader /> : (
-                                        <MDBDataTableV5
-                                            data={setcourses()}
-                                            striped
-                                            hover
-                                        />
-                                    )}
-                                </Fragment>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+            </Fragment>
 
 
-        </div>
 
-
-    </Fragment >
-)
+        </Fragment >
+    )
 }
 
 export default MoviesLists

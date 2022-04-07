@@ -6,6 +6,7 @@ import { MDBDataTableV5 } from 'mdbreact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { CSVLink } from "react-csv";
 
+
 import { getSs, deleteS, clearErrors } from '../../../../actions/subjectActions';
 
 
@@ -53,10 +54,10 @@ const ProducersLists = ({ history }) => {
     const setsubjects = () => {
         const data = {
             columns: [
-                { label: 'Code', field: 'Code', width: 210, sort: 'asc' },
-                { label: 'Name', field: 'Name', width: 150, sort: 'asc' },
-                { label: 'Semester', field: 'Semester', width: 230, sort: 'asc' },
-                { label: 'Course', field: 'Course', width: 230, sort: 'asc' },
+                { label: 'Code', field: 'Code',  sort: 'asc' },
+                { label: 'Name', field: 'Name',  sort: 'asc' },
+                { label: 'Semester', field: 'Semester', sort: 'asc' },
+                { label: 'Course', field: 'Course',  sort: 'asc' },
                 { label: 'Actions', field: 'actions', width: 100 }
             ],
             rows: []
@@ -143,70 +144,81 @@ const ProducersLists = ({ history }) => {
     return (
         <Fragment>
             <AdminHeader />
+
+
             <MetaData title={'All Producers'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
-            <div className="home-section">
+           
+           <Fragment>
+           {loading ? <Loader /> : (
+                <div className="home-section">
 
-                <div className="container-fluid" id="subjectContainer">
+                    <div className="container-fluid" id="subjectContainer">
 
-                    <h1 className="h3 mb-2 text-gray-800">Subjects</h1>
-
-
-                    <p className="mb-4">Listed below are the  <b>subjects</b> that are included on the mobile application </p>
+                        <h1 className="h3 mb-2 text-gray-800">Subjects</h1>
 
 
-                    <div className="card shadow mb-4">
+                        <p className="mb-4">Listed below are the  <b>subjects</b> that are included on the mobile application </p>
 
-                        <div className="card-header py-3">
-                            <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
-                                <div className="btn" role="button" onClick={csvReport} style={{ backgroundColor: "#2A4250" }}>
+
+                        <div className="card shadow mb-4">
+
+                            <div className="card-header py-3">
+                                <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
+                                    <div className="btn" role="button"  style={{ backgroundColor: "#2A4250" }}>
+                                        <i className="color-report fas fa-print fa-xs" >
+                                            <span className="m-0 font-weight-bold" >
+                                                &nbsp;CSV
+
+                                            </span>
+                                        </i>
+                                    </div>
+                                </CSVLink>
+                                &nbsp;
+
+                                <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#9FDACA" }}>
                                     <i className="color-report fas fa-print fa-xs" >
                                         <span className="m-0 font-weight-bold" >
-                                            &nbsp;CSV
+                                            &nbsp;PDF
 
                                         </span>
                                     </i>
                                 </div>
-                            </CSVLink>
-                            &nbsp;
 
-                            <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#9FDACA" }}>
-                                <i className="color-report fas fa-print fa-xs" >
-                                    <span className="m-0 font-weight-bold" >
-                                        &nbsp;PDF
-
-                                    </span>
-                                </i>
                             </div>
 
-                        </div>
 
 
+                            <div className="card-body">
+                                <div className="table-responsive">
+                                    <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
 
-                        <div className="card-body">
-                            <div className="table-responsive">
-                                <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
-
-                                    <Fragment>
-                                        {loading ? <Loader /> : (
-                                            <MDBDataTableV5
-                                                data={setsubjects()}
-                                                striped
-                                                hover
-                                            />
-                                        )}
-                                    </Fragment>
+                                        <Fragment>
+                                            {loading ? <Loader /> : (
+                                                <MDBDataTableV5
+                                                    data={setsubjects()}
+                                                    striped
+                                                    hover
+                                                    searchTop
+                                                    searchRight
+                                                    barReverse
+                                                    searchBottom={false}
+                                                />
+                                            )}
+                                        </Fragment>
+                                    </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
+
                 </div>
+           )}
 
-
-            </div>
-
-
-
+           
+            </Fragment>
+            
 
 
         </Fragment>

@@ -34,7 +34,7 @@ const Sidebar = (props) => {
 
     return (
         <div className={"sidebar h-100 shadow-sm " + (props.sidebarToggle === true ? "open" : "close")}>
-            <Link to="/" className="text-decoration-none">
+            <Link to="/dashboard" className="text-decoration-none">
                 <div className="logo-details shadow-sm">
                     <img className="app-logo" alt="" src="/images/applogo.png" width="50" />
                     {/* <img src="/images/applogo.png" width="50"/> */}
@@ -110,7 +110,8 @@ const Sidebar = (props) => {
                         <li><Link to="/dashboard/reports/most-requested-subjects">Most Requested Subject</Link></li>
                         <li><Link to="/dashboard/reports/most-requested-by-male">Most Requested By Male</Link></li>
                         <li><Link to="/dashboard/reports/most-requested-by-female">Most Requested By Female</Link></li>
-                        
+                        <li><Link to="/dashboard/reports/average-request-per-month">Average Request Per Month</Link></li>
+
                         <li><Link to="/dashboard/reports/most-preferred-days">Most Preferred Days</Link></li>
                     </ul>
 
@@ -145,6 +146,9 @@ const Sidebar = (props) => {
                     </div>
                 </li>
             </ul>
+
+
+
 
 
 

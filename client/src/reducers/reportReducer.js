@@ -138,7 +138,7 @@ export const topSubjectsReducer = (state = { topsubjects: [] }, action) => {
 
 
 
-export const topTutorsReducer = (state = { toptutors: [] }, action) => {
+export const topTutorsReducer = (state = { tutor: [] }, action) => {
     switch (action.type) {
 
         case 'TOP_TUTOR_REQUEST':
@@ -151,7 +151,7 @@ export const topTutorsReducer = (state = { toptutors: [] }, action) => {
             return {
                 ...state,
                 loading: false,
-                toptutors: action.payload
+                tutor: action.payload
             }
 
         case 'TOP_TUTOR_FAIL':
@@ -174,7 +174,7 @@ export const topTutorsReducer = (state = { toptutors: [] }, action) => {
 
 
 
-export const topYearLevelReducer = (state = { topyearlevel: [] }, action) => {
+export const topYearLevelReducer = (state = { topYearLevel: [] }, action) => {
     switch (action.type) {
 
         case 'TOP_TUTEE_YEARLEVEL_REQUEST':
@@ -187,7 +187,7 @@ export const topYearLevelReducer = (state = { topyearlevel: [] }, action) => {
             return {
                 ...state,
                 loading: false,
-                topyearlevel: action.payload
+                topYearLevel: action.payload
             }
 
         case 'TOP_TUTEE_YEARLEVEL_FAIL':
@@ -226,6 +226,42 @@ export const prefferedDaysReducer = (state = { preffereddays: [] }, action) => {
             }
 
         case 'PREFFERED_DAYS_FAIL':
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+
+        case 'CLEAR_ERRORS':
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+
+
+
+export const averageMonthRequestsReducer = (state = { averageMonth: [] }, action) => {
+    switch (action.type) {
+
+        case 'AVERAGE_MONTH_REQUEST':
+            return {
+                ...state,
+                loading: true,
+            }
+
+        case 'AVERAGE_MONTH_SUCCESS':
+            return {
+                ...state,
+                loading: false,
+                averageMonth: action.payload
+            }
+
+        case 'AVERAGE_MONTH_FAIL':
             return {
                 ...state,
                 loading: false,

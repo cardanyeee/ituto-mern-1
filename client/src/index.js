@@ -12,8 +12,14 @@ import { positions, transitions, Provider as AlertProvider } from 'react-alert';
 import AlertTemplate from 'react-alert-template-basic';
 
 const options = {
+  containerStyle: {
+
+    padding: "125px 0 0 0"
+  
+  },
+  
   timeout: 5000,
-  position: positions.BOTTOM_CENTER,
+  position: positions.TOP_RIGHT,
   transitions: transitions.SCALE,
 }
 

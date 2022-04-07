@@ -82,12 +82,10 @@ const Header = () => {
                         ) : !loading &&
 
                         <>
-                            <div className="navbar-nav">
-                                <a className="nav-item nav-link" href="/login">Sign in</a>
-                            </div>
+                           
                             <div className="d-flex align-items-lg-center mt-3 mt-lg-0">
-                                <a href="/register" className="btn btn-sm btn-primary w-full w-lg-auto">
-                                    Register
+                                <a href="/login" className="btn btn-sm btn-primary w-full w-lg-auto">
+                                    Sign In
                                 </a>
                             </div>
                         </>

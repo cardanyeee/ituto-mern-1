@@ -8,6 +8,14 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: -1; 
+}
+
+
 .logo-brand {
     font-size: 30px !important;
     text-decoration: none;

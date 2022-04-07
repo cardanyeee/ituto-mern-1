@@ -1,7 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
-
 
 import { useAlert } from 'react-alert';
 import MetaData from '../../layout/main/MetaData';
@@ -70,7 +68,7 @@ const ForgotPassword = ({ history }) => {
                                     <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit" onClick={forgotPassword}>Find Email</button>
 
 
-                                    <p className="mb-2 pb-lg-2 text-secondary">Don't have an account? <Link className="link-secondary" to='/register'>Register Here</Link></p>
+                                   
 
                                 </div>
                             </div>

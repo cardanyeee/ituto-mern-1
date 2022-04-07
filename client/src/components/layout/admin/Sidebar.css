@@ -63,13 +63,13 @@
 }
 
 .sidebar .nav-links {
-    height: 100%;
-    /* padding: 30px 0 150px 0; */
-    overflow: auto;
+    height: 100% !important;
+    padding: 30px 0 150px 0;
+    overflow-y: auto !important;
 }
 
 .sidebar.close .nav-links {
-    overflow: visible;
+    overflow: visible !important;
 }
 
 /* .sidebarclose .iocn-link{
@@ -278,6 +278,7 @@
     background: #2A4250;
     transition: all 0.5s ease;
 }
+
 .sidebar.close .profile-details img {
     padding: 10px;
 }
@@ -407,7 +408,7 @@ span {
 
 .pdf-icon {
 
-   
+
     color: #0A8B5C !important;
 
 
@@ -415,7 +416,7 @@ span {
 
 .pdfAll-icon {
 
-    font-size: 2em !important;
+
     color: #EEF6FF !important;
 
 
@@ -423,16 +424,16 @@ span {
 
 .pdf-icon:hover {
 
-  
+
     color: #0f402e !important;
 
 
 }
 
 .download-align {
-    font-size: 12px!important;
+    font-size: 12px !important;
     float: right;
-}   
+}
 
 
 
@@ -456,12 +457,6 @@ span {
 
 
 
-.adjust-table {
-
-    height: 30em !important;
-
-
-}
 
 @media only screen and (min-width:1024px) and (max-width:2560px) {
     .logo-close {
@@ -472,6 +467,8 @@ span {
 
 
 @media only screen and (min-width:425px) and (max-width:1023px) {
+
+
     .pdficon-align {
 
         color: #0A8B5C !important;
@@ -484,7 +481,7 @@ span {
 
     .pdf-icon {
 
-        font-size: 2em !important;
+
         color: #0A8B5C !important;
 
 
@@ -492,7 +489,7 @@ span {
 
     .pdf-icon:hover {
 
-        font-size: 2em !important;
+
         color: #0f402e !important;
 
 
@@ -536,6 +533,7 @@ span {
 
 @media only screen and (min-width:426px) and (max-width:1023px) {
 
+
     .pdficon-align {
 
         color: #0A8B5C !important;
@@ -548,7 +546,7 @@ span {
 
     .pdf-icon {
 
-        font-size: 2em !important;
+
         color: #0A8B5C !important;
 
 
@@ -556,7 +554,7 @@ span {
 
     .pdf-icon:hover {
 
-        font-size: 2em !important;
+
         color: #0f402e !important;
 
 
@@ -605,6 +603,17 @@ span {
 
 @media only screen and (min-width:320px) and (max-width:1023px) {
 
+    .sidebar.open~.navbar {
+        width: auto !important;
+        align-items: center;
+        position: relative;
+
+        padding-bottom: 13 !important;
+        margin-left: 16.25em !important;
+
+
+    }
+
     .download-align {
         float: left !important;
     }
@@ -623,7 +632,7 @@ span {
 
     .pdf-icon {
 
-        font-size: 2em !important;
+
         color: #0A8B5C !important;
 
 
@@ -631,7 +640,7 @@ span {
 
     .pdf-icon:hover {
 
-        font-size: 2em !important;
+
         color: #0f402e !important;
 
 
@@ -842,3 +851,33 @@ span {
     }
 
 }
+
+
+#adminPicturePad {
+    padding: 10px;
+}
+
+/* .adjust-table {
+
+    width: 99% !important;
+    height: 50em !important;
+
+
+} */
+
+.mr-3 {
+    display: block !important;
+    align-items: center;
+}
+
+
+.mdb-datatable-filter input {
+
+    width: 100% !important;
+    margin: 0 10px 0 ;
+
+
+
+
+}
+

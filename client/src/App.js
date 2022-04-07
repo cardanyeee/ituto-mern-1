@@ -35,6 +35,7 @@ import MostRequestedByFemale from './components/views/admin/report/MostRequested
 import MostRequestedByMale from './components/views/admin/report/MostRequestedByMale';
 import MostRequestedSubject from './components/views/admin/report/MostRequestedSubjects';
 import MostTuteeYearLevel from './components/views/admin/report/MostTuteeYearLevel';
+import AverageRequestPerMonth from './components/views/admin/report/AverageRequestPerMonth';
 
 
 
@@ -97,6 +98,7 @@ const App = () => {
 					<ProtectedRoute path="/dashboard/reports/most-offered-subjects" isAdmin={true} component={MostOfferedSubject} exact />
 					<ProtectedRoute path="/dashboard/reports/most-tutee-year-level" isAdmin={true} component={MostTuteeYearLevel} exact />
 					<ProtectedRoute path="/dashboard/reports/most-preferred-days" isAdmin={true} component={MostPreferredDays} exact />
+					<ProtectedRoute path="/dashboard/reports/average-request-per-month" isAdmin={true} component={AverageRequestPerMonth} exact />
 				
 
 

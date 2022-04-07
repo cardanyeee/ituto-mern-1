@@ -32,7 +32,7 @@ const Welcome = () => {
                                 <img src="/images/Cover.png" alt="Parallax wallpaper" className="v-parallax__image"
                                 />
 
-                                <div className="v-parallax__content" >
+                                <div className="v-parallax__content-shader" >
                                     <div className="row align-center justify-center">
                                         <div className="text-center col">
 
@@ -194,6 +194,257 @@ const Welcome = () => {
                                                                 className="mySwiper">
 
 
+
+
+
+                                                                {/* Step 7 */}
+                                                                <SwiperSlide>
+
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+
+                                                                                        <div className="slide1 v-card__text text-center">
+
+                                                                                            Registration
+
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-1.png" alt="app-mockup" width="200" />
+
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users are asked to create an account as a tutor or a tutee. The system requests the users for first name, last name, email, phone number and password.
+
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </SwiperSlide>
+
+                                                                {/* Step 8 */}
+                                                                <SwiperSlide>
+
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="slide1" id="swiperDisplay">
+                                                                                                Log In
+                                                                                            </div>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-2.png" alt="app-mockup" width="200" />
+
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users are asked input credentials of the account. The system requests the users for email and password.
+
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </SwiperSlide>
+
+
+                                                                {/* Step 9 */}
+                                                                <SwiperSlide>
+
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Account Profile
+                                                                                            </div>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-3.png" alt="app-mockup" width="200" />
+
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users can view their account profile. User Account profile will contain information about the tutor and different specializations and skills
+
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </SwiperSlide>
+
+                                                                {/* Step 9 */}
+                                                                <SwiperSlide>
+
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Update Profile
+                                                                                            </div>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-4.png" alt="app-mockup" width="200" />
+
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users can update his profile picture. Displays the information previously entered by the user and updates it accordingly to the user.
+
+
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </SwiperSlide>
+
+
+                                                                {/* Step 9 */}
+                                                                <SwiperSlide>
+
+                                                                    <div className="row align-center">
+                                                                        <div className="container">
+                                                                            <div className="row align-start">
+                                                                                <div className="col-md-4 col-12">
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Sending Requests to tutors
+                                                                                            </div>
+                                                                                        </div>
+
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div className="swiper-align col-md-8 col-12">
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-7.png" alt="app-mockup" width="200" />
+
+
+                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
+
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div primary-title="" className="v-card__title layout justify-center">
+
+                                                                                        </div>
+                                                                                        <div className="swiper-content v-card__text text-center">
+                                                                                            <p className="swiper-{{content" style={{ paddingRight: "10%" }}>Student tutees are able to send tutor requests to tutors. Tutors are notified if a tutee has requested tutoring.
+
+                                                                                            </p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </SwiperSlide>
+
+
+
+
+
+
                                                                 {/* Step 1 */}
                                                                 <SwiperSlide>
                                                                     <div className="row align-center">
@@ -205,7 +456,7 @@ const Welcome = () => {
 
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="swiper-display" id="swiperDisplay">
-                                                                                                Download the App
+                                                                                                Sending Messages
                                                                                             </div>
                                                                                         </div>
 
@@ -213,7 +464,7 @@ const Welcome = () => {
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/swiper-mockup1.png" alt="app-mockup" width="200" />
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-8.png" alt="app-mockup" width="200" />
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
@@ -224,7 +475,8 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Tutors and tutees can instant message each other. Tutors and tutees are also notified when receiving messages from each other.
+                                                                                            </p>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -248,7 +500,7 @@ const Welcome = () => {
 
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="swiper-display" id="swiperDisplay">
-                                                                                                Step 2
+                                                                                                Video Call
                                                                                             </div>
                                                                                         </div>
 
@@ -256,7 +508,7 @@ const Welcome = () => {
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/app-mockup2.png" alt="app-mockup" width="200" />
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-10.png" alt="app-mockup" width="200" />
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
@@ -267,7 +519,8 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Tutors and tutees can communicate through audio and visual. This will help the students in clearly communicating with each other, especially in sessions.
+                                                                                            </p>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -290,7 +543,7 @@ const Welcome = () => {
 
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="swiper-display" id="swiperDisplay">
-                                                                                                Step 3
+                                                                                                File Sharing
                                                                                             </div>
                                                                                         </div>
 
@@ -298,7 +551,7 @@ const Welcome = () => {
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/app-mockup3.png" alt="app-mockup" width="200" />
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-9.png" alt="app-mockup" width="200" />
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
@@ -309,7 +562,8 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Students can send attachments or share files. Students can share different learning materials for further understanding of lessons.
+                                                                                            </p>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -332,7 +586,7 @@ const Welcome = () => {
 
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="swiper-display" id="swiperDisplay">
-                                                                                                Step 4
+                                                                                                Tutor Scheduling
                                                                                             </div>
                                                                                         </div>
 
@@ -340,7 +594,7 @@ const Welcome = () => {
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/app-mockup4.png" alt="app-mockup" width="200" />
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-6.png" alt="app-mockup" width="200" />
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
@@ -351,7 +605,8 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Tutors and tutees can schedule sessions and get notified. Students will be using a calendar in scheduling sessions.
+                                                                                            </p>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -372,7 +627,7 @@ const Welcome = () => {
 
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="swiper-display" id="swiperDisplay">
-                                                                                                Step 5
+                                                                                                Filter Tutors
                                                                                             </div>
                                                                                         </div>
 
@@ -380,7 +635,7 @@ const Welcome = () => {
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/app-mockup5.png" alt="app-mockup" width="200" />
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-11.png" alt="app-mockup" width="200" />
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
@@ -391,7 +646,8 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Student tutees can search for different tutors according to their needs. This can help tutees in finding what they need.
+                                                                                            </p>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -416,7 +672,7 @@ const Welcome = () => {
 
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="swiper-display" id="swiperDisplay">
-                                                                                                Step 6
+                                                                                                Tutor Rating
                                                                                             </div>
                                                                                         </div>
 
@@ -424,7 +680,9 @@ const Welcome = () => {
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/app-mockup6.png" alt="app-mockup" width="200" />
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-12.png" alt="app-mockup" width="200" />
+
+
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
@@ -435,7 +693,8 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Tutors can be rated depending on the services given to tutees. Rating will be used as a way of determining how effective and proficient the tutor delivered the session.
+                                                                                            </p>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -448,92 +707,7 @@ const Welcome = () => {
 
                                                                 </SwiperSlide>
 
-                                                                {/* Step 7 */}
-                                                                <SwiperSlide>
 
-                                                                    <div className="row align-center">
-                                                                        <div className="container">
-                                                                            <div className="row align-start">
-                                                                                <div className="col-md-4 col-12">
-
-                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                                                        <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay">
-                                                                                                Step 7
-                                                                                            </div>
-                                                                                        </div>
-
-
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/app-mockup7.png" alt="app-mockup" width="200" />
-                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                        <div className="v-card__text text-center">
-                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                        </div>
-                                                                                        <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </SwiperSlide>
-
-                                                                {/* Step 8 */}
-                                                                <SwiperSlide>
-                                                                    <div className="row align-center">
-                                                                        <div className="container">
-                                                                            <div className="row align-start">
-                                                                                <div className="col-md-4 col-12">
-
-                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                                                        <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay">
-                                                                                                Step 8
-                                                                                            </div>
-                                                                                        </div>
-
-
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/app-mockup8.png" alt="app-mockup" width="200" />
-                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                        <div className="v-card__text text-center">
-                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                        </div>
-                                                                                        <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu</p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </SwiperSlide>
 
 
                                                             </Swiper>
@@ -676,7 +850,7 @@ const Welcome = () => {
 
 
                                                 <div className="v-card__text text-center">
-                                                    <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p>
+                                                    <p className="title">Jose Angelo Arboleda is the team leader and project manager during the course of capstone 2. He is the one in-charge on developing the mobile application and its system. Through his persevering vision; he managed to enlighten and brought the team to its peak potential.</p>
 
                                                 </div>
                                             </div>
@@ -701,7 +875,7 @@ const Welcome = () => {
 
                                                 </div>
                                                 <div className="v-card__text text-center">
-                                                    <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate
+                                                    <p className="title">Carl Daniel Villanueva is the one responsible for web design and web development. He was working alongside with Jose Arboleda as a technical support and does whatever he was asked to do in regards to developing the iTuto.
                                                     </p>
                                                 </div>
                                             </div>
@@ -723,7 +897,7 @@ const Welcome = () => {
 
                                                 </div>
                                                 <div className="v-card__text text-center">
-                                                    <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p>
+                                                    <p className="title">Cassidy Hashime Carbajosa have focused on managing the remaining chapters of Capstone 2 paper. He is the one raising concerns and reaching out to the management during the development period of the project.</p>
 
                                                 </div>
                                             </div>
@@ -745,7 +919,7 @@ const Welcome = () => {
 
                                                 </div>
                                                 <div className="v-card__text text-center">
-                                                    <p className="title">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate</p>
+                                                    <p className="title">Mark Joseph Casas is the one responsible on bringing the team with outside resources such as with the respondents, alongside Carbajosa.</p>
 
                                                 </div>
                                             </div>

@@ -12,7 +12,7 @@ import AdminHeader from '../../../layout/admin/AdminHeader';
 import MetaData from '../../../layout/main/MetaData';
 
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
-import { requestedSubject } from '../../../../actions/reportActions';
+import { averageMonthRequests } from '../../../../actions/reportActions';
 
 import Loader from '../../../layout/main/Loader';
 
@@ -21,29 +21,62 @@ import { getData } from '../../../../actions/all_actions';
 
 import jsPDF from 'jspdf';
 import moment from 'moment';
+
 ChartJS.register(
     ...registerables
 );
-const MostRequestedSubjects = () => {
 
+const AverageRequestPerMonth = () => {
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getData());
-        dispatch(requestedSubject());
+        dispatch(averageMonthRequests());
     }, [dispatch]);
 
-    const { requestedsubjects } = useSelector(state => state.requestedSubjects);
+    const { averageMonth } = useSelector(state => state.averageMonths);
     const { loading } = useSelector(state => state.datas);
 
-    let reqsSubject = requestedsubjects.map(s => s.count);
-    let reqsSubjectName = requestedsubjects.map(s => s.subject[0].name);
-    reqsSubjectName = reqsSubjectName.map(s => s.split(' '));
+    var days = {
+        1: "January",
+        2: "February",
+        3: "March",
+        4: "April",
+        5: "May",
+        6: "June",
+        7: "July",
+        8: "August",
+        9: "September",
+        10: "October",
+        11: "November",
+        12: "December",
+    };
+
+    const newAverageMonth = [];
+
+    for (var key in days) {
+        var o = days[key];
+        var dayCount = {
+            _id: o,
+            count: 0
+        }
+        for (var pfk in averageMonth) {
+            var obj = averageMonth[pfk];
+            if (parseInt(key) === parseInt(obj._id)) {
+                dayCount.count = obj.count;
+                break;
+            }
+        }
+        newAverageMonth.push(dayCount);
+    }
+
+    let averageMonthData = newAverageMonth.map(s => s.count);
+    let averageMonthName = newAverageMonth.map(s => s._id);
+
 
 
     //REPORT CHARTSS DOWNLOADS
-
 
     const pdfBar = () => {
 
@@ -59,7 +92,7 @@ const MostRequestedSubjects = () => {
 
         pdf.setFont("helvetica", "bold")
         pdf.setFontSize(40)
-        pdf.text(15, 20, 'Most Requested Subject')
+        pdf.text(15, 20, 'Top 10 Rated Tutors')
         pdf.setFont("helvetica", "normal")
         pdf.setFontSize(16)
 
@@ -69,7 +102,7 @@ const MostRequestedSubjects = () => {
 
 
         pdf.addImage(canvasImage, 10, 25, 280, 170);
-        pdf.save(`Subject-MostRequested-${DateGathered}.pdf`);
+        pdf.save(`Top-Tutors-${DateGathered}.pdf`);
     }
 
     return (
@@ -78,9 +111,10 @@ const MostRequestedSubjects = () => {
             <AdminHeader />
 
             <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
+
+
             <Fragment>
                 {loading ? <Loader /> : (
-
                     <div className="home-section">
 
 
@@ -93,13 +127,13 @@ const MostRequestedSubjects = () => {
                             <div className="container-fluid" id="subjectContainer">
 
 
-                                <h1 className="h1 mb-2 text-gray-800">Most Requested Subject</h1>
+                                <h1 className="h1 mb-2 text-gray-800">Average Request Per Month</h1>
 
                                 <div className="row align-start">
                                     <div className="col-md-8 col-12">
 
 
-                                        <p className="mb-4">Presented below are the Most Requested Subject of tutees</p>
+                                        <p className="mb-4">Presented below are the months that has an average request</p>
 
                                     </div>
 
@@ -157,11 +191,11 @@ const MostRequestedSubjects = () => {
 
                                                 <Bar id="bar-populations"
                                                     data={{
-                                                        labels: reqsSubjectName,
+                                                        labels: averageMonthName,
                                                         datasets: [
                                                             {
                                                                 label: '# of votes',
-                                                                data: reqsSubject,
+                                                                data: averageMonthData,
 
                                                                 backgroundColor: [
                                                                     "#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7",
@@ -184,45 +218,30 @@ const MostRequestedSubjects = () => {
                                                     height={800}
                                                     width={600}
                                                     options={{
+
                                                         maintainAspectRatio: false,
 
-                                                        legend: {
-                                                            labels: {
-                                                                fontSize: 25,
-                                                            },
-                                                        },
+
                                                     }}
                                                 />
-
-
-
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
-
-
-
-
-
-
-
                         </div>
 
+
+
                     </div>
+
 
                 )}
 
             </Fragment>
 
-
-
-
         </Fragment >
     )
 }
 
-export default MostRequestedSubjects
+export default AverageRequestPerMonth

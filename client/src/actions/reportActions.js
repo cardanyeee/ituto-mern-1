@@ -3,20 +3,13 @@ import axios from 'axios';
 
 export const requestedSubject = () => async (dispatch) => {
     try {
-        
+
         dispatch({ type: 'REQUESTED_SUBJECT_REQUEST' });
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
-        const { } = await axios.post('', {  }, config);
-        
+        const { data } = await axios.get(`/api/reports/subjects/toprequested`);
         dispatch({
-            type: 'REQUESTED_SUBJECT_SUCCESS',
-            // payload: data.user
+            type: 'REQUESTED_SUBJECTS_SUCCESS',
+            payload: data.subjects
         })
 
     } catch (error) {
@@ -30,20 +23,12 @@ export const requestedSubject = () => async (dispatch) => {
 
 export const requestedbyMale = () => async (dispatch) => {
     try {
-        
+
         dispatch({ type: 'REQUESTED_BY_MALE_REQUEST' });
-
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
-        const { } = await axios.post('', {  }, config);
-        
+        const { data } = await axios.get(`/api/reports/subjects/requestedbymale`);
         dispatch({
             type: 'REQUESTED_BY_MALE_SUCCESS',
-            // payload: data.user
+            payload: data.subjects
         })
 
     } catch (error) {
@@ -54,22 +39,16 @@ export const requestedbyMale = () => async (dispatch) => {
     }
 }
 
-export const requestedbyFenale = () => async (dispatch) => {
+export const requestedbyFemale = () => async (dispatch) => {
     try {
-        
+
         dispatch({ type: 'REQUESTED_BY_FEMALE_REQUEST' });
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        const { data } = await axios.get(`/api/reports/subjects/requestedbyfemale`);
 
-        const { } = await axios.post('', {  }, config);
-        
         dispatch({
             type: 'REQUESTED_BY_FEMALE_SUCCESS',
-            // payload: data.user
+            payload: data.subjects
         })
 
     } catch (error) {
@@ -85,20 +64,13 @@ export const requestedbyFenale = () => async (dispatch) => {
 
 export const topSubject = () => async (dispatch) => {
     try {
-        
+
         dispatch({ type: 'TOP_SUBJECT_REQUEST' });
+        const { data } = await axios.get(`/api/reports/subjects/topoffered`);
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
-        const { } = await axios.post('', {  }, config);
-        
         dispatch({
-            type: 'TOP_SUBJECT_SUCCESS',
-            // payload: data.user
+            type: 'TOP_SUBJECTS_SUCCESS',
+            payload: data.subjects
         })
 
     } catch (error) {
@@ -113,20 +85,14 @@ export const topSubject = () => async (dispatch) => {
 
 export const topratedTutor = () => async (dispatch) => {
     try {
-        
+
         dispatch({ type: 'TOP_TUTOR_REQUEST' });
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        const { data } = await axios.get(`/api/reports/tutors/toprated`);
 
-        const { } = await axios.post('', {  }, config);
-        
         dispatch({
             type: 'TOP_TUTOR_SUCCESS',
-            // payload: data.user
+            payload: data.tutor
         })
 
     } catch (error) {
@@ -141,20 +107,14 @@ export const topratedTutor = () => async (dispatch) => {
 
 export const topratedYearLevel = () => async (dispatch) => {
     try {
-        
+
         dispatch({ type: 'TOP_TUTEE_YEARLEVEL_REQUEST' });
 
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
+        const { data } =  await axios.get(`/api/reports/tutee/yearlevel`);
 
-        const { } = await axios.post('', {  }, config);
-        
         dispatch({
             type: 'TOP_TUTEE_YEARLEVEL_SUCCESS',
-            // payload: data.user
+            payload: data.users
         })
 
     } catch (error) {
@@ -169,25 +129,42 @@ export const topratedYearLevel = () => async (dispatch) => {
 
 export const prefferedDays = () => async (dispatch) => {
     try {
-        
+
         dispatch({ type: 'PREFFERED_DAYS_REQUEST' });
-
-        const config = {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }
-
-        const { } = await axios.post('', {  }, config);
         
+        const { data } =  await axios.get(`/api/reports/session/prefferedsessiondays`);
+
+
         dispatch({
             type: 'PREFFERED_DAYS_SUCCESS',
-            // payload: data.user
+            payload: data.days
         })
 
     } catch (error) {
         dispatch({
             type: 'PREFFERED_DAYS_FAIL',
+            // payload: error.response.data.message
+        })
+    }
+}
+
+
+export const averageMonthRequests = () => async (dispatch) => {
+    try {
+
+        dispatch({ type: 'AVERAGE_MONTH_REQUEST' });
+        
+        const { data } =  await axios.get(`/api/reports/session/topmonthsrequested`);
+
+
+        dispatch({
+            type: 'AVERAGE_MONTH_SUCCESS',
+            payload: data.months
+        })
+
+    } catch (error) {
+        dispatch({
+            type: 'AVERAGE_MONTH_FAIL',
             // payload: error.response.data.message
         })
     }
