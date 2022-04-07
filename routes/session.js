@@ -5,6 +5,8 @@ const {
     createSession,
     findTutorSession,
     findTuteeSession,
+    findAllTutorSession,
+    findAllTuteeSession,
     allSession,
     selectedSession,
     requestSession,
@@ -32,7 +34,8 @@ router.route("/session/create").post(isAuthenticatedUser, createSession);
 router.route("/session/request").post(isAuthenticatedUser, requestSession);
 router.route("/sessions/tutor").get(isAuthenticatedUser, findTutorSession);
 router.route("/sessions/tutee").get(isAuthenticatedUser, findTuteeSession);
-
+router.route("/sessions/tutor/all").get(isAuthenticatedUser, findAllTutorSession);
+router.route("/sessions/tutee/all").get(isAuthenticatedUser, findAllTuteeSession);
 
 router.route('/session/decline/:id').put(isAuthenticatedUser, declineSession);
 router.route('/session/accept/:id').put(isAuthenticatedUser, acceptSession);

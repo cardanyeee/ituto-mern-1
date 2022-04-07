@@ -319,6 +319,41 @@ exports.findTuteeSession = catchAsyncErrors(async (req, res, next) => {
     }
 });
 
+exports.findAllTutorSession = catchAsyncErrors(async (req, res, next) => {
+    try {
+        const sessions = await Session.find({ tutor: req.user._id })
+            .sort({ updatedAt: -1 })
+            .populate("tutor")
+            .populate("tutee")
+            .populate("subject");
+
+        res.status(200).json({
+            success: true,
+            sessions
+        })
+    } catch (error) {
+        next(new ErrorResponse('Session does not exist', 404));
+    }
+});
+
+exports.findAllTuteeSession = catchAsyncErrors(async (req, res, next) => {
+    try {
+        const sessions = await Session.find({ tutee: req.user._id })
+            .sort({ updatedAt: -1 })
+            .populate("tutor")
+            .populate("tutee")
+            .populate("subject");
+
+            console.log(sessions);
+        res.status(200).json({
+            success: true,
+            sessions
+        })
+    } catch (error) {
+        next(new ErrorResponse('Session not found', 404));
+    }
+});
+
 exports.allSession = catchAsyncErrors(async (req, res, next) => {
     try {
 
@@ -433,9 +468,3 @@ function convertUTCDateToLocalDate(date) {
     return date;
 
 };
-
-function isoStringToDate(s) {
-    var b = s.split(/\D/);
-    var days = [""]
-    return new Date(Date.UTC(b[0], --b[1], b[2], b[3] || 0, b[4] || 0, b[5] || 0, b[6] || 0));
-}

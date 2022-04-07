@@ -86,7 +86,14 @@ exports.index = catchAsyncErrors(async (req, res, next) => {
 
         const userIDArray = users.map(user => user._id);
 
-        const tutorsQuery = new APIFeatures(Tutor.find({ "userID": { $in: userIDArray } }).populate("userID").populate("subjects"), req.query)
+        const tutorsQuery = new APIFeatures(Tutor.find({ "userID": { $in: userIDArray } })
+            .populate({
+                path: 'userID',
+                populate: {
+                    path: 'course'
+                }
+            })
+            .populate("subjects"), req.query)
             .filter()
             .filterByDay();
 
@@ -213,8 +220,6 @@ exports.getCurrentTutor = catchAsyncErrors(async (req, res, next) => {
                 }
             })
             .populate("subjects");
-
-        console.log(tutor);
 
         res.status(200).json({
             success: true,
