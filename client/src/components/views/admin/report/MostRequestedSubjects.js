@@ -68,7 +68,7 @@ const MostRequestedSubjects = () => {
 
     const csvReport = {
 
-        filename: `${csvDownloadDate}-mostRequestedbyMale`,
+        filename: `${csvDownloadDate}-mostRequestedSubject`,
         headers: columns,
         data: topRequestedSubjectData
 
