@@ -38,7 +38,7 @@ const MostPreferredDays = () => {
     const { preffereddays } = useSelector(state => state.prefferedDays);
     const { loading } = useSelector(state => state.datas);
 
-    
+
     var days = {
         1: "Sunday",
         2: "Monday",
@@ -157,23 +157,38 @@ const MostPreferredDays = () => {
                                             {/* <!-- Card Header - Dropdown --> */}
                                             <div className="card-header">
                                                 <div className="row align-center">
-                                                    <div className="container">
-                                                        <div className="row align-start">
-                                                            <div className="col-md-8 col-12">
-                                                                <h6 className="color1 mt-2 font-weight-bold">
-                                                                    Bar Chart
-                                                                </h6>
+                                                    <div className="container" style={{ color: "#4FBD95", textDecoration: "none" }}>
+                                                        <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
+                                                            <i className="color-report fas fa-print fa-xs" >
+                                                                <span className="m-0 font-weight-bold" >
+                                                                    &nbsp;CSV
 
-                                                            </div>
-                                                            <div className="pdficon-align col-md-4 col-12">
-                                                                <small className="pdf-icon" onClick={pdfBar}>
-
-                                                                    <b role="button" >save as PDF</b>
-                                                                    <FileDownloadIcon role="button" />
-
-                                                                </small>
-                                                            </div>
+                                                                </span>
+                                                            </i>
                                                         </div>
+                                                        &nbsp;
+
+                                                        &nbsp;
+
+                                                        <div className="btn" role="button" style={{ backgroundColor: "#9FDACA" }}>
+                                                            <i className="color-report fas fa-print fa-xs" >
+                                                                <span className="m-0 font-weight-bold" >
+                                                                    &nbsp;Chart PDF
+
+                                                                </span>
+                                                            </i>
+                                                        </div>
+
+                                                        &nbsp;
+                                                        <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
+                                                            <i className="color-report fas fa-print fa-xs" >
+                                                                <span className="m-0 font-weight-bold" >
+                                                                    &nbsp;PDF
+
+                                                                </span>
+                                                            </i>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -215,6 +230,11 @@ const MostPreferredDays = () => {
                                                     height={800}
                                                     width={600}
                                                     options={{
+                                                        plugins: {
+                                                            legend: {
+                                                                display: false
+                                                            },
+                                                        },
                                                         maintainAspectRatio: false,
 
                                                         legend: {
