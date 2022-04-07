@@ -182,10 +182,10 @@ const Welcome = () => {
                                                                 spaceBetween={30}
                                                                 effect={"fade"}
                                                                 loop={true}
-                                                                // autoplay={{
-                                                                //     delay: 3000,
-                                                                //     disableOnInteraction: false,
-                                                                // }}
+                                                                autoplay={{
+                                                                    delay: 3000,
+                                                                    disableOnInteraction: false,
+                                                                }}
                                                                 pagination={{
                                                                     clickable: true,
                                                                 }}
@@ -196,8 +196,7 @@ const Welcome = () => {
 
 
 
-
-                                                                {/* Step 7 */}
+                                                                {/* Step 9 */}
                                                                 <SwiperSlide>
 
                                                                     <div className="row align-center">
@@ -207,10 +206,10 @@ const Welcome = () => {
 
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                                                        <div className="swiper-display v-card__text text-center" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)", fontSize: "6em", paddingTop: "1.5em" }}>
-
-                                                                                            Registration
-
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Registration
+                                                                                            </div>
                                                                                         </div>
 
 
@@ -245,7 +244,7 @@ const Welcome = () => {
 
                                                                 </SwiperSlide>
 
-                                                                {/* Step 8 */}
+                                                                {/* Step 9 */}
                                                                 <SwiperSlide>
 
                                                                     <div className="row align-center">
@@ -255,8 +254,10 @@ const Welcome = () => {
 
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                                                        <div className="swiper-display v-card__text text-center" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)", fontSize: "6em", paddingTop: "1.5em" }}>
-                                                                                            Login
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Log in
+                                                                                            </div>
                                                                                         </div>
 
 
@@ -276,7 +277,10 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Tutors and tutees can communicate through audio and visual. This will help the students in clearly communicating with each other, especially in sessions.
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users are asked input credentials of the account. The system requests the users for email and password.
+
+
+
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -291,6 +295,7 @@ const Welcome = () => {
                                                                 </SwiperSlide>
 
 
+
                                                                 {/* Step 9 */}
                                                                 <SwiperSlide>
 
@@ -302,8 +307,8 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)" }}>
-                                                                                                Account Profile
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Displays Profile
                                                                                             </div>
                                                                                         </div>
 
@@ -324,7 +329,9 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Tutors and tutees can communicate through audio and visual. This will help the students in clearly communicating with each other, especially in sessions.
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users can view each other's profile. Tutor profile will contain information about the tutor and different specializations and skills
+
+
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -349,7 +356,7 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)" }}>
+                                                                                            <div className="swiper-display" id="swiperDisplay">
                                                                                                 Update Profile
                                                                                             </div>
                                                                                         </div>
@@ -399,8 +406,8 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)" }}>
-                                                                                                Sending Requests
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Update Profile
                                                                                             </div>
                                                                                         </div>
 
@@ -408,7 +415,7 @@ const Welcome = () => {
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-7.png" alt="app-mockup" width="200" />
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-4.png" alt="app-mockup" width="200" />
 
 
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
@@ -421,7 +428,9 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Tutors and tutees can communicate through audio and visual. This will help the students in clearly communicating with each other, especially in sessions.
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users can update his profile picture. Displays the information previously entered by the user and updates it accordingly to the user.
+
+
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -450,7 +459,7 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)" }}>
+                                                                                            <div className="swiper-display" id="swiperDisplay">
                                                                                                 Sending Messages
                                                                                             </div>
                                                                                         </div>
@@ -494,7 +503,7 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)", paddingTop: "2.50em" }}>
+                                                                                            <div className="swiper-display" id="swiperDisplay">
                                                                                                 Video Call
                                                                                             </div>
                                                                                         </div>
@@ -537,7 +546,7 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)" }}>
+                                                                                            <div className="swiper-display" id="swiperDisplay">
                                                                                                 File Sharing
                                                                                             </div>
                                                                                         </div>
@@ -580,7 +589,7 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)" }}>
+                                                                                            <div className="swiper-display" id="swiperDisplay">
                                                                                                 Tutor Scheduling
                                                                                             </div>
                                                                                         </div>
@@ -621,7 +630,7 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)" }}>
+                                                                                            <div className="swiper-display" id="swiperDisplay">
                                                                                                 Filter Tutors
                                                                                             </div>
                                                                                         </div>
@@ -666,7 +675,7 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay" style={{ backgroundImage: "url(/images/slider-mockups/blob.svg)" }}>
+                                                                                            <div className="swiper-display" id="swiperDisplay">
                                                                                                 Tutor Rating
                                                                                             </div>
                                                                                         </div>
