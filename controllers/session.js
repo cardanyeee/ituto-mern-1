@@ -112,10 +112,9 @@ exports.requestSession = catchAsyncErrors(async (req, res, next) => {
 
         const tutorObject = await Tutor.findOne({ userID: tutor });
 
-        const checkSession = await Session.find({ tutee, subject, status: "Request" });
-        const checkSessionDateTime = await Session.find({ tutee, startDate, status: "Request" });
+        const checkSession = await Session.findOne({ tutee, subject, status: "Request" });
+        const checkSessionDateTime = await Session.findOne({ tutee, startDate, status: "Request" });
 
-        
         if (checkSessionDateTime) {
             return next(new ErrorResponse("You have already sent a request with the same date.", 409));
         }
