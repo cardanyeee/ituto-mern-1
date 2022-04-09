@@ -29,7 +29,7 @@ export const login = (email, password) => async (dispatch) => {
             }
         }
 
-        const { data } = await axios.post('/api/auth/login', { email, password }, config);
+        const { data } = await axios.post('/api/auth/admin/login', { email, password }, config);
         
         dispatch({
             type: LOGIN_SUCCESS,

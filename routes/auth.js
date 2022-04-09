@@ -16,7 +16,8 @@ const { register,
     allUsers,
     dashboard,
     getProfile,
-    checkEmail
+    checkEmail,
+    adminLogin
 } = require('../controllers/auth');
 
 const { upload } = require("../utils/upload");
@@ -29,6 +30,8 @@ router.route("/auth/register").post(upload.any(), register);
 router.route("/auth/activate").post(activate);
 
 router.route("/auth/login").post(login);
+
+router.route("/auth/admin/login").post(adminLogin);
 
 router.route("/auth/google/login").post(googleLogin);
 

@@ -197,6 +197,10 @@ exports.adminLogin = catchAsyncErrors(async (req, res, next) => {
             return next(new ErrorResponse("You don't have an account yet", 404));
         }
 
+        if (!(user.role === "admin")) {
+            return next(new ErrorResponse("You are not allowed to access this. For login and registration, please install the iTuto app.", 403, 404));
+        }
+
         const isMatch = await user.matchPasswords(password);
 
         if (!isMatch) {
