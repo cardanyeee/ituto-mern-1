@@ -391,6 +391,7 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
 
         res.status(200).json({
             success: true,
+            user,
             message: "Account successfully changed!"
         });
     } catch (error) {
