@@ -181,6 +181,36 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
     }
 });
 
+//Login User
+exports.adminLogin = catchAsyncErrors(async (req, res, next) => {
+    console.log("login");
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+        return next(new ErrorResponse("Please enter a valid email and password", 400));
+    }
+
+    try {
+        const user = await User.findOne({ email }).select("+password");
+
+        if (!user) {
+            return next(new ErrorResponse("You don't have an account yet", 404));
+        }
+
+        const isMatch = await user.matchPasswords(password);
+
+        if (!isMatch) {
+            return next(new ErrorResponse("Wrong email or password", 401));
+        }
+
+        sendToken(user, 200, res);
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+});
+
 //Google Log in User User
 exports.googleLogin = catchAsyncErrors(async (req, res, next) => {
     try {
