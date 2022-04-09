@@ -1,7 +1,7 @@
 import "./widget.scss";
 import { Link } from 'react-router-dom'
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 
@@ -12,13 +12,23 @@ import FemaleIcon from '@mui/icons-material/Female';
 import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-
+import { getTuteeCount } from '../../actions/reportActions';
 
 const Widget = ({ type }) => {
 
 
+  const dispatch = useDispatch();
 
-  const { users, subs, tutors, male, female, tutee } = useSelector(state => state.datas);
+    useEffect(() => {
+
+        dispatch(getTuteeCount());
+    }, [dispatch]);
+
+  const { tuteeCount: tutee } = useSelector(state => state.getTuteeCounts);
+
+
+
+  const { users, subs, tutors, male, female} = useSelector(state => state.datas);
 
   // useEffect(() => {
   //     dispatch(getData());
@@ -32,7 +42,7 @@ const Widget = ({ type }) => {
   const tutorCount = tutors && tutors.length;
   const maleCount = male && male;
   const femaleCount = female && female;
-  const tuteeCount = tutee && tutee  ;
+  const tuteeCount = tutee.length  ;
 
 
   switch (type) {
@@ -124,7 +134,7 @@ const Widget = ({ type }) => {
         title: "TOTAL TUTEE",
         display: tuteeCount,  
         isNoLink: true,
-        link: "Lorem Ipsum",
+        link: `${tuteeCount} tutee counts `,
         icon: (
           <DoNotDisturbIcon
             className="icon"

@@ -18,8 +18,9 @@ import Loader from '../../../layout/main/Loader';
 
 
 import { getData } from '../../../../actions/all_actions';
-
+import { CSVLink } from "react-csv";
 import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 import moment from 'moment';
 
 ChartJS.register(
@@ -77,6 +78,72 @@ const AverageRequestPerMonth = () => {
 
 
     //REPORT CHARTSS DOWNLOADS
+
+
+
+    const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
+
+    const columns = [
+        { label: "Months", key: "name", },
+        { label: "Quantity", key: "counts", },
+
+    ]
+
+    // const topRequestedSubjectData = [];
+
+    // averageMonth.forEach(t => {
+    //     topRequestedSubjectData.push({
+    //         name: t._id,
+    //         counts: t.count
+    //     })
+    // })
+
+
+
+    const csvReport = {
+
+        filename: `${csvDownloadDate}-RequestPerMonths`,
+        headers: columns,
+        data: newAverageMonth
+
+
+    };
+
+
+    const downloadPdf = () => {
+
+        const doc = new jsPDF()
+        doc.text("Most Requested by Male Tutees", 20, 10)
+        doc.autoTable({
+            // columnStyles: {
+            //     0: { cellWidth: 20 },
+            //     1: { cellWidth: 30 },
+            //     2: { cellWidth: 30 },
+            //     3: { cellWidth: 20 },
+            //     4: { cellWidth: 20 },
+            //     5: { cellWidth: 20 },   
+            //     6: { cellWidth: 20 },
+            //     7: { cellWidth: 20 },
+            //     // etc
+            // },   
+            margin: { top: 25 },
+            columns: columns.map(col => ({ ...col, dataKey: columns.key })),
+            theme: "striped",
+            body: newAverageMonth
+        })
+        doc.save(`${csvDownloadDate}-AverageRequetsPerMonths.pdf`)
+    }
+
+
+
+
+
+
+
+
+
+
+
 
     const pdfBar = () => {
 
@@ -160,23 +227,43 @@ const AverageRequestPerMonth = () => {
                                             {/* <!-- Card Header - Dropdown --> */}
                                             <div className="card-header">
                                                 <div className="row align-center">
+
                                                     <div className="container">
-                                                        <div className="row align-start">
-                                                            <div className="col-md-8 col-12">
-                                                                <h6 className="color1 mt-2 font-weight-bold">
-                                                                    Bar Chart
-                                                                </h6>
+                                                        <div className="card-body">
+                                                            <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
+                                                                <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
+                                                                    <i className="color-report fas fa-print fa-xs" >
+                                                                        <span className="m-0 font-weight-bold" >
+                                                                            &nbsp;CSV
 
+                                                                        </span>
+                                                                    </i>
+                                                                </div>
+                                                            </CSVLink>
+                                                            &nbsp;
+
+                                                            &nbsp;
+
+                                                            <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
+                                                                <i className="color-report fas fa-print fa-xs" >
+                                                                    <span className="m-0 font-weight-bold" >
+                                                                        &nbsp;Chart PDF
+
+                                                                    </span>
+                                                                </i>
                                                             </div>
-                                                            <div className="pdficon-align col-md-4 col-12">
-                                                                <small className="pdf-icon" onClick={pdfBar}>
 
-                                                                    <b role="button" >save as PDF</b>
-                                                                    <FileDownloadIcon role="button" />
+                                                            &nbsp;
+                                                            <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#2A4250" }}>
+                                                                <i className="color-report fas fa-print fa-xs" >
+                                                                    <span className="m-0 font-weight-bold" >
+                                                                        &nbsp;PDF
 
-                                                                </small>
+                                                                    </span>
+                                                                </i>
                                                             </div>
                                                         </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -218,6 +305,11 @@ const AverageRequestPerMonth = () => {
                                                     height={800}
                                                     width={600}
                                                     options={{
+                                                        plugins: {
+                                                            legend: {
+                                                                display: false
+                                                            },
+                                                        },
 
                                                         maintainAspectRatio: false,
 

@@ -24,9 +24,6 @@ import { allUsers } from '../../../actions/authActions';
 
 import { getData } from '../../../actions/all_actions';
 
-import jsPDF from 'jspdf';
-import moment from 'moment';
-
 // import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
 
 
@@ -41,7 +38,6 @@ ChartJS.register(
 
 const Dashboard = () => {
 
-    const { datas, male, female } = useSelector(state => state.datas);
 
     const dispatch = useDispatch();
 
@@ -121,64 +117,6 @@ const Dashboard = () => {
     }
 
 
-    const pdfDonut = () => {
-
-        const columns = [
-            { title: "Male", field: male, },
-            { title: "Female", field: female, },
-
-        ]
-
-        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
-
-        const canvas = document.getElementById('mf-populations');
-
-        const canvasImage = canvas.toDataURL('image/png', 1.0);
-
-
-        let pdf = new jsPDF();
-
-
-        pdf.setFont("helvetica", "bold")
-        pdf.setFontSize(40)
-        pdf.text(15, 25, 'Male & Female Populations')
-        pdf.setFont("helvetica", "normal")
-        pdf.setFontSize(16)
-
-        pdf.text(16, 35, `Male: ${male && male}`)
-        pdf.text(80, 35, `Female: ${female && female}`)
-        pdf.text(150, 35, `Total Users: ${users && users.length}`)
-
-
-        pdf.setFontSize(16)
-        pdf.setFont("helvetica", "bolditalic")
-        pdf.text(100, 250, `Data gathered as of ${DateGathered}`)
-
-        pdf.addImage(canvasImage, 15, 50, 180, 160);
-
-        pdf.addPage()
-
-        pdf.text("Course Details", 20, 10)
-        pdf.autoTable({
-            // columnStyles: {
-            //     0: { cellWidth: 20 },
-            //     1: { cellWidth: 30 },    
-            //     2: { cellWidth: 30 },
-            //     3: { cellWidth: 20 },
-            //     4: { cellWidth: 20 },
-            //     5: { cellWidth: 20 },   
-            //     6: { cellWidth: 20 },
-            //     7: { cellWidth: 20 },
-            //     // etc   
-            // },   
-            margin: { top: 25 },
-            theme: "striped",
-            columns: columns.map(col => ({ ...col, dataKey: col.field })),
-            body: datas
-        })
-        pdf.save('mf-populations.pdf');
-
-    }
 
     return (
         <Fragment>

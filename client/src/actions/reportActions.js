@@ -169,3 +169,25 @@ export const averageMonthRequests = () => async (dispatch) => {
         })
     }
 }
+
+
+export const getTuteeCount = () => async (dispatch) => {
+    try {
+
+        dispatch({ type: 'TUTEE_COUNT_REQUEST' });
+        
+        const { data } =  await axios.get(`/api/tutees`);
+
+
+        dispatch({
+            type: 'TUTEE_COUNT_SUCCESS',
+            payload: data.tutees
+        })
+
+    } catch (error) {
+        dispatch({
+            type: 'TUTEE_COUNT_FAIL',
+            // payload: error.response.data.message
+        })
+    }
+}

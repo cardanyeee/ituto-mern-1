@@ -196,8 +196,7 @@ const Welcome = () => {
 
 
 
-
-                                                                {/* Step 7 */}
+                                                                {/* Step 9 */}
                                                                 <SwiperSlide>
 
                                                                     <div className="row align-center">
@@ -207,10 +206,10 @@ const Welcome = () => {
 
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                                                        <div className="slide1 v-card__text text-center">
-
-                                                                                            Registration
-
+                                                                                        <div className="v-card__text text-center">
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Registration
+                                                                                            </div>
                                                                                         </div>
 
 
@@ -245,7 +244,7 @@ const Welcome = () => {
 
                                                                 </SwiperSlide>
 
-                                                                {/* Step 8 */}
+                                                                {/* Step 9 */}
                                                                 <SwiperSlide>
 
                                                                     <div className="row align-center">
@@ -256,8 +255,8 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="slide1" id="swiperDisplay">
-                                                                                                Log In
+                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                                Log in
                                                                                             </div>
                                                                                         </div>
 
@@ -280,6 +279,8 @@ const Welcome = () => {
                                                                                         <div className="swiper-content v-card__text text-center">
                                                                                             <p className="swiper-content" style={{ paddingRight: "10%" }}>Users are asked input credentials of the account. The system requests the users for email and password.
 
+
+
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -294,6 +295,7 @@ const Welcome = () => {
                                                                 </SwiperSlide>
 
 
+
                                                                 {/* Step 9 */}
                                                                 <SwiperSlide>
 
@@ -306,7 +308,7 @@ const Welcome = () => {
 
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="swiper-display" id="swiperDisplay">
-                                                                                                Account Profile
+                                                                                                Displays Profile
                                                                                             </div>
                                                                                         </div>
 
@@ -327,7 +329,8 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users can view their account profile. User Account profile will contain information about the tutor and different specializations and skills
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users can view each other's profile. Tutor profile will contain information about the tutor and different specializations and skills
+
 
                                                                                             </p>
                                                                                         </div>
@@ -404,7 +407,7 @@ const Welcome = () => {
 
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="swiper-display" id="swiperDisplay">
-                                                                                                Sending Requests to tutors
+                                                                                                Update Profile
                                                                                             </div>
                                                                                         </div>
 
@@ -412,7 +415,7 @@ const Welcome = () => {
                                                                                     </div>
                                                                                 </div>
                                                                                 <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-7.png" alt="app-mockup" width="200" />
+                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-4.png" alt="app-mockup" width="200" />
 
 
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
@@ -425,7 +428,8 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-{{content" style={{ paddingRight: "10%" }}>Student tutees are able to send tutor requests to tutors. Tutors are notified if a tutee has requested tutoring.
+                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users can update his profile picture. Displays the information previously entered by the user and updates it accordingly to the user.
+
 
                                                                                             </p>
                                                                                         </div>

@@ -281,3 +281,42 @@ export const averageMonthRequestsReducer = (state = { averageMonth: [] }, action
 
 
 
+export const getTuteeCountReducer = (state = { tuteeCount: [] }, action) => {
+    switch (action.type) {
+
+        case 'TUTEE_COUNT_REQUEST':
+            return {
+                ...state,
+                loading: true,
+            }
+
+        case 'TUTEE_COUNT_SUCCESS':
+            return {
+                ...state,
+                loading: false,
+                tuteeCount: action.payload
+            }
+
+        case 'TUTEE_COUNT_FAIL':
+            return {
+                ...state,
+                loading: false,
+                error: action.payload
+            }
+
+        case 'CLEAR_ERRORS':
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state;
+    }
+}
+
+
+
+
+
+

@@ -14,8 +14,8 @@ import AlertTemplate from 'react-alert-template-basic';
 const options = {
   containerStyle: {
 
-    padding: "125px 0 0 0"
-  
+    padding: "125px 0 0 0",
+    zIndex: "1000"
   },
   
   timeout: 5000,
