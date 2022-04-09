@@ -11,16 +11,11 @@ import '../dashboard.scss'
 import AdminHeader from '../../../layout/admin/AdminHeader';
 import MetaData from '../../../layout/main/MetaData';
 
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { prefferedDays } from '../../../../actions/reportActions';
 
 import Loader from '../../../layout/main/Loader';
 
-
 import { getData } from '../../../../actions/all_actions';
-
-import jsPDF from 'jspdf';
-import moment from 'moment';
 
 ChartJS.register(
     ...registerables
@@ -74,32 +69,32 @@ const MostPreferredDays = () => {
     //REPORT CHARTSS DOWNLOADS
 
 
-    const pdfBar = () => {
+    // const pdfBar = () => {
 
-        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+    //     const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
 
-        const canvas = document.getElementById('bar-populations');
+    //     const canvas = document.getElementById('bar-populations');
 
-        const canvasImage = canvas.toDataURL('image/png', 1.0);
-
-
-        var pdf = new jsPDF('landscape')
+    //     const canvasImage = canvas.toDataURL('image/png', 1.0);
 
 
-        pdf.setFont("helvetica", "bold")
-        pdf.setFontSize(40)
-        pdf.text(15, 20, 'Most Preferred Days')
-        pdf.setFont("helvetica", "normal")
-        pdf.setFontSize(16)
-
-        pdf.setFontSize(16)
-        pdf.setFont("helvetica", "bolditalic")
-        pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
+    //     var pdf = new jsPDF('landscape')
 
 
-        pdf.addImage(canvasImage, 10, 25, 280, 170);
-        pdf.save(`PreferredDays-Chart-${DateGathered}.pdf`);
-    }
+    //     pdf.setFont("helvetica", "bold")
+    //     pdf.setFontSize(40)
+    //     pdf.text(15, 20, 'Most Preferred Days')
+    //     pdf.setFont("helvetica", "normal")
+    //     pdf.setFontSize(16)
+
+    //     pdf.setFontSize(16)
+    //     pdf.setFont("helvetica", "bolditalic")
+    //     pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
+
+
+    //     pdf.addImage(canvasImage, 10, 25, 280, 170);
+    //     pdf.save(`PreferredDays-Chart-${DateGathered}.pdf`);
+    // }
 
     return (
 

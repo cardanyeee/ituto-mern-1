@@ -16,17 +16,14 @@ const Home = ({ match }) => {
     const alert = useAlert();
     const dispatch = useDispatch();
 
-    const { loading, error } = useSelector(state => state.auth);
+    const { loading } = useSelector(state => state.auth);
 
     const keyword = match.params.keyword;
 
     useEffect(() => {
 
-        if (error) {
-            return alert.error(error);
-        }
 
-    }, [dispatch, alert, error, keyword]);
+    }, [dispatch, alert, keyword]);
 
 
 

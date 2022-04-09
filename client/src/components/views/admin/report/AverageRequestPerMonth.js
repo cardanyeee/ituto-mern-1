@@ -11,7 +11,6 @@ import '../dashboard.scss'
 import AdminHeader from '../../../layout/admin/AdminHeader';
 import MetaData from '../../../layout/main/MetaData';
 
-import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import { averageMonthRequests } from '../../../../actions/reportActions';
 
 import Loader from '../../../layout/main/Loader';
