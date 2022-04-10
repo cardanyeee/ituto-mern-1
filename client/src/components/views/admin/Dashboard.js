@@ -99,7 +99,7 @@ const Dashboard = () => {
                 Gender: allUsers.gender,
                 Email: allUsers.email,
                 Status: convertIsTutor(allUsers.isTutor),
-                Role:  allUsers.role,
+                Role: allUsers.role,
                 Phone: allUsers.phone,
                 Time: allUsers.createdAt,
                 actions:
@@ -136,20 +136,15 @@ const Dashboard = () => {
 
                                 <div className="row pr-4 pt-4">
 
-                                    <div className="col-xl-4 mb-3" >
+                                    <div className="col-xl-4" >
 
-                                        <div className="greeting-font card shadow mb-4">
+                                        <div className="greeting-font card shadow">
 
                                             {/* <!-- Card Header - Dropdown --> */}
                                             <div className="color1 card-header py-3">
                                                 <h5 className="greeting-font m-0 font-weight-bold" id="Username">Welcome <b>{user.username}!</b></h5>
                                             </div>
                                             {/* <!-- Card Body --> */}
-
-
-
-
-
 
                                             <div className="no-card col-sm-4 col-md-2 col-12 align-items-center text-center" id="tryspan">
                                                 <div className="elevation-0 transparent v-card v-sheet theme--light">
@@ -178,7 +173,7 @@ const Dashboard = () => {
 
                                     {/* WWWIDGETSSSSSSSSS */}
 
-                                    <div className="col-xl-8 mb-3" >
+                                    <div className="col-xl-8" >
 
                                         <div className="row pr-4">
 
@@ -256,8 +251,7 @@ const Dashboard = () => {
                             {/* USERS TABLES */}
                             <div className="container-fluid">
 
-                                <div className="row pr-4 pt-4">
-
+                                <div className="row pr-4 pt-2">
 
                                     <div className="col col-lg-12">
 
@@ -284,7 +278,7 @@ const Dashboard = () => {
                                                                     searchRight
                                                                     searchBottom={false}
                                                                     barReverse
-                                                              
+
 
                                                                 />
                                                             )}
