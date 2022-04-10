@@ -60,7 +60,7 @@ class APIFeatures {
     filterByDay() {
 
         const queryCopy = { ...this.queryStr };
-        
+
 
         const removeFields = ['keyword', 'limit', 'page'];
 
@@ -69,6 +69,22 @@ class APIFeatures {
         console.log(queryCopy);
 
         this.query = queryCopy.day ? this.query.find({ "availability.days": queryCopy.day }) : this.query.find({});
+
+        return this;
+    }
+
+    filterByTime() {
+
+        const queryCopy = { ...this.queryStr };
+
+
+        const removeFields = ['keyword', 'limit', 'page'];
+
+        removeFields.forEach(el => delete queryCopy[el]);
+
+        console.log(queryCopy);
+
+        this.query = queryCopy.time ? this.query.find({ "availability.time": { $elemMatch: { timeOfDay: queryCopy.time } } }) : this.query.find({});
 
         return this;
     }

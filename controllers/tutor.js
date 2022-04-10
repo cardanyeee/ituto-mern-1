@@ -95,7 +95,8 @@ exports.index = catchAsyncErrors(async (req, res, next) => {
             })
             .populate("subjects"), req.query)
             .filter()
-            .filterByDay();
+            .filterByDay()
+            .filterByTime();
 
         const tutors = await tutorsQuery.query;
 
