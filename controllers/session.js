@@ -209,7 +209,7 @@ exports.acceptSession = catchAsyncErrors(async (req, res, next) => {
 
     try {
 
-        const session = await Session.findById(req.params.id);
+        let session = await Session.findById(req.params.id);
 
         if (!(req.user._id.equals(session.tutor))) {
             return next(new ErrorResponse("Unauthorized Access.", 401));
@@ -221,6 +221,9 @@ exports.acceptSession = catchAsyncErrors(async (req, res, next) => {
         session.status = "Ongoing";
 
         session.save();
+
+        session = await session.populate("tutor");
+        session = await session.populate("subject");
 
         res.status(200).json({
             success: true,
@@ -344,7 +347,6 @@ exports.findAllTuteeSession = catchAsyncErrors(async (req, res, next) => {
             .populate("tutee")
             .populate("subject");
 
-            console.log(sessions);
         res.status(200).json({
             success: true,
             sessions

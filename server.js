@@ -9,7 +9,7 @@ process.on('uncaughtException', err => {
     console.log(`ERROR: ${err.message}`);
     console.log('Shutting down the server due to Uncaught Exception');
     process.exit(1);
-}); 
+});
 
 if (process.env.NODE_ENV !== 'PRODUCTION') require('dotenv').config({ path: './config.env' })
 
@@ -83,6 +83,11 @@ io.on("connection", (socket) => {
     socket.on("session request", (session) => {
         console.log(session);
         socket.to(session.tutor).emit("session notify", session);
+    });
+
+    socket.on("session accept", (session) => {
+        console.log(session);
+        socket.to(session.tutee).emit("session accepted", session);
     });
 
     socket.on("assessment create", (assessment) => {
