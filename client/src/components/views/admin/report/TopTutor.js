@@ -58,14 +58,14 @@ const TopTutor = () => {
     //REPORT CHARTSS DOWNLOADS
 
     const columns = [
-        { label: "Firstname", key: "name", },
+        { label: "Name", key: "name", },
         { label: "Ratings", key: "ratings", },
 
     ]
 
     const columnsPDF = [
-        { label: "Firstname", field: "name", },
-        { label: "Ratings", field: "ratings", },
+        { title: "Firstname", field: "name", },
+        { title: "Ratings", field: "ratings", },
 
     ]
 
@@ -120,26 +120,30 @@ const TopTutor = () => {
 
     const downloadPdf = () => {
 
-        const doc = new jsPDF()
-        doc.text("Top Rated Tutors", 20, 10)
+        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+        const doc = new jsPDF('landscape')
+
+        doc.setFontSize(50)
+        doc.text("Top Rated Tutors", 20, 20)
+
+        doc.setFontSize(14)
+
+        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
+
+
         doc.autoTable({
             // columnStyles: {
-            //     0: { cellWidth: 20 },
+            //     0: { cellWidth: 100 },
             //     1: { cellWidth: 30 },
-            //     2: { cellWidth: 30 },
-            //     3: { cellWidth: 20 },
-            //     4: { cellWidth: 20 },
-            //     5: { cellWidth: 20 },   
-            //     6: { cellWidth: 20 },
-            //     7: { cellWidth: 20 },
+             
             //     // etc
             // },   
-            margin: { top: 25 },
+            margin: { top: 35 },
             columns: columnsPDF.map(col => ({ ...col, dataKey: col.field })),
             theme: "striped",
             body: tutorData
         })
-        doc.save(`${csvDownloadDate}-Courses.pdf`)
+        doc.save(`${csvDownloadDate}-TopTutors-Chart.pdf`)
     }
 
 
@@ -213,7 +217,6 @@ const TopTutor = () => {
                                                             </CSVLink>
                                                             &nbsp;
 
-                                                            &nbsp;
 
                                                             <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
                                                                 <i className="color-report fas fa-print fa-xs" >
@@ -279,18 +282,22 @@ const TopTutor = () => {
 
 
                                                         }}
-                                                        height={800}
+                                                        height={600}
                                                         width={600}
                                                         options={{
+
                                                             plugins: {
                                                                 legend: {
                                                                     display: false
                                                                 },
                                                             },
-
                                                             maintainAspectRatio: false,
-
-
+    
+                                                            legend: {
+                                                                labels: {
+                                                                    fontSize: 25,
+                                                                },
+                                                            },
                                                         }}
                                                     />
                                                 </div>

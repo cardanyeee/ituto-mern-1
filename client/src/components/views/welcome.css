@@ -446,20 +446,20 @@ p {
 
 
 }
-.slide1 {
+
+.swiperDisplay-fix {
 
 
-    margin-top: 10%;
+    margin-top: 27%;
     align-items: center;
 
     font-size: 5rem;
     text-align: center;
 
     font-weight: bold;
-    padding: 45% 0 50% 20%;
-
-
+    padding: 30% 0 50% 20%;
 }
+
 
 .swiperImg {
 
@@ -477,6 +477,12 @@ p {
 }
 
 .swiper-content {
+    margin-top: -30%;
+    text-align: justify;
+
+}
+
+.swiper-content-fix {
     margin-top: -30%;
     text-align: justify;
 
@@ -599,6 +605,44 @@ p {
 
 @media only screen and (max-width:375px) {
 
+    
+
+    .swiper-content-fix {
+        margin-bottom: 75%;
+        margin-left: 5%;
+        line-height: 1.95em !important;
+
+    }
+
+    
+    .swiperDisplay-fix {
+
+
+        padding: 60% 0 10% 20% !important;
+        font-size: 1.25rem !important;
+        margin-right: 30% !important;
+        margin-left: 10%;
+
+    }
+
+    .swiperDisplay-fix1{
+
+
+        padding: 60% 0 10% 20% !important;
+        font-size: 1.50rem !important;
+        margin-right: 20%;
+
+    }
+
+    .swiper-display {
+        padding: 60% 0 10% 20% !important;
+        font-size: 1.25rem !important;
+        margin-right: 20%;
+
+
+    }
+    
+
     .swiper {
 
         height: 100vh;
@@ -648,13 +692,7 @@ p {
     }
 
 
-    .swiper-display {
-        padding: 60% 0 10% 20% !important;
-        font-size: 1.25rem !important;
-        margin-right: 20%;
-
-
-    }
+    
 
     .swiper-content {
         margin-bottom: 75%;
@@ -705,6 +743,34 @@ p {
 }
 
 @media screen and (max-width:425px) {
+
+    .swiper-content-fix {
+        margin-bottom: 75%;
+        margin-left: 5%;
+        line-height: 1.95em !important;
+
+    }
+
+    
+    .swiperDisplay-fix {
+
+
+        padding: 60% 0 10% 20% !important;
+        font-size: 1.25rem !important;
+        margin-right: 30% !important;
+        margin-left: 10%;
+
+    }
+
+    .swiperDisplay-fix1{
+
+
+        padding: 60% 0 10% 20% !important;
+        font-size: 1.50rem !important;
+        margin-right: 20%;
+
+    }
+
 
     .swiper {
 
@@ -813,6 +879,33 @@ p {
 
 @media only screen and (max-width:768px) {
 
+    /* .swiper-content-fix {
+        margin-bottom: 75%;
+        margin-left: 5%;
+        line-height: 2.25em;
+
+    } */
+
+    
+    .swiperDisplay-fix {
+
+
+        padding: 60% 0 10% 20% !important;
+        font-size: 2rem ;
+        margin-top: 33% !important;
+        margin-left: 10%;
+
+    }
+
+    /* .swiperDisplay-fix1{
+
+
+        padding: 60% 0 10% 20% !important;
+        font-size: 1.50rem !important;
+        margin-right: 20%;
+
+    } */
+
 
     .subheading {
         margin: -30% 0 10% 0 !important;
@@ -914,6 +1007,10 @@ p {
 /* banner respoonsive*/
 
 @media screen and (max-width: 1024px) {
+
+
+    
+
 
 
     .swiperImg {

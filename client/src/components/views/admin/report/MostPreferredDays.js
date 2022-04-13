@@ -17,6 +17,11 @@ import Loader from '../../../layout/main/Loader';
 
 import { getData } from '../../../../actions/all_actions';
 
+import { CSVLink } from "react-csv";
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import moment from 'moment';
+
 ChartJS.register(
     ...registerables
 );
@@ -69,32 +74,114 @@ const MostPreferredDays = () => {
     //REPORT CHARTSS DOWNLOADS
 
 
-    // const pdfBar = () => {
 
-    //     const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+    const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
 
-    //     const canvas = document.getElementById('bar-populations');
+    const columns = [
+        { label: "Preferred Days", key: "name", },
+        { label: "Quantity", key: "counts", },
 
-    //     const canvasImage = canvas.toDataURL('image/png', 1.0);
+    ]
 
+    // const topRequestedSubjectData = [];
 
-    //     var pdf = new jsPDF('landscape')
-
-
-    //     pdf.setFont("helvetica", "bold")
-    //     pdf.setFontSize(40)
-    //     pdf.text(15, 20, 'Most Preferred Days')
-    //     pdf.setFont("helvetica", "normal")
-    //     pdf.setFontSize(16)
-
-    //     pdf.setFontSize(16)
-    //     pdf.setFont("helvetica", "bolditalic")
-    //     pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
+    // averageMonth.forEach(t => {
+    //     topRequestedSubjectData.push({
+    //         name: t._id,
+    //         counts: t.count
+    //     })
+    // })
 
 
-    //     pdf.addImage(canvasImage, 10, 25, 280, 170);
-    //     pdf.save(`PreferredDays-Chart-${DateGathered}.pdf`);
-    // }
+
+    const csvReport = {
+
+        filename: `${csvDownloadDate}-Preferred-Days`,
+        headers: columns,
+        data: newPreferredDays
+
+
+    };
+
+
+    const downloadPdf = () => {
+        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+        const doc = new jsPDF('landscape')
+
+        doc.setFont("helvetica", "bold")
+        doc.setFontSize(50)
+        doc.text("Preferred Days of Sessions", 20, 20)
+
+        doc.setFontSize(14)
+
+        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
+
+
+
+
+        doc.autoTable({
+            // columnStyles: {
+            //     0: { cellWidth: 20 },
+            //     1: { cellWidth: 30 },
+            //     2: { cellWidth: 30 },
+            //     3: { cellWidth: 20 },
+            //     4: { cellWidth: 20 },
+            //     5: { cellWidth: 20 },   
+            //     6: { cellWidth: 20 },
+            //     7: { cellWidth: 20 },
+            //     // etc
+            // },   
+            margin: { top: 35 },
+            columns: columns.map(col => ({ ...col, dataKey: columns.key })),
+            theme: "striped",
+            body: newPreferredDays
+        })
+        doc.save(`${csvDownloadDate}-MostPreferredDays.pdf`)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    const pdfBar = () => {
+
+        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+
+        const canvas = document.getElementById('bar-populations');
+
+        const canvasImage = canvas.toDataURL('image/png', 1.0);
+
+
+        var pdf = new jsPDF('landscape')
+
+
+        pdf.setFont("helvetica", "bold")
+        pdf.setFontSize(40)
+        pdf.text(15, 20, 'Preferred Days of Sessions')
+        pdf.setFont("helvetica", "normal")
+        pdf.setFontSize(16)
+
+        pdf.setFontSize(16)
+        pdf.setFont("helvetica", "bolditalic")
+        pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
+
+
+        pdf.addImage(canvasImage, 10, 25, 280, 170);
+        pdf.save(`${DateGathered}-MostPreferredDays-Chart.pdf`);
+    }
+
+
+
+
+
+
 
     return (
 
@@ -152,36 +239,38 @@ const MostPreferredDays = () => {
                                             {/* <!-- Card Header - Dropdown --> */}
                                             <div className="card-header">
                                                 <div className="row align-center">
-                                                    <div className="container" style={{ color: "#4FBD95", textDecoration: "none" }}>
-                                                        <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
-                                                            <i className="color-report fas fa-print fa-xs" >
-                                                                <span className="m-0 font-weight-bold" >
-                                                                    &nbsp;CSV
 
-                                                                </span>
-                                                            </i>
-                                                        </div>
-                                                        &nbsp;
+                                                    <div className="container">
+                                                        <div className="card-body">
+                                                            <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
+                                                                <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
+                                                                    <i className="color-report fas fa-print fa-xs" >
+                                                                        <span className="m-0 font-weight-bold" >
+                                                                            &nbsp;CSV
 
-                                                        &nbsp;
+                                                                        </span>
+                                                                    </i>
+                                                                </div>
+                                                            </CSVLink>
+                                                            &nbsp;
+                                                            <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
+                                                                <i className="color-report fas fa-print fa-xs" >
+                                                                    <span className="m-0 font-weight-bold" >
+                                                                        &nbsp;Chart PDF
 
-                                                        <div className="btn" role="button" style={{ backgroundColor: "#9FDACA" }}>
-                                                            <i className="color-report fas fa-print fa-xs" >
-                                                                <span className="m-0 font-weight-bold" >
-                                                                    &nbsp;Chart PDF
+                                                                    </span>
+                                                                </i>
+                                                            </div>
 
-                                                                </span>
-                                                            </i>
-                                                        </div>
+                                                            &nbsp;
+                                                            <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#2A4250" }}>
+                                                                <i className="color-report fas fa-print fa-xs" >
+                                                                    <span className="m-0 font-weight-bold" >
+                                                                        &nbsp;PDF
 
-                                                        &nbsp;
-                                                        <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
-                                                            <i className="color-report fas fa-print fa-xs" >
-                                                                <span className="m-0 font-weight-bold" >
-                                                                    &nbsp;PDF
-
-                                                                </span>
-                                                            </i>
+                                                                    </span>
+                                                                </i>
+                                                            </div>
                                                         </div>
 
                                                     </div>
@@ -194,51 +283,56 @@ const MostPreferredDays = () => {
                                             </div>
                                             {/* <!-- Card Body --> */}
                                             <div className="card-body">
+                                                <div className='container-data'>
 
 
-                                                <Bar id="bar-populations"
-                                                    data={{
-                                                        labels: preferredDaysName,
-                                                        datasets: [
-                                                            {
-                                                                label: '# of votes',
-                                                                data: preferredDaysData,
+                                                    <Bar id="bar-populations"
+                                                        data={{
+                                                            labels: preferredDaysName,
+                                                            datasets: [
+                                                                {
+                                                                    label: '# of votes',
+                                                                    data: preferredDaysData,
 
-                                                                backgroundColor: [
-                                                                    "#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7",
-                                                                    '#7eb0d5',
-                                                                ],
-                                                                borderColor: [
-                                                                    "#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7",
-                                                                    '#7eb0d5',
-                                                                ],
-                                                                borderWidth: 1,
+                                                                    backgroundColor: [
+                                                                        "#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7",
+                                                                        '#7eb0d5',
+                                                                    ],
+                                                                    borderColor: [
+                                                                        "#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7",
+                                                                        '#7eb0d5',
+                                                                    ],
+                                                                    borderWidth: 1,
+                                                                },
+                                                                // {
+                                                                //   label: 'Quantity',
+                                                                //   data: [47, 52, 67, 58, 9, 50],
+                                                                //   backgroundColor: 'orange',
+                                                                //   borderColor: 'red',
+                                                                // },
+                                                            ],
+                                                        }}
+                                                        height={600}
+                                                        width={600}
+                                                        options={{
+                                                            plugins: {
+                                                                legend: {
+                                                                    display: false
+                                                                },
                                                             },
-                                                            // {
-                                                            //   label: 'Quantity',
-                                                            //   data: [47, 52, 67, 58, 9, 50],
-                                                            //   backgroundColor: 'orange',
-                                                            //   borderColor: 'red',
-                                                            // },
-                                                        ],
-                                                    }}
-                                                    height={800}
-                                                    width={600}
-                                                    options={{
-                                                        plugins: {
+                                                            maintainAspectRatio: false,
+
                                                             legend: {
-                                                                display: false
+                                                                labels: {
+                                                                    fontSize: 25,
+                                                                },
                                                             },
-                                                        },
-                                                        maintainAspectRatio: false,
+                                                        }}
+                                                    />
 
-                                                        legend: {
-                                                            labels: {
-                                                                fontSize: 25,
-                                                            },
-                                                        },
-                                                    }}
-                                                />
+
+                                                </div>
+
 
 
 

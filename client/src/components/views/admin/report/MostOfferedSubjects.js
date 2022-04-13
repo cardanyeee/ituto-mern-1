@@ -52,6 +52,13 @@ const MostOfferedSubject = () => {
 
     ]
 
+
+    const columnsPDF = [
+        { title: "Subject Name", field: "name", },
+        { title: "Offered By", field: "counts", },
+
+    ]
+
     const topsubjectData = [];
 
     topsubjects.forEach(t => {
@@ -65,7 +72,7 @@ const MostOfferedSubject = () => {
 
     const csvReport = {
 
-        filename: `${csvDownloadDate}`,
+        filename: `${csvDownloadDate}-mostOfferedbyTutors`,
         headers: columns,
         data: topsubjectData
 
@@ -74,23 +81,27 @@ const MostOfferedSubject = () => {
 
 
     const downloadPdf = () => {
+        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+        const doc = new jsPDF('landscape')
 
-        const doc = new jsPDF()
-        doc.text("Most Offered by Tutors", 20, 10)
+
+        doc.setFontSize(50)
+        doc.text("Most offered subjects by Tutors", 20, 20)
+
+        doc.setFontSize(14)
+
+        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
+
+
         doc.autoTable({
-            // columnStyles: {
-            //     0: { cellWidth: 20 },
-            //     1: { cellWidth: 30 },
-            //     2: { cellWidth: 30 },
-            //     3: { cellWidth: 20 },
-            //     4: { cellWidth: 20 },
-            //     5: { cellWidth: 20 },   
-            //     6: { cellWidth: 20 },
-            //     7: { cellWidth: 20 },
-            //     // etc
-            // },   
-            margin: { top: 25 },
-            columns: columns.map(col => ({ ...col, dataKey: columns.key })),
+            columnStyles: {
+           
+                1: { cellWidth: 50 },
+             
+                // etc
+            },   
+            margin: { top: 35 },
+            columns: columnsPDF.map(col => ({ ...col, dataKey: col.field })),
             theme: "striped",
             body: topsubjectData
         })
@@ -195,7 +206,7 @@ const MostOfferedSubject = () => {
                                                             </CSVLink>
                                                             &nbsp;
 
-                                                            &nbsp;
+                                                         
 
                                                             <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
                                                                 <i className="color-report fas fa-print fa-xs" >
@@ -259,7 +270,7 @@ const MostOfferedSubject = () => {
                                                                 // },
                                                             ],
                                                         }}
-                                                        height={800}
+                                                        height={600}
                                                         width={600}
                                                         options={{
                                                             plugins: {

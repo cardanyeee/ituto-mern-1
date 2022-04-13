@@ -20,6 +20,12 @@ import { topratedYearLevel } from '../../../../actions/reportActions';
 import { getData } from '../../../../actions/all_actions';
 
 
+import { CSVLink } from "react-csv";
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import moment from 'moment';
+
+
 ChartJS.register(
     ...registerables
 );
@@ -39,36 +45,28 @@ const MostTuteeYearLevel = () => {
     const sorted = topYearLevel.sort((a, b) => sortArray.indexOf(a._id) - sortArray.indexOf(b._id));
     let yearLevel = sorted.map(year => year.count)
 
+    console.log(topYearLevel)
+
     const setUsers = () => {
 
         const data = {
 
             columns: [
 
-                { label: 'Firstname', field: 'Firstname', width: 210 },
-                { label: 'Lastname', field: 'Lastname', width: 150 },
-                { label: 'Username', field: 'Username', width: 230 },
-                { label: 'Gender', field: 'Gender', width: 230 },
-                { label: 'Email', field: 'Email', width: 230 },
-                { label: 'Role', field: 'Role', width: 230 },
-                { label: 'Phone', field: 'Phone', width: 230 },
-                { label: 'Time', field: 'Time', width: 240 },
-                { label: 'Actions', field: 'actions', width: 100 }
+                { label: 'Year Level', field: 'Year', width: 210 },
+                { label: 'Quantity', field: 'Quantity', width: 150 },
+
 
             ],
             rows: []
         }
 
-        users.forEach(allUsers => {
+        topYearLevel.forEach(t => {
             data.rows.push({
-                Firstname: allUsers.firstname,
-                Lastname: allUsers.lastname,
-                Username: allUsers.username,
-                Gender: allUsers.gender,
-                Email: allUsers.email,
-                Role: allUsers.role,
-                Phone: allUsers.phone,
-                Time: allUsers.createdAt,
+
+                Year: topYearLevel[0]._id,
+                Quantity: topYearLevel[0].count
+
             })
         })
 
@@ -77,38 +75,127 @@ const MostTuteeYearLevel = () => {
 
     }
 
-    // const pdfDonut = () => {
-
-    //     const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
-
-    //     const canvas = document.getElementById('mf-populations');
-
-    //     const canvasImage = canvas.toDataURL('image/png', 1.0);
-
-
-    //     var pdf = new jsPDF('landscape')
-
-
-    //     pdf.setFont("helvetica", "bold")
-    //     pdf.setFontSize(40)
-    //     pdf.text(15, 20, 'Tutee Per Year Level')
-    //     pdf.setFont("helvetica", "normal")
-    //     pdf.setFontSize(16)
-
-    //     pdf.setFontSize(16)
-    //     pdf.setFont("helvetica", "bolditalic")
-    //     pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
-
-
-    //     pdf.addImage(canvasImage, 75, 30, 150, 150);
-    //     pdf.save(`Tutee-YearLevel-${DateGathered}.pdf`);
-
-    // }
-
 
 
 
     //REPORT CHARTSS DOWNLOADS
+
+
+
+    const columns = [
+        { label: "Year Level", key: "name", },
+        { label: "Quantity", key: "ratings", },
+
+    ]
+
+    const columnsPDF = [
+        { title: "Year Level", field: "name", },
+        { title: "Quantity", field: "ratings", },
+
+
+    ]
+
+
+
+
+    const yearLevelData = [];
+
+    topYearLevel.forEach(t => {
+        yearLevelData.push({
+            name: sortArray,
+            ratings: yearLevel
+        })
+    })
+
+    const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
+
+    const csvReport = {
+
+        filename: `${csvDownloadDate}-YearLevel`,
+        headers: columns,
+        data: yearLevelData
+
+
+    };
+
+
+    //PDF CHART
+
+
+    const pdfBar = () => {
+
+
+
+        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+
+        const canvas = document.getElementById('pie-populations');
+
+        const canvasImage = canvas.toDataURL('image/png', 1.0);
+
+
+        var pdf = new jsPDF('landscape')
+
+
+        pdf.setFont("helvetica", "bold")
+        pdf.setFontSize(40)
+        pdf.text(15, 20, 'Tutees per Year Level')
+        pdf.setFont("helvetica", "normal")
+        pdf.setFontSize(16)
+
+        pdf.text(`First Year: ${topYearLevel[0].count} `, 35, 35, 360, 60)
+        pdf.text(`Second Year: ${topYearLevel[1].count} `, 85, 35, 360, 60)
+        pdf.text(`Third Year: ${topYearLevel[2].count} `, 150, 35, 360, 60)
+        pdf.text(`Fourth Year: ${topYearLevel[3].count} `, 200, 35, 360, 60)
+
+        pdf.setFontSize(16)
+        pdf.setFont("helvetica", "bolditalic")
+        pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
+
+
+        pdf.addImage(canvasImage, 80, 50, 150, 125);
+        pdf.save(`Tutees-per-YearLevel-${DateGathered}.pdf`);
+    }
+
+
+
+
+    //PDF FILE 
+
+    const downloadPdf = () => {
+
+        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+        const doc = new jsPDF('landscape')
+
+        doc.setFontSize(50)
+        doc.text("Tutees per Year Level", 20, 20)
+
+        doc.setFontSize(14)
+
+        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
+
+
+        doc.autoTable({
+            // columnStyles: {
+            //     0: { cellWidth: 100 },
+            //     1: { cellWidth: 30 },
+
+            //     // etc
+            // },   
+            margin: { top: 35 },
+
+            theme: "striped",
+
+            columns: columnsPDF.map(col => ({ ...col, dataKey: col.field })),
+            body: yearLevelData
+        })
+        doc.save(`${csvDownloadDate}-TopTutors-Chart.pdf`)
+    }
+
+
+
+
+
+
 
 
     return (
@@ -139,70 +226,92 @@ const MostTuteeYearLevel = () => {
 
                                     </div>
 
-                                    <div className="row pr-4">
-                                        {/* LINE CHART */}
 
-                                        <div className="col-xl- mb-3" >
+                                    {/* LINE CHART */}
 
 
-                                            <div className="row pr-4 pt-4">
 
 
-                                                <div className="col col-lg-8">
-
-                                                    <div className="card shadow mb-4">
-                                                        {/* <!-- Card Header - Dropdown --> */}
-                                                        <div className="card-header">
-                                                            <h6 className="color1 m-0 font-weight-bold">REGISTERED USERS</h6>
-                                                        </div>
-                                                        {/* <!-- Card Body --> */}
-
-                                                        {/* USER DATA SECTION */}
 
 
+
+                                    <div className="container-fluid">
+
+                                        <div className="row pr-4 pt-2">
+
+
+
+
+
+                                            {/* TABLEEEEEEE */}
+                                            <div className="col col-lg-4">
+
+                                                <div className="card shadow mb-4">
+                                                    {/* <!-- Card Header - Dropdown --> */}
+                                                    <div className="card-header py-3">
+                                                        <h6 className="color1 m-0 font-weight-bold">Most Tutees per Year Level</h6>
+                                                    </div>
+                                                    {/* <!-- Card Body --> */}
+
+                                                    {/* USER DATA SECTION */}
+
+                                                    <div className="card-body">
                                                         <div className="table-responsive">
                                                             <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
 
                                                                 <Fragment>
                                                                     {loading ? <Loader /> : (
-                                                                        <MDBDataTableV5 className="adjust-table"
+                                                                        <MDBDataTableV5 className="table-height"
                                                                             data={setUsers()}
                                                                             striped
                                                                             hover
+                                                                            searchTop
+                                                                            searchBottom={false}
+                                                                            barReverse
+
+
                                                                         />
                                                                     )}
                                                                 </Fragment>
                                                             </div>
                                                         </div>
-
-
-
                                                     </div>
+
+
+
                                                 </div>
 
 
 
-                                                {/* DONUTTTT SECTIONNNNN*/}
-                                                <div className="col col-lg-4">
 
-                                                    <div className="card shadow mb-4">
-                                                        {/* <!-- Card TITLE*/}
-                                                        <div className="card-header">
-                                                            <div className="row align-center">
-                                                                <div className="container" style={{ color: "#4FBD95", textDecoration: "none" }}>
-                                                                    <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
-                                                                        <i className="color-report fas fa-print fa-xs" >
-                                                                            <span className="m-0 font-weight-bold" >
-                                                                                &nbsp;CSV
+                                            </div>
 
-                                                                            </span>
-                                                                        </i>
-                                                                    </div>
+
+                                            {/* DONUTTTT SECTIONNNNN*/}
+
+                                            <div className="col col-lg-8" >
+
+                                                <div className="card shadow mb-4">
+                                                    {/* <!-- Card TITLE*/}
+                                                    <div className="card-header">
+                                                        <div className="row align-center">
+
+                                                            <div className="container">
+                                                                <div className="card-body">
+                                                                    <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
+                                                                        <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
+                                                                            <i className="color-report fas fa-print fa-xs" >
+                                                                                <span className="m-0 font-weight-bold" >
+                                                                                    &nbsp;CSV
+
+                                                                                </span>
+                                                                            </i>
+                                                                        </div>
+                                                                    </CSVLink>
                                                                     &nbsp;
 
-                                                                    &nbsp;
 
-                                                                    <div className="btn" role="button" style={{ backgroundColor: "#9FDACA" }}>
+                                                                    <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
                                                                         <i className="color-report fas fa-print fa-xs" >
                                                                             <span className="m-0 font-weight-bold" >
                                                                                 &nbsp;Chart PDF
@@ -212,7 +321,7 @@ const MostTuteeYearLevel = () => {
                                                                     </div>
 
                                                                     &nbsp;
-                                                                    <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
+                                                                    <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#2A4250" }}>
                                                                         <i className="color-report fas fa-print fa-xs" >
                                                                             <span className="m-0 font-weight-bold" >
                                                                                 &nbsp;PDF
@@ -220,80 +329,92 @@ const MostTuteeYearLevel = () => {
                                                                             </span>
                                                                         </i>
                                                                     </div>
-
                                                                 </div>
+
                                                             </div>
                                                         </div>
-                                                        {/* <!-- Card Body --> */}
-                                                        <div className="card-body">
+                                                    </div>
+                                                    {/* <!-- Card Body --> */}
+                                                    <div className="card-body">
 
-                                                            <div className="chart-pie pt-4">
+                                                        <div className="chart-pie pt-4">
 
-                                                                <Pie id="mf-populations"
+                                                            <Pie id="pie-populations"
 
-                                                                    data={{
-                                                                        labels: ['First year', 'Second Year', 'Third Year', 'Fourth Year'],
-                                                                        datasets: [
-                                                                            {
-                                                                                label: '# of votes',
-                                                                                data: yearLevel,
+                                                                data={{
+                                                                    labels: ['First year', 'Second Year', 'Third Year', 'Fourth Year'],
+                                                                    datasets: [
+                                                                        {
+                                                                            label: '# of votes',
+                                                                            data: yearLevel,
 
-                                                                                backgroundColor: [
-                                                                                    "#50e991", "#0bb4ff", "#e6d800", "#FD7F6F",
-                                                                                    // '#4BC0C0',
-                                                                                    // '#9966FF',
-                                                                                    // '#FF9F40',
-                                                                                ],
-                                                                                borderColor: [
-                                                                                    "#50e991", "#0bb4ff", "#e6d800", "#FD7F6F",
-                                                                                    // 'rgba(75, 192, 192, 1)',
-                                                                                    // 'rgba(153, 102, 255, 1)',
-                                                                                    // 'rgba(255, 159, 64, 1)',
-                                                                                ],
-                                                                                borderWidth: 1,
-                                                                            },
-                                                                            // {
-                                                                            //   label: 'Quantity',
-                                                                            //   data: [47, 52, 67, 58, 9, 50],
-                                                                            //   backgroundColor: 'orange',
-                                                                            //   borderColor: 'red',
-                                                                            // },
-                                                                        ],
-
-                                                                    }}
-                                                                    height={400}
-                                                                    width={600}
-                                                                    options={{
-                                                                        
-                                                                        maintainAspectRatio: false,
-                                                                        render: 'percentage',
-
-                                                                        legend: {
-                                                                            labels: {
-                                                                                fontSize: 25,
-                                                                            },
+                                                                            backgroundColor: [
+                                                                                "#50e991", "#0bb4ff", "#e6d800", "#FD7F6F",
+                                                                                // '#4BC0C0',
+                                                                                // '#9966FF',
+                                                                                // '#FF9F40',
+                                                                            ],
+                                                                            borderColor: [
+                                                                                "#50e991", "#0bb4ff", "#e6d800", "#FD7F6F",
+                                                                                // 'rgba(75, 192, 192, 1)',
+                                                                                // 'rgba(153, 102, 255, 1)',
+                                                                                // 'rgba(255, 159, 64, 1)',
+                                                                            ],
+                                                                            borderWidth: 1,
                                                                         },
-                                                                    }}
-                                                                />
+                                                                        // {
+                                                                        //   label: 'Quantity',
+                                                                        //   data: [47, 52, 67, 58, 9, 50],
+                                                                        //   backgroundColor: 'orange',
+                                                                        //   borderColor: 'red',
+                                                                        // },
+                                                                    ],
 
-                                                            </div>
+                                                                }}
+                                                                height={525}
+                                                                width={500}
+                                                                options={{
+
+                                                                    maintainAspectRatio: false,
+                                                                    render: 'percentage',
+
+                                                                    legend: {
+                                                                        labels: {
+                                                                            fontSize: 25,
+                                                                        },
+                                                                    },
+                                                                }}
+                                                            />
 
                                                         </div>
 
                                                     </div>
+
                                                 </div>
-
-
-                                            </div>
-
-
-
-
+                                            </div >
 
                                         </div>
 
 
+
+
                                     </div>
+
+
+
+                                    {/* DONUTTTT SECTIONNNNN*/}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -333,3 +454,7 @@ const MostTuteeYearLevel = () => {
 }
 
 export default MostTuteeYearLevel
+
+
+
+

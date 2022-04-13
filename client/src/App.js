@@ -15,7 +15,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ProtectedRoute from './components/route/ProtectedRoute';
 
 import Login from './components/views/auth/Login';
-import Register from './components/views/auth/Register';
+// import Register from './components/views/auth/Register';
 import ActivationEmail from './components/views/auth/ActivationEmail';
 import TutorActivationEmail from './components/views/auth/TutorActivationEmail';
 import ForgotPassword from './components/views/auth/ForgotPassword';
@@ -76,7 +76,7 @@ const App = () => {
 
 					<Route path="/terms-and-conditions" component={TermsConditions} exact />
 					<Route path="/login" exact component={Login} />
-					<Route path="/register" exact component={Register} />
+					{/* <Route path="/register" exact component={Register} /> */}
 					<Route path="/forgot/password" exact component={ForgotPassword} />
 					<Route path="/reset/password/:accesstoken" exact component={ResetPassword} />
 					<Route path="/user/activate/:activation_token" exact component={ActivationEmail} />

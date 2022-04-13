@@ -56,6 +56,15 @@ const MostRequestedByMale = () => {
 
     ]
 
+
+    
+    const columnsPDF = [
+        { title: "Subject Name", field: "name", },
+        { title: "Requested By", field: "counts", },
+
+    ]
+
+
     const topRequestedSubjectData = [];
 
     requestedbymale.forEach(t => {
@@ -79,33 +88,35 @@ const MostRequestedByMale = () => {
 
     const downloadPdf = () => {
 
-        const doc = new jsPDF()
-        doc.text("Most Requested by Male Tutees", 20, 10)
+        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+        const doc = new jsPDF('landscape')
+
+
+        doc.setFontSize(50)
+        doc.text("Most Requested by Male", 20, 20)
+
+        doc.setFontSize(14)
+
+        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
+
+
+
+
+
         doc.autoTable({
-            // columnStyles: {
-            //     0: { cellWidth: 20 },
-            //     1: { cellWidth: 30 },
-            //     2: { cellWidth: 30 },
-            //     3: { cellWidth: 20 },
-            //     4: { cellWidth: 20 },
-            //     5: { cellWidth: 20 },   
-            //     6: { cellWidth: 20 },
-            //     7: { cellWidth: 20 },
-            //     // etc
-            // },   
-            margin: { top: 25 },
-            columns: columns.map(col => ({ ...col, dataKey: columns.key })),
+            columnStyles: {
+           
+                1: { cellWidth: 50 },
+             
+                // etc
+            },  
+            margin: { top: 35 },
+            columns: columnsPDF.map(col => ({ ...col, dataKey: col.field })),
             theme: "striped",
             body: topRequestedSubjectData
         })
         doc.save(`${csvDownloadDate}-mostRequestedbyMales.pdf`)
     }
-
-
-
-
-
-
 
     const pdfBar = () => {
 
@@ -131,7 +142,7 @@ const MostRequestedByMale = () => {
 
 
         pdf.addImage(canvasImage, 10, 25, 280, 170);
-        pdf.save(`Male-MostRequestedSubject-${DateGathered}.pdf`);
+        pdf.save(`${DateGathered}-Male-MostRequestedSubject-Chart.pdf`);
     }
 
     return (
@@ -203,7 +214,7 @@ const MostRequestedByMale = () => {
                                                             </CSVLink>
                                                             &nbsp;
 
-                                                            &nbsp;
+                                                          
 
                                                             <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
                                                                 <i className="color-report fas fa-print fa-xs" >
@@ -265,7 +276,7 @@ const MostRequestedByMale = () => {
                                                                 // },
                                                             ],
                                                         }}
-                                                        height={800}
+                                                        height={600}
                                                         width={600}
                                                         options={{
                                                             plugins: {
@@ -273,7 +284,7 @@ const MostRequestedByMale = () => {
                                                                     display: false
                                                                 },
                                                             },
-                                                            maintainAspectRatio: true,
+                                                            maintainAspectRatio: false,
                                                             responsive: true,
                                                             aspectRatio: 1,
                                                             legend: {

@@ -182,10 +182,10 @@ const Welcome = () => {
                                                                 spaceBetween={30}
                                                                 effect={"fade"}
                                                                 loop={true}
-                                                                autoplay={{
-                                                                    delay: 3000,
-                                                                    disableOnInteraction: false,
-                                                                }}
+                                                                // autoplay={{
+                                                                //     delay: 3000,
+                                                                //     disableOnInteraction: false,
+                                                                // }}
                                                                 pagination={{
                                                                     clickable: true,
                                                                 }}
@@ -207,7 +207,7 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                            <div className="swiperDisplay-fix">
                                                                                                 Registration
                                                                                             </div>
                                                                                         </div>
@@ -255,7 +255,7 @@ const Welcome = () => {
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
 
                                                                                         <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay">
+                                                                                            <div className="swiperDisplay-fix" id="swiperDisplay">
                                                                                                 Log in
                                                                                             </div>
                                                                                         </div>
@@ -277,7 +277,7 @@ const Welcome = () => {
 
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users are asked input credentials of the account. The system requests the users for email and password.
+                                                                                            <p className="swiper-content-fix" style={{ paddingRight: "10%" }}>Users are asked input credentials of the account. The system requests the users for email and password.
 
 
 
@@ -345,9 +345,8 @@ const Welcome = () => {
 
                                                                 </SwiperSlide>
 
-                                                                {/* Step 9 */}
-                                                                <SwiperSlide>
 
+                                                                <SwiperSlide>
                                                                     <div className="row align-center">
                                                                         <div className="container">
                                                                             <div className="row align-start">
@@ -366,8 +365,6 @@ const Welcome = () => {
                                                                                 </div>
                                                                                 <div className="swiper-align col-md-8 col-12">
                                                                                     <img className="swiperImg" src="images/slider-mockups/slider-4.png" alt="app-mockup" width="200" />
-
-
                                                                                     <div className="elevation-0 transparent v-card v-sheet theme--light">
                                                                                         <div className="v-card__text text-center">
                                                                                             <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
@@ -379,8 +376,6 @@ const Welcome = () => {
                                                                                         </div>
                                                                                         <div className="swiper-content v-card__text text-center">
                                                                                             <p className="swiper-content" style={{ paddingRight: "10%" }}>Users can update his profile picture. Displays the information previously entered by the user and updates it accordingly to the user.
-
-
                                                                                             </p>
                                                                                         </div>
                                                                                     </div>
@@ -391,59 +386,7 @@ const Welcome = () => {
                                                                             </div>
                                                                         </div>
                                                                     </div>
-
                                                                 </SwiperSlide>
-
-
-                                                                {/* Step 9 */}
-                                                                <SwiperSlide>
-
-                                                                    <div className="row align-center">
-                                                                        <div className="container">
-                                                                            <div className="row align-start">
-                                                                                <div className="col-md-4 col-12">
-
-                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-
-                                                                                        <div className="v-card__text text-center">
-                                                                                            <div className="swiper-display" id="swiperDisplay">
-                                                                                                Update Profile
-                                                                                            </div>
-                                                                                        </div>
-
-
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div className="swiper-align col-md-8 col-12">
-                                                                                    <img className="swiperImg" src="images/slider-mockups/slider-4.png" alt="app-mockup" width="200" />
-
-
-                                                                                    <div className="elevation-0 transparent v-card v-sheet theme--light">
-                                                                                        <div className="v-card__text text-center">
-                                                                                            <div className="display-1 text-center" style={{ fontWeight: "bold", paddingTop: "10%" }}>
-
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div primary-title="" className="v-card__title layout justify-center">
-
-                                                                                        </div>
-                                                                                        <div className="swiper-content v-card__text text-center">
-                                                                                            <p className="swiper-content" style={{ paddingRight: "10%" }}>Users can update his profile picture. Displays the information previously entered by the user and updates it accordingly to the user.
-
-
-                                                                                            </p>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-
-
-
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </SwiperSlide>
-
 
 
 

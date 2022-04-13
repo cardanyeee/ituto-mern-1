@@ -9,7 +9,6 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import SchoolIcon from '@mui/icons-material/School';
 import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
-import DoNotDisturbIcon from '@mui/icons-material/DoNotDisturb';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
 import { getTuteeCount } from '../../actions/reportActions';
@@ -51,7 +50,7 @@ const Widget = ({ type }) => {
         title: "REGISTERED USERS",
         display: userCount,
         isNoLink: true,
-        link: "Registered Users",
+        link: `${userCount} Total Users`,
         icon: (
           <PersonOutlinedIcon
             className="icon"
@@ -85,7 +84,7 @@ const Widget = ({ type }) => {
         title: "TOTAL TUTORS",
         display: tutorCount,
         isNoLink: true,
-        link: "Total Tutors",
+        link: `${tutorCount} Total Tutors `,
         icon: (
           <SchoolIcon
             className="icon"
@@ -99,7 +98,7 @@ const Widget = ({ type }) => {
         title: "MALE USERS",
         display: maleCount,
         isNoLink: true,
-        link: "Male Users",
+        link: `${maleCount} Total Male users`,
         icon: (
           <MaleIcon
             className="icon"
@@ -116,7 +115,7 @@ const Widget = ({ type }) => {
         title: "FEMALE USERS",
         display: femaleCount,
         isNoLink: true,
-        link: "Female Users",
+        link: `${femaleCount} Total Female users `,
         icon: (
           <FemaleIcon
             className="icon"
@@ -131,18 +130,14 @@ const Widget = ({ type }) => {
 
     case "other":
       data = {
-        title: "TOTAL TUTEE",
+        title: "TOTAL TUTEES",
         display: tuteeCount,  
         isNoLink: true,
-        link: `${tuteeCount} tutee counts `,
+        link: `${tuteeCount} Total Tutees`,
         icon: (
-          <DoNotDisturbIcon
+          <SchoolIcon
             className="icon"
-            style={{
-              color: "crimson",
-              backgroundColor: "rgba(255, 0, 0, 0.2)",
-            }}
-            
+            style={{ backgroundColor: "rgba(0, 128, 0, 0.2)", color: "green" }}
           />
         ),
       };
