@@ -152,7 +152,7 @@ const MostTuteeYearLevel = () => {
         pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
 
 
-        pdf.addImage(canvasImage, 80, 50, 150, 125);
+        pdf.addImage(canvasImage, 10, 50, 275, 125);
         pdf.save(`Tutees-per-YearLevel-${DateGathered}.pdf`);
     }
 
