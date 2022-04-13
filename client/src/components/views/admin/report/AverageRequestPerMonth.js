@@ -111,8 +111,18 @@ const AverageRequestPerMonth = () => {
 
     const downloadPdf = () => {
 
-        const doc = new jsPDF()
-        doc.text("Most Requested by Male Tutees", 20, 10)
+        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+        const doc = new jsPDF('landscape')
+
+
+        doc.setFontSize(50)
+        doc.text("Average Request Per Month", 20, 20)
+
+        doc.setFontSize(14)
+
+        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
+
+
         doc.autoTable({
             // columnStyles: {
             //     0: { cellWidth: 20 },
@@ -125,10 +135,10 @@ const AverageRequestPerMonth = () => {
             //     7: { cellWidth: 20 },
             //     // etc
             // },   
-            margin: { top: 25 },
+            margin: { top: 35 },
             columns: columns.map(col => ({ ...col, dataKey: columns.key })),
             theme: "striped",
-            body: newAverageMonth
+            body: averageMonthData
         })
         doc.save(`${csvDownloadDate}-AverageRequetsPerMonths.pdf`)
     }
@@ -158,7 +168,7 @@ const AverageRequestPerMonth = () => {
 
         pdf.setFont("helvetica", "bold")
         pdf.setFontSize(40)
-        pdf.text(15, 20, 'Top 10 Rated Tutors')
+        pdf.text(15, 20, 'Request Per Month')
         pdf.setFont("helvetica", "normal")
         pdf.setFontSize(16)
 
@@ -168,7 +178,7 @@ const AverageRequestPerMonth = () => {
 
 
         pdf.addImage(canvasImage, 10, 25, 280, 170);
-        pdf.save(`Top-Tutors-${DateGathered}.pdf`);
+        pdf.save(`${DateGathered}-AverageRequestPerMonth-Chart.pdf`);
     }
 
     return (
@@ -241,8 +251,6 @@ const AverageRequestPerMonth = () => {
                                                             </CSVLink>
                                                             &nbsp;
 
-                                                            &nbsp;
-
                                                             <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
                                                                 <i className="color-report fas fa-print fa-xs" >
                                                                     <span className="m-0 font-weight-bold" >
@@ -274,47 +282,54 @@ const AverageRequestPerMonth = () => {
                                             {/* <!-- Card Body --> */}
                                             <div className="card-body">
 
+                                                <div className='container-data'>
 
-                                                <Bar id="bar-populations"
-                                                    data={{
-                                                        labels: averageMonthName,
-                                                        datasets: [
-                                                            {
-                                                                label: '# of votes',
-                                                                data: averageMonthData,
 
-                                                                backgroundColor: [
-                                                                    "#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7",
-                                                                    '#7eb0d5',
-                                                                ],
-                                                                borderColor: [
-                                                                    "#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7",
-                                                                    '#7eb0d5',
-                                                                ],
-                                                                borderWidth: 1,
+                                                    <Bar id="bar-populations"
+                                                        data={{
+                                                            labels: averageMonthName,
+                                                            datasets: [
+                                                                {
+                                                                    label: '# of votes',
+                                                                    data: averageMonthData,
+
+                                                                    backgroundColor: [
+                                                                        "#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7",
+                                                                        '#7eb0d5',
+                                                                    ],
+                                                                    borderColor: [
+                                                                        "#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7",
+                                                                        '#7eb0d5',
+                                                                    ],
+                                                                    borderWidth: 1,
+                                                                },
+                                                                // {
+                                                                //   label: 'Quantity',
+                                                                //   data: [47, 52, 67, 58, 9, 50],
+                                                                //   backgroundColor: 'orange',
+                                                                //   borderColor: 'red',
+                                                                // },
+                                                            ],
+                                                        }}
+                                                        margin-top={200}
+                                                        height={600}
+                                                        width={600}
+                                                        options={{
+                                                            plugins: {
+                                                                legend: {
+                                                                    display: false
+                                                                },
                                                             },
-                                                            // {
-                                                            //   label: 'Quantity',
-                                                            //   data: [47, 52, 67, 58, 9, 50],
-                                                            //   backgroundColor: 'orange',
-                                                            //   borderColor: 'red',
-                                                            // },
-                                                        ],
-                                                    }}
-                                                    height={800}
-                                                    width={600}
-                                                    options={{
-                                                        plugins: {
-                                                            legend: {
-                                                                display: false
-                                                            },
-                                                        },
-
-                                                        maintainAspectRatio: false,
+                                                           
+                                                            maintainAspectRatio: false,
 
 
-                                                    }}
-                                                />
+                                                        }}
+                                                    />
+                                                </div>
+
+
+
                                             </div>
                                         </div>
                                     </div>

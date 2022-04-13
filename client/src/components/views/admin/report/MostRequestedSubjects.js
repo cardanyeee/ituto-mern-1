@@ -54,6 +54,13 @@ const MostRequestedSubjects = () => {
 
     ]
 
+    const columnsPDF = [
+        { title: "Subject Name", field: "name", },
+        { title: "Requested By", field: "counts", },
+
+    ]
+
+
     const topRequestedSubjectData = [];
 
     requestedsubjects.forEach(t => {
@@ -77,22 +84,25 @@ const MostRequestedSubjects = () => {
 
     const downloadPdf = () => {
 
-        const doc = new jsPDF()
-        doc.text("Most Requested by Male Tutees", 20, 10)
+        const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
+        const doc = new jsPDF('landscape')
+
+
+        doc.setFontSize(50)
+        doc.text("Most Requested Subjects", 20, 20)
+
+        doc.setFontSize(14)
+
+        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
         doc.autoTable({
-            // columnStyles: {
-            //     0: { cellWidth: 20 },
-            //     1: { cellWidth: 30 },
-            //     2: { cellWidth: 30 },
-            //     3: { cellWidth: 20 },
-            //     4: { cellWidth: 20 },
-            //     5: { cellWidth: 20 },   
-            //     6: { cellWidth: 20 },
-            //     7: { cellWidth: 20 },
-            //     // etc
-            // },   
-            margin: { top: 25 },
-            columns: columns.map(col => ({ ...col, dataKey: columns.key })),
+            columnStyles: {
+           
+                1: { cellWidth: 50 },
+             
+                // etc
+            },   
+            margin: { top: 35 },
+            columns: columnsPDF.map(col => ({ ...col, dataKey: col.field })),
             theme: "striped",
             body: topRequestedSubjectData
         })
@@ -124,7 +134,7 @@ const MostRequestedSubjects = () => {
 
 
         pdf.addImage(canvasImage, 10, 25, 280, 170);
-        pdf.save(`Subject-MostRequested-${DateGathered}.pdf`);
+        pdf.save(`${DateGathered}-Subject-MostRequested-Chart-.pdf`);
     }
 
     return (
@@ -176,49 +186,47 @@ const MostRequestedSubjects = () => {
                                         <div className="card shadow mb-4">
                                             {/* <!-- Card Header - Dropdown --> */}
                                             <div className="card-header">
+                                                <div className="row align-center">
 
-                                                <div className="container">
-                                                    <div className="card-body">
-                                                        <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
-                                                            <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
+                                                    <div className="container">
+                                                        <div className="card-body">
+                                                            <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
+                                                                <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
+                                                                    <i className="color-report fas fa-print fa-xs" >
+                                                                        <span className="m-0 font-weight-bold" >
+                                                                            &nbsp;CSV
+
+                                                                        </span>
+                                                                    </i>
+                                                                </div>
+                                                            </CSVLink>
+                                                            &nbsp;
+
+                                                            <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
                                                                 <i className="color-report fas fa-print fa-xs" >
                                                                     <span className="m-0 font-weight-bold" >
-                                                                        &nbsp;CSV
+                                                                        &nbsp;Chart PDF
 
                                                                     </span>
                                                                 </i>
                                                             </div>
-                                                        </CSVLink>
-                                                        &nbsp;
 
-                                                        &nbsp;
+                                                            &nbsp;
+                                                            <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#2A4250" }}>
+                                                                <i className="color-report fas fa-print fa-xs" >
+                                                                    <span className="m-0 font-weight-bold" >
+                                                                        &nbsp;PDF
 
-                                                        <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
-                                                            <i className="color-report fas fa-print fa-xs" >
-                                                                <span className="m-0 font-weight-bold" >
-                                                                    &nbsp;Chart PDF
-
-                                                                </span>
-                                                            </i>
+                                                                    </span>
+                                                                </i>
+                                                            </div>
                                                         </div>
 
-                                                        &nbsp;
-                                                        <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#2A4250" }}>
-                                                            <i className="color-report fas fa-print fa-xs" >
-                                                                <span className="m-0 font-weight-bold" >
-                                                                    &nbsp;PDF
-
-                                                                </span>
-                                                            </i>
-                                                        </div>
                                                     </div>
-
                                                 </div>
-
                                             </div>
 
                                             <div className="pdficon-align col-md-4 col-12">
-
 
                                             </div>
                                             {/* <!-- Card Body --> */}
@@ -251,7 +259,7 @@ const MostRequestedSubjects = () => {
                                                             // },
                                                         ],
                                                     }}
-                                                    height={800}
+                                                    height={600}
                                                     width={600}
                                                     options={{
 

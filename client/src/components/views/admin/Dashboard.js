@@ -136,7 +136,7 @@ const Dashboard = () => {
 
                                 <div className="row pr-4 pt-4">
 
-                                    <div className="col-xl-4" >
+                                    <div className="col-xl-4 pb-3" >
 
                                         <div className="greeting-font card shadow">
 
@@ -275,7 +275,6 @@ const Dashboard = () => {
                                                                     striped
                                                                     hover
                                                                     searchTop
-                                                                    searchRight
                                                                     searchBottom={false}
                                                                     barReverse
 
