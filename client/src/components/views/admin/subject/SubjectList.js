@@ -58,7 +58,8 @@ const ProducersLists = ({ history }) => {
                 { label: 'Name', field: 'Name',  sort: 'asc' },
                 { label: 'Semester', field: 'Semester', sort: 'asc' },
                 { label: 'Course', field: 'Course',  sort: 'asc' },
-                { label: 'Actions', field: 'actions', width: 100 }
+                { label: 'Status', field: 'Active'},
+                { label: 'Actions', field: 'actions', width: 100 },
             ],
             rows: []
         }
@@ -69,6 +70,7 @@ const ProducersLists = ({ history }) => {
                 Name: subject.name,
                 Semester: subject.semester,
                 Course: subject.course[0].code,
+                Active: subject.active ? "active" : "inactive",
                 actions:
                     <Fragment>
                         <Link to={`/dashboard/subject/update/${subject._id}`} className="btn btn-primary py-1 px-2 me-3">
@@ -102,7 +104,7 @@ const ProducersLists = ({ history }) => {
         { title: "Code", field: "code", },
         { title: "Name", field: "name",},
         { title: "Semester", field: "semester",},
-        { title: "Course", field: "course",},
+        { title: "Course", field: "course",}
     ]
 
     const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
@@ -199,7 +201,6 @@ const ProducersLists = ({ history }) => {
                                                     striped
                                                     hover
                                                     searchTop
-                                                    searchRight
                                                     barReverse
                                                     searchBottom={false}
                                                 />

@@ -194,7 +194,6 @@ export const updateUser = (id, userData) => async (dispatch) => {
 
         const { data } = await axios.put(`/api/user/update/${id}`, userData, config);
 
-        console.log(userData);
 
         dispatch({
             type: 'UPDATE_ALL_USERS_SUCCESS',

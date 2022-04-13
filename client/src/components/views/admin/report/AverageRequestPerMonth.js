@@ -74,17 +74,13 @@ const AverageRequestPerMonth = () => {
     let averageMonthData = newAverageMonth.map(s => s.count);
     let averageMonthName = newAverageMonth.map(s => s._id);
 
-
-
     //REPORT CHARTSS DOWNLOADS
-
-
 
     const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
 
     const columns = [
-        { label: "Months", key: "name", },
-        { label: "Quantity", key: "counts", },
+        { label: "Months", key: "_id", },
+        { label: "Quantity", key: "count", },
 
     ]
 
@@ -138,7 +134,7 @@ const AverageRequestPerMonth = () => {
             margin: { top: 35 },
             columns: columns.map(col => ({ ...col, dataKey: columns.key })),
             theme: "striped",
-            body: averageMonthData
+            body: newAverageMonth
         })
         doc.save(`${csvDownloadDate}-AverageRequetsPerMonths.pdf`)
     }

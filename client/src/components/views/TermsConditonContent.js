@@ -5,12 +5,11 @@ const TermsConditionContent = () => {
 
 
     return (
-        <main className="v-main" id="v-main-pad" data-v-5a4eb5ab="" data-booted="true">
+        <main className="v-main mt-5" id="v-main-pad" data-v-5a4eb5ab="" data-booted="true">
 
             <div className="v-main__wrap">
                 <div>
                     <section>
-
 
                         {/* TERMS AND CONDITIONSSSSS */}
 
@@ -39,12 +38,12 @@ const TermsConditionContent = () => {
 
                                             <div className="elevation-0 transparent v-card v-sheet theme--light">
 
-                                                <div className="v-card__text text-center">
+                                                <div className="v-card__text text-center mb-5">
 
 
 
                                                     <div className="v-card__text text-center">
-                                                        <p>Welcome to mern-ituto!</p>
+                                                        <h1 className="mb-3">Welcome to mern-ituto!</h1>
 
                                                         <p>These terms and conditions outline the rules and regulations for the use of iTuto's Website, located at mern-ituto.herokuapp.com.</p>
 

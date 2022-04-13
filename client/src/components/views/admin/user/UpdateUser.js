@@ -70,7 +70,6 @@ const UpdateMovie = ({ match, history }) => {
             'phone': phone
         }
 
-        console.log(formData)
 
         dispatch(updateUser(user._id, formData));
     }

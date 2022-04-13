@@ -11,8 +11,6 @@ import MaleIcon from '@mui/icons-material/Male';
 import FemaleIcon from '@mui/icons-material/Female';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-import { getTuteeCount } from '../../actions/reportActions';
-
 const Widget = ({ type }) => {
 
 
@@ -20,13 +18,10 @@ const Widget = ({ type }) => {
 
     useEffect(() => {
 
-        dispatch(getTuteeCount());
+
     }, [dispatch]);
 
   const { tuteeCount: tutee } = useSelector(state => state.getTuteeCounts);
-
-
-
   const { users, subs, tutors, male, female} = useSelector(state => state.datas);
 
   // useEffect(() => {

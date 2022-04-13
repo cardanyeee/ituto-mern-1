@@ -324,3 +324,8 @@ body,
   -ms-flex-align: start;
   align-items: flex-start;
 }
+
+.error-header {
+  color: #0a8b5c;
+  font-family: Roboto, sans-serif;
+}

@@ -44,7 +44,7 @@ const Login = ({ history }) => {
         <Fragment>
             {loading ? <Loader /> : (
                 <Fragment>
-                    <MetaData title={'Login'} styles={'html, body, .App { background-color: #75BBB3 !important; }'} />
+                    <MetaData title={'Login'} styles={'html, body, .App { background-color: #4FBD95 !important; }'} />
                     <div className="d-lg-flex half">
                         <div className="d-flex justify-content-center" id="hide-login">
                             <img className="bg order-1 order-md-2 h-75 w-75 my-auto img-fluid half" src="/images/undraw_login_re_4vu2.svg" alt="Login" />

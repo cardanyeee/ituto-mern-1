@@ -15,12 +15,10 @@ const Sidebar = (props) => {
 
     const { user } = useSelector(state => state.auth);
 
-
     const toggleDropdown = (e) => {
         let arrowParent = e.target.parentElement.parentElement;
         arrowParent.classList.toggle("showMenu");
     }
-
 
     const alert = useAlert();
     const dispatch = useDispatch();
@@ -30,7 +28,6 @@ const Sidebar = (props) => {
         dispatch(logout());
         alert.success('Logged out successfully.')
     }
-
 
     return (
         <div className={"sidebar h-100 shadow-sm " + (props.sidebarToggle === true ? "open" : "close")}>
@@ -83,7 +80,7 @@ const Sidebar = (props) => {
                     </div>
                     <ul className="sub-menu">
                         <li><Link to="/dashboard/subjects" className="link_name">Subject</Link></li>
-                        <li><Link to="/dashboard/subject/add"><FontAwesomeIcon icon="plus" className="submenu-side-nav-icon" />Add New Subject</Link></li>
+                        <li><Link to="/dashboard/subject/add"><FontAwesomeIcon icon="plus" className="submenu-side-nav-icon" />New Subject</Link></li>
                     </ul>
                 </li>
 
@@ -127,9 +124,7 @@ const Sidebar = (props) => {
                             <span className="link_name fs-6 text-white">Logout</span>
 
                         </Link>
-
                     </div>
-
                 </li>
 
 
@@ -146,19 +141,6 @@ const Sidebar = (props) => {
                     </div>
                 </li>
             </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
     )
 }

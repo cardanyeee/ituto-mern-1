@@ -12,6 +12,7 @@ const UpdateMovie = ({ match, history }) => {
     const [code, setcode] = useState('');
     const [name, setname] = useState('');
     const [degree, setdegree] = useState('');
+    const [status, setStatus] = useState('');
 
 
     const alert = useAlert();
@@ -28,11 +29,10 @@ const UpdateMovie = ({ match, history }) => {
         if (subject && subject._id !== subjectId) {
             dispatch(getSDetails(subjectId));
         } else {
-
             setcode(subject.code);
             setname(subject.name);
             setdegree(subject.semester);
-
+            setStatus(subject.active);
         }
 
         if (error) {
@@ -59,23 +59,18 @@ const UpdateMovie = ({ match, history }) => {
         const formData = {
             'code': code,
             'name': name,
-            'semester': degree
+            'semester': degree,
+            'active': status
         }
-
 
         dispatch(updateS(subject._id, formData));
     }
 
-
     return (
         <Fragment>
             <AdminHeader />
-
             <MetaData title={'New Course'} styles={'html, body, .App { background-color: #F3F7FD !important; }'} />
-
-
             <Fragment>
-
                 <div className="home-section">
                     {/* USERS TABLES */}
                     <div className="container-fluid">
@@ -91,11 +86,10 @@ const UpdateMovie = ({ match, history }) => {
 
                                     {/* USER DATA SECTION */}
 
-
                                     <div className="table-responsive">
                                         <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
                                             <form className="submit" onSubmit={submitHandler} encType='multipart/form-data'>
-                                              
+
                                                 <div className="form-group mb-3">
                                                     <label htmlFor="code">Code</label>
                                                     <input type="text" id="code" className="form-control" value={code} onChange={(e) => setcode(e.target.value)} required />
@@ -111,27 +105,27 @@ const UpdateMovie = ({ match, history }) => {
                                                     <input type="text" id="degree" className="form-control" value={degree} onChange={(e) => setdegree(e.target.value)} required />
                                                 </div>
 
-                                                <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit">Create</button>
+                                                <div className="form-group mb-3">
+                                                    <label htmlFor="degree">Status</label>
+                                                    <select class="form-select" value={status.toString()} onChange={(e) => setStatus(e.target.value)} required>
+                                                        <option value="0" disabled>-- Select Status --</option>
+                                                        <option value="true">Active</option>
+                                                        <option value="false">Inactive</option>
+                                                    </select>
+                                                    {/* <input type="text" id="degree" className="form-control" value={degree} onChange={(e) => setdegree(e.target.value)} required /> */}
+                                                </div>
+
+                                                <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit">Update Subject</button>
 
                                             </form>
                                         </div>
                                     </div>
-
-
-
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </Fragment>
-
-
-
-
-
         </Fragment >
     )
 }

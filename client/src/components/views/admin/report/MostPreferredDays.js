@@ -73,14 +73,11 @@ const MostPreferredDays = () => {
 
     //REPORT CHARTSS DOWNLOADS
 
-
-
     const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
 
     const columns = [
-        { label: "Preferred Days", key: "name", },
-        { label: "Quantity", key: "counts", },
-
+        { label: "Preferred Days", key: "_id", },
+        { label: "Quantity", key: "count", },
     ]
 
     // const topRequestedSubjectData = [];
@@ -95,12 +92,9 @@ const MostPreferredDays = () => {
 
 
     const csvReport = {
-
         filename: `${csvDownloadDate}-Preferred-Days`,
         headers: columns,
         data: newPreferredDays
-
-
     };
 
 

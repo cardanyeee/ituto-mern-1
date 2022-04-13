@@ -15,10 +15,7 @@ const {
     reportsRequestedbyFemale
 } = require('../controllers/subject');
 
-
-
 //ANALYTICSSSSSS////    
-
 
 router.route('/reports/subjects/toprequested').get(reportsRequestedSubject);
 router.route('/reports/subjects/topoffered').get(reportsToOfferedSubject);

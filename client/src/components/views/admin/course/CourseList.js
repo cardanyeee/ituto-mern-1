@@ -51,8 +51,9 @@ const MoviesLists = ({ history }) => {
         const data = {
             columns: [
                 { label: 'Code', field: 'Code', width: 210, sort: 'asc' },
-                { label: 'Name', field: 'Name', width: 150, sort: 'asc' },
+                { label: 'Name', field: 'Name', sort: 'asc' },
                 { label: 'Degree', field: 'Degree', width: 230, sort: 'asc' },
+                { label: 'Status', field: 'Status', width: 230, sort: 'asc' },
                 { label: 'Actions', field: 'actions', width: 100 }
             ],
             rows: []
@@ -63,6 +64,7 @@ const MoviesLists = ({ history }) => {
                 Code: course.code,
                 Name: course.name,
                 Degree: course.degree,
+                Status: course.active ? 'Active' : 'Inactive',
                 actions:
                     <Fragment>
                         <Link to={`/dashboard/course/update/${course._id}`} className="btn btn-primary py-1 px-2 me-3">
@@ -72,16 +74,11 @@ const MoviesLists = ({ history }) => {
                             <FontAwesomeIcon icon="trash" />
                         </button>
                     </Fragment>
-
-
-
-
             })
         })
 
         return data;
     }
-
 
     const columns = [
         { title: "ID", field: "_id", },
@@ -89,7 +86,6 @@ const MoviesLists = ({ history }) => {
         { title: "Name", field: "name", },
         { title: "Degree", field: "degree", },
     ]
-
 
     const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
     const csvReport = {
@@ -134,32 +130,21 @@ const MoviesLists = ({ history }) => {
         <Fragment>
             <AdminHeader />
 
-
-
             <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
-
-
 
             <Fragment>
                 {loading ? <Loader /> : (
                     <div className="home-section">
-
                         <div className="container-fluid" id="subjectContainer">
-
                             <h1 className="h3 mb-2 text-gray-800">Courses</h1>
-
-
                             <p className="mb-4">Listed below are the courses that are included on the mobile application </p>
-
                             <div className="card shadow mb-4">
-
                                 <div className="card-header py-3">
                                     <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
                                         <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
                                             <i className="color-report fas fa-print fa-xs" >
                                                 <span className="m-0 font-weight-bold" >
                                                     &nbsp;CSV
-
                                                 </span>
                                             </i>
                                         </div>
@@ -170,17 +155,13 @@ const MoviesLists = ({ history }) => {
                                         <i className="color-report fas fa-print fa-xs" >
                                             <span className="m-0 font-weight-bold" >
                                                 &nbsp;PDF
-
                                             </span>
                                         </i>
                                     </div>
-
                                 </div>
-
                                 <div className="card-body">
                                     <div className="table-responsive">
                                         <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
-
                                             <Fragment>
                                                 {loading ? <Loader /> : (
                                                     <MDBDataTableV5
@@ -188,7 +169,6 @@ const MoviesLists = ({ history }) => {
                                                         striped
                                                         hover
                                                         searchTop
-                                                        searchRight
                                                         barReverse
                                                         searchBottom={false}
                                                     />
@@ -198,18 +178,10 @@ const MoviesLists = ({ history }) => {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
-
                     </div>
-
                 )}
-
             </Fragment>
-
-
-
         </Fragment >
     )
 }

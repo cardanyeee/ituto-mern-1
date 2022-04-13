@@ -153,7 +153,7 @@ exports.index = catchAsyncErrors(async (req, res, next) => {
 exports.courseSubjects = catchAsyncErrors(async (req, res, next) => {
     try {
         console.log(req.params);
-        const subjects = await Subject.find({ course: req.params.course });
+        const subjects = await Subject.find({ course: req.params.course, active: { $nin: [false] } });
 
         res.status(200).json({
             success: true,

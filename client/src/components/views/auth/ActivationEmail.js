@@ -28,7 +28,7 @@ function ActivationEmail() {
     return (
 
         <div className="active_page">
-            <MetaData title={'Congratulations!'} styles={'html, body, .App { background-color: #75BBB3 !important; }'} />
+            <MetaData title={'Congratulations!'} styles={'html, body, .App { background-color: #4FBD95 !important; }'} />
             <div className="d-lg-flex half">
                 <div className="d-flex justify-content-center">
                     <img className="bg order-1 order-md-2 h-75 w-75 my-auto img-fluid half" src={errorObj ? "/images/undraw_cancel_re_pkdm.svg" : "/images/undraw_winners_re_wr1l.svg"} alt="ForgotPassword" />

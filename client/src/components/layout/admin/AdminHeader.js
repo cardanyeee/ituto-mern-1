@@ -15,16 +15,11 @@ const AdminHeader = () => {
 
     const [sidebar, setSidebar] = useState(false);
 
-
-
     const toggleSidebar = () => {
         setSidebar(!sidebar);
     }
 
-
-
     const { loading } = useSelector(state => state.auth);
-
 
     return (
         <Fragment>
@@ -37,9 +32,7 @@ const AdminHeader = () => {
                             <div >
                             <img className="logo-close" src="/images/footerLogo.PNG" alt="GROUP-NAME" width="50"/>
                             </div>
-
                             {/* <a className="navbar-brand fw-bold" href="/#">Movies</a> */}
-
                         </div>
                     </nav>
                 </Fragment>

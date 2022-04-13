@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { loadUser } from './actions/authActions';
 import store from './store';
@@ -24,7 +24,6 @@ import ResetPassword from './components/views/auth/ResetPassword';
 
 import Home from './components/views/Home';
 import TermsConditions from './components/views/TermsConditions';
-
 import Dashboard from './components/views/admin/Dashboard';
 
 
@@ -36,7 +35,6 @@ import MostRequestedByMale from './components/views/admin/report/MostRequestedBy
 import MostRequestedSubject from './components/views/admin/report/MostRequestedSubjects';
 import MostTuteeYearLevel from './components/views/admin/report/MostTuteeYearLevel';
 import AverageRequestPerMonth from './components/views/admin/report/AverageRequestPerMonth';
-
 
 
 import CourseList from './components/views/admin/course/CourseList';
@@ -52,6 +50,7 @@ import UpdateUser from './components/views/admin/user/UpdateUser';
 import UpdateCourse from './components/views/admin/course/UpdateCourse';
 import UpdateSubject from './components/views/admin/subject/UpdateSubject';
 
+import NotFound from './components/layout/main/NotFound'
 
 library.add(fas);
 library.add(far);
@@ -70,58 +69,46 @@ const App = () => {
 		<Router>
 			<div className="App">
 				<div className="container-fluid p-0">
-					<Route path="/" component={Home} exact />
-					<Route path="/movies/search/:keyword" component={Home} />
+					<Switch>
+						<Route exact path="/" component={Home} />
+
+						<Route path="/terms-and-conditions" component={TermsConditions} exact />
+						<Route path="/login" exact component={Login} />
+						{/* <Route path="/register" exact component={Register} /> */}
+						<Route path="/forgot/password" exact component={ForgotPassword} />
+						<Route path="/reset/password/:accesstoken" exact component={ResetPassword} />
+						<Route path="/user/activate/:activation_token" exact component={ActivationEmail} />
+						<Route path="/tutor/activate/:activation_token" exact component={TutorActivationEmail} />
+						{/* <ProtectedRoute path="/me" component={Profile} exact /> */}
+
+						<ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />
+
+						{/* SIDEBARRRR  REPORT LINKSSS */}
+
+						<ProtectedRoute path="/dashboard/reports/top-tutor" isAdmin={true} component={TopTutor} exact />
+
+						<ProtectedRoute path="/dashboard/reports/most-requested-subjects" isAdmin={true} component={MostRequestedSubject} exact />
+						<ProtectedRoute path="/dashboard/reports/most-requested-by-male" isAdmin={true} component={MostRequestedByMale} exact />
+						<ProtectedRoute path="/dashboard/reports/most-requested-by-female" isAdmin={true} component={MostRequestedByFemale} exact />
 
 
-					<Route path="/terms-and-conditions" component={TermsConditions} exact />
-					<Route path="/login" exact component={Login} />
-					{/* <Route path="/register" exact component={Register} /> */}
-					<Route path="/forgot/password" exact component={ForgotPassword} />
-					<Route path="/reset/password/:accesstoken" exact component={ResetPassword} />
-					<Route path="/user/activate/:activation_token" exact component={ActivationEmail} />
-					<Route path="/tutor/activate/:activation_token" exact component={TutorActivationEmail} />
-					{/* <ProtectedRoute path="/me" component={Profile} exact /> */}
+						<ProtectedRoute path="/dashboard/reports/most-offered-subjects" isAdmin={true} component={MostOfferedSubject} exact />
+						<ProtectedRoute path="/dashboard/reports/most-tutee-year-level" isAdmin={true} component={MostTuteeYearLevel} exact />
+						<ProtectedRoute path="/dashboard/reports/most-preferred-days" isAdmin={true} component={MostPreferredDays} exact />
+						<ProtectedRoute path="/dashboard/reports/average-request-per-month" isAdmin={true} component={AverageRequestPerMonth} exact />
 
-					<ProtectedRoute path="/dashboard" isAdmin={true} component={Dashboard} exact />
+						<ProtectedRoute path="/dashboard/courses" isAdmin={true} component={CourseList} exact />
+						<ProtectedRoute path="/dashboard/subjects" isAdmin={true} component={SubjectList} exact />
 
+						<ProtectedRoute path="/dashboard/course/add" isAdmin={true} component={NewCourse} exact />
+						<ProtectedRoute path="/dashboard/subject/add" isAdmin={true} component={NewSubject} exact />
 
-					{/* SIDEBARRRR  REPORT LINKSSS */}
-					
-					<ProtectedRoute path="/dashboard/reports/top-tutor" isAdmin={true} component={TopTutor} exact />
-					
-					<ProtectedRoute path="/dashboard/reports/most-requested-subjects" isAdmin={true} component={MostRequestedSubject} exact />
-					<ProtectedRoute path="/dashboard/reports/most-requested-by-male" isAdmin={true} component={MostRequestedByMale} exact />
-					<ProtectedRoute path="/dashboard/reports/most-requested-by-female" isAdmin={true} component={MostRequestedByFemale} exact />
-					
-					
-					<ProtectedRoute path="/dashboard/reports/most-offered-subjects" isAdmin={true} component={MostOfferedSubject} exact />
-					<ProtectedRoute path="/dashboard/reports/most-tutee-year-level" isAdmin={true} component={MostTuteeYearLevel} exact />
-					<ProtectedRoute path="/dashboard/reports/most-preferred-days" isAdmin={true} component={MostPreferredDays} exact />
-					<ProtectedRoute path="/dashboard/reports/average-request-per-month" isAdmin={true} component={AverageRequestPerMonth} exact />
-				
+						<ProtectedRoute path="/dashboard/user/update/:id" isAdmin={true} component={UpdateUser} exact />
+						<ProtectedRoute path="/dashboard/course/update/:id" isAdmin={true} component={UpdateCourse} exact />
+						<ProtectedRoute path="/dashboard/subject/update/:id" isAdmin={true} component={UpdateSubject} exact />
 
-
-
-
-					<ProtectedRoute path="/dashboard/courses" isAdmin={true} component={CourseList} exact />
-					<ProtectedRoute path="/dashboard/subjects" isAdmin={true} component={SubjectList} exact />
-
-
-				
-
-
-
-					<ProtectedRoute path="/dashboard/course/add" isAdmin={true} component={NewCourse} exact />
-					<ProtectedRoute path="/dashboard/subject/add" isAdmin={true} component={NewSubject} exact />
-
-
-
-					<ProtectedRoute path="/dashboard/user/update/:id" isAdmin={true} component={UpdateUser} exact />
-					<ProtectedRoute path="/dashboard/course/update/:id" isAdmin={true} component={UpdateCourse} exact />
-					<ProtectedRoute path="/dashboard/subject/update/:id" isAdmin={true} component={UpdateSubject} exact />
-
-
+						<Route path="*" component={NotFound} />
+					</Switch>
 
 				</div>
 

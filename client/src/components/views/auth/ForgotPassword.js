@@ -47,7 +47,7 @@ const ForgotPassword = ({ history }) => {
         <Fragment>
             {loading ? <Loader /> : (
                 <Fragment>
-                    <MetaData title={'ForgotPassword'} styles={'html, body, .App { background-color: #75BBB3 !important; }'} />
+                    <MetaData title={'ForgotPassword'} styles={'html, body, .App { background-color: #4FBD95 !important; }'} />
                     <div className="d-lg-flex half">
                         <div className="d-flex justify-content-center">
                             <img className="bg order-1 order-md-2 h-75 w-75 my-auto img-fluid half" src="/images/undraw_forgot_password_re_hxwm.svg" alt="ForgotPassword" />

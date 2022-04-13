@@ -4,14 +4,11 @@ import { Link } from "react-router-dom";
 import EditIcon from '@mui/icons-material/Edit';
 import { MDBDataTableV5 } from 'mdbreact';
 
-
-// import { Link } from "react-router-dom";
-// import { Link } from 'react-router-dom';
 import {
     Chart as ChartJS,
     registerables
 } from "chart.js";
-// import { Doughnut, Line, Bar } from 'react-chartjs-2'
+
 import './dashboard.scss'
 
 import AdminHeader from '../../layout/admin/AdminHeader';
@@ -20,88 +17,67 @@ import Loader from '../../layout/main/Loader';
 import Widget from '../../widget/widget';
 
 import { allUsers } from '../../../actions/authActions';
-
-
+import { getTuteeCount } from '../../../actions/reportActions';
 import { getData } from '../../../actions/all_actions';
-
-// import LocalPrintshopIcon from '@mui/icons-material/LocalPrintshop';
-
-
-// defaults.tooltips.enabled = false
-// defaults.legend.position = 'bottom'
-
 
 ChartJS.register(
     ...registerables
 );
 
-
 const Dashboard = () => {
-
 
     const dispatch = useDispatch();
 
     const { user } = useSelector(state => state.auth);
-
     const { users } = useSelector(state => state.allUsers);
-
     const { loading } = useSelector(state => state.datas);
-
 
     useEffect(() => {
         dispatch(getData());
         dispatch(allUsers());
+        dispatch(getTuteeCount());
     }, [dispatch]);
 
-
-
     function convertIsTutor(status) {
-
         if (status === true) {
             return "Tutor";
         } else if (status === false) {
             return "Tutee";
         }
-
         return "";
-
     }
 
     const setUsers = () => {
 
         const data = {
-
             columns: [
-
                 { label: 'Firstname', field: 'Firstname', width: 210 },
                 { label: 'Lastname', field: 'Lastname', width: 150 },
                 { label: 'Username', field: 'Username', width: 230 },
                 { label: 'Gender', field: 'Gender', width: 230 },
                 { label: 'Email', field: 'Email', width: 230 },
                 { label: 'Role', field: 'Role', width: 230 },
-                { label: 'Status', field: 'Status', width: 230 },
+                { label: 'Account', field: 'Type', width: 230 },
                 { label: 'Phone', field: 'Phone', width: 230 },
                 { label: 'Time', field: 'Time', width: 240 },
+                { label: 'Status', field: 'Status', width: 100 },
                 { label: 'Actions', field: 'actions', width: 100 }
-
             ],
             rows: []
         }
 
-
-
         users.forEach(allUsers => {
-            console.log(allUsers.isTutor)
             data.rows.push({
                 Firstname: allUsers.firstname,
                 Lastname: allUsers.lastname,
                 Username: allUsers.username,
                 Gender: allUsers.gender,
                 Email: allUsers.email,
-                Status: convertIsTutor(allUsers.isTutor),
+                Type: convertIsTutor(allUsers.isTutor),
                 Role: allUsers.role,
                 Phone: allUsers.phone,
                 Time: allUsers.createdAt,
+                Status: allUsers.active ? "Active" : "Inactive",
                 actions:
                     <Fragment>
                         <Link to={`/dashboard/user/update/${allUsers._id}`} className="btn btn-primary py-1 px-2 me-3">
@@ -116,30 +92,19 @@ const Dashboard = () => {
 
     }
 
-
-
     return (
         <Fragment>
-
             <Fragment>
-
                 <AdminHeader />
-
                 <MetaData title={'Admin Dashboard'} styles={'footer p {color: #000000 !important;}'} />
-
                 {loading ? <Loader /> : (
                     <Fragment>
 
                         <div className="home-section table-responsive">
-
                             <div className="container-fluid">
-
                                 <div className="row pr-4 pt-4">
-
                                     <div className="col-xl-4 pb-3" >
-
                                         <div className="greeting-font card shadow">
-
                                             {/* <!-- Card Header - Dropdown --> */}
                                             <div className="color1 card-header py-3">
                                                 <h5 className="greeting-font m-0 font-weight-bold" id="Username">Welcome <b>{user.username}!</b></h5>
@@ -172,89 +137,52 @@ const Dashboard = () => {
                                     </div>
 
                                     {/* WWWIDGETSSSSSSSSS */}
-
                                     <div className="col-xl-8" >
-
                                         <div className="row pr-4">
-
                                             <div className="col-xl-4 mb-3">
                                                 <div className="widgets">
                                                     <Widget type="subject" />
-
                                                 </div>
-
                                             </div>
 
-
                                             <div className="col-xl-4 mb-3">
-
-
                                                 <div className="widgets">
                                                     <Widget type="male" />
-
                                                 </div>
-
                                             </div>
 
-
                                             <div className="col-xl-4 mb-3">
-
-
                                                 <div className="widgets">
                                                     <Widget type="female" />
-
                                                 </div>
-
                                             </div>
 
                                             <div className="col-xl-4 mb-3">
                                                 <div className="widgets" >
                                                     <Widget type="user" />
-
                                                 </div>
-
                                             </div>
 
-
-
                                             <div className="col-xl-4 mb-3">
-
-
                                                 <div className="widgets">
                                                     <Widget type="tutor" />
-
                                                 </div>
-
                                             </div>
-
-
-
 
                                             <div className="col-xl-4 mb-3">
-
-
                                                 <div className="widgets">
                                                     <Widget type="other" />
-
                                                 </div>
-
                                             </div>
-
                                         </div>
                                     </div>
-
                                 </div>
-
-
-
                             </div>
+
                             {/* USERS TABLES */}
                             <div className="container-fluid">
-
                                 <div className="row pr-4 pt-2">
-
                                     <div className="col col-lg-12">
-
                                         <div className="card shadow mb-4">
                                             {/* <!-- Card Header - Dropdown --> */}
                                             <div className="card-header py-3">
@@ -263,53 +191,32 @@ const Dashboard = () => {
                                             {/* <!-- Card Body --> */}
 
                                             {/* USER DATA SECTION */}
-
                                             <div className="card-body">
                                                 <div className="table-responsive">
-                                                    <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
-
-                                                        <Fragment>
-                                                            {loading ? <Loader /> : (
-                                                                <MDBDataTableV5 className="adjust-table"
-                                                                    data={setUsers()}
-                                                                    striped
-                                                                    hover
-                                                                    searchTop
-                                                                    searchBottom={false}
-                                                                    barReverse
-
-
-                                                                />
-                                                            )}
-                                                        </Fragment>
-                                                    </div>
+                                                    <Fragment>
+                                                        {loading ? <Loader /> : (
+                                                            <MDBDataTableV5 className="adjust-table"
+                                                                data={setUsers()}
+                                                                striped
+                                                                hover
+                                                                searchTop
+                                                                searchBottom={false}
+                                                                barReverse
+                                                            />
+                                                        )}
+                                                    </Fragment>
                                                 </div>
                                             </div>
-
-
-
                                         </div>
                                     </div>
 
-
-
                                     {/* DONUTTTT SECTIONNNNN*/}
-
-
                                 </div>
-
-
-
-
                             </div>
                         </div>
-
-
-
                     </Fragment>
                 )}
             </Fragment>
-
         </Fragment >
     )
 }

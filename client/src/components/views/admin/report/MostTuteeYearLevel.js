@@ -15,8 +15,7 @@ import MetaData from '../../../layout/main/MetaData';
 import Loader from '../../../layout/main/Loader';
 
 import { topratedYearLevel } from '../../../../actions/reportActions';
-
-
+import { getTuteeCount } from '../../../../actions/reportActions';
 import { getData } from '../../../../actions/all_actions';
 
 
@@ -33,70 +32,75 @@ ChartJS.register(
 
 
 const MostTuteeYearLevel = () => {
-    const { users } = useSelector(state => state.allUsers);
     const { topYearLevel } = useSelector(state => state.topYearLevel);
+    const { tuteeCount } = useSelector(state => state.getTuteeCounts);
     const { loading } = useSelector(state => state.datas);
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(getData());
         dispatch(topratedYearLevel());
+        dispatch(getTuteeCount());
     }, [dispatch]);
+
     const sortArray = ["First", "Second", "Third", "Fourth"];
     const sorted = topYearLevel.sort((a, b) => sortArray.indexOf(a._id) - sortArray.indexOf(b._id));
     let yearLevel = sorted.map(year => year.count)
 
-    console.log(topYearLevel)
 
     const setUsers = () => {
 
         const data = {
 
             columns: [
-
-                { label: 'Year Level', field: 'Year', width: 210 },
-                { label: 'Quantity', field: 'Quantity', width: 150 },
-
-
+                { label: 'Firstname', field: 'Firstname', width: 210 },
+                { label: 'Lastname', field: 'Lastname', width: 150 },
+                { label: 'Year Level', field: 'YearLevel', width: 150 },
+                { label: 'Email', field: 'Email', width: 150 },
             ],
             rows: []
         }
 
-        topYearLevel.forEach(t => {
+        tuteeCount.forEach(allUsers => {
             data.rows.push({
-
-                Year: topYearLevel[0]._id,
-                Quantity: topYearLevel[0].count
-
+                Firstname: allUsers.firstname,
+                Lastname: allUsers.lastname,
+                Username: allUsers.username,
+                Gender: allUsers.gender,
+                Email: allUsers.email,
+                Role: allUsers.role,
+                YearLevel: allUsers.yearLevel,
+                Phone: allUsers.phone,
+                Time: allUsers.createdAt
             })
         })
-
         return data;
-
-
     }
 
-
-
-
     //REPORT CHARTSS DOWNLOADS
-
-
-
-    const columns = [
-        { label: "Year Level", key: "name", },
-        { label: "Quantity", key: "ratings", },
-
-    ]
+    // const columns = [
+    //     { label: "Year Level", key: "name", },
+    //     { label: "Quantity", key: "ratings", },
+    // ]
 
     const columnsPDF = [
         { title: "Year Level", field: "name", },
         { title: "Quantity", field: "ratings", },
-
-
     ]
 
+    const tuteeColumns = [
+        { label: "Firstname", key: "firstname", },
+        { label: "Lastname", key: "lastname", },
+    ]
 
+    const tuteePerYearData = [];
 
+    tuteeCount.forEach(t => {
+        tuteePerYearData.push({
+            firstname: t.firstname,
+            lastname: t.lastname
+        })
+    })
 
     const yearLevelData = [];
 
@@ -110,29 +114,19 @@ const MostTuteeYearLevel = () => {
     const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
 
     const csvReport = {
-
         filename: `${csvDownloadDate}-YearLevel`,
-        headers: columns,
-        data: yearLevelData
-
-
+        headers: tuteeColumns,
+        data: tuteePerYearData
     };
 
 
     //PDF CHART
 
-
     const pdfBar = () => {
 
-
-
         const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
-
         const canvas = document.getElementById('pie-populations');
-
         const canvasImage = canvas.toDataURL('image/png', 1.0);
-
-
         var pdf = new jsPDF('landscape')
 
 
@@ -157,8 +151,6 @@ const MostTuteeYearLevel = () => {
     }
 
 
-
-
     //PDF FILE 
 
     const downloadPdf = () => {
@@ -168,12 +160,8 @@ const MostTuteeYearLevel = () => {
 
         doc.setFontSize(50)
         doc.text("Tutees per Year Level", 20, 20)
-
         doc.setFontSize(14)
-
         doc.text(200, 200, `Data gathered as of ${DateGathered}`)
-
-
         doc.autoTable({
             // columnStyles: {
             //     0: { cellWidth: 100 },
@@ -182,74 +170,49 @@ const MostTuteeYearLevel = () => {
             //     // etc
             // },   
             margin: { top: 35 },
-
             theme: "striped",
-
             columns: columnsPDF.map(col => ({ ...col, dataKey: col.field })),
             body: yearLevelData
         })
         doc.save(`${csvDownloadDate}-TopTutors-Chart.pdf`)
     }
 
-
-
-
-
-
-
-
     return (
 
         <Fragment>
             <AdminHeader />
-
             <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
-
             <Fragment>
-
-
                 {loading ? <Loader /> : (
                     <div className="home-section">
                         {/* //Donut Chart */}
                         <div className="container-fluid">
-
                             <div className="container-fluid" id="subjectContainer">
-
-
-                                <h1 className="h1 mb-2 text-gray-800">Most Tutee Per Year Level</h1>
-
+                                <h1 className="h1 mb-2 text-gray-800">Tutee Per Year Level</h1>
                                 <div className="row align-start">
                                     <div className="col-md-8 col-12">
-
-
-                                        <p className="mb-4">Presented below are the most count of tutees per year level</p>
-
+                                        <p className="mb-1">Presented below are the population of tutees per year level</p>
                                     </div>
-
-
                                     {/* LINE CHART */}
-
-
-
-
-
-
-
                                     <div className="container-fluid">
-
                                         <div className="row pr-4 pt-2">
-
-
-
-
-
                                             {/* TABLEEEEEEE */}
-                                            <div className="col col-lg-4">
-
-                                                <div className="card shadow mb-4">
+                                            <div className="col col-lg-8">
+                                                <div className="card shadow mb-3">
                                                     {/* <!-- Card Header - Dropdown --> */}
                                                     <div className="card-header py-3">
-                                                        <h6 className="color1 m-0 font-weight-bold">Most Tutees per Year Level</h6>
+                                                        <h6 className="color1 m-0 font-weight-bold">
+                                                            <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
+                                                                <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
+                                                                    <i className="color-report fas fa-print fa-xs" >
+                                                                        <span className="m-0 font-weight-bold" >
+                                                                            &nbsp;CSV
+                                                                        </span>
+                                                                    </i>
+                                                                </div>
+                                                            </CSVLink>
+                                                            &nbsp;
+                                                        </h6>
                                                     </div>
                                                     {/* <!-- Card Body --> */}
 
@@ -258,7 +221,6 @@ const MostTuteeYearLevel = () => {
                                                     <div className="card-body">
                                                         <div className="table-responsive">
                                                             <div id="dataTable_wrapper" className="dataTables_wrapper dt-bootstrap4">
-
                                                                 <Fragment>
                                                                     {loading ? <Loader /> : (
                                                                         <MDBDataTableV5 className="table-height"
@@ -268,79 +230,45 @@ const MostTuteeYearLevel = () => {
                                                                             searchTop
                                                                             searchBottom={false}
                                                                             barReverse
-
-
                                                                         />
                                                                     )}
                                                                 </Fragment>
                                                             </div>
                                                         </div>
                                                     </div>
-
-
-
                                                 </div>
-
-
-
-
                                             </div>
-
 
                                             {/* DONUTTTT SECTIONNNNN*/}
 
-                                            <div className="col col-lg-8" >
-
-                                                <div className="card shadow mb-4">
+                                            <div className="col col-lg-4" >
+                                                <div className="card shadow pb-3">
                                                     {/* <!-- Card TITLE*/}
                                                     <div className="card-header">
                                                         <div className="row align-center">
-
-                                                            <div className="container">
-                                                                <div className="card-body">
-                                                                    <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
-                                                                        <div className="btn" role="button" style={{ backgroundColor: "#2A4250" }}>
-                                                                            <i className="color-report fas fa-print fa-xs" >
-                                                                                <span className="m-0 font-weight-bold" >
-                                                                                    &nbsp;CSV
-
-                                                                                </span>
-                                                                            </i>
-                                                                        </div>
-                                                                    </CSVLink>
-                                                                    &nbsp;
-
-
-                                                                    <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
-                                                                        <i className="color-report fas fa-print fa-xs" >
-                                                                            <span className="m-0 font-weight-bold" >
-                                                                                &nbsp;Chart PDF
-
-                                                                            </span>
-                                                                        </i>
-                                                                    </div>
-
-                                                                    &nbsp;
-                                                                    <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#2A4250" }}>
-                                                                        <i className="color-report fas fa-print fa-xs" >
-                                                                            <span className="m-0 font-weight-bold" >
-                                                                                &nbsp;PDF
-
-                                                                            </span>
-                                                                        </i>
-                                                                    </div>
+                                                            <div className="container  py-2">
+                                                                <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
+                                                                    <i className="color-report fas fa-print fa-xs" >
+                                                                        <span className="m-0 font-weight-bold" >
+                                                                            &nbsp;Chart PDF
+                                                                        </span>
+                                                                    </i>
                                                                 </div>
-
+                                                                &nbsp;
+                                                                <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#2A4250" }}>
+                                                                    <i className="color-report fas fa-print fa-xs" >
+                                                                        <span className="m-0 font-weight-bold" >
+                                                                            &nbsp;PDF
+                                                                        </span>
+                                                                    </i>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     {/* <!-- Card Body --> */}
-                                                    <div className="card-body">
-
-                                                        <div className="chart-pie pt-4">
-
+                                                    <div className="card-body py-4">
+                                                        <div className="chart-pie">
                                                             <Pie id="pie-populations"
-
                                                                 data={{
                                                                     labels: ['First year', 'Second Year', 'Third Year', 'Fourth Year'],
                                                                     datasets: [
@@ -385,70 +313,19 @@ const MostTuteeYearLevel = () => {
                                                                     },
                                                                 }}
                                                             />
-
                                                         </div>
-
                                                     </div>
-
                                                 </div>
                                             </div >
-
                                         </div>
-
-
-
-
                                     </div>
-
-
-
                                     {/* DONUTTTT SECTIONNNNN*/}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 </div>
-
-
-
-
-
-
                             </div>
-
-
-
-
-
-
-
                         </div>
-
                     </div>
-
                 )}
-
-
-
             </Fragment>
-
-
-
-
-
-
         </Fragment >
     )
 }
