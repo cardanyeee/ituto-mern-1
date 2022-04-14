@@ -29,8 +29,6 @@ const MostOfferedSubject = () => {
 
     const dispatch = useDispatch();
 
-
-
     useEffect(() => {
         dispatch(getData());
         dispatch(topSubject());
@@ -47,109 +45,82 @@ const MostOfferedSubject = () => {
     const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
 
     const columns = [
-        { label: "Subject Name", key: "name", },
-        { label: "Offered By", key: "counts", },
+        { label: "Code", key: "code" },
+        { label: "Subject Name", key: "name" },
+        { label: "Offered by (n) Tutors", key: "counts" }
 
     ]
 
-
     const columnsPDF = [
+        { title: "Code", field: "code", },
         { title: "Subject Name", field: "name", },
         { title: "Offered By", field: "counts", },
-
     ]
 
     const topsubjectData = [];
 
     topsubjects.forEach(t => {
         topsubjectData.push({
+            code: t.subject[0].code,
             name: t.subject[0].name,
             counts: t.count
         })
     })
 
-
-
     const csvReport = {
-
         filename: `${csvDownloadDate}-mostOfferedbyTutors`,
         headers: columns,
         data: topsubjectData
-
-
     };
-
 
     const downloadPdf = () => {
         const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
         const doc = new jsPDF('landscape')
 
-
-        doc.setFontSize(50)
-        doc.text("Most offered subjects by Tutors", 20, 20)
+        doc.setFont("helvetica", "bold")
+        doc.setFontSize(30)
+        doc.text(10, 20, 'Most Offered Subject By Tutors')
+        doc.setFont("helvetica", "normal")
+        doc.setFontSize(16)
 
         doc.setFontSize(14)
 
-        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
-
-
         doc.autoTable({
             columnStyles: {
-           
-                1: { cellWidth: 50 },
-             
-                // etc
-            },   
+                // 1: { cellWidth: 50 },
+            },
             margin: { top: 35 },
             columns: columnsPDF.map(col => ({ ...col, dataKey: col.field })),
             theme: "striped",
             body: topsubjectData
         })
+
+        doc.setFontSize(16)
+        doc.setFont("helvetica", "bolditalic")
+        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
+
         doc.save(`${csvDownloadDate}-mostOfferedbyTutors.pdf`)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     const pdfBar = () => {
 
         const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
-
         const canvas = document.getElementById('bar-populations');
-
         const canvasImage = canvas.toDataURL('image/png', 1.0);
-
-
         var pdf = new jsPDF('landscape')
 
-
         pdf.setFont("helvetica", "bold")
-        pdf.setFontSize(40)
-        pdf.text(15, 20, 'Most Offered Subject By Tutors')
+        pdf.setFontSize(30)
+        pdf.text(10, 20, 'Most Offered Subject By Tutors')
         pdf.setFont("helvetica", "normal")
         pdf.setFontSize(16)
 
-        // pdf.text(16, 35, `Male: ${male && male}`)
-        // pdf.text(80, 35, `Female: ${female && female}`)
-        // pdf.text(150, 35, `Total Users: ${users && users.length}`)
-
         pdf.setFontSize(16)
         pdf.setFont("helvetica", "bolditalic")
-        pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
+        pdf.text(200, 200, `Data gathered as of ${DateGathered}`)
 
-
-        pdf.addImage(canvasImage, 10, 25, 280, 170);
-        pdf.save(`Tutors-MostOfferedSubject-Chart-${DateGathered}.pdf`);
+        pdf.addImage(canvasImage, 10, 45, 280, 120);
+        pdf.save(`${DateGathered}-Subject-MostOffered-Chart.pdf`);
     }
 
     return (
@@ -157,41 +128,29 @@ const MostOfferedSubject = () => {
         <Fragment>
             <AdminHeader />
 
-            <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
-
+            <MetaData title={'Reports - Most Offered Subjects by Tutors'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
 
             <Fragment>
                 {loading ? <Loader /> : (
                     <div className="home-section">
-
-
-
-
-
                         {/* //Donut Chart */}
                         <div className="container-fluid">
-
-
                             <div className="container-fluid" id="subjectContainer">
                                 <h1 className="h1 mb-2 text-gray-800">Most Offered Subject By Tutors</h1>
-
                                 <div className="row align-start">
                                     <div className="col-md-8 col-12">
                                         <p className="mb-4">Presented below are the Most Offered Subject by Tutors</p>
                                     </div>
                                 </div>
-
                                 <div className="row pr-4">
 
                                     {/* LINE CHART */}
-
                                     <div className="col-xl- mb-3" >
 
                                         <div className="card shadow mb-4">
                                             {/* <!-- Card Header - Dropdown --> */}
                                             <div className="card-header">
                                                 <div className="row align-center">
-
                                                     <div className="container">
                                                         <div className="card-body">
                                                             <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
@@ -205,9 +164,6 @@ const MostOfferedSubject = () => {
                                                                 </div>
                                                             </CSVLink>
                                                             &nbsp;
-
-                                                         
-
                                                             <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
                                                                 <i className="color-report fas fa-print fa-xs" >
                                                                     <span className="m-0 font-weight-bold" >
@@ -231,27 +187,18 @@ const MostOfferedSubject = () => {
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div className="pdficon-align col-md-4 col-12">
-
-
-                                            </div>
+                                            {/* <div className="pdficon-align col-md-4 col-12">
+                                            </div> */}
                                             {/* <!-- Card Body --> */}
-
                                             <div className="chart-pie pt-4">
-
-                                                <div className="card-body">
-
-
+                                                <div className="card-body table-responsive">
                                                     <Bar id="bar-populations"
                                                         data={{
                                                             labels: offeredSubjectName,
                                                             datasets: [
                                                                 {
-                                                                    label: 'Top Offered Subject',
+                                                                    label: 'Number of Tutors',
                                                                     data: offeredSubject,
-
-
                                                                     backgroundColor: [
                                                                         "#fd7f6f", "#7eb0d5", "#b2e061", "#bd7ebe", "#ffb55a", "#ffee65", "#beb9db", "#fdcce5", "#8bd3c7",
                                                                         '#7eb0d5',
@@ -271,54 +218,48 @@ const MostOfferedSubject = () => {
                                                             ],
                                                         }}
                                                         height={600}
-                                                        width={600}
+                                                        width={1700}
                                                         options={{
                                                             plugins: {
                                                                 legend: {
                                                                     display: false
                                                                 },
                                                             },
-                                                            labels: {
-                                                                // This more specific font property overrides the global property
-                                                                font: {
-                                                                    size: 14
-                                                                }
-                                                            },
-
+                                                            responsive: false,
                                                             maintainAspectRatio: false,
-
-                                                            legend: {
-                                                                labels: {
-                                                                    fontSize: 25,
+                                                            scales: {
+                                                                y: {
+                                                                    ticks: {
+                                                                        font: {
+                                                                            size: 15,
+                                                                            weight: 500,
+                                                                            family: 'Roboto'
+                                                                        }
+                                                                    }
                                                                 },
-                                                            },
+                                                                x: {
+                                                                    ticks: {
+                                                                        font: {
+                                                                            size: 15,
+                                                                            weight: 500,
+                                                                            family: 'Roboto'
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
                                                         }}
                                                     />
-
-
-
                                                 </div>
-
                                             </div>
-
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
-
                         </div>
-
                     </div>
                 )}
 
             </Fragment>
-
-
-
-
-
         </Fragment >
     )
 }

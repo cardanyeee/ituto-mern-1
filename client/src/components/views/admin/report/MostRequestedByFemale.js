@@ -40,23 +40,21 @@ const MostRequestedByFemale = () => {
     reqsByFemaleName = reqsByFemaleName.map(s => s.split(' '));
     // let tutorname = tutor.map(t => t.userID.firstname + " " + t.userID.lastname);
 
-
-
     //REPORT CHARTSS DOWNLOADS
-
 
     const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
 
     const columns = [
-        { label: "Subject Name", key: "name", },
-        { label: "Requested By", key: "counts", },
+        { label: "Code", key: "code" },
+        { label: "Subject Name", key: "name" },
+        { label: "Requested By", key: "counts" },
 
     ]
 
     const columnsPDF = [
-        { title: "Subject Name", field: "name", },
-        { title: "Requested By", field: "counts", },
-
+        { title: "Code", field: "code" },
+        { title: "Subject Name", field: "name" },
+        { title: "Requested By", field: "counts" },
     ]
 
 
@@ -64,20 +62,16 @@ const MostRequestedByFemale = () => {
 
     requestedbyfemale.forEach(t => {
         topRequestedSubjectData.push({
+            code: t.subject[0].code,
             name: t.subject[0].name,
             counts: t.count
         })
     })
 
-
-
     const csvReport = {
-
         filename: `${csvDownloadDate}-mostRequestedbyFemale`,
         headers: columns,
         data: topRequestedSubjectData
-
-
     };
 
 
@@ -86,124 +80,74 @@ const MostRequestedByFemale = () => {
         const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
         const doc = new jsPDF('landscape')
 
-
-        doc.setFontSize(50)
-        doc.text("Most Requested by Female", 20, 20)
+        doc.setFont("helvetica", "bold")
+        doc.setFontSize(30)
+        doc.text(10, 20, 'Most Requested Subject By Females')
+        doc.setFont("helvetica", "normal")
 
         doc.setFontSize(14)
 
-        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
-
-
-
-
-
         doc.autoTable({
             columnStyles: {
-           
-                1: { cellWidth: 50 },
-             
+                // 1: { cellWidth: 50 }
                 // etc
-            },  
+            },
             margin: { top: 35 },
             columns: columnsPDF.map(col => ({ ...col, dataKey: col.field })),
             theme: "striped",
             body: topRequestedSubjectData
         })
+
+        doc.setFontSize(16)
+        doc.setFont("helvetica", "bolditalic")
+        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
+
         doc.save(`${csvDownloadDate}-mostRequestedbyFemales.pdf`)
     }
-
-
-
-
-
 
     const pdfBar = () => {
 
         const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
-
         const canvas = document.getElementById('bar-populations');
-
         const canvasImage = canvas.toDataURL('image/png', 1.0);
-
-
         var pdf = new jsPDF('landscape')
 
-
         pdf.setFont("helvetica", "bold")
-        pdf.setFontSize(40)
-        pdf.text(15, 20, 'Most Requested Subject By Females')
+        pdf.setFontSize(30)
+        pdf.text(10, 20, 'Most Requested Subject By Females')
         pdf.setFont("helvetica", "normal")
-        pdf.setFontSize(16)
 
         pdf.setFontSize(16)
         pdf.setFont("helvetica", "bolditalic")
-        pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
+        pdf.text(200, 200, `Data gathered as of ${DateGathered}`)
 
-
-        pdf.addImage(canvasImage, 10, 25, 280, 170);
+        pdf.addImage(canvasImage, 10, 45, 280, 120);
         pdf.save(`${DateGathered}-Female-MostRequestedSubject-Chart.pdf`);
     }
 
-
-
     return (
-
         <Fragment>
             <AdminHeader />
-
-            <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
-
+            <MetaData title={'Reports - Most Requested Subjects by Female Tutees'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
             <Fragment>
                 {loading ? <Loader /> : (
-
                     <div className="home-section">
-
-
-
-
-
                         {/* //Donut Chart */}
                         <div className="container-fluid">
-
                             <div className="container-fluid" id="subjectContainer">
-
-
                                 <h1 className="h1 mb-2 text-gray-800">Most Requested Subject By Females</h1>
-
                                 <div className="row align-start">
                                     <div className="col-md-8 col-12">
-
-
                                         <p className="mb-4">Presented below are the Most Requested Subject of Female tutees</p>
-
                                     </div>
-
-
-
-
                                 </div>
-
-
-
-
-
                                 <div className="row pr-4">
-
-
-
-
-
                                     {/* LINE CHART */}
-
                                     <div className="col-xl- mb-3" >
-
                                         <div className="card shadow mb-4">
                                             {/* <!-- Card Header - Dropdown --> */}
                                             <div className="card-header">
                                                 <div className="row align-center">
-
-
                                                     <div className="container">
                                                         <div className="card-body">
                                                             <CSVLink {...csvReport} style={{ color: "#4FBD95", textDecoration: "none" }}>
@@ -211,14 +155,11 @@ const MostRequestedByFemale = () => {
                                                                     <i className="color-report fas fa-print fa-xs" >
                                                                         <span className="m-0 font-weight-bold" >
                                                                             &nbsp;CSV
-
                                                                         </span>
                                                                     </i>
                                                                 </div>
                                                             </CSVLink>
                                                             &nbsp;
-
-                                                          
                                                             <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
                                                                 <i className="color-report fas fa-print fa-xs" >
                                                                     <span className="m-0 font-weight-bold" >
@@ -238,27 +179,21 @@ const MostRequestedByFemale = () => {
                                                                 </i>
                                                             </div>
                                                         </div>
-
                                                     </div>
-
                                                 </div>
                                             </div>
-
-                                            <div className="pdficon-align col-md-4 col-12">
-
-
-                                            </div>
+                                            {/* <div className="pdficon-align col-md-4 col-12">
+                                            </div> */}
                                             {/* <!-- Card Body --> */}
-
                                             <div className="chart-pie pt-4">
-                                                <div className="card-body ">
+                                                <div className="card-body table-responsive">
                                                     <Bar
                                                         id="bar-populations"
                                                         data={{
                                                             labels: reqsByFemaleName,
                                                             datasets: [
                                                                 {
-                                                                    label: '# of votes',
+                                                                    label: 'Number of Female Requests',
                                                                     data: reqsByFemaleData,
 
                                                                     backgroundColor: [
@@ -270,8 +205,6 @@ const MostRequestedByFemale = () => {
                                                                         '#7eb0d5',
                                                                     ],
                                                                     borderWidth: 1,
-
-                                                                  
                                                                 },
                                                                 // {
                                                                 //   label: 'Quantity',
@@ -282,53 +215,47 @@ const MostRequestedByFemale = () => {
                                                             ],
                                                         }}
                                                         height={600}
-                                                        width={600}
+                                                        width={1700}
                                                         options={{
-
                                                             plugins: {
                                                                 legend: {
                                                                     display: false
                                                                 },
                                                             },
+                                                            responsive: false,
                                                             maintainAspectRatio: false,
-    
-                                                            legend: {
-                                                                labels: {
-                                                                    fontSize: 25,
+                                                            scales: {
+                                                                y: {
+                                                                    ticks: {
+                                                                        font: {
+                                                                            size: 15,
+                                                                            weight: 500,
+                                                                            family: 'Roboto'
+                                                                        }
+                                                                    }
                                                                 },
-                                                            },
+                                                                x: {
+                                                                    ticks: {
+                                                                        font: {
+                                                                            size: 15,
+                                                                            weight: 500,
+                                                                            family: 'Roboto'
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
                                                         }}
                                                     />
-
                                                 </div>
                                             </div>
-
-
-
-
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
-
-
-
-
-
-
-
                         </div>
-
                     </div>
                 )}
-
             </Fragment>
-
-
-
-
         </Fragment >
     )
 }

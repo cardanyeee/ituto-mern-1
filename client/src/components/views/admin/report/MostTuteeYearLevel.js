@@ -104,10 +104,10 @@ const MostTuteeYearLevel = () => {
 
     const yearLevelData = [];
 
-    topYearLevel.forEach(t => {
+    sorted.forEach(t => {
         yearLevelData.push({
-            name: sortArray,
-            ratings: yearLevel
+            name: t._id,
+            ratings: t.count
         })
     })
 
@@ -127,26 +127,25 @@ const MostTuteeYearLevel = () => {
         const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
         const canvas = document.getElementById('pie-populations');
         const canvasImage = canvas.toDataURL('image/png', 1.0);
-        var pdf = new jsPDF('landscape')
-
+        var pdf = new jsPDF('portrait')
 
         pdf.setFont("helvetica", "bold")
-        pdf.setFontSize(40)
-        pdf.text(15, 20, 'Tutees per Year Level')
+        pdf.setFontSize(30)
+        pdf.text(10, 20, 'Tutees per Year Level')
         pdf.setFont("helvetica", "normal")
-        pdf.setFontSize(16)
+        pdf.setFontSize(15)
 
-        pdf.text(`First Year: ${topYearLevel[0].count} `, 35, 35, 360, 60)
-        pdf.text(`Second Year: ${topYearLevel[1].count} `, 85, 35, 360, 60)
-        pdf.text(`Third Year: ${topYearLevel[2].count} `, 150, 35, 360, 60)
-        pdf.text(`Fourth Year: ${topYearLevel[3].count} `, 200, 35, 360, 60)
+        pdf.text(`First Year: ${topYearLevel[0].count} `, 10, 35, 360, 60)
+        pdf.text(`Second Year: ${topYearLevel[1].count} `, 50, 35, 360, 60)
+        pdf.text(`Third Year: ${topYearLevel[2].count} `, 105, 35, 360, 60)
+        pdf.text(`Fourth Year: ${topYearLevel[3].count} `, 150, 35, 360, 60)
 
         pdf.setFontSize(16)
         pdf.setFont("helvetica", "bolditalic")
-        pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
+        pdf.text(110, 270, `Data gathered as of ${DateGathered}`)
 
 
-        pdf.addImage(canvasImage, 10, 50, 275, 125);
+        pdf.addImage(canvasImage, 35, 55, 150, 150);
         pdf.save(`Tutees-per-YearLevel-${DateGathered}.pdf`);
     }
 
@@ -158,8 +157,9 @@ const MostTuteeYearLevel = () => {
         const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
         const doc = new jsPDF('landscape')
 
-        doc.setFontSize(50)
-        doc.text("Tutees per Year Level", 20, 20)
+        doc.setFont("helvetica", "bold")
+        doc.setFontSize(30)
+        doc.text("Tutees per Year Level", 10, 20)
         doc.setFontSize(14)
         doc.text(200, 200, `Data gathered as of ${DateGathered}`)
         doc.autoTable({
@@ -181,7 +181,7 @@ const MostTuteeYearLevel = () => {
 
         <Fragment>
             <AdminHeader />
-            <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
+            <MetaData title={'Reports - Population of Tutees per Year'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
             <Fragment>
                 {loading ? <Loader /> : (
                     <div className="home-section">
@@ -302,10 +302,8 @@ const MostTuteeYearLevel = () => {
                                                                 height={525}
                                                                 width={500}
                                                                 options={{
-
                                                                     maintainAspectRatio: false,
                                                                     render: 'percentage',
-
                                                                     legend: {
                                                                         labels: {
                                                                             fontSize: 25,

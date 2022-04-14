@@ -105,8 +105,8 @@ const Sidebar = (props) => {
                         <li><Link to="/dashboard/reports/most-tutee-year-level">Tutee Per Year Level </Link></li>
                         <li><Link to="/dashboard/reports/most-offered-subjects">Most Offered Subjects</Link></li>
                         <li><Link to="/dashboard/reports/most-requested-subjects">Most Requested Subject</Link></li>
-                        <li><Link to="/dashboard/reports/most-requested-by-male">Most Requested By Male</Link></li>
-                        <li><Link to="/dashboard/reports/most-requested-by-female">Most Requested By Female</Link></li>
+                        <li><Link to="/dashboard/reports/most-requested-by-male">Most Requested By Males</Link></li>
+                        <li><Link to="/dashboard/reports/most-requested-by-female">Most Requested By Females</Link></li>
                         <li><Link to="/dashboard/reports/average-request-per-month">Average Request Per Month</Link></li>
 
                         <li><Link to="/dashboard/reports/most-preferred-days">Most Preferred Days</Link></li>

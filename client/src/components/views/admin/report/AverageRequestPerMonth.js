@@ -79,9 +79,13 @@ const AverageRequestPerMonth = () => {
     const csvDownloadDate = moment(new Date()).format('DD-MMM-YYYY');
 
     const columns = [
-        { label: "Months", key: "_id", },
-        { label: "Quantity", key: "count", },
+        { label: "Month", key: "_id", },
+        { label: "Average Requests", key: "count", },
+    ]
 
+    const columnsPDF = [
+        { title: "Month", field: "_id" },
+        { title: "Average Requests", field: "count" }
     ]
 
     // const topRequestedSubjectData = [];
@@ -93,31 +97,22 @@ const AverageRequestPerMonth = () => {
     //     })
     // })
 
-
-
     const csvReport = {
-
         filename: `${csvDownloadDate}-RequestPerMonths`,
         headers: columns,
         data: newAverageMonth
-
-
     };
-
 
     const downloadPdf = () => {
 
         const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
         const doc = new jsPDF('landscape')
 
-
-        doc.setFontSize(50)
-        doc.text("Average Request Per Month", 20, 20)
+        doc.setFont("helvetica", "bold")
+        doc.setFontSize(30)
+        doc.text(10, 20, 'Average Request per Month')
 
         doc.setFontSize(14)
-
-        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
-
 
         doc.autoTable({
             // columnStyles: {
@@ -132,48 +127,35 @@ const AverageRequestPerMonth = () => {
             //     // etc
             // },   
             margin: { top: 35 },
-            columns: columns.map(col => ({ ...col, dataKey: columns.key })),
+            columns: columnsPDF.map(col => ({ ...col, dataKey: col.field })),
             theme: "striped",
             body: newAverageMonth
         })
+
+        doc.setFontSize(16)
+        doc.setFont("helvetica", "bolditalic")
+        doc.text(200, 200, `Data gathered as of ${DateGathered}`)
+
         doc.save(`${csvDownloadDate}-AverageRequetsPerMonths.pdf`)
     }
-
-
-
-
-
-
-
-
-
-
-
 
     const pdfBar = () => {
 
         const DateGathered = moment(new Date()).format('DD-MMM-YYYY');
-
         const canvas = document.getElementById('bar-populations');
-
         const canvasImage = canvas.toDataURL('image/png', 1.0);
-
-
         var pdf = new jsPDF('landscape')
 
-
         pdf.setFont("helvetica", "bold")
-        pdf.setFontSize(40)
-        pdf.text(15, 20, 'Request Per Month')
+        pdf.setFontSize(30)
+        pdf.text(10, 20, 'Average Request per Month')
         pdf.setFont("helvetica", "normal")
-        pdf.setFontSize(16)
 
         pdf.setFontSize(16)
         pdf.setFont("helvetica", "bolditalic")
-        pdf.text(175, 200, `Data gathered as of ${DateGathered}`)
+        pdf.text(200, 200, `Data gathered as of ${DateGathered}`)
 
-
-        pdf.addImage(canvasImage, 10, 25, 280, 170);
+        pdf.addImage(canvasImage, 10, 45, 280, 120);
         pdf.save(`${DateGathered}-AverageRequestPerMonth-Chart.pdf`);
     }
 
@@ -182,52 +164,22 @@ const AverageRequestPerMonth = () => {
         <Fragment>
             <AdminHeader />
 
-            <MetaData title={'All courses'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
-
-
+            <MetaData title={'Reports - Average Requests per Month'} styles={'html, body, .App { background-color:  !important; } .home-navbar {background: #141414 !important;} footer p {color: #000000 !important;}'} />
             <Fragment>
                 {loading ? <Loader /> : (
                     <div className="home-section">
-
-
-
-
-
                         {/* //Donut Chart */}
                         <div className="container-fluid">
-
                             <div className="container-fluid" id="subjectContainer">
-
-
-                                <h1 className="h1 mb-2 text-gray-800">Average Request Per Month</h1>
-
+                                <h1 className="h1 mb-2 text-gray-800">Average Request per Month</h1>
                                 <div className="row align-start">
                                     <div className="col-md-8 col-12">
-
-
                                         <p className="mb-4">Presented below are the months that has an average request</p>
-
                                     </div>
-
-
-
-
                                 </div>
-
-
-
-
-
                                 <div className="row pr-4">
-
-
-
-
-
                                     {/* LINE CHART */}
-
                                     <div className="col-xl- mb-3" >
-
                                         <div className="card shadow mb-4">
                                             {/* <!-- Card Header - Dropdown --> */}
                                             <div className="card-header">
@@ -240,53 +192,41 @@ const AverageRequestPerMonth = () => {
                                                                     <i className="color-report fas fa-print fa-xs" >
                                                                         <span className="m-0 font-weight-bold" >
                                                                             &nbsp;CSV
-
                                                                         </span>
                                                                     </i>
                                                                 </div>
                                                             </CSVLink>
                                                             &nbsp;
-
                                                             <div className="btn" role="button" onClick={pdfBar} style={{ backgroundColor: "#9FDACA" }}>
                                                                 <i className="color-report fas fa-print fa-xs" >
                                                                     <span className="m-0 font-weight-bold" >
                                                                         &nbsp;Chart PDF
-
                                                                     </span>
                                                                 </i>
                                                             </div>
-
                                                             &nbsp;
                                                             <div className="btn" role="button" onClick={downloadPdf} style={{ backgroundColor: "#2A4250" }}>
                                                                 <i className="color-report fas fa-print fa-xs" >
                                                                     <span className="m-0 font-weight-bold" >
                                                                         &nbsp;PDF
-
                                                                     </span>
                                                                 </i>
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div className="pdficon-align col-md-4 col-12">
-
-
-                                            </div>
+                                            {/* <div className="pdficon-align col-md-4 col-12">
+                                            </div> */}
                                             {/* <!-- Card Body --> */}
-                                            <div className="card-body">
-
+                                            <div className="card-body table-responsive">
                                                 <div className='container-data'>
-
-
                                                     <Bar id="bar-populations"
                                                         data={{
                                                             labels: averageMonthName,
                                                             datasets: [
                                                                 {
-                                                                    label: '# of votes',
+                                                                    label: 'Average Requests',
                                                                     data: averageMonthData,
 
                                                                     backgroundColor: [
@@ -309,39 +249,47 @@ const AverageRequestPerMonth = () => {
                                                         }}
                                                         margin-top={200}
                                                         height={600}
-                                                        width={600}
+                                                        width={1700}
                                                         options={{
                                                             plugins: {
                                                                 legend: {
                                                                     display: false
                                                                 },
                                                             },
-                                                           
+                                                            responsive: false,
                                                             maintainAspectRatio: false,
-
-
+                                                            scales: {
+                                                                y: {
+                                                                    ticks: {
+                                                                        font: {
+                                                                            size: 15,
+                                                                            weight: 500,
+                                                                            family: 'Roboto'
+                                                                        }
+                                                                    }
+                                                                },
+                                                                x: {
+                                                                    ticks: {
+                                                                        font: {
+                                                                            size: 15,
+                                                                            weight: 500,
+                                                                            family: 'Roboto'
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
                                                         }}
                                                     />
                                                 </div>
-
-
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
-
-
                 )}
-
             </Fragment>
-
         </Fragment >
     )
 }
