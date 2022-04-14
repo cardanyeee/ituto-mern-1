@@ -157,6 +157,10 @@ exports.login = catchAsyncErrors(async (req, res, next) => {
             return next(new ErrorResponse("You don't have an account yet", 404));
         }
 
+        if (!user.active) {
+            return next(new ErrorResponse("Your account has been deactivated. Please contact administrator if you're not suppose to see this.", 404));
+        }
+
         const tutor = await Tutor.findOne({ userID: user._id });
 
         if (loggedInAs == "TUTOR" && !tutor) {
@@ -492,7 +496,8 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
             birthdate: req.body.birthdate,
             gender: req.body.gender,
             role: req.body.role,
-            phone: req.body.phone
+            phone: req.body.phone,
+            active: req.body.active
         }
 
         const user = await User.findByIdAndUpdate(req.params.id, newUserData, {

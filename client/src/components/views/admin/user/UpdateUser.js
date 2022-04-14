@@ -15,6 +15,7 @@ const UpdateMovie = ({ match, history }) => {
     const [gender, setGender] = useState('');
     const [role, setRole] = useState('');
     const [phone, setPhone] = useState('');
+    const [status, setStatus] = useState('');
 
     const alert = useAlert();
     const dispatch = useDispatch();
@@ -37,7 +38,7 @@ const UpdateMovie = ({ match, history }) => {
             setGender(user.gender);
             setRole(user.role);
             setPhone(user.phone);
-
+            setStatus(user.active);
         }
 
         if (error) {
@@ -67,14 +68,15 @@ const UpdateMovie = ({ match, history }) => {
             'username': username,
             'gender': gender,
             'role': role,
-            'phone': phone
+            'phone': phone,
+            'active': status
         }
 
 
         dispatch(updateUser(user._id, formData));
     }
 
-
+    console.log(status.toString());
     return (
         <Fragment>
             <AdminHeader />
@@ -145,12 +147,18 @@ const UpdateMovie = ({ match, history }) => {
 
                                                 <div className="form-group mb-3">
                                                     <label htmlFor="name">Phone</label>
-                                                    <input type="text" id="name" className="form-control" value={phone} onChange={(e) => setPhone(e.target.value)} required />
+                                                    <input type="text" id="name" className="form-control" value={phone} onChange={(e) => setPhone(e.target.value)} />
                                                 </div>
 
-
-
-
+                                                <div className="form-group mb-3">
+                                                    <label htmlFor="degree">Status</label>
+                                                    <select class="form-select" value={status.toString()} onChange={(e) => setStatus(e.target.value)} required>
+                                                        <option value="0" disabled>-- Select Status --</option>
+                                                        <option value="true">Active</option>
+                                                        <option value="false">Inactive</option>
+                                                    </select>
+                                                    {/* <input type="text" id="degree" className="form-control" value={degree} onChange={(e) => setdegree(e.target.value)} required /> */}
+                                                </div>
 
                                                 <button className="btn btn-primary btn-lg btn-block w-100 text-white mb-2" type="submit">Update</button>
 
